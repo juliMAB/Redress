@@ -21,7 +21,7 @@ namespace EndlessT4cos.Gameplay.Platforms
             transform.position -= Vector3.right * speed * Time.deltaTime;
         }
 
-        private void Start()
+        public void SetSize()
         {
             halfSize.x = transform.lossyScale.x / 2f;
             halfSize.y = transform.lossyScale.y / 2f;
