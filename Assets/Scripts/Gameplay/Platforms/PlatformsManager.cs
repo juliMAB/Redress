@@ -16,6 +16,8 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         [SerializeField] private float[] yPosition = null;
         private float distance = 2f;
+        private float minDistance = 1f;
+        private float maxDistance = 2f;
 
         const int amountRows = 3;
 
@@ -124,12 +126,15 @@ namespace EndlessT4cos.Gameplay.Platforms
                 platform = platforms[i].GetComponent<Platform>();
                 platform.Move();
 
+                distance = Random.Range(minDistance, maxDistance) + Random.Range(1, 10) / 10f;
+
                 if (IsOutOfScreen(platform))
                 {
                     DeactivatePlatform(platforms[i]);
                 }
                 else if (IsTheClosestToRightEdge(platform.Row, platform) && IsFarEnoughForNewPlatformToSpawn(platform) && IsCompletelyOnScreen(platform))
                 {
+                   
                     GameObject newPlatform = ActivatePlatform();
                     PlacePlatform(platform.Row, newPlatform);
                 }
