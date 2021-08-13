@@ -2,55 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Games.Generics.Displacement;
+
 namespace EndlessT4cos.Gameplay.Platforms
 {
     public enum Row { Up, Middle, Down }
 
-    public class PlatformsManager : MonoBehaviour
+    public class PlatformsManager : MovableObjectsManager
     {
-        [SerializeField] private GameObject[] platforms = null;
-        [SerializeField] private Queue<GameObject> platformPool = null;
-        [SerializeField] private LayerMask layer = 0;
-
-        [SerializeField] private float halfSizeOfScreen = 8.9f;
-
         [SerializeField] private float[] yPosition = null;
-        private float distance = 2f;
+
         private float minDistance = 1f;
         private float maxDistance = 2f;
-
-        const int amountRows = 3;
-
-        private bool[] rowReady = null;
-
-        private void PlacePlatform(Row row, GameObject platformGO)
-        {
-            Platform platform = platformGO.GetComponent<Platform>();
-
-            platform.transform.position = new Vector2(halfSizeOfScreen + platform.HalfSize.x, yPosition[(int)row]);
-            platform.Row = row;
-        }
-
-        private void DeactivatePlatform(GameObject platform)
-        {
-            platform.SetActive(false);
-            platformPool.Enqueue(platform);
-        }
-
-        private GameObject ActivatePlatform()
-        {
-            GameObject platform = platformPool.Dequeue();
-
-            while (platform.activeSelf)
-            {
-                platformPool.Enqueue(platform);
-                platform = platformPool.Dequeue();
-            }
-            
-            platform.SetActive(true);
-
-            return platform;
-        }
 
         private bool IsTheClosestToRightEdge(Row row, Platform platform) //Means it was the last to spawn
         {
@@ -60,16 +23,16 @@ namespace EndlessT4cos.Gameplay.Platforms
             float diference = 100;
             float newDiference = 0;
 
-            for (int i = 0; i < platforms.Length; i++)
+            for (int i = 0; i < objects.Length; i++)
             {
-                actualPlatform = platforms[i].GetComponent<Platform>();
+                actualPlatform = objects[i].GetComponent<Platform>();
 
-                if (!platforms[i].activeSelf || actualPlatform.Row != row)
+                if (!objects[i].activeSelf || actualPlatform.row != row)
                 {
                     continue;
                 }
 
-                newDiference = Mathf.Abs(actualPlatform.transform.position.x - actualPlatform.HalfSize.x - halfSizeOfScreen);
+                newDiference = Mathf.Abs(actualPlatform.transform.position.x - actualPlatform.HalfSize.x - halfSizeOfScreen.x);
 
                 if (newDiference < diference)
                 {
@@ -81,62 +44,45 @@ namespace EndlessT4cos.Gameplay.Platforms
             return closerPlatform == platform;
         }
 
-        private bool IsOutOfScreen(Platform platform)
+        private bool PlatformCanSpawn(Platform platform)
         {
-            return platform.transform.position.x + platform.HalfSize.x < -halfSizeOfScreen;
+            return !IsOutOfScreen(platform) && IsTheClosestToRightEdge(platform.row, platform) &&
+                    IsFarEnoughForNewObjectToSpawn(platform) && IsCompletelyOnScreen(platform);
         }
 
-        private bool IsFarEnoughForNewPlatformToSpawn(Platform platform)
+        protected override void Start()
         {
-            return platform.transform.position.x + platform.HalfSize.x + distance < halfSizeOfScreen;
+            base.Start();
         }
 
-        private bool IsCompletelyOnScreen(Platform platform)
+        protected override void Update()
         {
-            if (platform == null) return true;
+            base.Update();
 
-            return platform.transform.position.x - platform.HalfSize.x > -halfSizeOfScreen &&
-                   platform.transform.position.x + platform.HalfSize.x < halfSizeOfScreen;
-        }
-
-        private void Start()
-        {
-            platformPool = new Queue<GameObject>();
             Platform platform = null;
 
-            for (int i = 0; i < platforms.Length; i++)
+            for (int i = 0; i < objects.Length; i++)
             {
-                platformPool.Enqueue(platforms[i]);
-                platform = platforms[i].GetComponent<Platform>();
-                platform.SetSize();
-            }
-        }
-
-        private void Update()
-        {
-            Platform platform = null;
-
-            for (int i = 0; i < platforms.Length; i++)
-            {
-                if (!platforms[i].activeSelf)
+                if (!objects[i].activeSelf)
                 {
                     continue;
                 }
 
-                platform = platforms[i].GetComponent<Platform>();
-                platform.Move();
+
 
                 distance = Random.Range(minDistance, maxDistance) + Random.Range(1, 10) / 10f;
 
+                platform = objects[i].GetComponent<Platform>();
+
                 if (IsOutOfScreen(platform))
                 {
-                    DeactivatePlatform(platforms[i]);
+                    DeactivateObject(objects[i]);
                 }
-                else if (IsTheClosestToRightEdge(platform.Row, platform) && IsFarEnoughForNewPlatformToSpawn(platform) && IsCompletelyOnScreen(platform))
+                else if (PlatformCanSpawn(platform))
                 {
-                   
-                    GameObject newPlatform = ActivatePlatform();
-                    PlacePlatform(platform.Row, newPlatform);
+                    GameObject newPlatform = ActivateObject();
+                    PlaceOnRightEnd(newPlatform, yPosition[(int)platform.row]);
+                    newPlatform.GetComponent<Platform>().row = platform.row;
                 }
             }
         }
