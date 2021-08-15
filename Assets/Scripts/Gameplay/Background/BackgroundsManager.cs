@@ -40,10 +40,10 @@ namespace EndlessT4cos.Gameplay.Background
 
                 if (IsOutOfScreen(background))
                 {
-                    DeactivateObject(objects[i]);
-
                     GameObject newBackground = ActivateObject();
                     PlaceOnRightEnd(newBackground, 0);
+
+                    DeactivateObject(objects[i]);
                 }
             }
         }

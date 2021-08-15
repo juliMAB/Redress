@@ -70,7 +70,7 @@ namespace Games.Generics.Displacement
                 movableObject.SetSize();
             }
 
-            halfSizeOfScreen.x = 8.9f;
+            halfSizeOfScreen.x = 8.8f;
             halfSizeOfScreen.y = 5f;
         }
 
