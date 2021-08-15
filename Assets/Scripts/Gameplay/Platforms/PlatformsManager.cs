@@ -10,6 +10,7 @@ namespace EndlessT4cos.Gameplay.Platforms
 
     public class PlatformsManager : MovableObjectsManager
     {
+        [Header("Start position")]
         [SerializeField] private float[] yPosition = null;
 
         private float minDistance = 1f;
@@ -67,8 +68,6 @@ namespace EndlessT4cos.Gameplay.Platforms
                 {
                     continue;
                 }
-
-
 
                 distance = Random.Range(minDistance, maxDistance) + Random.Range(1, 10) / 10f;
 

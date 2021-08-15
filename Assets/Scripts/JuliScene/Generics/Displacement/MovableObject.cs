@@ -7,12 +7,10 @@ namespace Games.Generics.Displacement
     public class MovableObject : MonoBehaviour
     {
         [SerializeField] protected Vector2 halfSize = Vector2.zero;
-        [SerializeField] protected float speed = 5f;
 
         public Vector2 HalfSize { get => halfSize; }
-        public float Speed { get => speed; }
 
-        public void Move()
+        public void Move(float speed)
         {
             transform.position -= Vector3.right * speed * Time.deltaTime;
         }

@@ -8,9 +8,12 @@ namespace Games.Generics.Displacement
     {
         [SerializeField] protected GameObject[] objects = null;
         [SerializeField] protected Queue<GameObject> objectsPool = null;
+
+        [Header("Settings")]
         [SerializeField] protected Vector2 halfSizeOfScreen = Vector2.zero;
         [SerializeField] protected LayerMask layer = 0;
         [SerializeField] protected float distance = 2f;
+        [SerializeField] protected float speed = 5f;
 
         public void PlaceOnRightEnd(GameObject gObject, float yPosition)
         {
@@ -86,7 +89,7 @@ namespace Games.Generics.Displacement
                 }
 
                 movableObject = objects[i].GetComponent<MovableObject>();
-                movableObject.Move();
+                movableObject.Move(speed);
             }
         }
     }
