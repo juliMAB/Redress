@@ -11,7 +11,6 @@ namespace EndlessT4cos.Gameplay.Enemies
     {
         [Header("Platform collision settings")]
         [SerializeField] private LayerMask layer = 0;
-        [SerializeField] private PlatformsManager platformsManager = null;
 
         private Vector2 halfSizePlatform = Vector2.zero;
 
@@ -23,15 +22,6 @@ namespace EndlessT4cos.Gameplay.Enemies
         protected override void Start()
         {
             base.Start();
-
-            //ySpawnPositions = new float[platformsManager.AmountPlatformRows];
-            //
-            //for (int i = 0; i < ySpawnPositions.Length; i++)
-            //{
-            //    ySpawnPositions[i] = YSpawnPositions[i];
-            //}
-            //
-            //halfSizePlatform = platformsManager.Objects[0].transform.lossyScale / 2f;
         }
 
         protected override void Update()
@@ -68,15 +58,15 @@ namespace EndlessT4cos.Gameplay.Enemies
 
         private bool TheresFloorDown(Vector2 position, float distance)
         {
-            return Physics.Raycast(position, Vector2.down, distance, layer, QueryTriggerInteraction.Ignore);
+            return Physics2D.Raycast(position, Vector2.down, distance, layer);
         }
 
         private bool EnemyCanSpawn(PlatformObject enemy)
         {
-            Vector2 position = new Vector2(halfSizeOfScreen.x, ySpawnPositions[(int)enemy.row] + 2);
+            Vector2 position = new Vector2(halfSizeOfScreen.x + enemy.HalfSize.x, ySpawnPositions[(int)enemy.row] + halfSizePlatform.y * 2);
 
-            return LastObjectIsFarEnough(enemy.row) && IsCompletelyOnScreen(enemy); //&&
-                   //TheresFloorDown(position, 5);
+            return LastObjectIsFarEnough(enemy.row) && IsCompletelyOnScreen(enemy) &&
+                   TheresFloorDown(position, halfSizePlatform.y * 2);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         public float[] YSpawnPositions { get => ySpawnPositions; }
         public int AmountPlatformRows { get => amountPlatformRows; }
 
-        protected virtual void Awake()
+        protected virtual void Awake() 
         {
             float verticalDistanceBetweenPlatforms = 1.7f;
 

@@ -52,7 +52,7 @@ namespace Games.Generics.Displacement
         {
             MovableObject movableObject = gObject.GetComponent<MovableObject>();
 
-            gObject.transform.position = new Vector2(halfSizeOfScreen.x + movableObject.HalfSize.x, yPosition);
+            gObject.transform.position = new Vector3(halfSizeOfScreen.x + movableObject.HalfSize.x, yPosition, 1);
         }
 
         protected void DeactivateObject(GameObject gObject)
