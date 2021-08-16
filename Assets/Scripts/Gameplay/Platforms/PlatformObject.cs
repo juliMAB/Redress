@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +6,9 @@ using Games.Generics.Displacement;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {
-    public class Platform : MovableObject
+    public class PlatformObject : MovableObject
     {
         [SerializeField] public Row row = Row.Middle;
     }
 }
+

@@ -11,55 +11,10 @@ namespace Games.Generics.Displacement
 
         [Header("Settings")]
         [SerializeField] protected Vector2 halfSizeOfScreen = Vector2.zero;
-        [SerializeField] protected LayerMask layer = 0;
         [SerializeField] protected float distance = 2f;
         [SerializeField] protected float speed = 5f;
 
-        public void PlaceOnRightEnd(GameObject gObject, float yPosition)
-        {
-            MovableObject movableObject = gObject.GetComponent<MovableObject>();
-
-            gObject.transform.position = new Vector2(halfSizeOfScreen.x + movableObject.HalfSize.x, yPosition);
-        }
-
-        public void DeactivateObject(GameObject gObject)
-        {
-            gObject.SetActive(false);
-            objectsPool.Enqueue(gObject);
-        }
-
-        public GameObject ActivateObject()
-        {
-            GameObject gObject = objectsPool.Dequeue();
-
-            while (gObject.activeSelf)
-            {
-                objectsPool.Enqueue(gObject);
-                gObject = objectsPool.Dequeue();
-            }
-
-            gObject.SetActive(true);
-
-            return gObject;
-        }
-
-        public bool IsOutOfScreen(MovableObject movableObject)
-        {
-            return movableObject.transform.position.x + movableObject.HalfSize.x < -halfSizeOfScreen.x;
-        }
-
-        public bool IsFarEnoughForNewObjectToSpawn(MovableObject movableObject)
-        {
-            return movableObject.transform.position.x + movableObject.HalfSize.x + distance < halfSizeOfScreen.x;
-        }
-
-        public bool IsCompletelyOnScreen(MovableObject movableObject)
-        {
-            if (movableObject == null) return true;
-
-            return movableObject.transform.position.x - movableObject.HalfSize.x > -halfSizeOfScreen.x &&
-                   movableObject.transform.position.x + movableObject.HalfSize.x < halfSizeOfScreen.x;
-        }
+        public GameObject[] Objects { get => objects; }
 
         protected virtual void Start()
         {
@@ -91,6 +46,52 @@ namespace Games.Generics.Displacement
                 movableObject = objects[i].GetComponent<MovableObject>();
                 movableObject.Move(speed);
             }
+        }
+
+        protected void PlaceOnRightEnd(GameObject gObject, float yPosition)
+        {
+            MovableObject movableObject = gObject.GetComponent<MovableObject>();
+
+            gObject.transform.position = new Vector2(halfSizeOfScreen.x + movableObject.HalfSize.x, yPosition);
+        }
+
+        protected void DeactivateObject(GameObject gObject)
+        {
+            gObject.SetActive(false);
+            objectsPool.Enqueue(gObject);
+        }
+
+        protected GameObject ActivateObject()
+        {
+            GameObject gObject = objectsPool.Dequeue();
+
+            while (gObject.activeSelf)
+            {
+                objectsPool.Enqueue(gObject);
+                gObject = objectsPool.Dequeue();
+            }
+
+            gObject.SetActive(true);
+
+            return gObject;
+        }
+
+        protected bool IsOutOfScreen(MovableObject movableObject)
+        {
+            return movableObject.transform.position.x + movableObject.HalfSize.x < -halfSizeOfScreen.x;
+        }
+
+        protected bool IsFarEnoughForNewObjectToSpawn(MovableObject movableObject)
+        {
+            return movableObject.transform.position.x + movableObject.HalfSize.x + distance < halfSizeOfScreen.x;
+        }
+
+        protected bool IsCompletelyOnScreen(MovableObject movableObject)
+        {
+            if (movableObject == null) return true;
+
+            return //movableObject.transform.position.x - movableObject.HalfSize.x > -halfSizeOfScreen.x &&
+                   movableObject.transform.position.x + movableObject.HalfSize.x < halfSizeOfScreen.x;
         }
     }
 }
