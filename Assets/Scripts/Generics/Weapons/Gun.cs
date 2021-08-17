@@ -8,7 +8,6 @@ namespace Games.Generics.Weapon
 {
     public class Gun : PoolObjectsManager
     {
-        [SerializeField] private float damage = 1f;
         [SerializeField] private Transform firePosition = null;
         [SerializeField] private float coolDown = 0.1f;
         [SerializeField] private bool canShoot = true;
@@ -51,6 +50,7 @@ namespace Games.Generics.Weapon
             Bullet bullet = GO.GetComponent<Bullet>();
             bullet.speed = bulletSpeed;
             bullet.transform.position = firePosition.position + firePosition.right * bullet.transform.lossyScale.x / 2;
+            bullet.transform.rotation = transform.rotation;
 
             StartCoroutine(SetCoolDownLifetime());
         }

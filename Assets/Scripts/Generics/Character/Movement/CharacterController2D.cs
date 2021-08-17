@@ -140,9 +140,17 @@ namespace Games.Generics.Character.Movement
 			m_FacingRight = !m_FacingRight;
 
 			// Multiply the player's x local scale by -1.
-			Vector3 theScale = transform.localScale;
-			theScale.x *= -1;
-			transform.localScale = theScale;
+			//Vector3 theScale = transform.localScale;
+			//theScale.x *= -1;
+			//transform.localScale = theScale;
+			Vector3 rotation = Vector3.zero;
+
+			if (!m_FacingRight)
+			{ 
+				rotation = new Vector3(0, -180, 0); 
+			}
+
+			transform.rotation = Quaternion.Euler(rotation);
 		}
 	}
 }

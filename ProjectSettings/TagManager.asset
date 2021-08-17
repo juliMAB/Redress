@@ -17,8 +17,8 @@ TagManager:
   - Floors
   - Background
   - Enemy
-  - 
-  - 
+  - Bullet
+  - WorldLimit
   - 
   - 
   - 
