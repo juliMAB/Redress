@@ -3571,10 +3571,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4088044753288993341, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_Name
+      value: CellingCheck
+      objectReference: {fileID: 0}
     - target: {fileID: 4088044753946204865, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
         type: 3}
       propertyPath: m_Name
-      value: pj
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4088044753946204877, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
         type: 3}
@@ -3670,6 +3675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.0939
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088044754203851591, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_Name
+      value: FloorCheck
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd8d84b17dfb16468a3a23b0b1ea7b0, type: 3}
