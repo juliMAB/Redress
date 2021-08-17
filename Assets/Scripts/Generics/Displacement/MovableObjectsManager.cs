@@ -1,19 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+using Games.Generics.PoolSystem;
+
 namespace Games.Generics.Displacement
 {
-    public class MovableObjectsManager : MonoBehaviour
+    public class MovableObjectsManager : PoolObjectsManager
     {
-        [SerializeField] protected GameObject[] objects = null;
-        [SerializeField] protected Queue<GameObject> objectsPool = null;
-
         [Header("Settings")]
         [SerializeField] protected Vector2 halfSizeOfScreen = Vector2.zero;
         [SerializeField] protected float distance = 2f;
         [SerializeField] protected float speed = 5f;
-
-        public GameObject[] Objects { get => objects; }
 
         protected virtual void Start()
         {
@@ -52,27 +49,6 @@ namespace Games.Generics.Displacement
             MovableObject movableObject = gObject.GetComponent<MovableObject>();
 
             gObject.transform.position = new Vector3(halfSizeOfScreen.x + movableObject.HalfSize.x, yPosition, 1);
-        }
-
-        protected void DeactivateObject(GameObject gObject)
-        {
-            gObject.SetActive(false);
-            objectsPool.Enqueue(gObject);
-        }
-
-        protected GameObject ActivateObject()
-        {
-            GameObject gObject = objectsPool.Dequeue();
-
-            while (gObject.activeSelf)
-            {
-                objectsPool.Enqueue(gObject);
-                gObject = objectsPool.Dequeue();
-            }
-
-            gObject.SetActive(true);
-
-            return gObject;
         }
 
         protected bool IsOutOfScreen(MovableObject movableObject)

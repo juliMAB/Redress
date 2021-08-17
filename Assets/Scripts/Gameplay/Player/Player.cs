@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 using Games.Generics.Interfaces;
+using Games.Generics.Weapon;
 
 namespace EndlessT4cos.Gameplay.Player
 {
@@ -11,9 +12,18 @@ namespace EndlessT4cos.Gameplay.Player
         [SerializeField] private int lives = 5;
         [SerializeField] private int score = 0;
         [SerializeField] private float inmuneTime = 2f;
+        [SerializeField] private Gun gun = null;
 
         private bool isInmune = false;
         public Action OnDie = null;
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                gun.Shoot();
+            }
+        }
 
         private IEnumerator SetInmuneLifetime()
         {
