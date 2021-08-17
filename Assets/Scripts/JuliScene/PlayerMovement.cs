@@ -2,36 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+using Games.Generics.Character.Movement;
+
+namespace EndlessT4cos.Gameplay.Player
 {
-    [SerializeField] CharacterController2D controller;
-
-    [SerializeField] float runSpeed = 40f;
-
-    float horizontalMove = 0f;
-    bool jump = false;
-    bool crouch = false;
-
-    private void Update()
+    public class PlayerMovement : CharacterController2D
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        //[SerializeField] private CharacterController2D controller;
+        [SerializeField] private float runSpeed = 40f;
 
-        if (Input.GetButtonDown("Jump"))
+        private float horizontalMove = 0f;
+        private bool isJumping = false;
+        private bool isCrouching = false;
+
+        private void Update()
         {
-            jump = true;
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                isJumping = true;
+            }
+            if (Input.GetButtonDown("Crouch"))
+            {
+                isCrouching = true;
+            }
+            else if (Input.GetButtonUp("Crouch"))
+            {
+                isCrouching = false;
+            }
         }
-        if (Input.GetButtonDown("Crouch"))
+
+        protected override void FixedUpdate()
         {
-            crouch = true;
+            base.FixedUpdate();
+
+            Move(horizontalMove * Time.fixedDeltaTime, isCrouching, isJumping);
+            isJumping = false;
         }
-        else if (Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
-        }
-    }
-    void FixedUpdate()
-    {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
     }
 }
+

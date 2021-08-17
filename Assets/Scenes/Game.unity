@@ -3154,7 +3154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.5, y: 0.25}
+  m_Size: {x: 17.8, y: 0.25}
   m_EdgeRadius: 0
 --- !u!61 &1152427416
 BoxCollider2D:
@@ -3180,7 +3180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.5, y: 0.25}
+  m_Size: {x: 17.8, y: 0.25}
   m_EdgeRadius: 0
 --- !u!61 &1152427417
 BoxCollider2D:
@@ -3195,7 +3195,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.25, y: 0}
+  m_Offset: {x: 8.88, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3221,7 +3221,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.25, y: 0}
+  m_Offset: {x: -8.88, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3412,6 +3412,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48b81561fc7aec4438ec4ba40f3bcb8b, type: 3}
+--- !u!4 &1175533543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4088044754203851590, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1301592134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1206549881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3627,8 +3633,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088044753946204878, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088044753946204878, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
       propertyPath: m_WhatIsGround.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088044753946204879, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_AirControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088044753946204879, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_GroundCheck
+      value: 
+      objectReference: {fileID: 1175533543}
+    - target: {fileID: 4088044753946204879, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_CeilingCheck
+      value: 
+      objectReference: {fileID: 1529299362}
+    - target: {fileID: 4088044753946204879, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088044753946204879, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+        type: 3}
+      propertyPath: m_CrouchDisableCollider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4088044754203851590, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
         type: 3}
@@ -3887,6 +3923,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7fcdd0544a099a408de13a8c04ccf11, type: 3}
+--- !u!4 &1529299362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4088044753288993340, guid: acd8d84b17dfb16468a3a23b0b1ea7b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1301592134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1540707025
 PrefabInstance:
   m_ObjectHideFlags: 0
