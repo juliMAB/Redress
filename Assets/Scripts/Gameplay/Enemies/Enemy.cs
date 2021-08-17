@@ -11,7 +11,6 @@ namespace EndlessT4cos.Gameplay.Enemies
     {
         [SerializeField] private int initialLives = 1;
         [SerializeField] private int lives = 1;
-        [SerializeField] private int score = 0;
 
         private GameObject target = null;
         public Action<GameObject> OnDie = null;
