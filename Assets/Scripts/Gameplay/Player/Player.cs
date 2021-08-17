@@ -10,7 +10,6 @@ namespace EndlessT4cos.Gameplay.Player
     public class Player : MonoBehaviour, IDamageable
     {
         [SerializeField] private int lives = 5;
-        [SerializeField] private int score = 0;
         [SerializeField] private float inmuneTime = 2f;
         [SerializeField] private Gun gun = null;
 
