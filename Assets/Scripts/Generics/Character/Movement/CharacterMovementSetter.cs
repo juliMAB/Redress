@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Games.Generics.Character.Movement;
-
-namespace EndlessT4cos.Gameplay.Player
+namespace Games.Generics.Character.Movement
 {
-    public class PlayerMovement : CharacterController2D
+    public class CharacterMovementSetter : CharacterController2D
     {
         //[SerializeField] private CharacterController2D controller;
         [SerializeField] private float runSpeed = 40f;

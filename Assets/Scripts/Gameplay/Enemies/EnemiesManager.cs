@@ -7,6 +7,8 @@ namespace EndlessT4cos.Gameplay.Enemies
 {
     public class EnemiesManager : PlatformObjectsManager
     {
+        [SerializeField] private GameObject target = null;
+
         [Header("Platform collision settings")]
         [SerializeField] private LayerMask layer = 0;
         [SerializeField] private PlatformsManager platformsManager = null;
@@ -18,6 +20,14 @@ namespace EndlessT4cos.Gameplay.Enemies
             base.Start();
 
             halfPlatformHeight = platformsManager.HalfPlatformHeight;
+
+            Enemy enemy = null;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                enemy = objects[i].GetComponent<Enemy>();
+                enemy.SetTarget(target);
+            }
         }
 
         protected override void Update()
