@@ -32,6 +32,7 @@ namespace EndlessT4cos.Gameplay.Enemies
             {
                 enemy = objects[i].GetComponent<Enemy>();
                 enemy.SetTarget(target);
+                enemy.OnDie += DeactivateObject;
             }
 
             waitTimeTillNextEnemy = new float[amountPlatformRows];
@@ -74,10 +75,11 @@ namespace EndlessT4cos.Gameplay.Enemies
                     waitTimeTillNextEnemy[i] = Random.Range(minSpawnTime, maxSpawnTime);
 
                     GameObject newEnemy = ActivateObject();
-                    PlatformObject enemyComponent = newEnemy.GetComponent<PlatformObject>();
+                    Enemy enemyComponent = newEnemy.GetComponent<Enemy>();
 
                     PlaceOnRightEnd(newEnemy, ySpawnPositions[i] + enemyComponent.HalfSize.y + halfPlatformHeight);
                     enemyComponent.row = (Row)i;
+                    enemyComponent.ResetLives();
                 }
             }
         }

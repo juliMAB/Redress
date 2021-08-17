@@ -9,7 +9,7 @@ namespace Games.Generics.Weapon
     public class Gun : PoolObjectsManager
     {
         [SerializeField] private Transform firePosition = null;
-        [SerializeField] private float coolDown = 0.1f;
+        [SerializeField] private float coolDownTime = 0.1f;
         [SerializeField] private bool canShoot = true;
         [SerializeField] private float bulletSpeed = 10f;
 
@@ -31,7 +31,7 @@ namespace Games.Generics.Weapon
         {
             canShoot = false;
 
-            yield return new WaitForSeconds(coolDown);
+            yield return new WaitForSeconds(coolDownTime);
 
             canShoot = true;
 
