@@ -4,34 +4,20 @@ using UnityEngine;
 
 public class VerticalPlataform : MonoBehaviour
 {
-    private PlatformEffector2D effector;
-    [SerializeField]float waitTime;
+    private Collider2D col;
     private void Start()
     {
-        effector = GetComponent<PlatformEffector2D>();
+        col = GetComponent<Collider2D>();
     }
     private void Update()
     {
-        if (Input.GetButtonUp("Crouch"))
-        {
-            waitTime = 0.5f;
-        }
         if (Input.GetButton("Crouch"))
         {
-            if (waitTime<=0)
-            {
-                effector.rotationalOffset = 180f;
-                waitTime = 0.5f;
-            }
-            else
-            {
-                waitTime -= Time.deltaTime;
-            }
+            col.isTrigger = true;
         }
-
-        if (Input.GetButton("Jump"))
+        else
         {
-            effector.rotationalOffset = 0;
+            col.isTrigger = false;
         }
     }
 }
