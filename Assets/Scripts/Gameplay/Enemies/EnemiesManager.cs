@@ -8,15 +8,7 @@ namespace EndlessT4cos.Gameplay.Enemies
     public class EnemiesManager : PlatformObjectsManager
     {
         [SerializeField] private GameObject target = null;
-
-        [Header("Platform collision settings")]
-        [SerializeField] private LayerMask layer = 0;
         [SerializeField] private PlatformsManager platformsManager = null;
-        [SerializeField] private float minSpawnTime = 1f;
-        [SerializeField] private float maxSpawnTime = 2f;
-        [SerializeField] private PlatformObject largerEnemy = null;
-
-        [SerializeField] private float[] waitTimeTillNextEnemy = null;
 
         private float halfPlatformHeight = 0f;
 
@@ -35,11 +27,11 @@ namespace EndlessT4cos.Gameplay.Enemies
                 enemy.OnDie += DeactivateObject;
             }
 
-            waitTimeTillNextEnemy = new float[amountPlatformRows];
+            waitTimeTillNextObject = new float[amountPlatformRows];
 
-            for (int i = 0; i < waitTimeTillNextEnemy.Length; i++)
+            for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {
-                waitTimeTillNextEnemy[i] = Random.Range(minSpawnTime, maxSpawnTime);
+                waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
             }
         }
 
@@ -47,7 +39,7 @@ namespace EndlessT4cos.Gameplay.Enemies
         {
             base.Update();
 
-            PlatformObject enemy = null;
+            /*PlatformObject enemy = null;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -62,17 +54,17 @@ namespace EndlessT4cos.Gameplay.Enemies
                 {
                     DeactivateObject(objects[i]);
                 }
-            }
+            }*/
 
-            for (int i = 0; i < waitTimeTillNextEnemy.Length; i++)
+            for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {
-                waitTimeTillNextEnemy[i] -= Time.deltaTime;
+                waitTimeTillNextObject[i] -= Time.deltaTime;
 
-                Vector2 position = new Vector2(halfSizeOfScreen.x + largerEnemy.HalfSize.x, ySpawnPositions[i] + halfPlatformHeight * 2);
+                Vector2 position = new Vector2(halfSizeOfScreen.x + largerObject.HalfSize.x, ySpawnPositions[i] + halfPlatformHeight * 2);
 
-                if (waitTimeTillNextEnemy[i] < 0 && TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerEnemy))
+                if (waitTimeTillNextObject[i] < 0 && TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject))
                 { 
-                    waitTimeTillNextEnemy[i] = Random.Range(minSpawnTime, maxSpawnTime);
+                    waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
 
                     GameObject newEnemy = ActivateObject();
                     Enemy enemyComponent = newEnemy.GetComponent<Enemy>();
@@ -82,18 +74,6 @@ namespace EndlessT4cos.Gameplay.Enemies
                     enemyComponent.ResetLives();
                 }
             }
-        }
-
-        private bool TheresFloorDown(Vector2 position, float distance)
-        {
-            return Physics2D.Raycast(position, Vector2.down, distance, layer);
-        }
-
-        private bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy)
-        {
-            return TheresFloorDown(position, distance) && 
-                   TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance) &&
-                   TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance);
         }
 
         /*private bool EnemyCanSpawn(PlatformObject enemy)

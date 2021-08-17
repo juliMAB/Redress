@@ -23,8 +23,6 @@ namespace EndlessT4cos.Gameplay.Background
 
         protected override void Update()
         {
-            base.Update();
-
             MovableObject background = null;
 
             for (int i = 0; i < objects.Length; i++)
@@ -35,6 +33,7 @@ namespace EndlessT4cos.Gameplay.Background
                 }
 
                 background = objects[i].GetComponent<MovableObject>();
+                background.Move(speed);
 
                 if (IsOutOfScreen(background))
                 {

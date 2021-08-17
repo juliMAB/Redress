@@ -10,9 +10,15 @@ namespace EndlessT4cos.Gameplay.Platforms
     {
         [Header("Start position")]
         [SerializeField] protected float[] ySpawnPositions = null;
-        [SerializeField] protected float minDistance = 1f;
-        [SerializeField] protected float maxDistance = 2f;
         [SerializeField] protected int amountPlatformRows = 3;
+
+        [Header("Platform collision settings")]
+        [SerializeField] protected LayerMask layer = 0;
+        [SerializeField] protected float minSpawnTime = 1f;
+        [SerializeField] protected float maxSpawnTime = 2f;
+        [SerializeField] protected PlatformObject largerObject = null;
+
+        [SerializeField] protected float[] waitTimeTillNextObject = null;
 
         public float[] YSpawnPositions { get => ySpawnPositions; }
         public int AmountPlatformRows { get => amountPlatformRows; }
@@ -78,6 +84,18 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
 
             return closerObject == platform;
+        }
+
+        protected bool TheresFloorDown(Vector2 position, float distance)
+        {
+            return Physics2D.Raycast(position, Vector2.down, distance, layer);
+        }
+
+        protected bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy)
+        {
+            return TheresFloorDown(position, distance) &&
+                   TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance) &&
+                   TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance);
         }
     }
 }

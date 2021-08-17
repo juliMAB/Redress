@@ -41,6 +41,11 @@ namespace Games.Generics.Displacement
 
                 movableObject = objects[i].GetComponent<MovableObject>();
                 movableObject.Move(speed);
+
+                if (IsOutOfScreen(movableObject))
+                {
+                    DeactivateObject(objects[i]);
+                }
             }
         }
 
