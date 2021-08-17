@@ -2510,12 +2510,13 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  minDistance: 5
-  maxDistance: 20
+  minDistance: 10
+  maxDistance: 40
   amountPlatformRows: 3
   layer:
     serializedVersion: 2
     m_Bits: 512
+  platformsManager: {fileID: 1829776217}
 --- !u!4 &958777223
 Transform:
   m_ObjectHideFlags: 0
@@ -4980,6 +4981,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1340006570793544089, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -5112,7 +5118,7 @@ PrefabInstance:
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.76
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}

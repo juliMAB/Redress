@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using EndlessT4cos.Gameplay.Platforms;
 
@@ -11,17 +9,15 @@ namespace EndlessT4cos.Gameplay.Enemies
     {
         [Header("Platform collision settings")]
         [SerializeField] private LayerMask layer = 0;
+        [SerializeField] private PlatformsManager platformsManager = null;
 
-        private Vector2 halfSizePlatform = Vector2.zero;
-
-        protected override void Awake()
-        {
-            base.Awake();
-        }
+        private float halfPlatformHeight = 0f;
 
         protected override void Start()
         {
             base.Start();
+
+            halfPlatformHeight = platformsManager.HalfPlatformHeight;
         }
 
         protected override void Update()
@@ -50,7 +46,7 @@ namespace EndlessT4cos.Gameplay.Enemies
                     GameObject newEnemy = ActivateObject();
                     PlatformObject enemyComponent = newEnemy.GetComponent<PlatformObject>();
 
-                    PlaceOnRightEnd(newEnemy, ySpawnPositions[(int)enemy.row] + enemyComponent.HalfSize.y);
+                    PlaceOnRightEnd(newEnemy, ySpawnPositions[(int)enemy.row] + enemyComponent.HalfSize.y + halfPlatformHeight);
                     enemyComponent.row = enemy.row;
                 }
             }
@@ -61,12 +57,19 @@ namespace EndlessT4cos.Gameplay.Enemies
             return Physics2D.Raycast(position, Vector2.down, distance, layer);
         }
 
+        private bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy)
+        {
+            return TheresFloorDown(position, distance) && 
+                   TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance) &&
+                   TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance);
+        }
+
         private bool EnemyCanSpawn(PlatformObject enemy)
         {
-            Vector2 position = new Vector2(halfSizeOfScreen.x + enemy.HalfSize.x, ySpawnPositions[(int)enemy.row] + halfSizePlatform.y * 2);
+            Vector2 position = new Vector2(halfSizeOfScreen.x + enemy.HalfSize.x, ySpawnPositions[(int)enemy.row] + halfPlatformHeight * 2);
 
             return LastObjectIsFarEnough(enemy.row) && IsCompletelyOnScreen(enemy) &&
-                   TheresFloorDown(position, halfSizePlatform.y * 2);
+                   TheresEnoughFloorDown(position, halfPlatformHeight * 2, enemy);
         }
     }
 }

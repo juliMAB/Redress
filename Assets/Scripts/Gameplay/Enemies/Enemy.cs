@@ -9,6 +9,6 @@ namespace EndlessT4cos.Gameplay.Enemies
 {
     public class Enemy : PlatformObject
     {
-
+        
     }
 }

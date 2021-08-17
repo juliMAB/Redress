@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using Games.Generics.Displacement;
 
@@ -14,7 +12,6 @@ namespace EndlessT4cos.Gameplay.Platforms
         [SerializeField] protected float[] ySpawnPositions = null;
         [SerializeField] protected float minDistance = 1f;
         [SerializeField] protected float maxDistance = 2f;
-
         [SerializeField] protected int amountPlatformRows = 3;
 
         public float[] YSpawnPositions { get => ySpawnPositions; }

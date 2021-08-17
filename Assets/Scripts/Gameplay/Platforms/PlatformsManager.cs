@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 
-using Games.Generics.Displacement;
-
 namespace EndlessT4cos.Gameplay.Platforms
 {
     public class PlatformsManager : PlatformObjectsManager
     {
+        private float halfPlatformHeight = 0f;
+
+        public float HalfPlatformHeight { get => halfPlatformHeight; }
+
         protected override void Awake()
         {
             base.Awake();
-        } 
 
-        protected override void Start()
-        {
-            base.Start();
+            halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
         }
 
         protected override void Update()
