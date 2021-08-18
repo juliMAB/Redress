@@ -18,7 +18,7 @@ namespace EndlessT4cos.Gameplay.Enemies
 
             halfPlatformHeight = platformsManager.HalfPlatformHeight;
 
-            Enemy enemy = null;
+            Enemy enemy;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -38,23 +38,6 @@ namespace EndlessT4cos.Gameplay.Enemies
         protected override void Update()
         {
             base.Update();
-
-            /*PlatformObject enemy = null;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (!objects[i].activeSelf)
-                {
-                    continue;
-                }
-
-                enemy = objects[i].GetComponent<PlatformObject>();
-
-                if (IsOutOfScreen(enemy))
-                {
-                    DeactivateObject(objects[i]);
-                }
-            }*/
 
             for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {

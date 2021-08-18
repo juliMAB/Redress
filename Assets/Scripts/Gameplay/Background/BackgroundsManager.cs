@@ -10,7 +10,7 @@ namespace EndlessT4cos.Gameplay.Background
         {
             base.Start();
 
-            MovableObject movableObject = null;
+            MovableObject movableObject;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -23,7 +23,7 @@ namespace EndlessT4cos.Gameplay.Background
 
         protected override void Update()
         {
-            MovableObject background = null;
+            MovableObject background;
 
             for (int i = 0; i < objects.Length; i++)
             {

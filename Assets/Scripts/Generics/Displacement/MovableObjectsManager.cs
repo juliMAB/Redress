@@ -15,7 +15,7 @@ namespace Games.Generics.Displacement
         protected virtual void Start()
         {
             objectsPool = new Queue<GameObject>();
-            MovableObject movableObject = null;
+            MovableObject movableObject;
 
             for (int i = 0; i < objects.Length; i++)
             {

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
 namespace EndlessT4cos.Gameplay.UI
 {
     public class UIGameplayMananger : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI scoreText = null;
 
         public void ScoreUpdate(int value)
         {

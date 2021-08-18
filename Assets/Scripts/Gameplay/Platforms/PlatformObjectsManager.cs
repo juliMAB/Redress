@@ -60,10 +60,10 @@ namespace EndlessT4cos.Gameplay.Platforms
         protected bool IsTheClosestToRightEdge(Row row, MovableObject platform) //Means it was the last to spawn
         {
             PlatformObject closerObject = null;
-            PlatformObject actualObject = null;
+            PlatformObject actualObject;
 
             float diference = 100;
-            float newDiference = 0;
+            float newDiference;
 
             for (int i = 0; i < objects.Length; i++)
             {
