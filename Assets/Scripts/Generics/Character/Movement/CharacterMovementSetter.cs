@@ -7,15 +7,10 @@ namespace Games.Generics.Character.Movement
     public class CharacterMovementSetter : CharacterController2D
     {
         [SerializeField] private float runSpeed = 40f;
-        private PlatformEffector2D effector;
         private float horizontalMove = 0f;
         private bool isJumping = false;
         private bool isCrouching = false;
 
-        private void Start()
-        {
-            effector = GetComponent<PlatformEffector2D>();
-        }
         private void Update()
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -26,11 +21,11 @@ namespace Games.Generics.Character.Movement
             }
             if (Input.GetButtonDown("Crouch"))
             {
-                effector.rotationalOffset = 0f;
+                isCrouching = true;
             }
             else if (Input.GetButtonUp("Crouch"))
             {
-                effector.rotationalOffset = 180f;
+                isCrouching = false;
             }
         }
 
