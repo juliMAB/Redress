@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EndlessT4cos.Gameplay.Enemies;
 using EndlessT4cos.Gameplay.Player;
+using EndlessT4cos.Gameplay.UI;
 namespace Games.Generics.Manager
 {
     public class GameplayManager : MonoBehaviour
@@ -12,6 +13,7 @@ namespace Games.Generics.Manager
         [SerializeField] private int scorePerKill;
         [SerializeField] private EnemiesManager enemiesManager;
         [SerializeField] private Player player;
+        [SerializeField] private UIGameplayMananger ui;
         private void Start()
         {
             Enemy enemy;
@@ -24,6 +26,7 @@ namespace Games.Generics.Manager
         private void AddScore(GameObject go)
         {
             score += scorePerKill;
+            ui.ScoreUpdate(score);
         }
     }
 
