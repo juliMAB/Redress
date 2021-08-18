@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 3ddd1a712d8c35642a00261f90455230, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fb07a6930602814ebf79e52af65b09c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,14 +91,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3412316705388000637}
   - component: {fileID: 1340006570793544089}
-  - component: {fileID: 812479240}
+  - component: {fileID: 7747057483286858738}
   m_Layer: 11
-  m_Name: Enemy
+  m_Name: ExplosiveEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3412316705388000637
 Transform:
   m_ObjectHideFlags: 0
@@ -106,14 +106,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5661079698436818821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.421119, y: 1.8600029, z: 17.423828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5899417859960930442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!61 &1340006570793544089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,9 +138,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.85, y: 0.87}
   m_EdgeRadius: 0
---- !u!114 &812479240
+--- !u!114 &7747057483286858738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,8 +149,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5661079698436818821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb11d06f2ee9214fa1dc6189aef5d83, type: 3}
+  m_Script: {fileID: 11500000, guid: b4286412a4722c048a76a5d7c6d837a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   halfSize: {x: 0, y: 0}
   row: 1
+  initialLives: 1
+  lives: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  type: 0
+  viewDistance: 7
+  minDistanceToExplode: 1.5
+  speed: 5

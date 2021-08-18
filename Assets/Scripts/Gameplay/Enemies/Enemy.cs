@@ -9,10 +9,13 @@ namespace EndlessT4cos.Gameplay.Enemies
 {
     public class Enemy : PlatformObject, IDamageable
     {
-        [SerializeField] private int initialLives = 1;
-        [SerializeField] private int lives = 1;
+        [Header("Enemy")]
+        [SerializeField] protected int initialLives = 1;
+        [SerializeField] protected int lives = 1;
+        [SerializeField] protected LayerMask targetLayer = 0;
 
-        private GameObject target = null;
+        protected GameObject target = null;
+        public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
 
         public void SetTarget(GameObject _target)

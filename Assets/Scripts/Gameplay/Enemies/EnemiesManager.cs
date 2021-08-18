@@ -5,6 +5,8 @@ using EndlessT4cos.Gameplay.Platforms;
 
 namespace EndlessT4cos.Gameplay.Enemies
 {
+    public enum Type { Static, Explosive, Shooter}
+    
     public class EnemiesManager : PlatformObjectsManager
     {
         [SerializeField] private GameObject target = null;
@@ -26,6 +28,8 @@ namespace EndlessT4cos.Gameplay.Enemies
                 enemy.SetTarget(target);
                 enemy.OnDie += DeactivateObject;
             }
+
+            AssignTypes();
 
             waitTimeTillNextObject = new float[amountPlatformRows];
 
@@ -56,6 +60,30 @@ namespace EndlessT4cos.Gameplay.Enemies
                     enemyComponent.row = (Row)i;
                     enemyComponent.ResetLives();
                 }
+            }
+        }
+
+        private void AssignTypes()
+        {
+            Enemy enemy;
+            Type type;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                enemy = objects[i].GetComponent<Enemy>();
+
+                type = Type.Static;
+
+                if (objects[i].TryGetComponent(out ExplosiveEnemy explosiveEnemy))
+                {
+                    type = Type.Explosive;
+                }
+                else if (objects[i].TryGetComponent(out ShooterEnemy shooterEnemy))
+                {
+                    type = Type.Shooter;
+                }
+
+                enemy.type = type;
             }
         }
 
