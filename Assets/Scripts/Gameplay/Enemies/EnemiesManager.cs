@@ -20,16 +20,8 @@ namespace EndlessT4cos.Gameplay.Enemies
 
             halfPlatformHeight = platformsManager.HalfPlatformHeight;
 
-            Enemy enemy;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                enemy = objects[i].GetComponent<Enemy>();
-                enemy.SetTarget(target);
-                enemy.OnDie += DeactivateObject;
-            }
-
             AssignTypes();
+            AssignActionsAndTarget();
 
             waitTimeTillNextObject = new float[amountPlatformRows];
 
@@ -87,35 +79,32 @@ namespace EndlessT4cos.Gameplay.Enemies
             }
         }
 
-        /*private bool EnemyCanSpawn(PlatformObject enemy)
+        private void AssignActionsAndTarget()
         {
-            Vector2 position = new Vector2(halfSizeOfScreen.x + enemy.HalfSize.x, ySpawnPositions[(int)enemy.row] + halfPlatformHeight * 2);
+            Enemy enemy;
+            ExplosiveEnemy explosiveEnemy;
+            ShooterEnemy shooterEnemy;
 
-            return LastObjectIsFarEnough(enemy.row) && IsCompletelyOnScreen(enemy) &&
-                   TheresEnoughFloorDown(position, halfPlatformHeight * 2, enemy);
-        }
-
-        private bool EnemyCanSpawn(PlatformObject enemy)
-        {
-            Vector2 position = new Vector2(halfSizeOfScreen.x + enemy.HalfSize.x, ySpawnPositions[(int)enemy.row] + halfPlatformHeight * 2);
-
-            return LastObjectIsFarEnough(enemy.row) && IsCompletelyOnScreen(enemy) &&
-                   TheresEnoughFloorDown(position, halfPlatformHeight * 2, enemy);
-        }
-
-        private bool CheckAnyActiveEnemyOnRow(Row row)
-        {
             for (int i = 0; i < objects.Length; i++)
             {
-                PlatformObject enemy = objects[i].GetComponent<PlatformObject>();
+                enemy = objects[i].GetComponent<Enemy>();
 
-                if (objects[i].activeSelf && enemy.row == row)
+                switch (enemy.type)
                 {
-                    return true;
+                    case Type.Static:
+                        break;
+                    case Type.Explosive:
+                        explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
+                        break;
+                    case Type.Shooter:
+                        break;
+                    default:
+                        break;
                 }
-            }
 
-            return false;
-        }*/
+                enemy.OnDie += DeactivateObject;
+                enemy.SetTarget(target);                
+            }
+        }
     }
 }

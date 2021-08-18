@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Games.Generics.Interfaces;
+
 namespace EndlessT4cos.Gameplay.Enemies
 {
     public class ExplosiveEnemy : Enemy
     {
         [SerializeField] private float viewDistance = 7f;
         [SerializeField] private float minDistanceToExplode = 1.5f;
+        [SerializeField] private LayerMask hittableLayer = 0;
+        [SerializeField] private float radiusOfDamage = 1f;
 
         private bool lookingAtTarget = false;
         public float speed = 5f;
@@ -33,7 +37,7 @@ namespace EndlessT4cos.Gameplay.Enemies
 
         private bool IsTargetForward()
         {
-            return Physics.Raycast(transform.position, transform.right, viewDistance, targetLayer, QueryTriggerInteraction.Collide);
+            return Physics2D.Raycast(transform.position, transform.right, viewDistance, targetLayer);
         }
 
         private void FollowPlayer()
@@ -50,7 +54,20 @@ namespace EndlessT4cos.Gameplay.Enemies
 
         private void Explode()
         {
+            Collider2D[] collidersToHit = Physics2D.OverlapCircleAll(transform.position, radiusOfDamage, hittableLayer);
+
+            for (int i = 0; i < collidersToHit.Length; i++)
+            {
+                IDamageable iDamageable = collidersToHit[i].gameObject.GetComponent<IDamageable>();
+                
+                if (iDamageable != null)
+                { 
+                    iDamageable.TakeDamage(); 
+                }
+            }
+
             OnExplode?.Invoke();
+            OnDie?.Invoke(gameObject);
         }
     }
 }

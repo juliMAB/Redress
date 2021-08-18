@@ -162,4 +162,8 @@ MonoBehaviour:
   type: 0
   viewDistance: 7
   minDistanceToExplode: 1.5
+  hittableLayer:
+    serializedVersion: 2
+    m_Bits: 2304
+  radiusOfDamage: 1
   speed: 5
