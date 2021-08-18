@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using EndlessT4cos.Gameplay.Enemies;
-using EndlessT4cos.Gameplay.Player;
+using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.UI;
 
-namespace Games.Generics.Manager
+namespace EndlessT4cos.Gameplay.Manager
 {
     public class GameplayManager : MonoBehaviour
     {
@@ -15,7 +15,11 @@ namespace Games.Generics.Manager
         [SerializeField] private int scorePerKill = 0;
         [SerializeField] private EnemiesManager enemiesManager = null;
         [SerializeField] private Player player = null;
-        [SerializeField] private UIGameplayMananger ui = null;
+
+        public Action<int> OnChangedScore = null;
+
+        public EnemiesManager EnemiesManager { get => enemiesManager; }
+        public Player Player { get => player; }
 
         private void Start()
         {
@@ -31,7 +35,7 @@ namespace Games.Generics.Manager
         private void AddScore(GameObject go)
         {
             score += scorePerKill;
-            ui.ScoreUpdate(score);
+            OnChangedScore?.Invoke(score);
         }
     }
 

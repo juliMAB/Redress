@@ -5,7 +5,7 @@ using UnityEngine;
 using Games.Generics.Interfaces;
 using Games.Generics.Weapon;
 
-namespace EndlessT4cos.Gameplay.Player
+namespace EndlessT4cos.Gameplay.User
 {
     public class Player : MonoBehaviour, IDamageable
     {
@@ -16,6 +16,7 @@ namespace EndlessT4cos.Gameplay.Player
 
         private bool isInmune = false;
         public Action OnDie = null;
+        public Action<int> OnLivesChanged = null;
 
         private void Update()
         {
@@ -51,6 +52,8 @@ namespace EndlessT4cos.Gameplay.Player
             }
 
             StartCoroutine(SetInmuneLifetime());
+
+            OnLivesChanged?.Invoke(lives);
         }
 
         public void Die()
