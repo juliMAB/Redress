@@ -3378,6 +3378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 5
+  score: 0
   inmuneTime: 2
   gun: {fileID: 1736577004}
 --- !u!1 &706980484
@@ -9516,23 +9517,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6408668683553309444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408668683553309451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50effa1f968e34abca1c48e9ebeba4f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: -25
-  runSpeed: 6
-  groundDamping: 20
-  inAirDamping: 5
-  jumpHeight: 3
 --- !u!61 &6408668683553309445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9652,10 +9636,10 @@ GameObject:
   - component: {fileID: 6408668683553309440}
   - component: {fileID: 6408668683553309441}
   - component: {fileID: 6408668683553309447}
-  - component: {fileID: 6408668683553309444}
   - component: {fileID: 6408668683553309445}
   - component: {fileID: 6408668683553309450}
   - component: {fileID: 688926773}
+  - component: {fileID: 6408668683553309452}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -9663,3 +9647,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6408668683553309452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408668683553309451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f565f0d9f6591d3458765001add31e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: -25
+  runSpeed: 8
+  groundDamping: 20
+  inAirDamping: 5
+  jumpHeight: 3
