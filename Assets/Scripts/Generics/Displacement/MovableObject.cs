@@ -6,11 +6,13 @@ namespace Games.Generics.Displacement
     {
         [SerializeField] protected Vector2 halfSize = Vector2.zero;
 
+        protected Vector3 direction = -Vector3.right;
+
         public Vector2 HalfSize { get => halfSize; }
 
         public void Move(float speed)
         {
-            transform.position -= Vector3.right * speed * Time.deltaTime;
+            transform.position += direction * speed * Time.deltaTime;
         }
 
         public void SetSize()

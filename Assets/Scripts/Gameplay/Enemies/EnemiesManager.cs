@@ -9,6 +9,7 @@ namespace EndlessT4cos.Gameplay.Enemies
     
     public class EnemiesManager : PlatformObjectsManager
     {
+        [Header("Enemy management")]
         [SerializeField] private GameObject target = null;
         [SerializeField] private PlatformsManager platformsManager = null;
 
@@ -50,7 +51,7 @@ namespace EndlessT4cos.Gameplay.Enemies
 
                     PlaceOnRightEnd(newEnemy, ySpawnPositions[i] + enemyComponent.HalfSize.y + halfPlatformHeight);
                     enemyComponent.row = (Row)i;
-                    enemyComponent.ResetLives();
+                    enemyComponent.ResetStats();
                 }
             }
         }

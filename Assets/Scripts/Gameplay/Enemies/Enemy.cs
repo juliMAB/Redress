@@ -12,20 +12,44 @@ namespace EndlessT4cos.Gameplay.Enemies
         [Header("Enemy")]
         [SerializeField] protected int initialLives = 1;
         [SerializeField] protected int lives = 1;
-        [SerializeField] protected LayerMask targetLayer = 0;
+        [SerializeField] protected LayerMask targetLayer = 0;       //Layer of the target
+        [SerializeField] protected LayerMask hittableLayer = 0;     //All layers the enemy can cause damage to
+        [SerializeField] protected float viewDistance = 7f;
+        [SerializeField] protected GameObject target = null;
+        [SerializeField] protected bool lookingAtTarget = false;
 
-        protected GameObject target = null;
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
+
+        public bool LookingAtTarget { get => lookingAtTarget; }
+
+        protected virtual void Update()
+        {
+            if (IsTargetForward())
+            {
+                lookingAtTarget = true;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject == target)
+            {
+                IDamageable targetIDamageable = target.GetComponent<IDamageable>();
+                targetIDamageable.TakeDamage();
+            }
+        }
 
         public void SetTarget(GameObject _target)
         {
             target = _target;
         }
 
-        public void ResetLives()
+        public void ResetStats()
         {
             lives = initialLives;
+            lookingAtTarget = false;
+            direction = -Vector3.right;
         }
 
         public void TakeDamage()
@@ -40,16 +64,12 @@ namespace EndlessT4cos.Gameplay.Enemies
 
         public void Die()
         {
-            OnDie?.Invoke(gameObject);
+            OnDie?.Invoke(gameObject);            
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        protected bool IsTargetForward()
         {
-            if (collision.gameObject == target)
-            {
-                IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-                targetIDamageable.TakeDamage();
-            }
+            return Physics2D.Raycast(transform.position, transform.right, viewDistance, targetLayer);
         }
     }
 }

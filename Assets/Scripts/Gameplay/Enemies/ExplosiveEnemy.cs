@@ -8,43 +8,25 @@ namespace EndlessT4cos.Gameplay.Enemies
 {
     public class ExplosiveEnemy : Enemy
     {
-        [SerializeField] private float viewDistance = 7f;
         [SerializeField] private float minDistanceToExplode = 1.5f;
-        [SerializeField] private LayerMask hittableLayer = 0;
-        [SerializeField] private float radiusOfDamage = 1f;
-
-        private bool lookingAtTarget = false;
-        public float speed = 5f;
+        [SerializeField] private float radiusOfDamage = 2f;
+        
+        public float additionalSpeed = 5f;
         public Action OnExplode = null;
 
-        private void Update()
+        protected override void Update()
         {
-            if (IsTargetForward())
-            {
-                lookingAtTarget = true;
-            }
+            base.Update();
 
             if (lookingAtTarget)
             {
-                FollowPlayer();
+                direction = Vector3.Normalize(target.transform.position - transform.position) * additionalSpeed;
             }
 
             if (IsCloseToPLayer())
             {
                 Explode();
             }
-        }
-
-        private bool IsTargetForward()
-        {
-            return Physics2D.Raycast(transform.position, transform.right, viewDistance, targetLayer);
-        }
-
-        private void FollowPlayer()
-        {
-            Vector3 dirVector = Vector3.Normalize(target.transform.position - transform.position);
-
-            transform.position += dirVector * speed * Time.deltaTime;
         }
 
         private bool IsCloseToPLayer()
