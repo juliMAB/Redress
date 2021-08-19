@@ -21,7 +21,7 @@ namespace EndlessT4cos.Gameplay.Enemies
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
 
-        public bool LookingAtTarget { get => lookingAtTarget; }
+        //public bool LookingAtTarget { get => lookingAtTarget; }
 
         protected virtual void Update()
         {

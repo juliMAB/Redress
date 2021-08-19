@@ -156,3 +156,13 @@ MonoBehaviour:
   row: 1
   initialLives: 1
   lives: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hittableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  viewDistance: 7
+  target: {fileID: 0}
+  lookingAtTarget: 0
+  type: 0
