@@ -31,22 +31,20 @@ namespace EndlessT4cos.Gameplay.Enemies
                 lookingAtTarget = true;
             }
 
-            if (IsCloseToPLayer())
-            {
-                IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-                targetIDamageable.TakeDamage();
-            }
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            //if (collision.gameObject == target)
+            //if (IsCloseToPLayer())
             //{
             //    IDamageable targetIDamageable = target.GetComponent<IDamageable>();
             //    targetIDamageable.TakeDamage();
             //}
+        }
 
-            float ef = 3;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject == target)
+            {
+                IDamageable targetIDamageable = target.GetComponent<IDamageable>();
+                targetIDamageable.TakeDamage();
+            }
         }
 
         public void SetTarget(GameObject _target)

@@ -14,10 +14,18 @@ namespace EndlessT4cos.Gameplay.User
         [SerializeField] private float inmuneTime = 2f;
         [SerializeField] private Gun gun = null;
 
+        private SpriteRenderer spriteRenderer;
+        private Color normalColor;
+        private Color inmortalColor=Color.red;
         private bool isInmune = false;
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
 
+        private void Start()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            normalColor = spriteRenderer.color;
+        }
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.K))
@@ -30,9 +38,13 @@ namespace EndlessT4cos.Gameplay.User
         {
             isInmune = true;
 
+            spriteRenderer.color = inmortalColor;
+
             yield return new WaitForSeconds(inmuneTime);
             
             isInmune = false;
+
+            spriteRenderer.color = normalColor;
 
             yield return null;
         }
