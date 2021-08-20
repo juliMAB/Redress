@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TSDV_Final.Management
+using EndlessT4cos.Gameplay.User;
+using EndlessT4cos.Gameplay.Management;
+
+namespace EndlessT4cos.Management
 {
     public class GameManager : MonoBehaviour
     {
         private static GameManager instance = null;
         public static GameManager Instance { get => instance; }
-
+        
         private void Awake()
         {
             if (instance != null)
@@ -23,6 +26,10 @@ namespace TSDV_Final.Management
 
         public enum Scene { Menu, Game, ResultScreen }
 
+        private PlayerData playerData = null;
+
+        public PlayerData PlayerData { get => playerData; }
+
         public void GoToScene(Scene scene)
         {
             string stringSceneName;
@@ -36,7 +43,10 @@ namespace TSDV_Final.Management
                     stringSceneName = "Game";
                     break;
                 case Scene.ResultScreen:
-                    stringSceneName = "ResultScreen";
+                    { 
+                        stringSceneName = "ResultScreen";
+                        SetPlayerData();
+                    }
                     break;
                 default:
                     stringSceneName = "Menu";
@@ -45,15 +55,26 @@ namespace TSDV_Final.Management
 
             SceneManager.LoadScene(stringSceneName);
 
-            if (scene == Scene.ResultScreen)
+            if (scene == Scene.Game)
             {
-                //*SetPlayerData();
+
             }
         }
 
         public void CloseGame()
         {
             Application.Quit();
+        }
+
+        private void SetPlayerData()
+        {
+            GameplayManager gameplayManager = GameplayManager.Instance;
+
+            int score = gameplayManager.Score;
+            float velocity = gameplayManager.PlatformsManager.Speed;
+            float traveledDistance = gameplayManager.Distance;
+
+            playerData = new PlayerData(score, velocity, traveledDistance);
         }
     }
 }

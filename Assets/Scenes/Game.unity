@@ -21626,7 +21626,7 @@ MonoBehaviour:
   enemiesManager: {fileID: 958777222}
   player: {fileID: 688926773}
   platformsManager: {fileID: 1829776217}
-  fallTrigger: {fileID: 0}
+  yPlayerPosToLose: -5
 --- !u!4 &2008208821
 Transform:
   m_ObjectHideFlags: 0
@@ -23754,7 +23754,7 @@ MonoBehaviour:
   inAirDamping: 5
   jumpHeight: 3
   dashCooldown: 3
-  dashPower: 5
+  dashPower: 10
   dashCooldownT: 0
   resetDash: 0.2
   resetDashT: 0

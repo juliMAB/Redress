@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-using EndlessT4cos.Gameplay.Manager;
+using EndlessT4cos.Gameplay.Management;
 
 namespace EndlessT4cos.Gameplay.UI
 {

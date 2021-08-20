@@ -6,12 +6,26 @@ using UnityEngine;
 using EndlessT4cos.Gameplay.Enemies;
 using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
-using Games.Generics.TriggerObject;
 
-namespace EndlessT4cos.Gameplay.Manager
+namespace EndlessT4cos.Gameplay.Management
 {
     public class GameplayManager : MonoBehaviour
     {
+        private static GameplayManager instance = null;
+        public static GameplayManager Instance { get => instance; }
+
+        private void Awake()
+        {
+            if (instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
+        }
+
         [SerializeField] private int score = 0;
         [SerializeField] private float distance = 0;
         [SerializeField] private int scorePerKill = 0;
@@ -23,11 +37,12 @@ namespace EndlessT4cos.Gameplay.Manager
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
 
+        public int Score { get => score; set => score = value; }
+        public float Distance { get => distance; }
         public EnemiesManager EnemiesManager { get => enemiesManager; }
         public Player Player { get => player; }
-        public float Distance { get => distance; }
         public PlatformsManager PlatformsManager { get => platformsManager; }
-
+        
         private void Start()
         {
             Enemy enemy;
@@ -60,5 +75,4 @@ namespace EndlessT4cos.Gameplay.Manager
             OnGameplayEnded?.Invoke();
         }
     }
-
 }

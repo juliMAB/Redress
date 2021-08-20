@@ -84,7 +84,6 @@ namespace EndlessT4cos.Gameplay.Enemies
         {
             Enemy enemy;
             ExplosiveEnemy explosiveEnemy;
-            ShooterEnemy shooterEnemy;
 
             for (int i = 0; i < objects.Length; i++)
             {

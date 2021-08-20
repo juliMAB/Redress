@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using TSDV_Final.Management;
+using EndlessT4cos.Management;
 
-namespace TSDV_Final.Menu.UI
+namespace EndlessT4cos.Menu.UI
 {
     public class UIMenuMananger : MonoBehaviour
     {

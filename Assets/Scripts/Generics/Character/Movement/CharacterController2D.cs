@@ -57,9 +57,9 @@ public class CharacterController2D : MonoBehaviour
 	#region events, properties and fields
 
 	public event Action<RaycastHit2D> onControllerCollidedEvent;
-	public event Action<Collider2D> onTriggerEnterEvent;
-	public event Action<Collider2D> onTriggerStayEvent;
-	public event Action<Collider2D> onTriggerExitEvent;
+	//public event Action<Collider2D> onTriggerEnterEvent;
+	//public event Action<Collider2D> onTriggerStayEvent;
+	//public event Action<Collider2D> onTriggerExitEvent;
 
 
 	/// <summary>
