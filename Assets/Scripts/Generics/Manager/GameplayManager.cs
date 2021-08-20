@@ -18,7 +18,7 @@ namespace EndlessT4cos.Gameplay.Manager
         [SerializeField] private EnemiesManager enemiesManager = null;
         [SerializeField] private Player player = null;
         [SerializeField] private PlatformsManager platformsManager = null;
-        [SerializeField] private TriggerObject2D fallTrigger = null;
+        [SerializeField] private float yPlayerPosToLose = -5f;
 
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
@@ -37,13 +37,16 @@ namespace EndlessT4cos.Gameplay.Manager
                 enemy = enemiesManager.Objects[i].GetComponent<Enemy>();
                 enemy.OnDie += AddScore;
             }
-
-            fallTrigger.onActivatedTrigger += EndGameplay;
         }
 
         private void Update()
         {
             distance += platformsManager.Speed / 50;
+
+            if (player.transform.position.y - player.transform.lossyScale.y / 2 < yPlayerPosToLose)
+            {
+                EndGameplay();
+            }
         }
 
         private void AddScore(GameObject go)
