@@ -14,9 +14,10 @@ namespace EndlessT4cos.Gameplay.Enemies
         [SerializeField] protected int lives = 1;
         [SerializeField] protected LayerMask targetLayer = 0;       //Layer of the target
         [SerializeField] protected LayerMask hittableLayer = 0;     //All layers the enemy can cause damage to
-        [SerializeField] protected float viewDistance = 7f;
+        [SerializeField] protected float viewDistance = 7;
         [SerializeField] protected GameObject target = null;
         [SerializeField] protected bool lookingAtTarget = false;
+        [SerializeField] protected float minDistanceToTarget = 1;
 
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
@@ -29,15 +30,23 @@ namespace EndlessT4cos.Gameplay.Enemies
             {
                 lookingAtTarget = true;
             }
-        }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject == target)
+            if (IsCloseToPLayer())
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
                 targetIDamageable.TakeDamage();
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            //if (collision.gameObject == target)
+            //{
+            //    IDamageable targetIDamageable = target.GetComponent<IDamageable>();
+            //    targetIDamageable.TakeDamage();
+            //}
+
+            float ef = 3;
         }
 
         public void SetTarget(GameObject _target)
@@ -70,6 +79,11 @@ namespace EndlessT4cos.Gameplay.Enemies
         protected bool IsTargetForward()
         {
             return Physics2D.Raycast(transform.position, transform.right, viewDistance, targetLayer);
+        }
+
+        protected bool IsCloseToPLayer()
+        {
+            return Mathf.Abs(Vector2.Distance(transform.position, target.transform.position)) < minDistanceToTarget;
         }
     }
 }

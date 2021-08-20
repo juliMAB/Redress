@@ -10,14 +10,19 @@ namespace EndlessT4cos.Gameplay.Enemies
     {
         [SerializeField] private Gun gun = null;
 
-        void Start()
+        //private void Start()
+        //{
+        //
+        //}
+
+        protected override void Update()
         {
+            base.Update();
 
-        }
-
-        void Update()
-        {
-
+            if (lookingAtTarget)
+            {
+                gun.Shoot();
+            }
         }
     }
 }

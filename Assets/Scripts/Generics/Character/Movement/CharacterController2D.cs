@@ -1,4 +1,4 @@
-﻿//#define DEBUG_CC2D_RAYS
+﻿#define DEBUG_CC2D_RAYS
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -203,7 +203,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void OnTriggerEnter2D( Collider2D col )
+	/*public void OnTriggerEnter2D( Collider2D col )
 	{
 		if( onTriggerEnterEvent != null )
 			onTriggerEnterEvent( col );
@@ -221,7 +221,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		if( onTriggerExitEvent != null )
 			onTriggerExitEvent( col );
-	}
+	}*/
 
 	#endregion
 

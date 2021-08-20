@@ -8,7 +8,6 @@ namespace EndlessT4cos.Gameplay.Enemies
 {
     public class ExplosiveEnemy : Enemy
     {
-        [SerializeField] private float minDistanceToExplode = 1.5f;
         [SerializeField] private float radiusOfDamage = 2f;
         
         public float additionalSpeed = 5f;
@@ -27,11 +26,6 @@ namespace EndlessT4cos.Gameplay.Enemies
             {
                 Explode();
             }
-        }
-
-        private bool IsCloseToPLayer()
-        {
-            return Mathf.Abs(Vector3.Distance(transform.position, target.transform.position)) < minDistanceToExplode;
         }
 
         private void Explode()
