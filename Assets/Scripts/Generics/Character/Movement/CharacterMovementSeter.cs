@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace EndlessT4cos.Generic.Character.Movement
 {
@@ -27,6 +28,7 @@ namespace EndlessT4cos.Generic.Character.Movement
 		[SerializeField] private float dashCooldownT;
 		[SerializeField] private float resetDash=0.5f;
 		[SerializeField] private float resetDashT;
+		[SerializeField] private Slider slider; // no esta bien, pero no sabia como agarrarlo.
 		void Awake()
 		{
 			_animator = GetComponent<Animator>();
@@ -41,6 +43,7 @@ namespace EndlessT4cos.Generic.Character.Movement
         {
 			dashCooldownT = -1;
 			resetDashT = resetDash;
+			slider.maxValue = dashCooldown;
 		}
 
         #region Event Listeners
@@ -140,6 +143,16 @@ namespace EndlessT4cos.Generic.Character.Movement
 			if (dashCooldownT > 0)
             {
 				dashCooldownT -= Time.deltaTime;
+				slider.value = dashCooldownT;
+                if (dashCooldownT<=0)
+                {
+					slider.gameObject.SetActive(false);
+                }
+                else
+                {
+					slider.gameObject.SetActive(true);
+				}
+
 			}
 			if (lastKey != 0&&resetDashT>0)
 			{
