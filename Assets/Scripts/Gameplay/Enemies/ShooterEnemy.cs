@@ -23,6 +23,11 @@ namespace EndlessT4cos.Gameplay.Enemies
             {
                 gun.Shoot();
             }
+
+            if (!IsTargetForward())
+            {
+                lookingAtTarget = false;
+            }
         }
     }
 }

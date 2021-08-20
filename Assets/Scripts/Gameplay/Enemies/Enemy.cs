@@ -22,20 +22,12 @@ namespace EndlessT4cos.Gameplay.Enemies
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
 
-        //public bool LookingAtTarget { get => lookingAtTarget; }
-
         protected virtual void Update()
         {
             if (IsTargetForward())
             {
                 lookingAtTarget = true;
             }
-
-            //if (IsCloseToPLayer())
-            //{
-            //    IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-            //    targetIDamageable.TakeDamage();
-            //}
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

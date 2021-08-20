@@ -6,6 +6,7 @@ using UnityEngine;
 using EndlessT4cos.Gameplay.Enemies;
 using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
+using Games.Generics.TriggerObject;
 
 namespace EndlessT4cos.Gameplay.Manager
 {
@@ -17,8 +18,10 @@ namespace EndlessT4cos.Gameplay.Manager
         [SerializeField] private EnemiesManager enemiesManager = null;
         [SerializeField] private Player player = null;
         [SerializeField] private PlatformsManager platformsManager = null;
+        [SerializeField] private TriggerObject2D fallTrigger = null;
 
         public Action<int> OnChangedScore = null;
+        public Action OnGameplayEnded = null;
 
         public EnemiesManager EnemiesManager { get => enemiesManager; }
         public Player Player { get => player; }
@@ -34,15 +37,24 @@ namespace EndlessT4cos.Gameplay.Manager
                 enemy = enemiesManager.Objects[i].GetComponent<Enemy>();
                 enemy.OnDie += AddScore;
             }
+
+            fallTrigger.onActivatedTrigger += EndGameplay;
         }
+
         private void Update()
         {
             distance += platformsManager.Speed / 50;
         }
+
         private void AddScore(GameObject go)
         {
             score += scorePerKill;
             OnChangedScore?.Invoke(score);
+        }
+
+        private void EndGameplay()
+        {
+            OnGameplayEnded?.Invoke();
         }
     }
 
