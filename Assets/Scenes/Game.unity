@@ -4411,7 +4411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &361421103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23006,7 +23006,7 @@ MonoBehaviour:
     m_Bits: 8704
   triggerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 7168
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 512
@@ -23090,7 +23090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6408668683553309452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23108,6 +23108,11 @@ MonoBehaviour:
   groundDamping: 20
   inAirDamping: 5
   jumpHeight: 3
+  dashCooldown: 3
+  dashPower: 5
+  dashCooldownT: 0
+  resetDash: 0.2
+  resetDashT: 0
 --- !u!1001 &8951922515610659237
 PrefabInstance:
   m_ObjectHideFlags: 0

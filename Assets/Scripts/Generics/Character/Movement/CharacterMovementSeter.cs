@@ -13,19 +13,23 @@ namespace EndlessT4cos.Generic.Character.Movement
 		public float groundDamping = 20f; // how fast do we change direction? higher means faster
 		public float inAirDamping = 5f;
 		public float jumpHeight = 3f;
+		public float dashCooldown = 3f;
+		public float dashPower = 5f;
 
 		[HideInInspector]
 		private float normalizedHorizontalSpeed = 0;
 
 		private CharacterController2D _controller;
-		//private Animator _animator;
-		private RaycastHit2D _lastControllerColliderHit;
+		private Animator _animator;
 		private Vector3 _velocity;
-		private Sprite _sprite;
-
+		private KeyCode lastKey;
+		[Header("Dash")]
+		[SerializeField] private float dashCooldownT;
+		[SerializeField] private float resetDash=0.5f;
+		[SerializeField] private float resetDashT;
 		void Awake()
 		{
-			//_animator = GetComponent<Animator>();
+			_animator = GetComponent<Animator>();
 			_controller = GetComponent<CharacterController2D>();
 
 			// listen to some events for illustration purposes
@@ -33,11 +37,15 @@ namespace EndlessT4cos.Generic.Character.Movement
 			_controller.onTriggerEnterEvent += onTriggerEnterEvent;
 			_controller.onTriggerExitEvent += onTriggerExitEvent;
 		}
+        private void Start()
+        {
+			dashCooldownT = -1;
+			resetDashT = resetDash;
+		}
 
+        #region Event Listeners
 
-		#region Event Listeners
-
-		void onControllerCollider(RaycastHit2D hit)
+        void onControllerCollider(RaycastHit2D hit)
 		{
 			// bail out on plain old ground hits cause they arent very interesting
 			if (hit.normal.y == 1f)
@@ -65,43 +73,112 @@ namespace EndlessT4cos.Generic.Character.Movement
 		// the Update loop contains a very simple example of moving the character around and controlling the animation
 		void Update()
 		{
+			
+			//this is for grounded.
 			if (_controller.isGrounded)
 				_velocity.y = 0;
+            //this is for normal move.
+            if (resetDashT>0)
+            {
+				resetDashT -= Time.deltaTime;
 
-			if (Input.GetKey(KeyCode.RightArrow))
+			}
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+					if (resetDashT > 0)
+					{
+						lastKey = KeyCode.RightArrow;
+					}
+					else
+					{
+						lastKey = 0;
+					}
+					resetDashT = resetDash;
+				}
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+				if (resetDashT > 0)
+				{
+					lastKey = KeyCode.LeftArrow;
+				}
+				else
+				{
+					lastKey = 0;
+				}
+				resetDashT = resetDash;
+			}
+            if (Input.GetKey(KeyCode.RightArrow))
 			{
 				normalizedHorizontalSpeed = 1;
 				if (transform.eulerAngles.y > 0f)
 				{
-					//transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 					transform.eulerAngles = new Vector3(0, 0, 0);
 				}
 
 
-				//if( _controller.isGrounded )
-				//_animator.Play( Animator.StringToHash( "Run" ) );
+				if( _controller.isGrounded )
+					_animator.Play( Animator.StringToHash( "Run" ) );
 			}
 			else if (Input.GetKey(KeyCode.LeftArrow))
 			{
 				normalizedHorizontalSpeed = -1;
 				if (transform.eulerAngles.y <= 0f)
-				{
-					//transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 					transform.eulerAngles = new Vector3(0, 180, 0);
-				}
+				
 
-				//if( _controller.isGrounded )
-				//_animator.Play( Animator.StringToHash( "Run" ) );
+				if( _controller.isGrounded )
+					_animator.Play( Animator.StringToHash( "Run" ) );
 			}
 			else
 			{
 				normalizedHorizontalSpeed = 0;
 
-				//if( _controller.isGrounded )
-				//_animator.Play( Animator.StringToHash( "Idle" ) );
+				if( _controller.isGrounded )
+					_animator.Play( Animator.StringToHash( "Idle" ) );
 			}
-
-
+			//this is for dash.
+			if (dashCooldownT > 0)
+            {
+				dashCooldownT -= Time.deltaTime;
+			}
+			if (lastKey != 0&&resetDashT>0)
+			{
+                
+				if (dashCooldownT < 0)
+				{
+					if (Input.GetKeyDown(KeyCode.RightArrow))
+					{
+						if (lastKey == KeyCode.RightArrow)
+						{
+							normalizedHorizontalSpeed = dashPower;
+							dashCooldownT = dashCooldown;
+							if (transform.eulerAngles.y > 0f)
+							{
+								transform.eulerAngles = new Vector3(0, 0, 0);
+							}
+							if (_controller.isGrounded)
+								_animator.Play(Animator.StringToHash("Run"));
+							lastKey = 0;
+						}
+					}
+					else if (Input.GetKeyDown(KeyCode.LeftArrow))
+					{
+						if (lastKey == KeyCode.LeftArrow)
+						{
+							normalizedHorizontalSpeed = -dashPower;
+							dashCooldownT = dashCooldown;
+							if (transform.eulerAngles.y > 0f)
+							{
+								transform.eulerAngles = new Vector3(0, 0, 0);
+							}
+							if (_controller.isGrounded)
+								_animator.Play(Animator.StringToHash("Run"));
+							lastKey = 0;
+						}
+					}
+				}
+			}
+			
 			// we can only jump whilst grounded
 			if (_controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
 			{
