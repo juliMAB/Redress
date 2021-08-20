@@ -12,6 +12,8 @@ namespace EndlessT4cos.Gameplay.UI
     {
         [SerializeField] private GameplayManager gameplayManager = null;
         [SerializeField] private TextMeshProUGUI scoreText = null;
+        [SerializeField] private TextMeshProUGUI distanceText = null;
+        [SerializeField] private TextMeshProUGUI velocityText = null;
         [SerializeField] Image[] lives = null;
 
         public void UpdateScore(int value)
@@ -19,7 +21,16 @@ namespace EndlessT4cos.Gameplay.UI
             scoreText.text = "Score: ";
             scoreText.text += value.ToString();
         }
-
+        public void UpdateVelocity(int value)
+        {
+            velocityText.text = "Velocity: ";
+            velocityText.text += value.ToString();
+        }
+        public void UpdateDistance(int value)
+        {
+            distanceText.text = "Distance: ";
+            distanceText.text += value.ToString();
+        }
         public void UpdateLives(int amountLives)
         {
             int maxLives = 5;
@@ -44,6 +55,11 @@ namespace EndlessT4cos.Gameplay.UI
         {
             gameplayManager.OnChangedScore += UpdateScore;
             gameplayManager.Player.OnLivesChanged += UpdateLives;
+            UpdateVelocity((int)gameplayManager.EnemiesManager.Speed);
+        }
+        private void Update()
+        {
+            UpdateDistance((int)gameplayManager.Distance);
         }
     }
 }
