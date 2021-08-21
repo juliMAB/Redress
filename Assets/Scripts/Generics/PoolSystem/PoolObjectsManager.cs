@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Games.Generics.Weapon;
+
 namespace Games.Generics.PoolSystem
 {
     public class PoolObjectsManager : MonoBehaviour
@@ -14,6 +16,11 @@ namespace Games.Generics.PoolSystem
 
         protected void DeactivateObject(GameObject gObject)
         {
+            if(gObject.TryGetComponent(out Bullet bullet))
+            {
+                float asdaf = 2;
+            }
+
             gObject.SetActive(false);
             objectsPool.Enqueue(gObject);
         }

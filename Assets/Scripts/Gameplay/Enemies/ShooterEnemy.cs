@@ -10,6 +10,8 @@ namespace EndlessT4cos.Gameplay.Enemies
     {
         [SerializeField] private Gun gun = null;
 
+        public Gun Gun { get => gun; }
+
         protected override void Update()
         {
             base.Update();
@@ -23,6 +25,12 @@ namespace EndlessT4cos.Gameplay.Enemies
             {
                 lookingAtTarget = false;
             }
+        }
+
+        public override void Die()
+        {
+            gun.ResetStats();
+            base.Die();
         }
     }
 }

@@ -84,6 +84,7 @@ namespace EndlessT4cos.Gameplay.Enemies
         {
             Enemy enemy;
             ExplosiveEnemy explosiveEnemy;
+            ShooterEnemy shooterEnemy;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -97,6 +98,7 @@ namespace EndlessT4cos.Gameplay.Enemies
                         explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
                         break;
                     case Type.Shooter:
+                        shooterEnemy = enemy.GetComponent<ShooterEnemy>();
                         break;
                     default:
                         break;

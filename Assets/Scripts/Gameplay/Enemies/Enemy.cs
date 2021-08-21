@@ -61,8 +61,13 @@ namespace EndlessT4cos.Gameplay.Enemies
             }
         }
 
-        public void Die()
+        public virtual void Die()
         {
+            if (gameObject.TryGetComponent(out ShooterEnemy bullet))
+            {
+                float asdaf = 2;
+            }
+
             OnDie?.Invoke(gameObject);            
         }
 

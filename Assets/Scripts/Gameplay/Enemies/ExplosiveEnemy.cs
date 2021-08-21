@@ -10,7 +10,7 @@ namespace EndlessT4cos.Gameplay.Enemies
     {
         [SerializeField] private float radiusOfDamage = 2f;
         
-        public float additionalSpeed = 5f;
+        public float additionalSpeed = 2.5f;
         public Action OnExplode = null;
 
         protected override void Update()

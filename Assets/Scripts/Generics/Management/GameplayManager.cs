@@ -86,7 +86,8 @@ namespace EndlessT4cos.Gameplay.Management
         {
             OnGameplayEnded?.Invoke();
         }
-        void StartEnding()
+
+        private void StartEnding()
         {
             //quitarle el control al player.
             playerControl.ControlActive = false;
@@ -103,14 +104,15 @@ namespace EndlessT4cos.Gameplay.Management
             //pausar los managers.
            
             enemiesManager.enabled = false;
-
         }
+
         public void ResetGame()
         {
             score = 0;
             distance = 0;
             player.Reset();
             playerControl.ControlActive = true;
+
             foreach (var item in backgroundsManager)
             {
                 item.enabled = true;
@@ -120,6 +122,7 @@ namespace EndlessT4cos.Gameplay.Management
             {
                 item.SetActive(false);
             }
+
             enemiesManager.enabled = true;
             platformsManager.Speed = 5;
             enemiesManager.Speed = 5;

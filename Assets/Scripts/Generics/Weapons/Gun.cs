@@ -13,11 +13,13 @@ namespace Games.Generics.Weapon
         [SerializeField] private bool canShoot = true;
         [SerializeField] private float bulletSpeed = 10f;
 
+        private IEnumerator setCoolDownLifetimeInstance = null;
+
         private void Awake()
         {
             objectsPool = new Queue<GameObject>();
             Bullet bullet = null;
-
+            
             for (int i = 0; i < objects.Length; i++)
             {
                 objectsPool.Enqueue(objects[i]);
@@ -52,7 +54,18 @@ namespace Games.Generics.Weapon
             bullet.transform.position = firePosition.position + firePosition.right * bullet.transform.lossyScale.x / 2;
             bullet.transform.rotation = transform.rotation;
 
-            StartCoroutine(SetCoolDownLifetime());
+            setCoolDownLifetimeInstance = SetCoolDownLifetime();
+            StartCoroutine(setCoolDownLifetimeInstance);
+        }
+
+        public void ResetStats()
+        {
+            if (setCoolDownLifetimeInstance != null)
+            {
+                StopCoroutine(setCoolDownLifetimeInstance);
+            }
+
+            canShoot = true;
         }
     }
 }

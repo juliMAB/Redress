@@ -54,11 +54,6 @@ namespace EndlessT4cos.Management
             }
 
             SceneManager.LoadScene(stringSceneName);
-
-            if (scene == Scene.Game)
-            {
-
-            }
         }
 
         public void CloseGame()

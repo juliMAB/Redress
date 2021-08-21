@@ -166,10 +166,10 @@ MonoBehaviour:
   viewDistance: 7
   target: {fileID: 0}
   lookingAtTarget: 0
+  minDistanceToTarget: 1
   type: 0
-  minDistanceToExplode: 1.5
   radiusOfDamage: 1
-  additionalSpeed: 5
+  additionalSpeed: 2.5
 --- !u!50 &1577426488288435481
 Rigidbody2D:
   serializedVersion: 4
