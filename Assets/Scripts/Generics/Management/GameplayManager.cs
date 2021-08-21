@@ -56,6 +56,7 @@ namespace EndlessT4cos.Gameplay.Management
                 enemy = enemiesManager.Objects[i].GetComponent<Enemy>();
                 enemy.OnDie += AddScore;
             }
+
             OnGameplayEnded += StartEnding;
         }
 

@@ -9,7 +9,6 @@ namespace EndlessT4cos.Gameplay.User
 {
     public class Player : MonoBehaviour, IDamageable
     {
-
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
         [SerializeField] private float inmuneTime = 2f;
