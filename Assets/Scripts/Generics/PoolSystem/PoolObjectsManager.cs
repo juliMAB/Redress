@@ -16,11 +16,6 @@ namespace Games.Generics.PoolSystem
 
         protected void DeactivateObject(GameObject gObject)
         {
-            if(gObject.TryGetComponent(out Bullet bullet))
-            {
-                float asdaf = 2;
-            }
-
             gObject.SetActive(false);
             objectsPool.Enqueue(gObject);
         }
