@@ -6,6 +6,8 @@ using UnityEngine;
 using EndlessT4cos.Gameplay.Enemies;
 using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
+using Games.Generic.Character.Movement;
+using EndlessT4cos.Gameplay.Background;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -31,7 +33,9 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private int scorePerKill = 0;
         [SerializeField] private EnemiesManager enemiesManager = null;
         [SerializeField] private Player player = null;
+        [SerializeField] private CharacterMovementSeter playerControl = null;
         [SerializeField] private PlatformsManager platformsManager = null;
+        [SerializeField] private BackgroundsManager[] backgroundsManager = null;
         [SerializeField] private float yPlayerPosToLose = -5f;
 
         public Action<int> OnChangedScore = null;
@@ -52,6 +56,7 @@ namespace EndlessT4cos.Gameplay.Management
                 enemy = enemiesManager.Objects[i].GetComponent<Enemy>();
                 enemy.OnDie += AddScore;
             }
+            OnGameplayEnded += StartEnding;
         }
 
         private void Update()
@@ -60,6 +65,12 @@ namespace EndlessT4cos.Gameplay.Management
 
             if (player.transform.position.y - player.transform.lossyScale.y / 2 < yPlayerPosToLose)
             {
+                player.OnDie?.Invoke();
+                EndGameplay();
+            }
+            if (Input.GetKey(KeyCode.Keypad9))
+            {
+                player.OnDie?.Invoke();
                 EndGameplay();
             }
         }
@@ -73,6 +84,44 @@ namespace EndlessT4cos.Gameplay.Management
         private void EndGameplay()
         {
             OnGameplayEnded?.Invoke();
+        }
+        void StartEnding()
+        {
+            //quitarle el control al player.
+            playerControl.ControlActive = false;
+            //frenar las plataformas.
+            platformsManager.Speed = 0;
+            //frenar los enemigos.
+            foreach (var item in backgroundsManager)
+            {
+                item.enabled = false;
+            }
+
+            enemiesManager.Speed = 0;
+            //mostar el retry.
+            //pausar los managers.
+           
+            enemiesManager.enabled = false;
+
+        }
+        public void ResetGame()
+        {
+            score = 0;
+            distance = 0;
+            player.Reset();
+            playerControl.ControlActive = true;
+            foreach (var item in backgroundsManager)
+            {
+                item.enabled = true;
+            }
+
+            foreach (var item in enemiesManager.Objects)
+            {
+                item.SetActive(false);
+            }
+            enemiesManager.enabled = true;
+            platformsManager.Speed = 5;
+            enemiesManager.Speed = 5;
         }
     }
 }

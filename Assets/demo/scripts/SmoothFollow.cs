@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using EndlessT4cos.Generic.Character.Movement;
+using Games.Generic.Character.Movement;
 
 
 public class SmoothFollow : MonoBehaviour

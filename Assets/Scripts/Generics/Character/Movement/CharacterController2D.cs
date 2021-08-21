@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace EndlessT4cos.Generic.Character.Movement
+namespace Games.Generic.Character.Movement
 {
 
 [RequireComponent( typeof( BoxCollider2D ), typeof( Rigidbody2D ) )]

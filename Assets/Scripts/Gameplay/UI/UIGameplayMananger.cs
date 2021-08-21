@@ -14,6 +14,7 @@ namespace EndlessT4cos.Gameplay.UI
         [SerializeField] private TextMeshProUGUI scoreText = null;
         [SerializeField] private TextMeshProUGUI distanceText = null;
         [SerializeField] private TextMeshProUGUI velocityText = null;
+        [SerializeField] private GameObject retryPanel = null;
         [SerializeField] Image[] lives = null;
 
         public void UpdateScore(int value)
@@ -56,10 +57,19 @@ namespace EndlessT4cos.Gameplay.UI
             gameplayManager.OnChangedScore += UpdateScore;
             gameplayManager.Player.OnLivesChanged += UpdateLives;
             UpdateVelocity((int)gameplayManager.EnemiesManager.Speed);
+            gameplayManager.Player.OnDie+= ActivatePanelRetry;
         }
         private void Update()
         {
             UpdateDistance((int)gameplayManager.Distance);
+        }
+        public void RetryButton()
+        {
+            gameplayManager.ResetGame();
+        }
+        private void ActivatePanelRetry()
+        {
+            retryPanel.SetActive(true);
         }
     }
 }

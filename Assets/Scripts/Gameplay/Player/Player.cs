@@ -19,11 +19,19 @@ namespace EndlessT4cos.Gameplay.User
         private bool isInmune = false;
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
+        private Vector3 initialPos;
+        public void Reset()
+        {
+            transform.position = initialPos;
+            lives = 5;
+
+        }
 
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             normalColor = spriteRenderer.color;
+            initialPos = transform.position;
         }
         private void Update()
         {

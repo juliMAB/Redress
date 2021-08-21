@@ -11,7 +11,7 @@ namespace Games.Generics.Displacement
         [SerializeField] protected Vector2 halfSizeOfScreen = Vector2.zero;
         [SerializeField] protected float distance = 2f;
         [SerializeField] protected float speed = 5f;
-        public float Speed { get => speed; }
+        public float Speed { get => speed; set => speed = value; }
 
         protected virtual void Start()
         {

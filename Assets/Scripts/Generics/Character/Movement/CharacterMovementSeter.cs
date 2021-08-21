@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessT4cos.Generic.Character.Movement
+namespace Games.Generic.Character.Movement
 {
 	public class CharacterMovementSeter : MonoBehaviour
 	{
@@ -29,6 +29,9 @@ namespace EndlessT4cos.Generic.Character.Movement
 		[SerializeField] private float resetDash=0.5f;
 		[SerializeField] private float resetDashT;
 		[SerializeField] private Slider slider; // no esta bien, pero no sabia como agarrarlo.
+		[SerializeField] private bool controlActive = true;
+
+		public bool ControlActive { set { controlActive = value; } }
 		void Awake()
 		{
 			_animator = GetComponent<Animator>();
@@ -76,7 +79,8 @@ namespace EndlessT4cos.Generic.Character.Movement
 		// the Update loop contains a very simple example of moving the character around and controlling the animation
 		void Update()
 		{
-			
+			if (!controlActive)
+				return;
 			//this is for grounded.
 			if (_controller.isGrounded)
 				_velocity.y = 0;
@@ -196,7 +200,7 @@ namespace EndlessT4cos.Generic.Character.Movement
 			if (_controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
-				//_animator.Play( Animator.StringToHash( "Jump" ) );
+				_animator.Play( Animator.StringToHash( "Jump" ) );
 			}
 
 
