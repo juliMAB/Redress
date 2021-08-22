@@ -14,6 +14,7 @@ namespace EndlessT4cos.Gameplay.Management
 {
     public class GameplayManager : MonoBehaviour
     {
+        #region Singleton
         private static GameplayManager instance = null;
         public static GameplayManager Instance { get => instance; }
 
@@ -28,6 +29,8 @@ namespace EndlessT4cos.Gameplay.Management
                 instance = this;
             }
         }
+        #endregion
+
         [SerializeField] private int velocity = 0;
         [SerializeField] private int spawnTime = 0;
         [SerializeField] private int score = 0;
@@ -42,10 +45,10 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private BackgroundChanger backgroundChanger = null;
         [SerializeField] private float yPlayerPosToLose = -5f;
 
-
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
+
         public int Score { get => score; set => score = value; }
         public float Distance { get => distance; }
         public EnemiesManager EnemiesManager { get => enemiesManager; }
@@ -64,22 +67,19 @@ namespace EndlessT4cos.Gameplay.Management
             }
 
             OnGameplayEnded += StartEnding;
-            OnNextState += backgroundChanger.updateSprite;
+            OnNextState += backgroundChanger.UpdateSprite;
         }
 
         private void Update()
         {
             distance += platformsManager.Speed / 50;
-            if ((int)distance% distanceToNextState == 0 && (int)distance!=0)
+
+            if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
             {
-                Debug.Log("ENTRE");
-                backgroundChanger.updateSprite((int)distance / distanceToNextState);
+                backgroundChanger.UpdateSprite((int)distance / distanceToNextState);
             }
-            if (player.transform.position.y - player.transform.lossyScale.y / 2 < yPlayerPosToLose)
-            {
-                player.Die();
-            }
-            if (Input.GetKey(KeyCode.Keypad9))
+
+            if (!IsPlayerAlive())
             {
                 player.Die();
             }
@@ -136,6 +136,11 @@ namespace EndlessT4cos.Gameplay.Management
             enemiesManager.enabled = true;
             platformsManager.Speed = 5;
             enemiesManager.Speed = 5;
+        }
+
+        private bool IsPlayerAlive()
+        {
+            return !Input.GetKey(KeyCode.Keypad9) && player.transform.position.y - player.transform.lossyScale.y / 2 > yPlayerPosToLose;
         }
     }
 }
