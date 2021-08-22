@@ -54,6 +54,7 @@ namespace EndlessT4cos.Gameplay.Management
         
         private void Start()
         {
+            player.OnDie += EndGameplay;
             Enemy enemy;
 
             for (int i = 0; i < enemiesManager.Objects.Length; i++)
@@ -69,20 +70,18 @@ namespace EndlessT4cos.Gameplay.Management
         private void Update()
         {
             distance += platformsManager.Speed / 50;
-            if ((int)distance% distanceToNextState == 0)
+            if ((int)distance% distanceToNextState == 0 && (int)distance!=0)
             {
-                Debug.Log("LLEGA AL MANAGER.");
+                Debug.Log("ENTRE");
                 backgroundChanger.updateSprite((int)distance / distanceToNextState);
             }
             if (player.transform.position.y - player.transform.lossyScale.y / 2 < yPlayerPosToLose)
             {
-                player.OnDie?.Invoke();
-                EndGameplay();
+                player.Die();
             }
             if (Input.GetKey(KeyCode.Keypad9))
             {
-                player.OnDie?.Invoke();
-                EndGameplay();
+                player.Die();
             }
         }
 
