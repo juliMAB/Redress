@@ -21018,8 +21018,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2008208820}
-        m_MethodName: ResetGame
+      - m_Target: {fileID: 1303240163}
+        m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21683,6 +21683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35eeb209fc41f4547b49a0b4465ad3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 0
+  spawnTime: 0
   score: 0
   distance: 0
   scorePerKill: 2

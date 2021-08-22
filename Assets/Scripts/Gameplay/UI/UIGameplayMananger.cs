@@ -66,6 +66,8 @@ namespace EndlessT4cos.Gameplay.UI
         public void RetryButton()
         {
             gameplayManager.ResetGame();
+            UpdateLives(5);
+
         }
         private void ActivatePanelRetry()
         {

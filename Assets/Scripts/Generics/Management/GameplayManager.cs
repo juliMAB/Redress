@@ -8,6 +8,7 @@ using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
 using Games.Generic.Character.Movement;
 using EndlessT4cos.Gameplay.Background;
+using UnityEngine.Events;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -27,20 +28,24 @@ namespace EndlessT4cos.Gameplay.Management
                 instance = this;
             }
         }
-
+        [SerializeField] private int velocity = 0;
+        [SerializeField] private int spawnTime = 0;
         [SerializeField] private int score = 0;
         [SerializeField] private float distance = 0;
         [SerializeField] private int scorePerKill = 0;
+        [SerializeField] private int distanceToNextState = 1000;
         [SerializeField] private EnemiesManager enemiesManager = null;
         [SerializeField] private Player player = null;
         [SerializeField] private CharacterMovementSeter playerControl = null;
         [SerializeField] private PlatformsManager platformsManager = null;
         [SerializeField] private BackgroundsManager[] backgroundsManager = null;
+        [SerializeField] private BackgroundChanger backgroundChanger = null;
         [SerializeField] private float yPlayerPosToLose = -5f;
+
 
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
-
+        public Action<int> OnNextState = null;
         public int Score { get => score; set => score = value; }
         public float Distance { get => distance; }
         public EnemiesManager EnemiesManager { get => enemiesManager; }
@@ -58,12 +63,17 @@ namespace EndlessT4cos.Gameplay.Management
             }
 
             OnGameplayEnded += StartEnding;
+            OnNextState += backgroundChanger.updateSprite;
         }
 
         private void Update()
         {
             distance += platformsManager.Speed / 50;
-
+            if ((int)distance% distanceToNextState == 0)
+            {
+                Debug.Log("LLEGA AL MANAGER.");
+                backgroundChanger.updateSprite((int)distance / distanceToNextState);
+            }
             if (player.transform.position.y - player.transform.lossyScale.y / 2 < yPlayerPosToLose)
             {
                 player.OnDie?.Invoke();
@@ -80,6 +90,7 @@ namespace EndlessT4cos.Gameplay.Management
         {
             score += scorePerKill;
             OnChangedScore?.Invoke(score);
+            
         }
 
         private void EndGameplay()
