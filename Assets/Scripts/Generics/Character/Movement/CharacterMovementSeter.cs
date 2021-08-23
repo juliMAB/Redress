@@ -51,7 +51,9 @@ namespace Games.Generics.Character.Movement
 		private void Update()
 		{
 			if (!controlActive)
-				return;
+			{ 
+				return; 
+			}
 			
 			if (_controller.isGrounded) //this is for grounded.
 			{ 

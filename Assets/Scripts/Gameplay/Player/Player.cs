@@ -19,12 +19,14 @@ namespace EndlessT4cos.Gameplay.User
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
         [SerializeField] private float inmuneTime = 2f;
-        [SerializeField] private Gun gun = null;        
+        [SerializeField] private Gun gun = null;
+        [SerializeField] private bool controlActive = true;
 
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
 
         public int InitialLives { get => initialLives; }
+        public bool ControlActive { set { controlActive = value; } }
 
         public void Reset()
         {
@@ -50,6 +52,11 @@ namespace EndlessT4cos.Gameplay.User
 
         private void Update()
         {
+            if (!controlActive)
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.K))
             {
                 gun.Shoot();

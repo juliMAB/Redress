@@ -122,6 +122,7 @@ namespace EndlessT4cos.Gameplay.Management
         {
             //quitarle el control al player.
             playerControl.ControlActive = false;
+            player.ControlActive = false;
 
             //frenar las plataformas y enemigos.
             speed = 0;
@@ -145,6 +146,7 @@ namespace EndlessT4cos.Gameplay.Management
             distance = 0;
             player.Reset();
             playerControl.ControlActive = true;
+            player.ControlActive = true;
 
             speed = initialSpeed;
 
