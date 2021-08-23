@@ -35,9 +35,10 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float initialSpeed = 5;
         [SerializeField] private float initialMinSpawnTime = 1;
         [SerializeField] private float initialMaxSpawnTime = 2;
+        [SerializeField] private float initialMinSpawnDistance = 1;
+        [SerializeField] private float initialMaxSpawnDistance = 2;
 
         [Header("Global variables")]
-        [SerializeField] private int velocity = 0;
         [SerializeField] private float speed = 5f;
         [SerializeField] private int score = 0;
         [SerializeField] private float distance = 0;
@@ -46,6 +47,8 @@ namespace EndlessT4cos.Gameplay.Management
         [Header("Gameplay configuration")]
         [SerializeField] private int distanceToNextState = 1000;
         [SerializeField] private float yPlayerPosToLose = -5f;
+        [SerializeField] private float speedProgressionMultiplier = 0.1f;
+        [SerializeField] private float distanceProgressionMultiplier = 0.1f;
 
         [Header("Entities")]
         [SerializeField] private EnemiesManager enemiesManager = null;
@@ -79,8 +82,9 @@ namespace EndlessT4cos.Gameplay.Management
             OnGameplayEnded += StartEnding;
             OnNextState += backgroundChanger.UpdateSprite;
 
-            InitializePlatformObjectsManager(platformsManager);
-            InitializePlatformObjectsManager(enemiesManager);
+            SetPlatformObjectsManagerValues(enemiesManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
+            SetPlatformObjectsManagerValues(platformsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
+            SetPlatformsManagerValues(initialMinSpawnDistance, initialMaxSpawnDistance);
         }
 
         private void Update()
@@ -96,6 +100,8 @@ namespace EndlessT4cos.Gameplay.Management
             {
                 player.Die();
             }
+
+            SetLevelProgression();
         }
 
         private void AddScore(GameObject go)
@@ -114,19 +120,19 @@ namespace EndlessT4cos.Gameplay.Management
         {
             //quitarle el control al player.
             playerControl.ControlActive = false;
-            //frenar las plataformas.
-            platformsManager.speed = 0;
+
+            //frenar las plataformas y enemigos.
+            speed = 0;
+
             //frenar los enemigos.
-            foreach (var item in backgroundsManager)
+            foreach (var background in backgroundsManager)
             {
-                item.enabled = false;
+                background.enabled = false;
             }
 
-            enemiesManager.speed = 0;
-            //mostar el retry.
-            //pausar los managers.
-           
+            //pausar los managers.           
             enemiesManager.enabled = false;
+            platformsManager.enabled = false;
         }
 
         public void ResetGame()
@@ -136,32 +142,56 @@ namespace EndlessT4cos.Gameplay.Management
             player.Reset();
             playerControl.ControlActive = true;
 
-            foreach (var item in backgroundsManager)
+            speed = initialSpeed;
+
+            foreach (var background in backgroundsManager)
             {
-                item.enabled = true;
+                background.enabled = true;
             }
 
-            foreach (var item in enemiesManager.Objects)
+            foreach (var enemy in enemiesManager.Objects)
             {
-                item.SetActive(false);
+                enemy.SetActive(false);
             }
 
             enemiesManager.enabled = true;
+            platformsManager.enabled = true;
 
-            InitializePlatformObjectsManager(platformsManager);
-            InitializePlatformObjectsManager(enemiesManager);
+            SetPlatformObjectsManagerValues(enemiesManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
+            SetPlatformObjectsManagerValues(platformsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
+            SetPlatformsManagerValues(initialMinSpawnDistance, initialMaxSpawnDistance);
+
+            platformsManager.Reset();
         }
 
-        private void InitializePlatformObjectsManager(PlatformObjectsManager platformObjectsManager)
+        private void SetPlatformObjectsManagerValues(PlatformObjectsManager platformObjectsManager, float speed, float minSpawnTime, float maxSpawnTime)
         {
-            platformObjectsManager.speed = initialSpeed;
-            platformObjectsManager.minSpawnTime = initialMinSpawnTime;
-            platformObjectsManager.maxSpawnTime = initialMaxSpawnTime;
+            platformObjectsManager.speed = speed;
+            platformObjectsManager.minSpawnTime = minSpawnTime;
+            platformObjectsManager.maxSpawnTime = maxSpawnTime;
+        }
+
+        private void SetPlatformsManagerValues(float minDistance, float maxDistance)
+        {
+            platformsManager.minDistance = minDistance;
+            platformsManager.maxDistance = maxDistance;
         }
 
         private bool IsPlayerAlive()
         {
             return !Input.GetKey(KeyCode.Keypad9) && player.transform.position.y - player.transform.lossyScale.y / 2 > yPlayerPosToLose;
+        }
+
+        private void SetLevelProgression()
+        {
+            float speedProgression = Time.deltaTime * speedProgressionMultiplier;
+            float distanceProgression = Time.deltaTime * distanceProgressionMultiplier;
+
+            speed += speedProgression;
+
+            SetPlatformObjectsManagerValues(enemiesManager, speed, enemiesManager.minSpawnTime, enemiesManager.maxSpawnTime);
+            SetPlatformObjectsManagerValues(platformsManager, speed, platformsManager.minSpawnTime, platformsManager.maxSpawnTime);
+            SetPlatformsManagerValues(platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
         }
     }
 }

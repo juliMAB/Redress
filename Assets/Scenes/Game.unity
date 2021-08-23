@@ -8089,7 +8089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialLives: 5
   lives: 5
-  inmuneTime: 100
+  inmuneTime: 5
   gun: {fileID: 1736577004}
 --- !u!1 &691188611 stripped
 GameObject:
@@ -11073,10 +11073,10 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 512
-  minSpawnTime: 3
-  maxSpawnTime: 6
   largerObject: {fileID: 812479240}
   waitTimeTillNextObject: []
+  minSpawnTime: 3
+  maxSpawnTime: 6
   target: {fileID: 6408668683553309451}
   platformsManager: {fileID: 1829776217}
 --- !u!4 &958777223
@@ -20234,10 +20234,10 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 512
-  minSpawnTime: 0.5
-  maxSpawnTime: 1
   largerObject: {fileID: 0}
   waitTimeTillNextObject: []
+  minSpawnTime: 0.5
+  maxSpawnTime: 1
   minDistance: 1
   maxDistance: 2
 --- !u!4 &1829776218
@@ -21730,12 +21730,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35eeb209fc41f4547b49a0b4465ad3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
-  spawnTime: 0
+  initialSpeed: 5
+  initialMinSpawnTime: 1
+  initialMaxSpawnTime: 2
+  initialMinSpawnDistance: 1
+  initialMaxSpawnDistance: 2
+  speed: 5
   score: 0
   distance: 0
   scorePerKill: 2
   distanceToNextState: 10
+  yPlayerPosToLose: -5
+  speedProgressionMultiplier: 0.1
+  distanceProgressionMultiplier: 0.1
   enemiesManager: {fileID: 958777222}
   player: {fileID: 688926773}
   playerControl: {fileID: 6408668683553309452}
@@ -21745,7 +21752,6 @@ MonoBehaviour:
   - {fileID: 706980486}
   - {fileID: 1309040692}
   backgroundChanger: {fileID: 235285248}
-  yPlayerPosToLose: -5
 --- !u!4 &2008208821
 Transform:
   m_ObjectHideFlags: 0

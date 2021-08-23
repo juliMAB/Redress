@@ -4,12 +4,26 @@ namespace EndlessT4cos.Gameplay.Platforms
 {
     public class PlatformsManager : PlatformObjectsManager
     {
+        struct InitialPlatform
+        {
+            public GameObject platformGo;
+            public Vector3 position;
+            public Row row;
+        }
+
         [Header("Platform Spawn")]
-        [SerializeField] private float minDistance = 1;
-        [SerializeField] private float maxDistance = 2;
+        public float minDistance = 1;
+        public float maxDistance = 2;
+
         private float halfPlatformHeight = 0f;
+        private InitialPlatform[] initialActivePlatforms = null;
 
         public float HalfPlatformHeight { get => halfPlatformHeight; }
+
+        public void Reset()
+        {
+            SetInitialPlatforms();
+        }
 
         protected override void Awake()
         {
@@ -28,6 +42,8 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
             }
+
+            FindInitialActivePlatforms();
         }
 
         protected override void Update()
@@ -57,6 +73,62 @@ namespace EndlessT4cos.Gameplay.Platforms
                     newPlatform.GetComponent<PlatformObject>().row = platform.row;
                 }
             }
+        }
+
+        private void FindInitialActivePlatforms()
+        {
+            int amountActivePlatforms = 0;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (!objects[i].activeSelf)
+                {
+                    continue;
+                }
+                amountActivePlatforms++;
+            }
+
+            initialActivePlatforms = new InitialPlatform[amountActivePlatforms];
+
+            int index = 0;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (!objects[i].activeSelf)
+                {
+                    continue;
+                }
+
+                PlatformObject actualPlatform = objects[i].GetComponent<PlatformObject>();
+
+                initialActivePlatforms[index].platformGo = objects[i];
+                initialActivePlatforms[index].position = objects[i].transform.position;
+                initialActivePlatforms[index].row = actualPlatform.row;
+                index++;
+            }
+        }
+
+        private void SetInitialPlatforms()
+        {
+            // deactivate all platforms
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i].activeSelf)
+                {
+                    DeactivateObject(objects[i]);
+                }
+            }
+
+            // activate and place initial platforms
+            for (int i = 0; i < initialActivePlatforms.Length; i++)
+            {
+                PlatformObject actualPlatform = initialActivePlatforms[i].platformGo.GetComponent<PlatformObject>();
+
+                initialActivePlatforms[i].platformGo.SetActive(true);
+                initialActivePlatforms[i].platformGo.transform.position = initialActivePlatforms[i].position;
+                initialActivePlatforms[i].row = actualPlatform.row;
+            }
+
         }
     }
 }

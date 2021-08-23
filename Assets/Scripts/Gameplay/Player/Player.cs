@@ -19,14 +19,23 @@ namespace EndlessT4cos.Gameplay.User
         private Color inmuneColor = Color.red;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
+        private IEnumerator setInmuneLifetimeInstance = null;
 
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
         
         public void Reset()
         {
+            if (setInmuneLifetimeInstance != null)
+            {
+                StopCoroutine(setInmuneLifetimeInstance);
+            }
+
             transform.position = initialPosition;
             lives = initialLives;
+            isInmune = false;
+            spriteRenderer.color = normalColor;
+
             OnLivesChanged?.Invoke(lives);
         }
 
@@ -34,7 +43,7 @@ namespace EndlessT4cos.Gameplay.User
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             normalColor = spriteRenderer.color;
-            initialPosition = transform.position;
+            initialPosition = transform.position;            
         }
 
         private void Update()
@@ -75,7 +84,8 @@ namespace EndlessT4cos.Gameplay.User
                 Die();
             }
 
-            StartCoroutine(SetInmuneLifetime());
+            setInmuneLifetimeInstance = SetInmuneLifetime();
+            StartCoroutine(setInmuneLifetimeInstance);
         }
 
         public void Die()
