@@ -14,11 +14,11 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         [Header("Platform collision settings")]
         [SerializeField] protected LayerMask layer = 0;
-        [SerializeField] protected float minSpawnTime = 1f;
-        [SerializeField] protected float maxSpawnTime = 2f;
         [SerializeField] protected PlatformObject largerObject = null;
-
         [SerializeField] protected float[] waitTimeTillNextObject = null;
+
+        public float minSpawnTime = 1f;
+        public float maxSpawnTime = 2f;
 
         public float[] YSpawnPositions { get => ySpawnPositions; }
         public int AmountPlatformRows { get => amountPlatformRows; }

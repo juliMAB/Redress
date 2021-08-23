@@ -56,7 +56,7 @@ namespace EndlessT4cos.Gameplay.UI
         {
             gameplayManager.OnChangedScore += UpdateScore;
             gameplayManager.Player.OnLivesChanged += UpdateLives;
-            UpdateVelocity((int)gameplayManager.EnemiesManager.Speed);
+            UpdateVelocity((int)gameplayManager.EnemiesManager.speed);
             gameplayManager.Player.OnDie+= ActivatePanelRetry;
         }
         private void Update()
