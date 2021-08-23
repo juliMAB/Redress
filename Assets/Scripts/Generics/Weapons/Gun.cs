@@ -8,11 +8,11 @@ namespace Games.Generics.Weapon
 {
     public class Gun : PoolObjectsManager
     {
+        private IEnumerator setCoolDownLifetimeInstance = null;
+
         [SerializeField] private Transform firePosition = null;
         [SerializeField] private float coolDownTime = 0.1f;
         [SerializeField] private bool canShoot = true;
-        
-        private IEnumerator setCoolDownLifetimeInstance = null;
 
         public float bulletSpeed = 10f;
 

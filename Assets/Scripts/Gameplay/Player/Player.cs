@@ -9,17 +9,17 @@ namespace EndlessT4cos.Gameplay.User
 {
     public class Player : MonoBehaviour, IDamageable
     {
-        [SerializeField] private int initialLives = 5;
-        [SerializeField] private int lives = 5;
-        [SerializeField] private float inmuneTime = 2f;
-        [SerializeField] private Gun gun = null;
-
         private SpriteRenderer spriteRenderer = null;
         private Color normalColor = Color.white;
         private Color inmuneColor = Color.red;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private IEnumerator setInmuneLifetimeInstance = null;
+
+        [SerializeField] private int initialLives = 5;
+        [SerializeField] private int lives = 5;
+        [SerializeField] private float inmuneTime = 2f;
+        [SerializeField] private Gun gun = null;        
 
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;

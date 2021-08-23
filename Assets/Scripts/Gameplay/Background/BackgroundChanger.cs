@@ -5,10 +5,11 @@ namespace EndlessT4cos.Gameplay.Background
 {
     public class BackgroundChanger : MonoBehaviour
     {
-        [SerializeField] private Sprite[] sprite2 = null;
-        [SerializeField] private BackgroundsManager backgroundsManager;
         private bool isAlreadyRunning = false;
 
+        [SerializeField] private Sprite[] sprite2 = null;
+        [SerializeField] private BackgroundsManager backgroundsManager;
+        
         public void UpdateSprite(int value)
         {
             if (isAlreadyRunning)

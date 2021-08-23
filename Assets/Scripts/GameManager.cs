@@ -8,6 +8,7 @@ namespace EndlessT4cos.Management
 {
     public class GameManager : MonoBehaviour
     {
+        #region Singleton
         private static GameManager instance = null;
         public static GameManager Instance { get => instance; }
         
@@ -23,6 +24,7 @@ namespace EndlessT4cos.Management
                 DontDestroyOnLoad(gameObject);
             }
         }
+        #endregion
 
         public enum Scene { Menu, Game, ResultScreen }
 

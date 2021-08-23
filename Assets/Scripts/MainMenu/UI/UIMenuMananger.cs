@@ -8,10 +8,10 @@ namespace EndlessT4cos.Menu.UI
 {
     public class UIMenuMananger : MonoBehaviour
     {
+        [Header("Entities")]
         [SerializeField] private GameObject menu = null;
         [SerializeField] private GameObject options = null;
         [SerializeField] private GameObject credits = null;
-
         [SerializeField] private GameObject[] creditsPanels = null;
         [SerializeField] private GameObject[] creditsPanelsButtons = null;
 

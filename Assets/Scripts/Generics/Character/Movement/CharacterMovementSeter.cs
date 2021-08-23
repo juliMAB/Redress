@@ -8,6 +8,21 @@ namespace Games.Generics.Character.Movement
 {
 	public class CharacterMovementSeter : MonoBehaviour
 	{
+		[HideInInspector]
+		private float normalizedHorizontalSpeed = 0;
+
+		private CharacterController2D _controller;
+		private Animator _animator;
+		private Vector3 _velocity;
+		private KeyCode lastKey;
+
+		[Header("Dash")]
+		[SerializeField] private float dashCooldownT;
+		[SerializeField] private float resetDash = 0.5f;
+		[SerializeField] private float resetDashT;
+		[SerializeField] private Slider slider; // no esta bien, pero no sabia como agarrarlo.
+		[SerializeField] private bool controlActive = true;
+
 		// movement config
 		public float gravity = -25f;
 		public float runSpeed = 8f;
@@ -16,20 +31,6 @@ namespace Games.Generics.Character.Movement
 		public float jumpHeight = 3f;
 		public float dashCooldown = 3f;
 		public float dashPower = 5f;
-
-		[HideInInspector]
-		private float normalizedHorizontalSpeed = 0;
-
-		private CharacterController2D _controller;
-		private Animator _animator;
-		private Vector3 _velocity;
-		private KeyCode lastKey;
-		[Header("Dash")]
-		[SerializeField] private float dashCooldownT;
-		[SerializeField] private float resetDash=0.5f;
-		[SerializeField] private float resetDashT;
-		[SerializeField] private Slider slider; // no esta bien, pero no sabia como agarrarlo.
-		[SerializeField] private bool controlActive = true;
 
 		public bool ControlActive { set { controlActive = value; } }
 

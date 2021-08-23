@@ -9,11 +9,11 @@ namespace EndlessT4cos.Gameplay.Enemies
     
     public class EnemiesManager : PlatformObjectsManager
     {
+        private float halfPlatformHeight = 0f;
+
         [Header("Enemy management")]
         [SerializeField] private GameObject target = null;
         [SerializeField] private PlatformsManager platformsManager = null;
-
-        private float halfPlatformHeight = 0f;
 
         protected override void Start()
         {

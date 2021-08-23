@@ -4,9 +4,9 @@ namespace Games.Generics.Displacement
 {
     public class MovableObject : MonoBehaviour
     {
-        [SerializeField] protected Vector2 halfSize = Vector2.zero;
-
         protected Vector3 direction = -Vector3.right;
+
+        [SerializeField] protected Vector2 halfSize = Vector2.zero;
 
         public Vector2 HalfSize { get => halfSize; }
 

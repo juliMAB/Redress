@@ -95,7 +95,7 @@ namespace EndlessT4cos.Gameplay.Management
 
             if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
             {
-                backgroundChanger.UpdateSprite((int)distance / distanceToNextState);
+                //backgroundChanger.UpdateSprite((int)distance / distanceToNextState);
             }
 
             if (!IsPlayerAlive())

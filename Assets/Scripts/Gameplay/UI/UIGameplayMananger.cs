@@ -15,7 +15,7 @@ namespace EndlessT4cos.Gameplay.UI
         [SerializeField] private TextMeshProUGUI distanceText = null;
         [SerializeField] private TextMeshProUGUI velocityText = null;
         [SerializeField] private GameObject retryPanel = null;
-        [SerializeField] Image[] lives = null;
+        [SerializeField] private Image[] lives = null;
 
         public void UpdateScore(int value)
         {

@@ -11,12 +11,12 @@ namespace EndlessT4cos.Gameplay.Platforms
             public Row row;
         }
 
+        private float halfPlatformHeight = 0f;
+        private InitialPlatform[] initialActivePlatforms = null;
+
         [Header("Platform Spawn")]
         public float minDistance = 1;
         public float maxDistance = 2;
-
-        private float halfPlatformHeight = 0f;
-        private InitialPlatform[] initialActivePlatforms = null;
 
         public float HalfPlatformHeight { get => halfPlatformHeight; }
 
