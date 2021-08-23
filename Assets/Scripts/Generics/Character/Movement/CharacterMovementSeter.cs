@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Games.Generic.Character.Movement
+namespace Games.Generics.Character.Movement
 {
 	public class CharacterMovementSeter : MonoBehaviour
 	{

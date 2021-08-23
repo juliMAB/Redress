@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using Games.Generic.Character.Movement;
+using Games.Generics.Character.Movement;
 
 
 public class SmoothFollow : MonoBehaviour

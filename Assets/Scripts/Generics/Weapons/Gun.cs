@@ -11,9 +11,10 @@ namespace Games.Generics.Weapon
         [SerializeField] private Transform firePosition = null;
         [SerializeField] private float coolDownTime = 0.1f;
         [SerializeField] private bool canShoot = true;
-        [SerializeField] private float bulletSpeed = 10f;
-
+        
         private IEnumerator setCoolDownLifetimeInstance = null;
+
+        public float bulletSpeed = 10f;
 
         private void Awake()
         {

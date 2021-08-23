@@ -23,7 +23,9 @@ namespace EndlessT4cos.Gameplay.User
 
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
-        
+
+        public int InitialLives { get => initialLives; }
+
         public void Reset()
         {
             if (setInmuneLifetimeInstance != null)

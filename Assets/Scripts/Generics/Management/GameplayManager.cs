@@ -6,9 +6,9 @@ using UnityEngine;
 using EndlessT4cos.Gameplay.Enemies;
 using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
-using Games.Generic.Character.Movement;
+using Games.Generics.Character.Movement;
 using EndlessT4cos.Gameplay.Background;
-using UnityEngine.Events;
+using Games.Generics.Weapon;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -47,8 +47,9 @@ namespace EndlessT4cos.Gameplay.Management
         [Header("Gameplay configuration")]
         [SerializeField] private int distanceToNextState = 1000;
         [SerializeField] private float yPlayerPosToLose = -5f;
-        [SerializeField] private float speedProgressionMultiplier = 0.1f;
+        [SerializeField] private float speedProgressionMultiplier = 0.02f;
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
+        [SerializeField] private float bulletSpeedMultiplier = 2;
 
         [Header("Entities")]
         [SerializeField] private EnemiesManager enemiesManager = null;
@@ -85,6 +86,7 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(enemiesManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformObjectsManagerValues(platformsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(initialMinSpawnDistance, initialMaxSpawnDistance);
+            SetBulletsSpeed(speed * bulletSpeedMultiplier);
         }
 
         private void Update()
@@ -138,6 +140,8 @@ namespace EndlessT4cos.Gameplay.Management
         public void ResetGame()
         {
             score = 0;
+            OnChangedScore?.Invoke(score);
+
             distance = 0;
             player.Reset();
             playerControl.ControlActive = true;
@@ -160,6 +164,7 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(enemiesManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformObjectsManagerValues(platformsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(initialMinSpawnDistance, initialMaxSpawnDistance);
+            SetBulletsSpeed(speed * bulletSpeedMultiplier);
 
             platformsManager.Reset();
         }
@@ -192,6 +197,17 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(enemiesManager, speed, enemiesManager.minSpawnTime, enemiesManager.maxSpawnTime);
             SetPlatformObjectsManagerValues(platformsManager, speed, platformsManager.minSpawnTime, platformsManager.maxSpawnTime);
             SetPlatformsManagerValues(platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
+            SetBulletsSpeed(speed * bulletSpeedMultiplier);
+        }
+
+        private void SetBulletsSpeed(float speed)
+        {
+            Gun[] allGuns = FindObjectsOfType<Gun>();
+
+            for (int i = 0; i < allGuns.Length; i++)
+            {
+                allGuns[i].bulletSpeed = speed;
+            }
         }
     }
 }

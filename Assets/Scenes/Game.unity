@@ -3517,8 +3517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 235285247}
   - component: {fileID: 235285248}
-  - component: {fileID: 235285250}
-  - component: {fileID: 235285249}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -3556,38 +3554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cde7eee3a4fe643aaa989409789337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite2:
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 7c564abae8b02c84b9855ea3790d2305, type: 3}
+  sprite2: []
   backgroundsManager: {fileID: 1309040692}
---- !u!114 &235285249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235285246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cde7eee3a4fe643aaa989409789337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite2: []
-  backgroundsManager: {fileID: 0}
---- !u!114 &235285250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235285246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cde7eee3a4fe643aaa989409789337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite2: []
-  backgroundsManager: {fileID: 706980486}
 --- !u!1 &236889046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: 85ed38a00acf1fe478a7957bf450c1e8,
@@ -21741,8 +21709,9 @@ MonoBehaviour:
   scorePerKill: 2
   distanceToNextState: 10
   yPlayerPosToLose: -5
-  speedProgressionMultiplier: 0.1
-  distanceProgressionMultiplier: 0.1
+  speedProgressionMultiplier: 0.02
+  distanceProgressionMultiplier: 0.02
+  bulletSpeedMultiplier: 1.5
   enemiesManager: {fileID: 958777222}
   player: {fileID: 688926773}
   playerControl: {fileID: 6408668683553309452}

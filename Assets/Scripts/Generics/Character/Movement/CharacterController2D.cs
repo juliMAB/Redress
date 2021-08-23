@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Games.Generic.Character.Movement
+namespace Games.Generics.Character.Movement
 {
 
 [RequireComponent( typeof( BoxCollider2D ), typeof( Rigidbody2D ) )]

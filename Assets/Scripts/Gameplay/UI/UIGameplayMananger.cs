@@ -55,20 +55,22 @@ namespace EndlessT4cos.Gameplay.UI
         private void Start()
         {
             gameplayManager.OnChangedScore += UpdateScore;
-            gameplayManager.Player.OnLivesChanged += UpdateLives;
-            UpdateVelocity((int)gameplayManager.EnemiesManager.speed);
+            gameplayManager.Player.OnLivesChanged += UpdateLives;            
             gameplayManager.Player.OnDie+= ActivatePanelRetry;
         }
+
         private void Update()
         {
             UpdateDistance((int)gameplayManager.Distance);
+            UpdateVelocity((int)gameplayManager.EnemiesManager.speed);
         }
+
         public void RetryButton()
         {
             gameplayManager.ResetGame();
-            UpdateLives(5);
-
+            UpdateLives(gameplayManager.Player.InitialLives);
         }
+
         private void ActivatePanelRetry()
         {
             retryPanel.SetActive(true);

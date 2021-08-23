@@ -128,7 +128,6 @@ namespace EndlessT4cos.Gameplay.Platforms
                 initialActivePlatforms[i].platformGo.transform.position = initialActivePlatforms[i].position;
                 initialActivePlatforms[i].row = actualPlatform.row;
             }
-
         }
     }
 }
