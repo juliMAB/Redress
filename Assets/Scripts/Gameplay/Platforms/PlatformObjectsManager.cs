@@ -25,13 +25,14 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         protected virtual void Awake() 
         {
-            float verticalDistanceBetweenPlatforms = 1.7f;
+            float startYPos = 0.65f;
+            float verticalDistanceBetweenPlatforms = 2.35f;
 
             ySpawnPositions = new float[amountPlatformRows];
 
             for (int i = 0; i < amountPlatformRows; i++)
             {
-                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms;
+                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
             }
         }
 
