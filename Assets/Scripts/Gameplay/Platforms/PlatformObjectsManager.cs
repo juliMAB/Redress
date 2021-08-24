@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 using Games.Generics.Displacement;
-using EndlessT4cos.Gameplay.Enemies;
+using EndlessT4cos.Gameplay.Objects.Enemies;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {

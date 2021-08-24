@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Games.Generics.Interfaces;
 
-namespace EndlessT4cos.Gameplay.Enemies
+namespace EndlessT4cos.Gameplay.Objects.Enemies
 {
     public class ExplosiveEnemy : Enemy
     {

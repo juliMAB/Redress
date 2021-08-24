@@ -5,7 +5,7 @@ using UnityEngine;
 using EndlessT4cos.Gameplay.Platforms;
 using Games.Generics.Interfaces;
 
-namespace EndlessT4cos.Gameplay.Enemies
+namespace EndlessT4cos.Gameplay.Objects.Enemies
 {
     public enum Type { Static, Explosive, Shooter }
 

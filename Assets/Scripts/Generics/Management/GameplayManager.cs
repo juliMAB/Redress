@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-using EndlessT4cos.Gameplay.Enemies;
+using EndlessT4cos.Gameplay.Objects.Enemies;
 using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
 using Games.Generics.Character.Movement;
@@ -218,21 +216,21 @@ namespace EndlessT4cos.Gameplay.Management
         private void AssignEnemiesTypes()
         {
             Enemy enemy;
-            Enemies.Type type;
+            Objects.Enemies.Type type;
 
             for (int i = 0; i < objectsManager.Enemies.Length; i++)
             {
                 enemy = objectsManager.Enemies[i];
 
-                type = Enemies.Type.Static;
+                type = Objects.Enemies.Type.Static;
 
                 if (enemy.TryGetComponent(out ExplosiveEnemy explosiveEnemy))
                 {
-                    type = Enemies.Type.Explosive;
+                    type = Objects.Enemies.Type.Explosive;
                 }
                 else if (enemy.TryGetComponent(out ShooterEnemy shooterEnemy))
                 {
-                    type = Enemies.Type.Shooter;
+                    type = Objects.Enemies.Type.Shooter;
                 }
 
                 enemy.type = type;
@@ -251,12 +249,12 @@ namespace EndlessT4cos.Gameplay.Management
 
                 switch (enemy.type)
                 {
-                    case Enemies.Type.Static:
+                    case Objects.Enemies.Type.Static:
                         break;
-                    case Enemies.Type.Explosive:
+                    case Objects.Enemies.Type.Explosive:
                         explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
                         break;
-                    case Enemies.Type.Shooter:
+                    case Objects.Enemies.Type.Shooter:
                         shooterEnemy = enemy.GetComponent<ShooterEnemy>();
                         break;
                     default:

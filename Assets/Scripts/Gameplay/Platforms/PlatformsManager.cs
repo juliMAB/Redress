@@ -56,7 +56,7 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         protected override void Update()
         {
-            PlatformObject platform = null;
+            PlatformObject platform;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -190,7 +190,5 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
         }
         #endregion
-
-
     }
 }
