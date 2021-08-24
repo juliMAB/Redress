@@ -14,13 +14,13 @@ namespace Games.Generics.PoolSystem
 
         public GameObject[] Objects { get => objects; }
 
-        protected void DeactivateObject(GameObject gObject)
+        public void DeactivateObject(GameObject gObject)
         {
             gObject.SetActive(false);
             objectsPool.Enqueue(gObject);
         }
 
-        protected GameObject ActivateObject()
+        public GameObject ActivateObject()
         {
             GameObject gObject = objectsPool.Dequeue();
 

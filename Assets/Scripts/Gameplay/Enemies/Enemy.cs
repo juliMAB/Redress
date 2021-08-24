@@ -7,6 +7,8 @@ using Games.Generics.Interfaces;
 
 namespace EndlessT4cos.Gameplay.Enemies
 {
+    public enum Type { Static, Explosive, Shooter }
+
     public class Enemy : PlatformObject, IDamageable
     {
         [Header("Enemy")]

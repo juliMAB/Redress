@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
+using Games.Generics.Displacement;
+
 namespace EndlessT4cos.Gameplay.Platforms
 {
-    public class PlatformsManager : PlatformObjectsManager
+    public class PlatformsManager : MovableObjectsManager
     {
         struct InitialPlatform
         {
@@ -14,34 +16,40 @@ namespace EndlessT4cos.Gameplay.Platforms
         private float halfPlatformHeight = 0f;
         private InitialPlatform[] initialActivePlatforms = null;
 
+        [SerializeField] private float[] ySpawnPositions = null;
+        [SerializeField] private int amountPlatformRows = 3;
+
         [Header("Platform Spawn")]
         public float minDistance = 1;
         public float maxDistance = 2;
 
         public float HalfPlatformHeight { get => halfPlatformHeight; }
+        public float[] YSpawnPositions { get => ySpawnPositions; set => ySpawnPositions = value; }
+        public int AmountPlatformRows { get => amountPlatformRows; set => amountPlatformRows = value; }
 
         public void Reset()
         {
             SetInitialPlatforms();
         }
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
+
+            float startYPos = 0.65f;
+            float verticalDistanceBetweenPlatforms = 2.35f;
+
+            ySpawnPositions = new float[amountPlatformRows];
+
+            for (int i = 0; i < amountPlatformRows; i++)
+            {
+                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
+            }
         }
 
         protected override void Start()
         {
             base.Start();
-
-            waitTimeTillNextObject = new float[amountPlatformRows];
-
-            for (int i = 0; i < waitTimeTillNextObject.Length; i++)
-            {
-                waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
-            }
 
             FindInitialActivePlatforms();
         }
@@ -75,6 +83,58 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
         }
 
+        private bool LastObjectIsFarEnough(Row row)
+        {
+            PlatformObject closerObject = null;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                closerObject = objects[i].GetComponent<PlatformObject>();
+
+                if (!objects[i].activeSelf || closerObject.row != row)
+                {
+                    continue;
+                }
+
+                if (IsTheClosestToRightEdge(closerObject.row, closerObject))
+                {
+                    break;
+                }
+            }
+
+            return IsFarEnoughForNewObjectToSpawn(closerObject);
+        }
+
+        private bool IsTheClosestToRightEdge(Row row, PlatformObject platform) //Means it was the last to spawn
+        {
+            PlatformObject closerObject = null;
+            PlatformObject actualObject;
+
+            float diference = 100;
+            float newDiference;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                actualObject = objects[i].GetComponent<PlatformObject>();
+
+                if (!objects[i].activeSelf || actualObject.row != row)
+                {
+                    continue;
+                }
+
+                newDiference = Mathf.Abs(actualObject.transform.position.x - actualObject.HalfSize.x - halfSizeOfScreen.x);
+
+                if (newDiference < diference)
+                {
+                    diference = newDiference;
+                    closerObject = actualObject;
+                }
+            }
+
+            return closerObject == platform;
+        }
+
+        #region Initialization
         private void FindInitialActivePlatforms()
         {
             int amountActivePlatforms = 0;
@@ -129,5 +189,8 @@ namespace EndlessT4cos.Gameplay.Platforms
                 initialActivePlatforms[i].row = actualPlatform.row;
             }
         }
+        #endregion
+
+
     }
 }

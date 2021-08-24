@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 using Games.Generics.Displacement;
+using EndlessT4cos.Gameplay.Enemies;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {
@@ -8,9 +9,11 @@ namespace EndlessT4cos.Gameplay.Platforms
 
     public class PlatformObjectsManager : MovableObjectsManager
     {
-        [Header("Start position")]
-        [SerializeField] protected float[] ySpawnPositions = null;
-        [SerializeField] protected int amountPlatformRows = 3;
+        private float halfPlatformHeight = 0f;
+
+        private Enemy[] enemies = null;
+
+        [SerializeField] private PlatformsManager platformsManager = null;
 
         [Header("Platform collision settings")]
         [SerializeField] protected LayerMask layer = 0;
@@ -20,83 +23,90 @@ namespace EndlessT4cos.Gameplay.Platforms
         public float minSpawnTime = 1f;
         public float maxSpawnTime = 2f;
 
-        public float[] YSpawnPositions { get => ySpawnPositions; }
-        public int AmountPlatformRows { get => amountPlatformRows; }
+        public Enemy[] Enemies { get => enemies; }
 
-        protected virtual void Awake() 
+        protected override void Start()
         {
-            float startYPos = 0.65f;
-            float verticalDistanceBetweenPlatforms = 2.35f;
+            base.Start();
 
-            ySpawnPositions = new float[amountPlatformRows];
+            halfPlatformHeight = platformsManager.HalfPlatformHeight;
 
-            for (int i = 0; i < amountPlatformRows; i++)
+            SetComponentsDynamicsArrays();
+
+            waitTimeTillNextObject = new float[platformsManager.AmountPlatformRows];
+
+            for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {
-                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
+                waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
             }
         }
 
-        protected bool LastObjectIsFarEnough(Row row)
+        protected override void Update()
         {
-            PlatformObject closerObject = null;
+            base.Update();
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {
-                closerObject = objects[i].GetComponent<PlatformObject>();
+                waitTimeTillNextObject[i] -= Time.deltaTime;
 
-                if (!objects[i].activeSelf || closerObject.row != row)
-                {
-                    continue;
-                }
+                Vector2 position = new Vector2(halfSizeOfScreen.x + largerObject.HalfSize.x, platformsManager.YSpawnPositions[i] + halfPlatformHeight * 2);
 
-                if (IsTheClosestToRightEdge(closerObject.row, closerObject))
+                if (waitTimeTillNextObject[i] < 0 && TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject))
                 {
-                    break;
+                    waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
+
+                    GameObject newObject = ActivateObject();
+
+                    PlatformObject platformObjectComponent = newObject.GetComponent<PlatformObject>();
+                    PlaceOnRightEnd(newObject, platformsManager.YSpawnPositions[i] + platformObjectComponent.HalfSize.y + halfPlatformHeight);
+                    platformObjectComponent.row = (Row)i;
+
+                    ResetObjectStats(newObject);
                 }
             }
-
-            return IsFarEnoughForNewObjectToSpawn(closerObject);
         }
 
-        protected bool IsTheClosestToRightEdge(Row row, MovableObject platform) //Means it was the last to spawn
-        {
-            PlatformObject closerObject = null;
-            PlatformObject actualObject;
-
-            float diference = 100;
-            float newDiference;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                actualObject = objects[i].GetComponent<PlatformObject>();
-
-                if (!objects[i].activeSelf || actualObject.row != row)
-                {
-                    continue;
-                }
-
-                newDiference = Mathf.Abs(actualObject.transform.position.x - actualObject.HalfSize.x - halfSizeOfScreen.x);
-
-                if (newDiference < diference)
-                {
-                    diference = newDiference;
-                    closerObject = actualObject;
-                }
-            }
-
-            return closerObject == platform;
-        }
-
-        protected bool TheresFloorDown(Vector2 position, float distance)
+        private bool TheresFloorDown(Vector2 position, float distance)
         {
             return Physics2D.Raycast(position, Vector2.down, distance, layer);
         }
 
-        protected bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy)
+        private bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy)
         {
             return TheresFloorDown(position, distance) &&
                    TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance) &&
                    TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance);
+        }
+
+        private void ResetObjectStats(GameObject newObject)
+        {
+            if (newObject.TryGetComponent(out Enemy enemyComponent))
+            {
+                enemyComponent.ResetStats();
+            }
+        }
+
+        private void SetComponentsDynamicsArrays()
+        {
+            int enemyCount = 0;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i].TryGetComponent(out Enemy enemyComponent))
+                {
+                    enemyCount++;
+                }
+            }
+
+            enemies = new Enemy[enemyCount];
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i].TryGetComponent(out Enemy enemyComponent))
+                {
+                    enemies[i] = enemyComponent;
+                }
+            }
         }
     }
 }

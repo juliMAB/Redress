@@ -52,12 +52,15 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float bulletSpeedMultiplier = 2;
 
         [Header("Entities")]
-        [SerializeField] private EnemiesManager enemiesManager = null;
         [SerializeField] private Player player = null;
         [SerializeField] private CharacterMovementSeter playerControl = null;
         [SerializeField] private PlatformsManager platformsManager = null;
         [SerializeField] private BackgroundsManager[] backgroundsManager = null;
         [SerializeField] private BackgroundChanger backgroundChanger = null;
+        [SerializeField] private PlatformObjectsManager objectsManager = null;
+
+        [Header("Enemies")]
+        [SerializeField] private GameObject target = null;
 
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
@@ -65,7 +68,6 @@ namespace EndlessT4cos.Gameplay.Management
 
         public int Score { get => score; set => score = value; }
         public float Distance { get => distance; }
-        public EnemiesManager EnemiesManager { get => enemiesManager; }
         public Player Player { get => player; }
         public PlatformsManager PlatformsManager { get => platformsManager; }
         
@@ -74,18 +76,20 @@ namespace EndlessT4cos.Gameplay.Management
             player.OnDie += EndGameplay;
             Enemy enemy;
 
-            for (int i = 0; i < enemiesManager.Objects.Length; i++)
+            for (int i = 0; i < objectsManager.Enemies.Length; i++)
             {
-                enemy = enemiesManager.Objects[i].GetComponent<Enemy>();
+                enemy = objectsManager.Enemies[i].GetComponent<Enemy>();
                 enemy.OnDie += AddScore;
             }
+
+            AssignEnemiesTypes();
+            AssignActionsAndTarget();
 
             OnGameplayEnded += StartEnding;
             OnNextState += backgroundChanger.UpdateSprite;
 
-            SetPlatformObjectsManagerValues(enemiesManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
-            SetPlatformObjectsManagerValues(platformsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
-            SetPlatformsManagerValues(initialMinSpawnDistance, initialMaxSpawnDistance);
+            SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
+            SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
         }
 
@@ -134,7 +138,7 @@ namespace EndlessT4cos.Gameplay.Management
             }
 
             //pausar los managers.           
-            enemiesManager.enabled = false;
+            objectsManager.enabled = false;
             platformsManager.enabled = false;
         }
 
@@ -155,17 +159,16 @@ namespace EndlessT4cos.Gameplay.Management
                 background.enabled = true;
             }
 
-            foreach (var enemy in enemiesManager.Objects)
+            foreach (var enemy in objectsManager.Enemies)
             {
-                enemy.SetActive(false);
+                enemy.gameObject.SetActive(false);
             }
 
-            enemiesManager.enabled = true;
+            objectsManager.enabled = true;
             platformsManager.enabled = true;
 
-            SetPlatformObjectsManagerValues(enemiesManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
-            SetPlatformObjectsManagerValues(platformsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
-            SetPlatformsManagerValues(initialMinSpawnDistance, initialMaxSpawnDistance);
+            SetPlatformObjectsManagerValues(objectsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
+            SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
 
             platformsManager.Reset();
@@ -178,7 +181,7 @@ namespace EndlessT4cos.Gameplay.Management
             platformObjectsManager.maxSpawnTime = maxSpawnTime;
         }
 
-        private void SetPlatformsManagerValues(float minDistance, float maxDistance)
+        private void SetPlatformsManagerValues(float speed, float minDistance, float maxDistance)
         {
             platformsManager.minDistance = minDistance;
             platformsManager.maxDistance = maxDistance;
@@ -196,9 +199,8 @@ namespace EndlessT4cos.Gameplay.Management
 
             speed += speedProgression;
 
-            SetPlatformObjectsManagerValues(enemiesManager, speed, enemiesManager.minSpawnTime, enemiesManager.maxSpawnTime);
-            SetPlatformObjectsManagerValues(platformsManager, speed, platformsManager.minSpawnTime, platformsManager.maxSpawnTime);
-            SetPlatformsManagerValues(platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
+            SetPlatformObjectsManagerValues(objectsManager, speed, objectsManager.minSpawnTime, objectsManager.maxSpawnTime);
+            SetPlatformsManagerValues(speed, platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
         }
 
@@ -211,5 +213,60 @@ namespace EndlessT4cos.Gameplay.Management
                 allGuns[i].bulletSpeed = speed;
             }
         }
+
+        #region Enemies_Related_Functions
+        private void AssignEnemiesTypes()
+        {
+            Enemy enemy;
+            Enemies.Type type;
+
+            for (int i = 0; i < objectsManager.Enemies.Length; i++)
+            {
+                enemy = objectsManager.Enemies[i];
+
+                type = Enemies.Type.Static;
+
+                if (enemy.TryGetComponent(out ExplosiveEnemy explosiveEnemy))
+                {
+                    type = Enemies.Type.Explosive;
+                }
+                else if (enemy.TryGetComponent(out ShooterEnemy shooterEnemy))
+                {
+                    type = Enemies.Type.Shooter;
+                }
+
+                enemy.type = type;
+            }
+        }
+
+        private void AssignActionsAndTarget()
+        {
+            Enemy enemy;
+            ExplosiveEnemy explosiveEnemy;
+            ShooterEnemy shooterEnemy;
+
+            for (int i = 0; i < objectsManager.Enemies.Length; i++)
+            {
+                enemy = objectsManager.Enemies[i];
+
+                switch (enemy.type)
+                {
+                    case Enemies.Type.Static:
+                        break;
+                    case Enemies.Type.Explosive:
+                        explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
+                        break;
+                    case Enemies.Type.Shooter:
+                        shooterEnemy = enemy.GetComponent<ShooterEnemy>();
+                        break;
+                    default:
+                        break;
+                }
+
+                enemy.OnDie += objectsManager.DeactivateObject;
+                enemy.SetTarget(target);
+            }
+        }
+        #endregion
     }
 }
