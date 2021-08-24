@@ -7,6 +7,7 @@ using EndlessT4cos.Gameplay.Platforms;
 using Games.Generics.Character.Movement;
 using EndlessT4cos.Gameplay.Background;
 using Games.Generics.Weapon;
+using Games.Generics.Manager;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -48,6 +49,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float speedProgressionMultiplier = 0.02f;
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
+        [SerializeField] private bool pause = false;
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
@@ -56,6 +58,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private BackgroundsManager[] backgroundsManager = null;
         [SerializeField] private BackgroundChanger backgroundChanger = null;
         [SerializeField] private PlatformObjectsManager objectsManager = null;
+        [SerializeField] private PauseManager pauseManager = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -64,6 +67,7 @@ namespace EndlessT4cos.Gameplay.Management
         public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
 
+        public bool Pause { get => pause; set => pause = value; }
         public int Score { get => score; set => score = value; }
         public float Distance { get => distance; }
         public Player Player { get => player; }
@@ -91,6 +95,8 @@ namespace EndlessT4cos.Gameplay.Management
 
         private void Update()
         {
+            if (pause)
+                return;
             distance += platformsManager.speed / 50;
 
             if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
@@ -114,6 +120,14 @@ namespace EndlessT4cos.Gameplay.Management
             
         }
 
+        public void ChangePause()
+        {
+            if (pause)
+                pauseManager.Resume();
+            else
+                pauseManager.Pause();
+            pause = !pause;
+        }
         public void EndGameplay()
         {
             OnGameplayEnded?.Invoke();
