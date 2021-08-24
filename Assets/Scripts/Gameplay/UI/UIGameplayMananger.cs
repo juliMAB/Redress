@@ -13,7 +13,6 @@ namespace EndlessT4cos.Gameplay.UI
         [SerializeField] private GameplayManager gameplayManager = null;
         [SerializeField] private TextMeshProUGUI scoreText = null;
         [SerializeField] private TextMeshProUGUI distanceText = null;
-        //[SerializeField] private TextMeshProUGUI velocityText = null;
         [SerializeField] private GameObject retryPanel = null;
         [SerializeField] private Image[] lives = null;
 
@@ -22,16 +21,13 @@ namespace EndlessT4cos.Gameplay.UI
             scoreText.text = "Score: ";
             scoreText.text += value.ToString();
         }
-        //public void UpdateVelocity(int value)
-        //{
-        //    velocityText.text = "Velocity: ";
-        //    velocityText.text += value.ToString();
-        //}
+
         public void UpdateDistance(int value)
         {
             distanceText.text = "Distance: ";
             distanceText.text += value.ToString();
         }
+
         public void UpdateLives(int amountLives)
         {
             int maxLives = 5;
@@ -62,12 +58,10 @@ namespace EndlessT4cos.Gameplay.UI
         private void Update()
         {
             UpdateDistance((int)gameplayManager.Distance);
-            //UpdateVelocity((int)gameplayManager..speed);
         }
 
         public void RetryButton()
         {
-            gameplayManager.ResetGame();
             UpdateLives(gameplayManager.Player.InitialLives);
         }
 

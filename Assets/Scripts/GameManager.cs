@@ -39,7 +39,7 @@ namespace EndlessT4cos.Management
             switch (scene)
             {
                 case Scene.Menu:
-                    stringSceneName = "Menu";
+                    stringSceneName = "MainMenu";
                     break;
                 case Scene.Game:
                     stringSceneName = "Game";
@@ -51,11 +51,26 @@ namespace EndlessT4cos.Management
                     }
                     break;
                 default:
-                    stringSceneName = "Menu";
+                    stringSceneName = "MainMenu";
                     break;
             }
 
             SceneManager.LoadScene(stringSceneName);
+
+            if (scene == Scene.Game)
+            {
+                Invoke("SetGameplayReturnToMenu", 1f);
+            }
+        }
+
+        private void GoToMenu()
+        {
+            GoToScene(Scene.Menu);
+        }
+
+        public void SetGameplayReturnToMenu()
+        {
+            GameplayManager.Instance.OnGameplayEnded += GoToMenu;
         }
 
         public void CloseGame()

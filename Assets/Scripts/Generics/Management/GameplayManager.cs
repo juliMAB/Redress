@@ -71,7 +71,6 @@ namespace EndlessT4cos.Gameplay.Management
         
         private void Start()
         {
-            player.OnDie += EndGameplay;
             Enemy enemy;
 
             for (int i = 0; i < objectsManager.Enemies.Length; i++)
@@ -83,7 +82,6 @@ namespace EndlessT4cos.Gameplay.Management
             AssignEnemiesTypes();
             AssignActionsAndTarget();
 
-            OnGameplayEnded += StartEnding;
             OnNextState += backgroundChanger.UpdateSprite;
 
             SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
@@ -103,6 +101,7 @@ namespace EndlessT4cos.Gameplay.Management
             if (!IsPlayerAlive())
             {
                 player.Die();
+                StartEnding();
             }
 
             SetLevelProgression();
@@ -115,12 +114,12 @@ namespace EndlessT4cos.Gameplay.Management
             
         }
 
-        private void EndGameplay()
+        public void EndGameplay()
         {
             OnGameplayEnded?.Invoke();
         }
 
-        private void StartEnding()
+        public void StartEnding()
         {
             //quitarle el control al player.
             playerControl.ControlActive = false;
