@@ -100,7 +100,7 @@ namespace EndlessT4cos.Gameplay.Management
                 return; 
             }
 
-            distance += platformsManager.speed / 50;
+            distance += platformsManager.speed / 50f;
 
             if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
             {
@@ -159,7 +159,6 @@ namespace EndlessT4cos.Gameplay.Management
 
         public void ResetGame()
         {
-            
             score = 0;
             OnChangedScore?.Invoke(score);
 
@@ -201,6 +200,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         private void SetPlatformsManagerValues(float speed, float minDistance, float maxDistance)
         {
+            platformsManager.speed = speed;
             platformsManager.minDistance = minDistance;
             platformsManager.maxDistance = maxDistance;
         }
@@ -290,7 +290,6 @@ namespace EndlessT4cos.Gameplay.Management
         #region PickUps_Related_Functions
         private void AssignPlayerAndActionToPickUp()
         {
-            PickUp pickUp;
             Life life;
 
             for (int i = 0; i < objectsManager.Lives.Length; i++)
