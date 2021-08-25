@@ -8,6 +8,7 @@ using Games.Generics.Character.Movement;
 using EndlessT4cos.Gameplay.Background;
 using Games.Generics.Weapon;
 using Games.Generics.Manager;
+using EndlessT4cos.Gameplay.Objects.PickUps;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -83,6 +84,7 @@ namespace EndlessT4cos.Gameplay.Management
 
             AssignEnemiesTypes();
             AssignActionsAndTarget();
+            AssignPlayerAndActionToPickUp();
 
             OnNextState += backgroundChanger.UpdateSprite;
 
@@ -281,6 +283,22 @@ namespace EndlessT4cos.Gameplay.Management
 
                 enemy.OnDie += objectsManager.DeactivateObject;
                 enemy.SetTarget(target);
+            }
+        }
+        #endregion
+
+        #region PickUps_Related_Functions
+        private void AssignPlayerAndActionToPickUp()
+        {
+            PickUp pickUp;
+            Life life;
+
+            for (int i = 0; i < objectsManager.Lives.Length; i++)
+            {
+                life = objectsManager.Lives[i];
+                life.Player = player;
+
+                life.OnConsumed += objectsManager.DeactivateObject;
             }
         }
         #endregion

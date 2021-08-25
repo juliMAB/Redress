@@ -101,5 +101,13 @@ namespace EndlessT4cos.Gameplay.User
         {
             OnDie?.Invoke();
         }
+
+        public void AddLife()
+        {
+            lives++;
+            lives = Mathf.Clamp(lives, 1, initialLives);
+
+            OnLivesChanged?.Invoke(lives);
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 using Games.Generics.Displacement;
 using EndlessT4cos.Gameplay.Objects.Enemies;
+using EndlessT4cos.Gameplay.Objects.PickUps;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {
@@ -12,6 +13,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         private float halfPlatformHeight = 0f;
 
         private Enemy[] enemies = null;
+        private Life[] lives = null;
 
         [SerializeField] private PlatformsManager platformsManager = null;
 
@@ -24,6 +26,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         public float maxSpawnTime = 2f;
 
         public Enemy[] Enemies { get => enemies; }
+        public Life[] Lives { get => lives; }
 
         protected override void Start()
         {
@@ -89,6 +92,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         private void SetComponentsDynamicsArrays()
         {
             int enemyCount = 0;
+            int livesCount = 0;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -96,15 +100,28 @@ namespace EndlessT4cos.Gameplay.Platforms
                 {
                     enemyCount++;
                 }
+
+                if (objects[i].TryGetComponent(out Life lifeComponent))
+                {
+                    livesCount++;
+                }
             }
 
             enemies = new Enemy[enemyCount];
+            lives = new Life[livesCount];
 
             for (int i = 0; i < objects.Length; i++)
             {
                 if (objects[i].TryGetComponent(out Enemy enemyComponent))
                 {
-                    enemies[i] = enemyComponent;
+                    enemyCount--;
+                    enemies[enemyCount] = enemyComponent;
+                }
+
+                if (objects[i].TryGetComponent(out Life lifeComponent))
+                {
+                    livesCount--;
+                    lives[livesCount] = lifeComponent;
                 }
             }
         }
