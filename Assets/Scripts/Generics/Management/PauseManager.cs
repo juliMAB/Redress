@@ -6,12 +6,15 @@ namespace Games.Generics.Manager
 {
     public class PauseManager : MonoBehaviour
     {
-        bool GameIsPaused=false;
-        void Update()
+        private bool gameIsPaused = false;
+
+        public bool GameIsPaused { get => gameIsPaused; }
+
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                if (GameIsPaused)
+                if (gameIsPaused)
                 {
                     Resume();
                 }
@@ -21,15 +24,17 @@ namespace Games.Generics.Manager
                 }
             }
         }
+
         public void Resume()
         {
             Time.timeScale = 1f;
-            GameIsPaused = false;
+            gameIsPaused = false;
         }
+
         public void Pause()
         {
             Time.timeScale = 0f;
-            GameIsPaused = true;
+            gameIsPaused = true;
         }
     }
 }

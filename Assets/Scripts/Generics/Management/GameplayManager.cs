@@ -49,7 +49,6 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float speedProgressionMultiplier = 0.02f;
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
-        [SerializeField] private bool pause = false;
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
@@ -67,7 +66,6 @@ namespace EndlessT4cos.Gameplay.Management
         public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
 
-        public bool Pause { get => pause; set => pause = value; }
         public int Score { get => score; set => score = value; }
         public float Distance { get => distance; }
         public Player Player { get => player; }
@@ -95,8 +93,11 @@ namespace EndlessT4cos.Gameplay.Management
 
         private void Update()
         {
-            if (pause)
-                return;
+            if (pauseManager.GameIsPaused)
+            { 
+                return; 
+            }
+
             distance += platformsManager.speed / 50;
 
             if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
@@ -122,11 +123,10 @@ namespace EndlessT4cos.Gameplay.Management
 
         public void ChangePause()
         {
-            if (pause)
+            if (pauseManager.GameIsPaused)
                 pauseManager.Resume();
             else
                 pauseManager.Pause();
-            pause = !pause;
         }
         public void EndGameplay()
         {
@@ -151,10 +151,13 @@ namespace EndlessT4cos.Gameplay.Management
             //pausar los managers.           
             objectsManager.enabled = false;
             platformsManager.enabled = false;
+
+            pauseManager.Pause();
         }
 
         public void ResetGame()
         {
+            
             score = 0;
             OnChangedScore?.Invoke(score);
 
@@ -183,6 +186,8 @@ namespace EndlessT4cos.Gameplay.Management
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
 
             platformsManager.Reset();
+
+            pauseManager.Resume();
         }
 
         private void SetPlatformObjectsManagerValues(PlatformObjectsManager platformObjectsManager, float speed, float minSpawnTime, float maxSpawnTime)
