@@ -290,14 +290,14 @@ namespace EndlessT4cos.Gameplay.Management
         #region PickUps_Related_Functions
         private void AssignPlayerAndActionToPickUp()
         {
-            Life life;
+            PickUp pickUp;
 
-            for (int i = 0; i < objectsManager.Lives.Length; i++)
+            for (int i = 0; i < objectsManager.PickUps.Length; i++)
             {
-                life = objectsManager.Lives[i];
-                life.Player = player;
+                pickUp = objectsManager.PickUps[i];
+                pickUp.Player = player;
 
-                life.OnConsumed += objectsManager.DeactivateObject;
+                pickUp.OnConsumed += objectsManager.DeactivateObject;
             }
         }
         #endregion

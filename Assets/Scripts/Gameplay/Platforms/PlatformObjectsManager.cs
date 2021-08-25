@@ -13,7 +13,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         private float halfPlatformHeight = 0f;
 
         private Enemy[] enemies = null;
-        private Life[] lives = null;
+        private PickUp[] pickUps = null;
 
         [SerializeField] private PlatformsManager platformsManager = null;
 
@@ -26,7 +26,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         public float maxSpawnTime = 2f;
 
         public Enemy[] Enemies { get => enemies; }
-        public Life[] Lives { get => lives; }
+        public PickUp[] PickUps { get => pickUps; }
 
         protected override void Start()
         {
@@ -88,16 +88,16 @@ namespace EndlessT4cos.Gameplay.Platforms
                 enemyComponent.ResetStats();
             }
             
-            if (newObject.TryGetComponent(out Life lifeComponent))
+            if (newObject.TryGetComponent(out PickUp pickUpComponent))
             {
-                lifeComponent.ResetStats();
+                pickUpComponent.ResetStats();
             }
         }
 
         private void SetComponentsDynamicsArrays()
         {
             int enemyCount = 0;
-            int livesCount = 0;
+            int pickUpCount = 0;
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -106,14 +106,14 @@ namespace EndlessT4cos.Gameplay.Platforms
                     enemyCount++;
                 }
 
-                if (objects[i].TryGetComponent(out Life lifeComponent))
+                if (objects[i].TryGetComponent(out PickUp pickUpComponent))
                 {
-                    livesCount++;
+                    pickUpCount++;
                 }
             }
 
             enemies = new Enemy[enemyCount];
-            lives = new Life[livesCount];
+            pickUps = new PickUp[pickUpCount];
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -123,10 +123,10 @@ namespace EndlessT4cos.Gameplay.Platforms
                     enemies[enemyCount] = enemyComponent;
                 }
 
-                if (objects[i].TryGetComponent(out Life lifeComponent))
+                if (objects[i].TryGetComponent(out PickUp pickUpComponent))
                 {
-                    livesCount--;
-                    lives[livesCount] = lifeComponent;
+                    pickUpCount--;
+                    pickUps[pickUpCount] = pickUpComponent;
                 }
             }
         }

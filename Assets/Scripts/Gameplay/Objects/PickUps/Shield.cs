@@ -1,10 +1,10 @@
 ﻿namespace EndlessT4cos.Gameplay.Objects.PickUps
 {
-    public class Life : PickUp
+    public class Shield : PickUp
     {
         private void Start()
         {
-            totalDurability = 0f;
+            totalDurability = 5f;
             leftDurability = 0f;
         }
 
@@ -12,7 +12,8 @@
         {
             base.OnPicked();
 
-            player.AddLife();
+            player.SetInmuneForTime(totalDurability);
+            leftDurability = 0f;
         }
     }
 }

@@ -63,13 +63,13 @@ namespace EndlessT4cos.Gameplay.User
             }
         }
 
-        private IEnumerator SetInmuneLifetime()
+        private IEnumerator SetInmuneLifetime(float time)
         {
             isInmune = true;
 
             spriteRenderer.color = inmuneColor;
 
-            yield return new WaitForSeconds(inmuneTime);
+            yield return new WaitForSeconds(time);
             
             isInmune = false;
 
@@ -93,7 +93,7 @@ namespace EndlessT4cos.Gameplay.User
                 Die();
             }
 
-            setInmuneLifetimeInstance = SetInmuneLifetime();
+            setInmuneLifetimeInstance = SetInmuneLifetime(inmuneTime);
             StartCoroutine(setInmuneLifetimeInstance);
         }
 
@@ -108,6 +108,12 @@ namespace EndlessT4cos.Gameplay.User
             lives = Mathf.Clamp(lives, 1, initialLives);
 
             OnLivesChanged?.Invoke(lives);
+        }
+
+        public void SetInmuneForTime(float time)
+        {
+            setInmuneLifetimeInstance = SetInmuneLifetime(time);
+            StartCoroutine(setInmuneLifetimeInstance);
         }
     }
 }
