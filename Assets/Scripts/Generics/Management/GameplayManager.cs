@@ -174,9 +174,9 @@ namespace EndlessT4cos.Gameplay.Management
                 background.enabled = true;
             }
 
-            foreach (var enemy in objectsManager.Enemies)
+            foreach (var platfomrObject in objectsManager.Objects)
             {
-                enemy.gameObject.SetActive(false);
+                platfomrObject.gameObject.SetActive(false);
             }
 
             objectsManager.enabled = true;

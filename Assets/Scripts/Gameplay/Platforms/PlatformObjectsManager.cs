@@ -87,6 +87,11 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 enemyComponent.ResetStats();
             }
+            
+            if (newObject.TryGetComponent(out Life lifeComponent))
+            {
+                lifeComponent.ResetStats();
+            }
         }
 
         private void SetComponentsDynamicsArrays()
