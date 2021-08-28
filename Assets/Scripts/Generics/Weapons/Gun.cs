@@ -12,6 +12,7 @@ namespace Games.Generics.Weapon
 
         [SerializeField] private Transform firePosition = null;
         [SerializeField] private float coolDownTime = 0.1f;
+        [SerializeField] private float[] anglesOfShoot = null;
         [SerializeField] private bool canShoot = true;
 
         public float bulletSpeed = 10f;
@@ -48,12 +49,15 @@ namespace Games.Generics.Weapon
                 return;
             }
 
-            GameObject GO = ActivateObject();
-            
-            Bullet bullet = GO.GetComponent<Bullet>();
-            bullet.speed = bulletSpeed;
-            bullet.transform.position = firePosition.position + firePosition.right * bullet.transform.lossyScale.x / 2;
-            bullet.transform.rotation = transform.rotation;
+            for (int i = 0; i < anglesOfShoot.Length; i++)
+            {
+                GameObject GO = ActivateObject();
+                Bullet bullet = GO.GetComponent<Bullet>();
+
+                bullet.speed = bulletSpeed;
+                bullet.transform.position = firePosition.position + firePosition.right * bullet.transform.lossyScale.x / 2;
+                bullet.transform.rotation = transform.rotation * Quaternion.Euler(transform.forward * anglesOfShoot[i]);
+            }
 
             setCoolDownLifetimeInstance = SetCoolDownLifetime();
             StartCoroutine(setCoolDownLifetimeInstance);

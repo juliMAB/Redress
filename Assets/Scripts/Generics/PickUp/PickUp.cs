@@ -28,13 +28,13 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 
             if (picked)
             {
-                leftDurability -= Time.deltaTime;
-
                 if (leftDurability < 0)
                 {
                     consumed = true;
                     OnConsumed?.Invoke(gameObject);
                 }
+
+                leftDurability -= Time.deltaTime;
             }
         }
         private void OnTriggerEnter2D(Collider2D collision)

@@ -26,6 +26,7 @@ namespace EndlessT4cos.Gameplay.User
         public Action<int> OnLivesChanged = null;
 
         public int InitialLives { get => initialLives; }
+        public Gun Gun { get => gun; set => gun = value; }
         public bool ControlActive { set { controlActive = value; } }
 
         public void Reset()
