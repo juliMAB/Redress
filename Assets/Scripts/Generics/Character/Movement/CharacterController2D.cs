@@ -432,6 +432,7 @@ public class CharacterController2D : MonoBehaviour
 			// TODO: this uses a magic number which isn't ideal! The alternative is to have the user pass in if there is a jump this frame
 			if( deltaMovement.y < jumpingThreshold )
 			{
+					
 				// apply the slopeModifier to slow our movement up the slope
 				var slopeModifier = slopeSpeedMultiplier.Evaluate( angle );
 				deltaMovement.x *= slopeModifier;

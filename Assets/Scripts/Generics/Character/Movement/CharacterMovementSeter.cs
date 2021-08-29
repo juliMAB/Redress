@@ -69,6 +69,7 @@ namespace Games.Generics.Character.Movement
 			// we can only jump whilst grounded
 			if (_controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
 			{
+				AkSoundEngine.PostEvent("Jump", gameObject);
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 				_animator.Play( Animator.StringToHash( "Jump" ) );
 			}

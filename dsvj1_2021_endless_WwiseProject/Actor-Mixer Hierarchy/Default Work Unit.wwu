@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{94470155-03A9-4202-90D5-9B003B9FF328}" SchemaVersion="103">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{94470155-03A9-4202-90D5-9B003B9FF328}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Jump" ID="{D550E154-B951-4E20-AEBC-699FEB611590}" ShortID="226480784">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="341246__sharesynth__jump02" ID="{157C704E-C2DD-49BB-B73E-07B5F34E3B7E}">
+							<Language>SFX</Language>
+							<AudioFile>341246__sharesynth__jump02.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="1026234206"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="341246__sharesynth__jump02" ID="{157C704E-C2DD-49BB-B73E-07B5F34E3B7E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
