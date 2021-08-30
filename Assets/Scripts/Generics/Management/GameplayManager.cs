@@ -130,6 +130,7 @@ namespace EndlessT4cos.Gameplay.Management
             else
                 pauseManager.Pause();
         }
+
         public void EndGameplay()
         {
             OnGameplayEnded?.Invoke();

@@ -14,7 +14,6 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         private void Start()
         {
             totalDurability = 5f;
-            leftDurability = totalDurability;
 
             threeWayGun = GetComponent<Gun>();
         }
@@ -23,9 +22,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             if (leftDurability < 0)
             {
-                player.Gun = playerGun.GetComponent<Gun>();
-                player.Gun.enabled = true;
-                player.Gun.GetComponentInChildren<SpriteRenderer>().enabled = true;
+                player.ResetGun();
             }
             else if (picked)
             {
@@ -45,11 +42,18 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             player.Gun = threeWayGun;
         }
 
+        public override void ResetStats()
+        {
+            base.ResetStats();
+
+            
+        }
+
         private void FollowPlayer()
         {
             position = playerGun.transform.position;
             transform.position = position;
             transform.rotation = playerGun.transform.rotation;
-        }
+        }        
     }
 }

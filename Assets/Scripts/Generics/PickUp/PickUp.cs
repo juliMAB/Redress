@@ -18,6 +18,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         public Action<GameObject> OnConsumed = null;
 
         public Player Player { set => player = value; }
+        public bool Picked { get => picked; }
 
         protected virtual void Update()
         {
@@ -47,7 +48,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             picked = true;
         }
 
-        public void ResetStats()
+        public virtual void ResetStats()
         {
             leftDurability = totalDurability;
             picked = false;

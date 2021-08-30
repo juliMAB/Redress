@@ -18066,7 +18066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.799988, y: -207.79999}
+  m_AnchoredPosition: {x: 9.800049, y: -207.80005}
   m_SizeDelta: {x: 19.528198, y: -415.6715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1028609450
@@ -19453,6 +19453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugPanel: {fileID: 1023193119}
+  pausePanel: {fileID: 592992657}
   text: {fileID: 1210050645}
 --- !u!4 &1103747687
 Transform:
@@ -38010,7 +38011,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300138, guid: 0370ca45554824e75921d7740a78749e, type: 3}
+  m_Sprite: {fileID: 21300136, guid: 0370ca45554824e75921d7740a78749e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

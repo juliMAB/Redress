@@ -8,12 +8,17 @@ using EndlessT4cos.Gameplay.User;
 public class DebugManager : MonoBehaviour
 {
     [SerializeField] private GameObject debugPanel = null;
+    [SerializeField] private GameObject pausePanel = null;
     [SerializeField] private GameObject text = null;
 
     private bool active = false;
 
     public void RestartGame()
     {
+        if (pausePanel.activeSelf)
+        {
+            pausePanel.SetActive(false);
+        }
         GameplayManager.Instance.StartEnding();
         GameplayManager.Instance.ResetGame();
     }

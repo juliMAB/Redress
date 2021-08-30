@@ -15,6 +15,7 @@ namespace EndlessT4cos.Gameplay.User
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private IEnumerator setInmuneLifetimeInstance = null;
+        private Gun initialGun = null;
 
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
@@ -42,13 +43,16 @@ namespace EndlessT4cos.Gameplay.User
             spriteRenderer.color = normalColor;
 
             OnLivesChanged?.Invoke(lives);
+
+            ResetGun();
         }
 
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             normalColor = spriteRenderer.color;
-            initialPosition = transform.position;            
+            initialPosition = transform.position;
+            initialGun = gun;
         }
 
         private void Update()
@@ -115,6 +119,13 @@ namespace EndlessT4cos.Gameplay.User
         {
             setInmuneLifetimeInstance = SetInmuneLifetime(time);
             StartCoroutine(setInmuneLifetimeInstance);
+        }
+
+        public void ResetGun()
+        {
+            gun = initialGun;
+            gun.enabled = true;
+            gun.GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
     }
 }
