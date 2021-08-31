@@ -184,9 +184,9 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 PlatformObject actualPlatform = initialActivePlatforms[i].platformGo.GetComponent<PlatformObject>();
 
-                initialActivePlatforms[i].platformGo.SetActive(true);
-                initialActivePlatforms[i].platformGo.transform.position = initialActivePlatforms[i].position;
-                initialActivePlatforms[i].row = actualPlatform.row;
+                actualPlatform.gameObject.SetActive(true);
+                actualPlatform.transform.position = initialActivePlatforms[i].position;
+                actualPlatform.row = initialActivePlatforms[i].row;
             }
         }
         #endregion
