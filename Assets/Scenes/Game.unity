@@ -12476,7 +12476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialLives: 5
-  lives: 5
+  lives: 10
   inmuneTime: 5
   gun: {fileID: 1736577004}
   controlActive: 1
@@ -35111,6 +35111,7 @@ MonoBehaviour:
   initialMaxSpawnDistance: 2
   speed: 5
   score: 0
+  timeToChargeScore: 1
   distance: 0
   scorePerKill: 2
   distanceToNextState: 10
@@ -38204,7 +38205,7 @@ MonoBehaviour:
   resetDashT: 0
   slider: {fileID: 61379207}
   controlActive: 1
-  gravity: -25
+  gravity: -80
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 5
