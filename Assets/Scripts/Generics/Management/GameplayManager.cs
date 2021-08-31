@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 using EndlessT4cos.Gameplay.Objects.Enemies;
@@ -31,6 +32,8 @@ namespace EndlessT4cos.Gameplay.Management
         }
         #endregion
 
+        private IEnumerator setDistanceScoreInst = null;
+
         [Header("Initial values")]
         [SerializeField] private float initialSpeed = 5;
         [SerializeField] private float initialMinSpawnTime = 1;
@@ -41,6 +44,7 @@ namespace EndlessT4cos.Gameplay.Management
         [Header("Global variables")]
         [SerializeField] private float speed = 5f;
         [SerializeField] private int score = 0;
+        [SerializeField] private float timeToChargeScore = 1;
         [SerializeField] private float distance = 0;
         [SerializeField] private int scorePerKill = 0;
 
@@ -101,6 +105,13 @@ namespace EndlessT4cos.Gameplay.Management
             }
 
             distance += platformsManager.speed / 50f;
+
+            if (setDistanceScoreInst == null)
+            {
+                setDistanceScoreInst = SetDistanceScore(timeToChargeScore);
+                StartCoroutine(setDistanceScoreInst);
+                timeToChargeScore -= 0.0001f;
+            }
 
             if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
             {
@@ -232,6 +243,17 @@ namespace EndlessT4cos.Gameplay.Management
                 allGuns[i].bulletSpeed = speed;
             }
         }
+
+        private IEnumerator SetDistanceScore(float timeToChargeScore)
+        {
+            yield return new WaitForSeconds(timeToChargeScore);
+
+            score += (int)platformsManager.speed;
+            OnChangedScore?.Invoke(score);
+
+            setDistanceScoreInst = null;
+        }
+
 
         #region Enemies_Related_Functions
         private void AssignEnemiesTypes()
