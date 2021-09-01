@@ -54,6 +54,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float speedProgressionMultiplier = 0.02f;
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
+        [SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
@@ -104,7 +105,7 @@ namespace EndlessT4cos.Gameplay.Management
                 return; 
             }
 
-            distance += platformsManager.speed / 50f;
+            distance += platformsManager.speed / speedDivider;
 
             if (setDistanceScoreInst == null)
             {
