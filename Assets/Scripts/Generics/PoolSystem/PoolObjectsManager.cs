@@ -23,7 +23,7 @@ namespace Games.Generics.PoolSystem
         public GameObject ActivateObject()
         {
             GameObject gObject = objectsPool.Dequeue();
-            int index = 1;
+            int index = 0;
             bool noObjectToReturn = false;
 
             while (gObject.activeSelf && !noObjectToReturn)
