@@ -23,16 +23,33 @@ namespace Games.Generics.PoolSystem
         public GameObject ActivateObject()
         {
             GameObject gObject = objectsPool.Dequeue();
+            int index = 1;
+            bool noObjectToReturn = false;
 
-            while (gObject.activeSelf)
+            while (gObject.activeSelf && !noObjectToReturn)
             {
                 objectsPool.Enqueue(gObject);
                 gObject = objectsPool.Dequeue();
+
+                index++;
+
+                if (index == objectsPool.Count)
+                {
+                    noObjectToReturn = true;
+                    objectsPool.Enqueue(gObject);
+                }
             }
 
-            gObject.SetActive(true);
-
-            return gObject;
+            if (!noObjectToReturn)
+            { 
+                gObject.SetActive(true);
+                return gObject;
+            }
+            else
+            {
+                Debug.LogError("No objects available to activate!");
+                return null;
+            }
         }
     }
 }
