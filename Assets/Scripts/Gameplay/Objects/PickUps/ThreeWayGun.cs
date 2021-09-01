@@ -16,6 +16,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             totalDurability = 5f;
 
             threeWayGun = GetComponent<Gun>();
+            threeWayGun.SetBullets(player.InitialGun.Objects);
         }
 
         protected override void Update()

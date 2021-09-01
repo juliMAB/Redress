@@ -39,9 +39,6 @@ namespace EndlessT4cos.Gameplay.Platforms
         {
             halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
 
-            
-            
-
             ySpawnPositions = new float[amountPlatformRows];
 
             for (int i = 0; i < amountPlatformRows; i++)
