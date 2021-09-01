@@ -33,7 +33,7 @@ namespace Games.Generics.PoolSystem
 
                 index++;
 
-                if (index == objectsPool.Count)
+                if (index > objectsPool.Count)
                 {
                     noObjectToReturn = true;
                     objectsPool.Enqueue(gObject);
