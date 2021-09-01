@@ -4160,7 +4160,7 @@ PrefabInstance:
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7
+      value: -2.35
       objectReference: {fileID: 0}
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
@@ -12414,7 +12414,7 @@ PrefabInstance:
     - target: {fileID: 8031632689226860910, guid: d3d67b3f021eef84480f491215efdba4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.05
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 8031632689226860910, guid: d3d67b3f021eef84480f491215efdba4,
         type: 3}
@@ -21833,7 +21833,7 @@ PrefabInstance:
     - target: {fileID: 8031632689226860910, guid: d3d67b3f021eef84480f491215efdba4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7
+      value: -2.35
       objectReference: {fileID: 0}
     - target: {fileID: 8031632689226860910, guid: d3d67b3f021eef84480f491215efdba4,
         type: 3}
@@ -31065,6 +31065,8 @@ MonoBehaviour:
   speed: 5
   ySpawnPositions: []
   amountPlatformRows: 3
+  startYPos: 0
+  verticalDistanceBetweenPlatforms: 2.35
   minDistance: 1
   maxDistance: 2
 --- !u!4 &1829776218
@@ -31280,7 +31282,7 @@ PrefabInstance:
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
@@ -33605,7 +33607,7 @@ PrefabInstance:
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.05
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
@@ -34262,7 +34264,7 @@ PrefabInstance:
     - target: {fileID: 7421723456965337695, guid: b7fcdd0544a099a408de13a8c04ccf11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7421723456965337695, guid: b7fcdd0544a099a408de13a8c04ccf11,
         type: 3}
@@ -35119,6 +35121,7 @@ MonoBehaviour:
   speedProgressionMultiplier: 0.02
   distanceProgressionMultiplier: 0.02
   bulletSpeedMultiplier: 1.5
+  speedDivider: 40
   player: {fileID: 688926773}
   playerControl: {fileID: 6408668683553309452}
   platformsManager: {fileID: 1829776217}

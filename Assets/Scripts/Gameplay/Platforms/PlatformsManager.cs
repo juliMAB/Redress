@@ -16,8 +16,11 @@ namespace EndlessT4cos.Gameplay.Platforms
         private float halfPlatformHeight = 0f;
         private InitialPlatform[] initialActivePlatforms = null;
 
+        [Header("Platform builiding configurations")]
         [SerializeField] private float[] ySpawnPositions = null;
         [SerializeField] private int amountPlatformRows = 3;
+        [SerializeField] private float startYPos = 0.65f;
+        [SerializeField] private float verticalDistanceBetweenPlatforms = 2.35f;
 
         [Header("Platform Spawn")]
         public float minDistance = 1;
@@ -36,8 +39,8 @@ namespace EndlessT4cos.Gameplay.Platforms
         {
             halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
 
-            float startYPos = 0.65f;
-            float verticalDistanceBetweenPlatforms = 2.35f;
+            
+            
 
             ySpawnPositions = new float[amountPlatformRows];
 
