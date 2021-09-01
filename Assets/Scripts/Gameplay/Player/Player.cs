@@ -26,6 +26,7 @@ namespace EndlessT4cos.Gameplay.User
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
 
+        public Gun InitialGun { get => initialGun; }
         public int InitialLives { get => initialLives; }
         public Gun Gun { get => gun; set => gun = value; }
         public bool ControlActive { set { controlActive = value; } }
@@ -117,6 +118,11 @@ namespace EndlessT4cos.Gameplay.User
 
         public void SetInmuneForTime(float time)
         {
+            if (setInmuneLifetimeInstance != null)
+            {
+                StopCoroutine(setInmuneLifetimeInstance);
+            }
+
             setInmuneLifetimeInstance = SetInmuneLifetime(time);
             StartCoroutine(setInmuneLifetimeInstance);
         }

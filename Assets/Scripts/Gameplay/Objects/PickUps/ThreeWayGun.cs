@@ -11,7 +11,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         private Gun threeWayGun = null;
         private Vector3 position = Vector3.zero;
 
-        private void Start()
+        private void Awake()
         {
             totalDurability = 5f;
 
@@ -36,7 +36,12 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             base.OnPicked();
                         
-            playerGun = player.Gun.gameObject;
+            if (player.Gun != player.InitialGun)
+            {
+                UnactiveOldGun();
+            }
+
+            playerGun = player.InitialGun.gameObject;
             playerGun.GetComponent<Gun>().enabled = false;
             playerGun.GetComponentInChildren<SpriteRenderer>().enabled = false;
             player.Gun = threeWayGun;
@@ -45,8 +50,12 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         public override void ResetStats()
         {
             base.ResetStats();
+            threeWayGun.ResetStats();
+        }
 
-            
+        private void UnactiveOldGun()
+        {
+            OnConsumed?.Invoke(player.Gun.gameObject);
         }
 
         private void FollowPlayer()
