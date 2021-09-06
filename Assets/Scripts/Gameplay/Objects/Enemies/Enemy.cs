@@ -65,7 +65,7 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
 
         public virtual void Die()
         {
-            OnDie?.Invoke(gameObject);            
+            OnDie?.Invoke(gameObject);
         }
 
         protected bool IsTargetForward()

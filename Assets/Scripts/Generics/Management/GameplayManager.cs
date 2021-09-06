@@ -61,9 +61,9 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private CharacterMovementSeter playerControl = null;
         [SerializeField] private PlatformsManager platformsManager = null;
         [SerializeField] private BackgroundsManager[] backgroundsManager = null;
-        [SerializeField] private BackgroundChanger backgroundChanger = null;
         [SerializeField] private PlatformObjectsManager objectsManager = null;
         [SerializeField] private PauseManager pauseManager = null;
+        [SerializeField] private CameraShake cameraShake = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -85,17 +85,25 @@ namespace EndlessT4cos.Gameplay.Management
             {
                 enemy = objectsManager.Enemies[i].GetComponent<Enemy>();
                 enemy.OnDie += AddScore;
+                ExplosiveEnemy enemy1 = enemy.GetComponent<ExplosiveEnemy>();
+                if (enemy1)
+                {
+                    enemy1.OnExplode+= CrazyFunc;
+
+                }
             }
 
             AssignEnemiesTypes();
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
 
-            OnNextState += backgroundChanger.UpdateSprite;
-
             SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
+        }
+        void CrazyFunc()
+        {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
         }
 
         private void Update()

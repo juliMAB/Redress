@@ -23,6 +23,11 @@ public class DebugManager : MonoBehaviour
         GameplayManager.Instance.ResetGame();
     }
 
+    public void MakeShake()
+    {
+        StartCoroutine (Camera.main.GetComponent<CameraShake>().Shake(.15f, .4f));
+    }
+
     public void PlayerInvencible()
     {
         FindObjectOfType<Player>().SetInmuneForTime(9000);
