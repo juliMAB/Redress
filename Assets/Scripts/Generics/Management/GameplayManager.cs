@@ -50,7 +50,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         [Header("Gameplay configuration")]
         [SerializeField] private int distanceToNextState = 1000;
-        [SerializeField] private float yPlayerPosToLose = -5f;
+        [SerializeField] private Vector2 playerPosToLose = Vector2.zero;
         [SerializeField] private float speedProgressionMultiplier = 0.02f;
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
@@ -74,12 +74,15 @@ namespace EndlessT4cos.Gameplay.Management
 
         public int Score { get => score; set => score = value; }
         public float Distance => distance;
-        public float YPlayerPosToLose => yPlayerPosToLose;
+        public Vector2 PlayerPosToLose => playerPosToLose;
         public Player Player => player;
         public PlatformsManager PlatformsManager => platformsManager;
 
         private void Start()
         {
+            playerPosToLose.y = -5;
+            playerPosToLose.x = -8.8f;
+
             Enemy enemy;
 
             for (int i = 0; i < objectsManager.Enemies.Length; i++)
@@ -133,9 +136,9 @@ namespace EndlessT4cos.Gameplay.Management
             SetLevelProgression();
         }
 
-        public void SetYPlayerPosToLose(float yPos)
+        public void SetYPlayerPosToLose(Vector2 pos)
         {
-            yPlayerPosToLose = yPos;
+            playerPosToLose = pos;
         }
 
         void CrazyFunc()
@@ -242,7 +245,9 @@ namespace EndlessT4cos.Gameplay.Management
 
         private bool IsPlayerAlive()
         {
-            return !Input.GetKey(KeyCode.Keypad9) && player.transform.position.y - player.transform.lossyScale.y / 2 > yPlayerPosToLose;
+            return !Input.GetKey(KeyCode.Keypad9) && 
+                    player.transform.position.y - player.transform.lossyScale.y / 2 > playerPosToLose.y &&
+                    player.transform.position.x + player.transform.lossyScale.x / 2 > playerPosToLose.x;
         }
 
         private void SetLevelProgression()

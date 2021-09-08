@@ -12,6 +12,7 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
     public class Enemy : PlatformObject, IDamageable
     {
         [Header("Enemy")]
+        [SerializeField] protected bool canDie = false;
         [SerializeField] protected int initialLives = 1;
         [SerializeField] protected int lives = 1;
         [SerializeField] protected LayerMask targetLayer = 0;       //Layer of the target
@@ -23,6 +24,11 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
 
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
+
+        private void Start()
+        {
+            canDie = true;
+        }
 
         protected virtual void Update()
         {
@@ -55,6 +61,11 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
 
         public void TakeDamage()
         {
+            if (!canDie)
+            {
+                return;
+            }
+
             lives--;
 
             if (lives == 0)

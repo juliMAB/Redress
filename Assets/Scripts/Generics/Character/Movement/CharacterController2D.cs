@@ -259,8 +259,17 @@ public class CharacterController2D : MonoBehaviour
 			handleVerticalSlope( ref deltaMovement );
 
 		// now we check movement in the horizontal dir
-		if( deltaMovement.x != 0f )
-			moveHorizontally( ref deltaMovement );
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, transform.lossyScale.x / 2, platformMask);
+
+		if (hit.normal == Vector2.left)
+		{
+				deltaMovement = Vector3.left * 0.05f;
+			moveHorizontally(ref deltaMovement);
+		}
+		else if (deltaMovement.x != 0f)
+		{
+			moveHorizontally(ref deltaMovement); 
+		}
 
 		// next, check movement in the vertical dir
 		if( deltaMovement.y != 0f )
@@ -401,6 +410,12 @@ public class CharacterController2D : MonoBehaviour
 					deltaMovement.x += _skinWidth;
 					collisionState.left = true;
 				}
+
+				//agregado por guille
+				//------------------------
+				collisionState.right = true;
+				collisionState.left = true;
+				//------------------------
 
 				_raycastHitsThisFrame.Add( _raycastHit );
 

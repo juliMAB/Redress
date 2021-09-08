@@ -12,6 +12,11 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
 
         public Gun Gun { get => gun; }
 
+        private void Start()
+        {
+            canDie = true;
+        }
+
         protected override void Update()
         {
             base.Update();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 using Games.Generics.Displacement;
 using EndlessT4cos.Gameplay.Objects.Enemies;
@@ -17,7 +18,11 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         [SerializeField] private PlatformsManager platformsManager = null;
 
-        [Header("Platform collision settings")]
+        [Header("Spawn Settings")]
+        [SerializeField] private int amountEnemiesBeforePickUp = 15;
+        [SerializeField] private int amountEnemiesPassed = 0;
+
+        [Header("Platform Collision Settings")]
         [SerializeField] protected LayerMask layer = 0;
         [SerializeField] protected PlatformObject largerObject = null;
         [SerializeField] protected float[] waitTimeTillNextObject = null;
@@ -30,8 +35,51 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         protected override void Start()
         {
-            base.Start();
+            objectsPool = new Queue<GameObject>();
+            MovableObject movableObject;
 
+            halfSizeOfScreen.x = 8.8f;
+            halfSizeOfScreen.y = 5f;
+
+            //--------------------------------------
+
+            int totalAmountEnemiesInArray = 0; //is also index of the start of pickUps
+            int enemiesInQueue = 0;
+            int pickUpsAdded = 0;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i].TryGetComponent(out Enemy enemy))
+                {
+                    totalAmountEnemiesInArray++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (enemiesInQueue < amountEnemiesBeforePickUp)
+                {
+                    objectsPool.Enqueue(objects[i - pickUpsAdded]);
+                    enemiesInQueue++;
+                }
+                else
+                {
+                    objectsPool.Enqueue(objects[totalAmountEnemiesInArray + pickUpsAdded]);
+                    pickUpsAdded++;
+                    
+                    enemiesInQueue = 0;
+                }
+
+                movableObject = objects[i].GetComponent<MovableObject>();
+                movableObject.SetSize();
+            }
+
+            //--------------------------------------
+            
             halfPlatformHeight = platformsManager.HalfPlatformHeight;
 
             SetComponentsDynamicsArrays();

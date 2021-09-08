@@ -100,7 +100,6 @@ namespace Games.Generics.Character.Movement
 			if (resetDashT > 0)
 			{
 				resetDashT -= Time.deltaTime;
-
 			}
 			if (Input.GetKeyDown(KeyCode.RightArrow))
 			{
@@ -147,7 +146,6 @@ namespace Games.Generics.Character.Movement
 					transform.eulerAngles = new Vector3(0, 180, 0);
 				}
 
-
 				if (_controller.isGrounded)
 				{
 					_animator.Play(Animator.StringToHash("Run"));
@@ -162,6 +160,9 @@ namespace Games.Generics.Character.Movement
 					_animator.Play(Animator.StringToHash("Idle"));
 				}
 			}
+
+			//move when a object is moving the player
+
 		}
 
 		private void SetDashUpdate()
