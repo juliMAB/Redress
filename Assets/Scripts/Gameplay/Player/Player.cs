@@ -26,10 +26,10 @@ namespace EndlessT4cos.Gameplay.User
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
 
-        public Gun InitialGun { get => initialGun; }
-        public int InitialLives { get => initialLives; }
+        public Gun InitialGun => initialGun;
+        public int InitialLives => initialLives;
         public Gun Gun { get => gun; set => gun = value; }
-        public bool ControlActive { set { controlActive = value; } }
+        public bool ControlActive { set => controlActive = value; }
 
         public void Reset()
         {

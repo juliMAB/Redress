@@ -11,6 +11,8 @@ public class DebugManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel = null;
     [SerializeField] private GameObject text = null;
 
+    private float initialYPlayerPosToLose = 0;
+
     private bool active = false;
 
     public void RestartGame()
@@ -35,12 +37,15 @@ public class DebugManager : MonoBehaviour
 
     public void PlayerInvencible()
     {
+        initialYPlayerPosToLose = GameplayManager.Instance.YPlayerPosToLose;
+        GameplayManager.Instance.SetYPlayerPosToLose(-1000);
         FindObjectOfType<Player>().SetInmuneForTime(9000);
     }
 
     public void PlayerRemoveInvulneravility()
     {
         FindObjectOfType<Player>().SetInmuneForTime(0);
+        GameplayManager.Instance.SetYPlayerPosToLose(initialYPlayerPosToLose);
     }
 
     public void PlayerAddLife()

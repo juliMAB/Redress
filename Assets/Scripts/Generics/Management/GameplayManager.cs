@@ -73,10 +73,11 @@ namespace EndlessT4cos.Gameplay.Management
         public Action<int> OnNextState = null;
 
         public int Score { get => score; set => score = value; }
-        public float Distance { get => distance; }
-        public Player Player { get => player; }
-        public PlatformsManager PlatformsManager { get => platformsManager; }
-        
+        public float Distance => distance;
+        public float YPlayerPosToLose => yPlayerPosToLose;
+        public Player Player => player;
+        public PlatformsManager PlatformsManager => platformsManager;
+
         private void Start()
         {
             Enemy enemy;
@@ -100,11 +101,6 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
-        }
-
-        void CrazyFunc()
-        {
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
         }
 
         private void Update()
@@ -135,6 +131,16 @@ namespace EndlessT4cos.Gameplay.Management
             }
 
             SetLevelProgression();
+        }
+
+        public void SetYPlayerPosToLose(float yPos)
+        {
+            yPlayerPosToLose = yPos;
+        }
+
+        void CrazyFunc()
+        {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
         }
 
         private void AddScore(GameObject go)
