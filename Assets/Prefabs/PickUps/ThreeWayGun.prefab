@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects: []
   firePosition: {fileID: 1305334218948553338}
-  coolDownTime: 0.1
+  coolDownTime: 0.3
   anglesOfShoot:
   - -10
   - 0

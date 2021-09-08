@@ -153,6 +153,11 @@ namespace EndlessT4cos.Gameplay.Management
 
         public void EndGameplay()
         {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+
             OnGameplayEnded?.Invoke();
         }
 
@@ -262,7 +267,6 @@ namespace EndlessT4cos.Gameplay.Management
 
             setDistanceScoreInst = null;
         }
-
 
         #region Enemies_Related_Functions
         private void AssignEnemiesTypes()

@@ -31215,6 +31215,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1305334219206568268, guid: 91cf721e1a87c3f4381849882476b30f,
+        type: 3}
+      propertyPath: coolDownTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568269, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_RootOrder
@@ -37054,6 +37059,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6408668683553309443}
     m_Modifications:
+    - target: {fileID: 8951922516021569097, guid: 9144ebe6765a89746ac4012a3acd3fd0,
+        type: 3}
+      propertyPath: coolDownTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8951922516021569097, guid: 9144ebe6765a89746ac4012a3acd3fd0,
         type: 3}
       propertyPath: firePosition

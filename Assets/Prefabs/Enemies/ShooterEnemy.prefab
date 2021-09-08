@@ -167,6 +167,7 @@ MonoBehaviour:
   viewDistance: 7
   target: {fileID: 0}
   lookingAtTarget: 0
+  minDistanceToTarget: 1
   type: 2
   gun: {fileID: 6352346406863635357}
 --- !u!50 &2977826370413762124
@@ -200,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 8951922516021569097, guid: 0e3fb4db08b49cf4bb8b598891e2bd20,
         type: 3}
       propertyPath: coolDownTime
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8951922516021569102, guid: 0e3fb4db08b49cf4bb8b598891e2bd20,
         type: 3}
