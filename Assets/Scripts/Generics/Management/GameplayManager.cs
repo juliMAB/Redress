@@ -254,10 +254,16 @@ namespace EndlessT4cos.Gameplay.Management
         private void SetBulletsSpeed(float speed)
         {
             Gun[] allGuns = FindObjectsOfType<Gun>();
+            Bullet[] allBullets = FindObjectsOfType<Bullet>();
 
             for (int i = 0; i < allGuns.Length; i++)
             {
                 allGuns[i].bulletSpeed = speed;
+            }
+
+            for (int i = 0; i < allBullets.Length; i++)
+            {
+                allBullets[i].speed = speed;
             }
         }
 
