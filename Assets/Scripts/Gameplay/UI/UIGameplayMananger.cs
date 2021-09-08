@@ -59,6 +59,10 @@ namespace EndlessT4cos.Gameplay.UI
         private void Update()
         {
             UpdateDistance((int)gameplayManager.Distance);
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                ActivatePausePanel();
+            }
         }
 
         public void RetryButton()
