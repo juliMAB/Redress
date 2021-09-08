@@ -101,6 +101,7 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier);
         }
+
         void CrazyFunc()
         {
             StartCoroutine(cameraShake.Shake(.15f, .4f));
@@ -139,8 +140,7 @@ namespace EndlessT4cos.Gameplay.Management
         private void AddScore(GameObject go)
         {
             score += scorePerKill;
-            OnChangedScore?.Invoke(score);
-            
+            OnChangedScore?.Invoke(score);            
         }
 
         public void ChangePause()
@@ -179,6 +179,7 @@ namespace EndlessT4cos.Gameplay.Management
             //pausar los managers.           
             objectsManager.enabled = false;
             platformsManager.enabled = false;
+            SetBulletsSpeed(0);
 
             pauseManager.Pause();
         }
@@ -207,6 +208,8 @@ namespace EndlessT4cos.Gameplay.Management
 
             objectsManager.enabled = true;
             platformsManager.enabled = true;
+
+            DeactivateAllBullest();
 
             SetPlatformObjectsManagerValues(objectsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
@@ -255,6 +258,16 @@ namespace EndlessT4cos.Gameplay.Management
             for (int i = 0; i < allGuns.Length; i++)
             {
                 allGuns[i].bulletSpeed = speed;
+            }
+        }
+
+        private void DeactivateAllBullest()
+        {
+            Gun[] allGuns = FindObjectsOfType<Gun>();
+
+            for (int i = 0; i < allGuns.Length; i++)
+            {
+                allGuns[i].DeactivateAllBullets();
             }
         }
 

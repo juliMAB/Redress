@@ -83,12 +83,26 @@ namespace Games.Generics.Weapon
             {
                 objects[i] = bullets[i];
             }
+
             for (int i = 0; i < objects.Length; i++)
             {
                 objectsPool.Enqueue(objects[i]);
                 bullet = objects[i].GetComponent<Bullet>();
 
                 bullet.OnCollided += DeactivateObject;
+            }
+        }
+
+        public void DeactivateAllBullets()
+        {
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (!objects[i].activeSelf)
+                {
+                    continue;
+                }
+
+                DeactivateObject(objects[i]);
             }
         }
     }
