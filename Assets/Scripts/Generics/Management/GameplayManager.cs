@@ -55,6 +55,8 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
         [SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
+        [SerializeField] private int[] scorePerLevel = null;
+        [SerializeField] private int actualLvl = 0;
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
@@ -64,6 +66,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private PlatformObjectsManager objectsManager = null;
         [SerializeField] private PauseManager pauseManager = null;
         [SerializeField] private CameraShake cameraShake = null;
+        [SerializeField] private BackgroundChanger backgroundChanger = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -121,11 +124,20 @@ namespace EndlessT4cos.Gameplay.Management
                 StartCoroutine(setDistanceScoreInst);
                 timeToChargeScore -= 0.0001f;
             }
-
-            if ((int)distance % distanceToNextState == 0 && (int)distance != 0)
+            if (!(scorePerLevel.Length< actualLvl+1))
             {
-                //backgroundChanger.UpdateSprite((int)distance / distanceToNextState);
+                if (distance > scorePerLevel[actualLvl])
+                {
+                    Debug.Log("level up!");
+                    if (actualLvl > scorePerLevel.Length)
+                    {
+                        Debug.Log("Me quede sin niveles.");
+                    }
+                    actualLvl++;
+                    backgroundChanger.UpdateSprite(actualLvl);
+                }
             }
+            
 
             if (!IsPlayerAlive())
             {

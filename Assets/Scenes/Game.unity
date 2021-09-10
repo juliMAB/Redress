@@ -6381,7 +6381,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cde7eee3a4fe643aaa989409789337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite2: []
+  lvlSprites:
+  - sp: []
+  - sp:
+    - {fileID: 21300000, guid: dde5a3f3c883fc749963c22dd401f882, type: 3}
+    - {fileID: 21300000, guid: 54e06e0e753c3184b82295eedad10ce3, type: 3}
+  - sp:
+    - {fileID: 21300000, guid: e9b23c658354c4a47b0170d5c3b88923, type: 3}
+    - {fileID: 21300000, guid: adcd1b82788733645b00ce72166289cc, type: 3}
+  - sp:
+    - {fileID: 21300000, guid: dde5a3f3c883fc749963c22dd401f882, type: 3}
+    - {fileID: 21300000, guid: 54e06e0e753c3184b82295eedad10ce3, type: 3}
   backgroundsManager: {fileID: 1309040692}
 --- !u!1 &236889046 stripped
 GameObject:
@@ -39452,6 +39462,8 @@ MonoBehaviour:
   distanceProgressionMultiplier: 0.02
   bulletSpeedMultiplier: 1.5
   speedDivider: 40
+  scorePerLevel: 140000002c010000f4010000
+  actualLvl: 0
   player: {fileID: 688926773}
   playerControl: {fileID: 6408668683553309452}
   platformsManager: {fileID: 1829776217}
@@ -39462,6 +39474,7 @@ MonoBehaviour:
   objectsManager: {fileID: 166775821}
   pauseManager: {fileID: 2008208822}
   cameraShake: {fileID: 519420034}
+  backgroundChanger: {fileID: 235285248}
   target: {fileID: 6408668683553309451}
 --- !u!4 &2008208821
 Transform:
