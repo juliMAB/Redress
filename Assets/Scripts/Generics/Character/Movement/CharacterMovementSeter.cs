@@ -47,17 +47,16 @@ namespace Games.Generics.Character.Movement
 			slider.maxValue = dashCooldown;
 		}
 
-		// the Update loop contains a very simple example of moving the character around and controlling the animation
-		private void Update()
-		{
+		public void CharacterMovementSeterUpdate()
+        {
 			if (!controlActive)
-			{ 
-				return; 
+			{
+				return;
 			}
-			
+
 			if (_controller.isGrounded) //this is for grounded.
-			{ 
-				_velocity.y = 0; 
+			{
+				_velocity.y = 0;
 			}
 
 			//this is for normal move.
@@ -71,7 +70,7 @@ namespace Games.Generics.Character.Movement
 			{
 				AkSoundEngine.PostEvent("Jump", gameObject);
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
-				_animator.Play( Animator.StringToHash( "Jump" ) );
+				_animator.Play(Animator.StringToHash("Jump"));
 			}
 
 			// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control

@@ -147,6 +147,7 @@ namespace EndlessT4cos.Gameplay.Management
             else
             {
                 player.PlayerUpdate();
+                playerControl.CharacterMovementSeterUpdate();
                 objectsManager.PlatformObjectsManagerUpdate();
                 platformsManager.PlatformsUpdate();
             }
