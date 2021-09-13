@@ -92,9 +92,9 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
         }
 
-        protected override void Update()
+        public void PlatformObjectsManagerUpdate()
         {
-            base.Update();
+            MovableObjectsManagerUpdate();
 
             for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {

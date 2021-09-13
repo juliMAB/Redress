@@ -21,7 +21,7 @@ namespace EndlessT4cos.Gameplay.Background
             distance = 0;
         }
 
-        protected override void Update()
+        private void Update()
         {
             MovableObject background;
 

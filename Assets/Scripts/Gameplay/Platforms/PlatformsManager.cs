@@ -54,7 +54,7 @@ namespace EndlessT4cos.Gameplay.Platforms
             FindInitialActivePlatforms();
         }
 
-        protected override void Update()
+        public void PlatformsUpdate()
         {
             PlatformObject platform;
 

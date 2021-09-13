@@ -147,6 +147,8 @@ namespace EndlessT4cos.Gameplay.Management
             else
             {
                 player.PlayerUpdate();
+                objectsManager.PlatformObjectsManagerUpdate();
+                platformsManager.PlatformsUpdate();
             }
 
             SetLevelProgression();

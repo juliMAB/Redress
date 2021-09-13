@@ -29,7 +29,7 @@ namespace Games.Generics.Displacement
             halfSizeOfScreen.y = 5f;
         }
 
-        protected virtual void Update()
+        protected void MovableObjectsManagerUpdate()
         {
             MovableObject movableObject = null;
 
