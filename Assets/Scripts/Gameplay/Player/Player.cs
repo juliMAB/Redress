@@ -56,7 +56,7 @@ namespace EndlessT4cos.Gameplay.User
             initialGun = gun;
         }
 
-        private void Update()
+        public void PlayerUpdate()
         {
             if (!controlActive)
             {

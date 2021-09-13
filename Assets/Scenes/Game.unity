@@ -4477,8 +4477,8 @@ MonoBehaviour:
     m_Bits: 512
   largerObject: {fileID: 812479240}
   waitTimeTillNextObject: []
-  minSpawnTime: 1
-  maxSpawnTime: 2
+  minSpawnTime: 2
+  maxSpawnTime: 4
 --- !u!4 &166775822
 Transform:
   m_ObjectHideFlags: 0
@@ -39447,8 +39447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 5
-  initialMinSpawnTime: 1
-  initialMaxSpawnTime: 2
+  initialMinSpawnTime: 2
+  initialMaxSpawnTime: 4
   initialMinSpawnDistance: 1
   initialMaxSpawnDistance: 2
   speed: 5
@@ -42502,6 +42502,6 @@ MonoBehaviour:
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 5
-  jumpHeight: 2.5
+  jumpHeight: 2.8
   dashCooldown: 3
   dashPower: 10

@@ -144,6 +144,10 @@ namespace EndlessT4cos.Gameplay.Management
                 player.Die();
                 StartEnding();
             }
+            else
+            {
+                player.PlayerUpdate();
+            }
 
             SetLevelProgression();
         }
