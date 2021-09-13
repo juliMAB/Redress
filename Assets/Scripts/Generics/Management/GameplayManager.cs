@@ -86,20 +86,6 @@ namespace EndlessT4cos.Gameplay.Management
             playerPosToLose.y = -5;
             playerPosToLose.x = -8.8f;
 
-            Enemy enemy;
-
-            for (int i = 0; i < objectsManager.Enemies.Length; i++)
-            {
-                enemy = objectsManager.Enemies[i].GetComponent<Enemy>();
-                enemy.OnDie += AddScore;
-                ExplosiveEnemy enemy1 = enemy.GetComponent<ExplosiveEnemy>();
-                if (enemy1)
-                {
-                    enemy1.OnExplode+= CrazyFunc;
-
-                }
-            }
-
             AssignEnemiesTypes();
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
@@ -355,12 +341,15 @@ namespace EndlessT4cos.Gameplay.Management
                 switch (enemy.type)
                 {
                     case Objects.Enemies.Type.Static:
+                        enemy.OnDie += AddScore;
                         break;
                     case Objects.Enemies.Type.Explosive:
                         explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
+                        explosiveEnemy.OnExplode += CrazyFunc;
                         break;
                     case Objects.Enemies.Type.Shooter:
                         shooterEnemy = enemy.GetComponent<ShooterEnemy>();
+                        enemy.OnDie += AddScore;
                         break;
                     default:
                         break;
