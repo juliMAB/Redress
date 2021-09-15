@@ -14,6 +14,7 @@ namespace EndlessT4cos.Gameplay.Background
         };
         public LvlSprite[] lvlSprites;
         [SerializeField] private BackgroundsManager backgroundsManager;
+
         public void UpdateSprite(int lvl)
         {
             foreach (var item in backgroundsManager.Objects)
@@ -54,6 +55,27 @@ namespace EndlessT4cos.Gameplay.Background
 
         //    isAlreadyRunning = true;
         //}
+        private Sprite[] firstSprites= new Sprite[3];
+        private Vector3[] firstPos= new Vector3[3];
+        private bool[] firsActive=new bool[3];
+        private void Start()
+        {
+            for (int i = 0; i < backgroundsManager.Objects.Length; i++)
+            {
+                firsActive[i] = backgroundsManager.Objects[i].activeSelf;
+                firstPos[i] = backgroundsManager.Objects[i].transform.position;
+                firstSprites[i] = backgroundsManager.Objects[i].GetComponent<SpriteRenderer>().sprite;
+            }
+        }
+        public void MyReset()
+        {
+            for (int i = 0; i < backgroundsManager.Objects.Length; i++)
+            {
+                backgroundsManager.Objects[i].SetActive(firsActive[i]);
+                backgroundsManager.Objects[i].transform.position = firstPos[i];
+                backgroundsManager.Objects[i].GetComponent<SpriteRenderer>().sprite= firstSprites[i];
+            }
+        }
         private IEnumerator ActivateWhenNotActive(GameObject go, Sprite sprite)
         {
             while (go.activeSelf)
