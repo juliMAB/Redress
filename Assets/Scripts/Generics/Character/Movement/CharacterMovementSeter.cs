@@ -76,11 +76,6 @@ namespace Games.Generics.Character.Movement
 			// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
 			var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 			_velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
-			Debug.Log(_velocity.x +","+ normalizedHorizontalSpeed * runSpeed +","+ Time.deltaTime * smoothedMovementFactor);
-            if (Input.GetKey(KeyCode.F))
-            {
-				Debug.Break();
-			}
 			
 			// apply gravity before moving
 			_velocity.y += gravity * Time.deltaTime;
@@ -98,41 +93,30 @@ namespace Games.Generics.Character.Movement
 			// grab our current _velocity to use as a base for all calculations
 			_velocity = _controller.velocity;
 		}
-		//public void ji()
-  //      {
-		//	if (resetDashT > 0)
-		//	{
-		//		resetDashT -= Time.deltaTime;
-		//	}
-		//	if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.RightArrow))
-		//	{
-		//		if (resetDashT > 0)
-		//		{
-		//			lastKey = KeyCode.RightArrow;
-		//		}
-		//		else
-		//		{
-		//			lastKey = 0;
-		//		}
-		//		resetDashT = resetDash;
-		//	}
-		//	else if (Input.GetKeyDown(KeyCode.LeftArrow))
-		//	{
-		//		if (resetDashT > 0)
-		//		{
-		//			lastKey = KeyCode.LeftArrow;
-		//		}
-		//		else
-		//		{
-		//			lastKey = 0;
-		//		}
-		//		resetDashT = resetDash;
-		//	}
-		//}
-		private void moveRightLeft()
+		private void SaveLastKey(KeyCode key)
+		{
+			if (resetDashT > 0)
+			{
+				lastKey = key;
+			}
+			else
+			{
+				lastKey = 0;
+			}
+			resetDashT = resetDash;
+		}
+        public void UpdateDash()
+        {
+            resetDashT -= Time.deltaTime;
+
+			SaveLastKey(KeyCode.A);
+			SaveLastKey(KeyCode.RightArrow);
+			SaveLastKey(KeyCode.LeftArrow);
+			SaveLastKey(KeyCode.D);
+		}
+        private void moveRightLeft()
         {
 			normalizedHorizontalSpeed = Input.GetAxis("Horizontal");
-			Debug.Log(normalizedHorizontalSpeed);
 			if (normalizedHorizontalSpeed > 0f)
 			{
 				transform.eulerAngles = new Vector3(0, 0, 0);
@@ -148,7 +132,7 @@ namespace Games.Generics.Character.Movement
 		}
         private void SetNormalMovementUpdate()
         {
-			//ji();
+			UpdateDash();
 			moveRightLeft();
 			if (Input.GetAxis("Horizontal")==0)
 			{
@@ -160,7 +144,26 @@ namespace Games.Generics.Character.Movement
 				}
 			}
 		}
-
+		private void TakeTheDash(KeyCode key,short dir) 
+		{
+			if (Input.GetKeyDown(key))
+			{
+				if (lastKey == key)
+				{
+					normalizedHorizontalSpeed = dashPower*dir;
+					dashCooldownT = dashCooldown;
+					if (transform.eulerAngles.y > 0f)
+					{
+						transform.eulerAngles = new Vector3(0, 0, 0);
+					}
+					if (_controller.isGrounded)
+					{
+						_animator.Play(Animator.StringToHash("Run"));
+					}
+					lastKey = 0;
+				}
+			}
+		}
 		private void SetDashUpdate()
         {
 			if (dashCooldownT > 0)
@@ -182,40 +185,10 @@ namespace Games.Generics.Character.Movement
 
 				if (dashCooldownT < 0)
 				{
-					if (Input.GetKeyDown(KeyCode.RightArrow))
-					{
-						if (lastKey == KeyCode.RightArrow)
-						{
-							normalizedHorizontalSpeed = dashPower;
-							dashCooldownT = dashCooldown;
-							if (transform.eulerAngles.y > 0f)
-							{
-								transform.eulerAngles = new Vector3(0, 0, 0);
-							}
-							if (_controller.isGrounded)
-							{
-								_animator.Play(Animator.StringToHash("Run"));
-							}
-							lastKey = 0;
-						}
-					}
-					else if (Input.GetKeyDown(KeyCode.LeftArrow))
-					{
-						if (lastKey == KeyCode.LeftArrow)
-						{
-							normalizedHorizontalSpeed = -dashPower;
-							dashCooldownT = dashCooldown;
-							if (transform.eulerAngles.y > 0f)
-							{
-								transform.eulerAngles = new Vector3(0, 0, 0);
-							}
-							if (_controller.isGrounded)
-							{
-								_animator.Play(Animator.StringToHash("Run"));
-							}
-							lastKey = 0;
-						}
-					}
+					TakeTheDash(KeyCode.RightArrow, +1);
+					TakeTheDash(KeyCode.LeftArrow, -1);
+					TakeTheDash(KeyCode.D, +1);
+					TakeTheDash(KeyCode.A, -1);
 				}
 			}
 		}
