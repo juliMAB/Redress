@@ -66,7 +66,7 @@ namespace Games.Generics.Character.Movement
 			SetDashUpdate();
 
 			// we can only jump whilst grounded
-			if (_controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+			if (_controller.isGrounded && Input.GetAxisRaw("Jump")!=0)
 			{
 				AkSoundEngine.PostEvent("Jump", gameObject);
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
@@ -76,13 +76,18 @@ namespace Games.Generics.Character.Movement
 			// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
 			var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 			_velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
-
+			Debug.Log(_velocity.x +","+ normalizedHorizontalSpeed * runSpeed +","+ Time.deltaTime * smoothedMovementFactor);
+            if (Input.GetKey(KeyCode.F))
+            {
+				Debug.Break();
+			}
+			
 			// apply gravity before moving
 			_velocity.y += gravity * Time.deltaTime;
 
 			// if holding down bump up our movement amount and turn off one way platform detection for a frame.
 			// this lets us jump down through one way platforms
-			if (_controller.isGrounded && Input.GetKey(KeyCode.DownArrow))
+			if (_controller.isGrounded && Input.GetAxisRaw("GoDown") != 0)
 			{
 				_velocity.y *= 3f;
 				_controller.ignoreOneWayPlatformsThisFrame = true;
@@ -93,64 +98,59 @@ namespace Games.Generics.Character.Movement
 			// grab our current _velocity to use as a base for all calculations
 			_velocity = _controller.velocity;
 		}
-
+		//public void ji()
+  //      {
+		//	if (resetDashT > 0)
+		//	{
+		//		resetDashT -= Time.deltaTime;
+		//	}
+		//	if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.RightArrow))
+		//	{
+		//		if (resetDashT > 0)
+		//		{
+		//			lastKey = KeyCode.RightArrow;
+		//		}
+		//		else
+		//		{
+		//			lastKey = 0;
+		//		}
+		//		resetDashT = resetDash;
+		//	}
+		//	else if (Input.GetKeyDown(KeyCode.LeftArrow))
+		//	{
+		//		if (resetDashT > 0)
+		//		{
+		//			lastKey = KeyCode.LeftArrow;
+		//		}
+		//		else
+		//		{
+		//			lastKey = 0;
+		//		}
+		//		resetDashT = resetDash;
+		//	}
+		//}
+		private void moveRightLeft()
+        {
+			normalizedHorizontalSpeed = Input.GetAxis("Horizontal");
+			Debug.Log(normalizedHorizontalSpeed);
+			if (normalizedHorizontalSpeed > 0f)
+			{
+				transform.eulerAngles = new Vector3(0, 0, 0);
+			}
+            else if (normalizedHorizontalSpeed<0f)
+            {
+				transform.eulerAngles = new Vector3(0, 180, 0);
+			}
+			if (_controller.isGrounded)
+			{
+				_animator.Play(Animator.StringToHash("Run"));
+			}
+		}
         private void SetNormalMovementUpdate()
         {
-			if (resetDashT > 0)
-			{
-				resetDashT -= Time.deltaTime;
-			}
-			if (Input.GetKeyDown(KeyCode.RightArrow))
-			{
-				if (resetDashT > 0)
-				{
-					lastKey = KeyCode.RightArrow;
-				}
-				else
-				{
-					lastKey = 0;
-				}
-				resetDashT = resetDash;
-			}
-			else if (Input.GetKeyDown(KeyCode.LeftArrow))
-			{
-				if (resetDashT > 0)
-				{
-					lastKey = KeyCode.LeftArrow;
-				}
-				else
-				{
-					lastKey = 0;
-				}
-				resetDashT = resetDash;
-			}
-			if (Input.GetKey(KeyCode.RightArrow))
-			{
-				normalizedHorizontalSpeed = 1;
-				if (transform.eulerAngles.y > 0f)
-				{
-					transform.eulerAngles = new Vector3(0, 0, 0);
-				}
-
-				if (_controller.isGrounded)
-				{
-					_animator.Play(Animator.StringToHash("Run"));
-				}
-			}
-			else if (Input.GetKey(KeyCode.LeftArrow))
-			{
-				normalizedHorizontalSpeed = -1;
-				if (transform.eulerAngles.y <= 0f)
-				{
-					transform.eulerAngles = new Vector3(0, 180, 0);
-				}
-
-				if (_controller.isGrounded)
-				{
-					_animator.Play(Animator.StringToHash("Run"));
-				}
-			}
-			else
+			//ji();
+			moveRightLeft();
+			if (Input.GetAxis("Horizontal")==0)
 			{
 				normalizedHorizontalSpeed = 0;
 
@@ -159,9 +159,6 @@ namespace Games.Generics.Character.Movement
 					_animator.Play(Animator.StringToHash("Idle"));
 				}
 			}
-
-			//move when a object is moving the player
-
 		}
 
 		private void SetDashUpdate()
