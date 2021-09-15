@@ -27,7 +27,7 @@ public class DebugManager : MonoBehaviour
 
     public void SlowTime()
     {
-        StartCoroutine( FindObjectOfType<TimeManager>().timeSlow(.2f));
+        StartCoroutine( FindObjectOfType<TimeManager>().TimeSlow(.2f));
     }
 
     public void MakeShake()

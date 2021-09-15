@@ -6,6 +6,8 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.05f;
     public float slowdownLength = 2f;
+
+    public static IEnumerator timeSlowInst = null;
     //private void Update()
     //{
     //    Time.timeScale += (1f / slowdownLength) * Time.unscaledDeltaTime;
@@ -17,9 +19,8 @@ public class TimeManager : MonoBehaviour
         Time.fixedDeltaTime = Time.deltaTime * .02f;
     }
 
-    public IEnumerator timeSlow(float duration)
+    public IEnumerator TimeSlow(float duration)
     {
-        
         float elapsed = 0.0f;
 
         Time.timeScale = slowdownFactor;
@@ -30,5 +31,6 @@ public class TimeManager : MonoBehaviour
             yield return null;
         }
         Time.timeScale = 1;
+        timeSlowInst = null;
     }
 }

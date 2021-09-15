@@ -57,7 +57,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
         [SerializeField] private int[] scorePerLevel = null;
         [SerializeField] private int actualLvl = 0;
-
+        
         [Header("Entities")]
         [SerializeField] private Player player = null;
         [SerializeField] private CharacterMovementSeter playerControl = null;
@@ -70,6 +70,12 @@ namespace EndlessT4cos.Gameplay.Management
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
+
+        [Header("Objects")]
+        [SerializeField] private Gun[] allGuns = null;
+        [SerializeField] private Bullet[] allBullets = null;
+
+        public float speedMultiplier = 1f;
 
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
@@ -92,7 +98,7 @@ namespace EndlessT4cos.Gameplay.Management
 
             SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
-            SetBulletsSpeed(speed * bulletSpeedMultiplier);
+            SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
         }
 
         private void Update()
@@ -193,13 +199,14 @@ namespace EndlessT4cos.Gameplay.Management
             //pausar los managers.           
             objectsManager.enabled = false;
             platformsManager.enabled = false;
-            SetBulletsSpeed(0);
+            SetBulletsSpeed(0, true);
 
             pauseManager.Pause();
         }
 
         public void ResetGame()
         {
+            speedMultiplier = 1f;
             score = 0;
             OnChangedScore?.Invoke(score);
 
@@ -213,6 +220,8 @@ namespace EndlessT4cos.Gameplay.Management
             foreach (var background in backgroundsManager)
             {
                 background.enabled = true;
+                // background.speed = speed;
+                background.Reset();
             }
 
             foreach (var platfomrObject in objectsManager.Objects)
@@ -223,11 +232,11 @@ namespace EndlessT4cos.Gameplay.Management
             objectsManager.enabled = true;
             platformsManager.enabled = true;
 
-            DeactivateAllBullest();
+            DeactivateAllBullets();
 
             SetPlatformObjectsManagerValues(objectsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
-            SetBulletsSpeed(speed * bulletSpeedMultiplier);
+            SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
 
             platformsManager.Reset();
 
@@ -252,41 +261,51 @@ namespace EndlessT4cos.Gameplay.Management
         {
             return !Input.GetKey(KeyCode.Keypad9) && 
                     player.transform.position.y - player.transform.lossyScale.y / 2 > playerPosToLose.y &&
-                    player.transform.position.x + player.transform.lossyScale.x / 2 > playerPosToLose.x;
+                    player.transform.position.x + player.transform.lossyScale.x / 2 > playerPosToLose.x &&
+                    player.Lives > 0;
         }
 
         private void SetLevelProgression()
         {
-            float speedProgression = Time.deltaTime * speedProgressionMultiplier;
-            float distanceProgression = Time.deltaTime * distanceProgressionMultiplier;
+            float speedProgression = Time.deltaTime * speedProgressionMultiplier * speedMultiplier;
+            float distanceProgression = Time.deltaTime * distanceProgressionMultiplier * speedMultiplier;
 
             speed += speedProgression;
 
-            SetPlatformObjectsManagerValues(objectsManager, speed, objectsManager.minSpawnTime, objectsManager.maxSpawnTime);
-            SetPlatformsManagerValues(speed, platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
-            SetBulletsSpeed(speed * bulletSpeedMultiplier);
-        }
+            objectsManager.minSpawnTime = initialMinSpawnTime;
+            objectsManager.maxSpawnTime = initialMaxSpawnTime;
 
-        private void SetBulletsSpeed(float speed)
-        {
-            Gun[] allGuns = FindObjectsOfType<Gun>();
-            Bullet[] allBullets = FindObjectsOfType<Bullet>();
-
-            for (int i = 0; i < allGuns.Length; i++)
+            if (speedMultiplier < 1)
             {
-                allGuns[i].bulletSpeed = speed;
+                objectsManager.minSpawnTime = initialMinSpawnTime * 2;
+                objectsManager.maxSpawnTime = initialMaxSpawnTime * 2;
             }
 
-            for (int i = 0; i < allBullets.Length; i++)
+            SetPlatformObjectsManagerValues(objectsManager, speed * speedMultiplier, objectsManager.minSpawnTime, objectsManager.maxSpawnTime);
+            SetPlatformsManagerValues(speed * speedMultiplier, platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
+            SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
+        }
+
+        private void SetBulletsSpeed(float speed, bool playerBulletsToo)
+        {
+            for (int i = 0; i < allGuns.Length; i++)
+            {
+                if (allGuns[i] != player.Gun)
+                {
+                    allGuns[i].bulletSpeed = speed;
+                }
+            }
+
+            int index = playerBulletsToo ? 0 : player.Gun.Objects.Length;
+
+            for (int i = index; i < allBullets.Length; i++)
             {
                 allBullets[i].speed = speed;
             }
         }
 
-        private void DeactivateAllBullest()
+        private void DeactivateAllBullets()
         {
-            Gun[] allGuns = FindObjectsOfType<Gun>();
-
             for (int i = 0; i < allGuns.Length; i++)
             {
                 allGuns[i].DeactivateAllBullets();

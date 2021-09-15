@@ -28,9 +28,10 @@ namespace EndlessT4cos.Gameplay.User
 
         public Gun InitialGun => initialGun;
         public int InitialLives => initialLives;
+        public int Lives => lives;
         public Gun Gun { get => gun; set => gun = value; }
         public bool ControlActive { set => controlActive = value; }
-
+        
         public void Reset()
         {
             if (setInmuneLifetimeInstance != null)
@@ -46,6 +47,8 @@ namespace EndlessT4cos.Gameplay.User
             OnLivesChanged?.Invoke(lives);
 
             ResetGun();
+
+           transform.rotation = Quaternion.identity;
         }
 
         private void Awake()
