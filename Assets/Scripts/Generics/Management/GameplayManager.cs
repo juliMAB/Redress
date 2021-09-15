@@ -206,6 +206,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         public void ResetGame()
         {
+            backgroundChanger.MyReset();
             speedMultiplier = 1f;
             score = 0;
             OnChangedScore?.Invoke(score);
