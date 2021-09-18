@@ -11,7 +11,8 @@ namespace EndlessT4cos.Gameplay.User
     {
         private SpriteRenderer spriteRenderer = null;
         private Color normalColor = Color.white;
-        private Color inmuneColor = Color.red;
+        public Color inmuneColorAtak = Color.red;
+        public Color inmuneColorShield = Color.blue;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private IEnumerator setInmuneLifetimeInstance = null;
@@ -72,13 +73,42 @@ namespace EndlessT4cos.Gameplay.User
             }
         }
 
-        private IEnumerator SetInmuneLifetime(float time)
+        private IEnumerator SetInmuneLifetime(float time,bool IsEnemy)
         {
+            Color inmuneColor;
             isInmune = true;
+            if (IsEnemy)
+            {
+                inmuneColor = inmuneColorAtak;
+            }
+            else
+            {
+                inmuneColor = inmuneColorShield;
+            }
+            float deltaT=0;
+            float a=0;
+            float dir = 1;
+            while (deltaT<time)
+            {
+                deltaT += Time.deltaTime;
+                if (dir==1)
+                {
+                    a += Time.deltaTime;
+                    
+                }
+                else
+                {
+                    a -= Time.deltaTime;
+                }
+                spriteRenderer.color = Color.Lerp(inmuneColor, Color.white, a);
+                if (a>1||a<-1)
+                {
+                    dir *= -1;
+                }
+                yield return null;
+            }
 
-            spriteRenderer.color = inmuneColor;
-
-            yield return new WaitForSeconds(time);
+            //yield return new WaitForSeconds(time);
             
             isInmune = false;
 
@@ -103,7 +133,7 @@ namespace EndlessT4cos.Gameplay.User
                 Die();
             }
             Debug.Log("vidas actuales " +lives + " ");
-            setInmuneLifetimeInstance = SetInmuneLifetime(inmuneTime);
+            setInmuneLifetimeInstance = SetInmuneLifetime(inmuneTime,true);
             StartCoroutine(setInmuneLifetimeInstance);
         }
 
@@ -127,7 +157,7 @@ namespace EndlessT4cos.Gameplay.User
                 StopCoroutine(setInmuneLifetimeInstance);
             }
 
-            setInmuneLifetimeInstance = SetInmuneLifetime(time);
+            setInmuneLifetimeInstance = SetInmuneLifetime(time,false);
             StartCoroutine(setInmuneLifetimeInstance);
         }
 
