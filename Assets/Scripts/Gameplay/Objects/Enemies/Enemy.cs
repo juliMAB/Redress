@@ -61,6 +61,7 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
 
         public void TakeDamage()
         {
+            Debug.Log(gameObject.name + " a tomado daño.");
             if (!canDie)
             {
                 return;

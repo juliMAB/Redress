@@ -40,6 +40,7 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
                 { 
                     iDamageable.TakeDamage(); 
                 }
+                
             }
 
             OnExplode?.Invoke();

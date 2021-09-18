@@ -99,7 +99,9 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
-        }
+            SetBackgroundSpeed(speed * speedMultiplier);
+        
+    }
 
         private void Update()
         {
@@ -238,8 +240,9 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(objectsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
-
-            platformsManager.Reset();
+            SetBackgroundSpeed(speed * speedMultiplier);
+        
+        platformsManager.Reset();
 
             pauseManager.Resume();
         }
@@ -285,8 +288,15 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(objectsManager, speed * speedMultiplier, objectsManager.minSpawnTime, objectsManager.maxSpawnTime);
             SetPlatformsManagerValues(speed * speedMultiplier, platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
             SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
+            SetBackgroundSpeed(speed * speedMultiplier);
         }
-
+        private void SetBackgroundSpeed(float speed)
+        {
+            foreach (var item in backgroundsManager)
+            {
+                item.speed = speed;
+            }
+        }
         private void SetBulletsSpeed(float speed, bool playerBulletsToo)
         {
             for (int i = 0; i < allGuns.Length; i++)
