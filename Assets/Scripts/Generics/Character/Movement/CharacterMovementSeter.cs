@@ -70,7 +70,7 @@ namespace Games.Generics.Character.Movement
 			{
 				AkSoundEngine.PostEvent("Jump", gameObject);
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
-				_animator.Play(Animator.StringToHash("Jump"));
+				_animator.Play(Animator.StringToHash("Jump2"));
 			}
 
 			// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
@@ -127,7 +127,7 @@ namespace Games.Generics.Character.Movement
 			}
 			if (_controller.isGrounded)
 			{
-				_animator.Play(Animator.StringToHash("Run"));
+				_animator.Play(Animator.StringToHash("Run2"));
 			}
 		}
         private void SetNormalMovementUpdate()
@@ -140,7 +140,7 @@ namespace Games.Generics.Character.Movement
 
 				if (_controller.isGrounded)
 				{
-					_animator.Play(Animator.StringToHash("Idle"));
+					//_animator.Play(Animator.StringToHash("Idle2"));
 				}
 			}
 		}
@@ -158,7 +158,7 @@ namespace Games.Generics.Character.Movement
 					}
 					if (_controller.isGrounded)
 					{
-						_animator.Play(Animator.StringToHash("Run"));
+						_animator.Play(Animator.StringToHash("Run2"));
 					}
 					lastKey = 0;
 				}

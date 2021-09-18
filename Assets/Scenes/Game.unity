@@ -15946,7 +15946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialLives: 5
-  lives: 10
+  lives: 5
   inmuneTime: 5
   gun: {fileID: 1769960644}
   controlActive: 1
@@ -45835,7 +45835,7 @@ Animator:
   m_GameObject: {fileID: 6408668683553309451}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1287e2f0113b54078a4cf7fe4ef3c4b8, type: 2}
+  m_Controller: {fileID: 9100000, guid: f71d9900f1ad5e349930e3531473f5ee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

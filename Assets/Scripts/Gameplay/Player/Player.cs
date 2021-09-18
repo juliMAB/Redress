@@ -91,9 +91,10 @@ namespace EndlessT4cos.Gameplay.User
         {
             if (isInmune)
             {
+                Debug.Log(" el player es inmune ");
                 return;
             }
-
+            Debug.Log(" el player a tomado daño ");
             lives--;
             OnLivesChanged?.Invoke(lives);
 
@@ -101,7 +102,7 @@ namespace EndlessT4cos.Gameplay.User
             {
                 Die();
             }
-
+            Debug.Log("vidas actuales " +lives + " ");
             setInmuneLifetimeInstance = SetInmuneLifetime(inmuneTime);
             StartCoroutine(setInmuneLifetimeInstance);
         }
