@@ -1,4 +1,6 @@
-﻿namespace EndlessT4cos.Gameplay.Objects.PickUps
+﻿using UnityEngine;
+
+namespace EndlessT4cos.Gameplay.Objects.PickUps
 {
     public class Shield : PickUp
     {
@@ -12,7 +14,7 @@
         {
             base.OnPicked();
 
-            player.SetInmuneForTime(totalDurability);
+            player.SetInmuneForTime(totalDurability, Color.blue, false);
             leftDurability = 0f;
         }
     }

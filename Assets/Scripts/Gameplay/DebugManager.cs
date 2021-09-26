@@ -14,6 +14,7 @@ public class DebugManager : MonoBehaviour
     private Vector2 initialPlayerPosToLose = Vector2.zero;
 
     private bool active = false;
+    private bool slowTimeOn = false;
 
     public void RestartGame()
     {
@@ -27,7 +28,16 @@ public class DebugManager : MonoBehaviour
 
     public void SlowTime()
     {
-        StartCoroutine( FindObjectOfType<TimeManager>().TimeSlow(.2f));
+        if (!slowTimeOn)
+        {
+            GameplayManager.Instance.speedMultiplier = 0.05f;
+        }
+        else
+        {
+            GameplayManager.Instance.speedMultiplier = 1f;
+        }
+
+        slowTimeOn = !slowTimeOn;
     }
 
     public void MakeShake()
@@ -39,12 +49,12 @@ public class DebugManager : MonoBehaviour
     {
         initialPlayerPosToLose = GameplayManager.Instance.PlayerPosToLose;
         GameplayManager.Instance.SetYPlayerPosToLose(new Vector2(-1000, -1000));
-        FindObjectOfType<Player>().SetInmuneForTime(9000);
+        FindObjectOfType<Player>().SetInmuneForTime(9000, Color.red, false);
     }
 
     public void PlayerRemoveInvulneravility()
     {
-        FindObjectOfType<Player>().SetInmuneForTime(0);
+        FindObjectOfType<Player>().SetInmuneForTime(0, Color.red, false);
         GameplayManager.Instance.SetYPlayerPosToLose(initialPlayerPosToLose);
     }
 

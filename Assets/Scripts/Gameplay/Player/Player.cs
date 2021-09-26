@@ -11,11 +11,12 @@ namespace EndlessT4cos.Gameplay.User
     {
         private SpriteRenderer spriteRenderer = null;
         private Color normalColor = Color.white;
-        public Color inmuneColorAtak = Color.red;
-        public Color inmuneColorShield = Color.blue;
+        public Color inmuneColor = Color.red;
+       // public Color inmuneColorShield = Color.blue;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private IEnumerator setInmuneLifetimeInstance = null;
+        private IEnumerator varyBetweenColorsInstance = null;
         private Gun initialGun = null;
 
         [SerializeField] private int initialLives = 5;
@@ -38,6 +39,11 @@ namespace EndlessT4cos.Gameplay.User
             if (setInmuneLifetimeInstance != null)
             {
                 StopCoroutine(setInmuneLifetimeInstance);
+            }
+
+            if (varyBetweenColorsInstance != null)
+            {
+                StopCoroutine(varyBetweenColorsInstance);
             }
 
             transform.position = initialPosition;
@@ -73,48 +79,50 @@ namespace EndlessT4cos.Gameplay.User
             }
         }
 
-        private IEnumerator SetInmuneLifetime(float time,bool IsEnemy)
+        private IEnumerator SetInmuneLifetime(float duration)
         {
             Color inmuneColor;
             isInmune = true;
-            if (IsEnemy)
+            float time = 0;
+
+            while (time < duration)
             {
-                inmuneColor = inmuneColorAtak;
+                time += Time.deltaTime;
+                yield return null;
             }
-            else
+            
+            isInmune = false;
+        }
+
+        private IEnumerator VaryBetweenColors(float duration, Color inmuneColor)
+        {
+            float time = 0;
+            bool isInmuneColor = true;
+
+            spriteRenderer.color = inmuneColor;
+
+            while (time < duration)
             {
-                inmuneColor = inmuneColorShield;
-            }
-            float deltaT=0;
-            float a=0;
-            float dir = 1;
-            while (deltaT<time)
-            {
-                deltaT += Time.deltaTime;
-                if (dir==1)
+                time += Time.deltaTime;
+
+                if (time % 0.4f < Time.deltaTime)
                 {
-                    a += Time.deltaTime;
-                    
+                    if (isInmuneColor)
+                    {
+                        spriteRenderer.color = normalColor;
+                    }
+                    else
+                    {
+                        spriteRenderer.color = inmuneColor;
+                    }
+
+                    isInmuneColor = !isInmuneColor;
                 }
-                else
-                {
-                    a -= Time.deltaTime;
-                }
-                spriteRenderer.color = Color.Lerp(inmuneColor, Color.white, a);
-                if (a>1||a<-1)
-                {
-                    dir *= -1;
-                }
+
                 yield return null;
             }
 
-            //yield return new WaitForSeconds(time);
-            
-            isInmune = false;
-
             spriteRenderer.color = normalColor;
-
-            yield return null;
         }
 
         public void TakeDamage()
@@ -132,9 +140,8 @@ namespace EndlessT4cos.Gameplay.User
             {
                 Die();
             }
-            Debug.Log("vidas actuales " +lives + " ");
-            setInmuneLifetimeInstance = SetInmuneLifetime(inmuneTime,true);
-            StartCoroutine(setInmuneLifetimeInstance);
+
+            SetInmuneForTime(inmuneTime, inmuneColor, true);
         }
 
         public void Die()
@@ -150,15 +157,28 @@ namespace EndlessT4cos.Gameplay.User
             OnLivesChanged?.Invoke(lives);
         }
 
-        public void SetInmuneForTime(float time)
+        public void SetInmuneForTime(float time, Color inmuneColor, bool varyBetweenColors)
         {
             if (setInmuneLifetimeInstance != null)
             {
                 StopCoroutine(setInmuneLifetimeInstance);
             }
 
-            setInmuneLifetimeInstance = SetInmuneLifetime(time,false);
+            setInmuneLifetimeInstance = SetInmuneLifetime(time);
             StartCoroutine(setInmuneLifetimeInstance);
+
+            if (!varyBetweenColors)
+            {
+                return;
+            }
+
+            if (varyBetweenColorsInstance != null)
+            {
+                StopCoroutine(varyBetweenColorsInstance);
+            }
+
+            varyBetweenColorsInstance = VaryBetweenColors(time, inmuneColor);
+            StartCoroutine(varyBetweenColorsInstance);
         }
 
         public void ResetGun()
