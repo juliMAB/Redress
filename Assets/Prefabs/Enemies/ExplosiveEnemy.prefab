@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfSize: {x: 0, y: 0}
   row: 1
+  canDie: 0
   initialLives: 1
   lives: 1
   targetLayer:
@@ -163,13 +164,13 @@ MonoBehaviour:
   hittableLayer:
     serializedVersion: 2
     m_Bits: 2304
-  viewDistance: 7
+  viewDistance: 9
   target: {fileID: 0}
   lookingAtTarget: 0
   minDistanceToTarget: 1
   type: 0
   radiusOfDamage: 1
-  additionalSpeed: 2.5
+  additionalSpeed: 1.7
 --- !u!50 &1577426488288435481
 Rigidbody2D:
   serializedVersion: 4

@@ -15945,6 +15945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a01d6e4fda98042bc651343feebebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inmuneColorAtak: {r: 1, g: 0, b: 0, a: 1}
+  inmuneColorShield: {r: 0, g: 0, b: 1, a: 1}
   initialLives: 5
   lives: 5
   inmuneTime: 5
@@ -45551,6 +45553,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6408668683553309451}
+    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: additionalSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &2485076689440255810
