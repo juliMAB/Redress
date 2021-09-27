@@ -155,3 +155,4 @@ MonoBehaviour:
   halfSize: {x: 0, y: 0}
   row: 1
   visual: {fileID: 848035153750507046}
+  multiplier: 0.3

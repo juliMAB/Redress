@@ -49,12 +49,12 @@ public class DebugManager : MonoBehaviour
     {
         initialPlayerPosToLose = GameplayManager.Instance.PlayerPosToLose;
         GameplayManager.Instance.SetYPlayerPosToLose(new Vector2(-1000, -1000));
-        FindObjectOfType<Player>().SetInmuneForTime(9000, Color.red, false);
+        FindObjectOfType<Player>().SetInmuneForTime(9000, Color.red);
     }
 
     public void PlayerRemoveInvulneravility()
     {
-        FindObjectOfType<Player>().SetInmuneForTime(0, Color.red, false);
+        FindObjectOfType<Player>().SetInmuneForTime(0, Color.red);
         GameplayManager.Instance.SetYPlayerPosToLose(initialPlayerPosToLose);
     }
 

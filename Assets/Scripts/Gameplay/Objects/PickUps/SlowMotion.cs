@@ -9,6 +9,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
     public class SlowMotion : PickUp
     {
         [SerializeField] private GameObject visual = null;
+        [SerializeField] private float multiplier = 0.2f;
 
         private void Start()
         {
@@ -22,7 +23,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             base.OnPicked();
 
-            GameplayManager.Instance.speedMultiplier = 0.05f;
+            GameplayManager.Instance.speedMultiplier = multiplier;
             visual.SetActive(false);
         }
 
@@ -33,6 +34,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 
         public override void ResetStats()
         {
+            base.ResetStats();
             visual.SetActive(true);
         }
     }

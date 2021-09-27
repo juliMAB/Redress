@@ -170,7 +170,7 @@ MonoBehaviour:
   minDistanceToTarget: 1
   type: 0
   radiusOfDamage: 1
-  additionalSpeed: 1.7
+  additionalSpeed: 1.5
 --- !u!50 &1577426488288435481
 Rigidbody2D:
   serializedVersion: 4

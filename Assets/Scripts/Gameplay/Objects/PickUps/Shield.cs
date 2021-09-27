@@ -14,7 +14,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             base.OnPicked();
 
-            player.SetInmuneForTime(totalDurability, Color.blue, false);
+            player.SetInmuneForTime(totalDurability, Color.blue);
             leftDurability = 0f;
         }
     }

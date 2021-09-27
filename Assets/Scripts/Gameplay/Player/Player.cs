@@ -141,7 +141,7 @@ namespace EndlessT4cos.Gameplay.User
                 Die();
             }
 
-            SetInmuneForTime(inmuneTime, inmuneColor, true);
+            SetInmuneForTime(inmuneTime, inmuneColor);
         }
 
         public void Die()
@@ -157,7 +157,7 @@ namespace EndlessT4cos.Gameplay.User
             OnLivesChanged?.Invoke(lives);
         }
 
-        public void SetInmuneForTime(float time, Color inmuneColor, bool varyBetweenColors)
+        public void SetInmuneForTime(float time, Color inmuneColor)
         {
             if (setInmuneLifetimeInstance != null)
             {
@@ -166,11 +166,6 @@ namespace EndlessT4cos.Gameplay.User
 
             setInmuneLifetimeInstance = SetInmuneLifetime(time);
             StartCoroutine(setInmuneLifetimeInstance);
-
-            if (!varyBetweenColors)
-            {
-                return;
-            }
 
             if (varyBetweenColorsInstance != null)
             {
