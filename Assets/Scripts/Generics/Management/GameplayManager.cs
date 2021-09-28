@@ -6,7 +6,6 @@ using EndlessT4cos.Gameplay.Objects.Enemies;
 using EndlessT4cos.Gameplay.User;
 using EndlessT4cos.Gameplay.Platforms;
 using Games.Generics.Character.Movement;
-using EndlessT4cos.Gameplay.Background;
 using Games.Generics.Weapon;
 using Games.Generics.Manager;
 using EndlessT4cos.Gameplay.Objects.PickUps;
@@ -64,12 +63,10 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private Player player = null;
         [SerializeField] private CharacterMovementSeter playerControl = null;
         [SerializeField] private PlatformsManager platformsManager = null;
-        //[SerializeField] private BackgroundsManager[] backgroundsManager = null;
         [SerializeField] private PlatformObjectsManager objectsManager = null;
         [SerializeField] private PauseManager pauseManager = null;
         [SerializeField] private CameraShake cameraShake = null;
-        //[SerializeField] private BackgroundChanger backgroundChanger = null;
-        [SerializeField] private Sarlanga background = null;
+        [SerializeField] private ParallaxManager background = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -102,7 +99,6 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
-            //SetBackgroundSpeed(speed * speedMultiplier);
             background.SetSpeed(speed, layerSpeedDiff);
         }
 
@@ -120,22 +116,7 @@ namespace EndlessT4cos.Gameplay.Management
                 setDistanceScoreInst = SetDistanceScore(timeToChargeScore);
                 StartCoroutine(setDistanceScoreInst);
                 timeToChargeScore -= 0.0001f;
-            }
-
-            //if (!(scorePerLevel.Length< actualLvl+1))
-            //{
-            //    if (distance > scorePerLevel[actualLvl])
-            //    {
-            //        Debug.Log("level up!");
-            //        if (actualLvl > scorePerLevel.Length)
-            //        {
-            //            Debug.Log("Me quede sin niveles.");
-            //        }
-            //        actualLvl++;
-            //        //backgroundChanger.UpdateSprite(actualLvl);
-            //    }
-            //}
-            
+            }            
 
             if (!IsPlayerAlive())
             {
@@ -197,13 +178,7 @@ namespace EndlessT4cos.Gameplay.Management
             //frenar las plataformas y enemigos.
             speed = 0;
             layerSpeedDiff = 0;
-
-            //frenar los enemigos.
             background.SetSpeed(0, 0);
-            //foreach (var background in backgroundsManager)
-            //{
-            //    background.enabled = false;
-            //}
 
             //pausar los managers.           
             objectsManager.enabled = false;
@@ -228,13 +203,6 @@ namespace EndlessT4cos.Gameplay.Management
             speed = initialSpeed;
             layerSpeedDiff = initialIayerSpeedDiff;
 
-            //foreach (var background in backgroundsManager)
-            //{
-            //    background.enabled = true;
-            //    // background.speed = speed;
-            //    background.Reset();
-            //}
-
             foreach (var platfomrObject in objectsManager.Objects)
             {
                 platfomrObject.gameObject.SetActive(false);
@@ -249,7 +217,6 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(initialSpeed, layerSpeedDiff);
-            //SetBackgroundSpeed(speed * speedMultiplier);
 
             platformsManager.Reset();
             background.Reset();
@@ -285,7 +252,6 @@ namespace EndlessT4cos.Gameplay.Management
             float distanceProgression = Time.deltaTime * distanceProgressionMultiplier * speedMultiplier;
 
             speed += speedProgression;
-            //layerSpeedDiff += speedProgression;
 
             objectsManager.minSpawnTime = initialMinSpawnTime;
             objectsManager.maxSpawnTime = initialMaxSpawnTime;
@@ -300,15 +266,7 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformsManagerValues(speed * speedMultiplier, platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
             SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
             background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
-            //SetBackgroundSpeed(speed * speedMultiplier);
         }
-        //private void SetBackgroundSpeed(float speed)
-        //{
-        //    foreach (var item in backgroundsManager)
-        //    {
-        //        item.speed = speed;
-        //    }
-        //}
         private void SetBulletsSpeed(float speed, bool playerBulletsToo)
         {
             for (int i = 0; i < allGuns.Length; i++)

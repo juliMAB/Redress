@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {
-    public class Sarlanga : MonoBehaviour
+    public class ParallaxManager : MonoBehaviour
     {
         [System.Serializable] 
         public struct BackgroundGroup
