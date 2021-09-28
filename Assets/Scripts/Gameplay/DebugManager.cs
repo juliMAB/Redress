@@ -15,6 +15,7 @@ public class DebugManager : MonoBehaviour
 
     private bool active = false;
     private bool slowTimeOn = false;
+    private bool playerInvencible = false;
 
     public void RestartGame()
     {
@@ -50,12 +51,14 @@ public class DebugManager : MonoBehaviour
         initialPlayerPosToLose = GameplayManager.Instance.PlayerPosToLose;
         GameplayManager.Instance.SetYPlayerPosToLose(new Vector2(-1000, -1000));
         FindObjectOfType<Player>().SetInmuneForTime(9000, Color.red);
+        playerInvencible = true;
     }
 
     public void PlayerRemoveInvulneravility()
     {
         FindObjectOfType<Player>().SetInmuneForTime(0, Color.red);
         GameplayManager.Instance.SetYPlayerPosToLose(initialPlayerPosToLose);
+        playerInvencible = false;
     }
 
     public void PlayerAddLife()
@@ -70,6 +73,11 @@ public class DebugManager : MonoBehaviour
             active = !active;
             debugPanel.SetActive(active);
             text.SetActive(!active);
+        }
+
+        if (playerInvencible)
+        {
+            FindObjectOfType<Player>().transform.position = new Vector3(-5, 5, FindObjectOfType<Player>().transform.position.y); 
         }
     }
 }

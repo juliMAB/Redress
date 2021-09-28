@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 8c864d4658f5a8843baa72a85ef72476
+guid: 20ed5964e832d584b9be463bbe72e626
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -782842082964247484
-    second: capa 5 render_0
+      213: 786835222863036031
+    second: capa 5 x2_0
   - first:
-      213: 517634723588018264
-    second: capa 5 render_1
+      213: 1236131610977737879
+    second: capa 5 x2_1
   - first:
-      213: -5440056214252004138
-    second: capa 5 render_2
+      213: -5544159467844324707
+    second: capa 5 x2_2
   - first:
-      213: -60311994954444841
-    second: capa 5 render_3
+      213: 5825276867398518136
+    second: capa 5 x2_3
   - first:
-      213: 1693844447314455332
-    second: capa 5 render_4
+      213: -7122439263946217073
+    second: capa 5 x2_4
   - first:
-      213: -7917877484437892691
-    second: capa 5 render_5
+      213: 1985341763088087716
+    second: capa 5 x2_5
   - first:
-      213: -7324069555519060744
-    second: capa 5 render_6
+      213: -7853205421730157729
+    second: capa 5 x2_6
   - first:
-      213: -1729815616991380582
-    second: capa 5 render_7
+      213: -4795050395262553785
+    second: capa 5 x2_7
   - first:
-      213: -2226694381093142355
-    second: capa 5 render_8
+      213: -844813234357875794
+    second: capa 5 x2_8
   - first:
-      213: -3310273561207058506
-    second: capa 5 render_9
+      213: 1971177083743629625
+    second: capa 5 x2_9
   - first:
-      213: 7994946148081180675
-    second: capa 5 render_10
+      213: 6523026558594730035
+    second: capa 5 x2_10
   - first:
-      213: -5082859972628714201
-    second: capa 5 render_11
+      213: -7693092732691937054
+    second: capa 5 x2_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: capa 5 render_0
+      name: capa 5 x2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44c60b1f549c225f0800000000000000
-      internalID: -782842082964247484
+      spriteID: f7e348367766bea00800000000000000
+      internalID: 786835222863036031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_1
+      name: capa 5 x2_1
       rect:
         serializedVersion: 2
-        x: 426
+        x: 853
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8501fded9020f2700800000000000000
-      internalID: 517634723588018264
+      spriteID: 79c95ff962f972110800000000000000
+      internalID: 1236131610977737879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_2
+      name: capa 5 x2_2
       rect:
         serializedVersion: 2
-        x: 852
+        x: 1706
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc5a5f12b90184b0800000000000000
-      internalID: -5440056214252004138
+      spriteID: d92350596503f03b0800000000000000
+      internalID: -5544159467844324707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_3
+      name: capa 5 x2_3
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 2559
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7df8b056f8ab92ff0800000000000000
-      internalID: -60311994954444841
+      spriteID: 875c69f727a87d050800000000000000
+      internalID: 5825276867398518136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_4
+      name: capa 5 x2_4
       rect:
         serializedVersion: 2
-        x: 1704
+        x: 3412
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42b22faec8eb18710800000000000000
-      internalID: 1693844447314455332
+      spriteID: f89e03ac933082d90800000000000000
+      internalID: -7122439263946217073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_5
+      name: capa 5 x2_5
       rect:
         serializedVersion: 2
-        x: 2130
+        x: 4265
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da1140de06c0e1290800000000000000
-      internalID: -7917877484437892691
+      spriteID: 4aafc9290d95d8b10800000000000000
+      internalID: 1985341763088087716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_6
+      name: capa 5 x2_6
       rect:
         serializedVersion: 2
-        x: 2556
+        x: 5118
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f488093b8dab5a90800000000000000
-      internalID: -7324069555519060744
+      spriteID: f5b2a99e64fc30390800000000000000
+      internalID: -7853205421730157729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_7
+      name: capa 5 x2_7
       rect:
         serializedVersion: 2
-        x: 2982
+        x: 5971
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9b3e4e7cd57ef7e0800000000000000
-      internalID: -1729815616991380582
+      spriteID: 741774e121f847db0800000000000000
+      internalID: -4795050395262553785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_8
+      name: capa 5 x2_8
       rect:
         serializedVersion: 2
-        x: 3408
+        x: 6824
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da0c59702413911e0800000000000000
-      internalID: -2226694381093142355
+      spriteID: eabcc80e6de9644f0800000000000000
+      internalID: -844813234357875794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_9
+      name: capa 5 x2_9
       rect:
         serializedVersion: 2
-        x: 3834
+        x: 7677
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bfc2e21cbb8f02d0800000000000000
-      internalID: -3310273561207058506
+      spriteID: 931fde92d170b5b10800000000000000
+      internalID: 1971177083743629625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_10
+      name: capa 5 x2_10
       rect:
         serializedVersion: 2
-        x: 4260
+        x: 8530
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 300a1c2a921c3fe60800000000000000
-      internalID: 7994946148081180675
+      spriteID: 3384a753812768a50800000000000000
+      internalID: 6523026558594730035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capa 5 render_11
+      name: capa 5 x2_11
       rect:
         serializedVersion: 2
-        x: 4686
+        x: 9383
         y: 0
-        width: 426.66666
-        height: 240
+        width: 853.3333
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72de968f8cd0679b0800000000000000
-      internalID: -5082859972628714201
+      spriteID: 2e802cb5be4ac3590800000000000000
+      internalID: -7693092732691937054
       vertices: []
       indices: 
       edges: []
