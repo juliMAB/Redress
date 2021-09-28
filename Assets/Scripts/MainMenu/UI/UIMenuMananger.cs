@@ -27,22 +27,22 @@ namespace EndlessT4cos.Menu.UI
         {
             CreditsPanel creditsPanel = (CreditsPanel)panel;
 
-            creditsPanelsButtons[0].SetActive(false);
-            creditsPanelsButtons[1].SetActive(false);
-            creditsPanels[0].SetActive(false);
-            creditsPanels[1].SetActive(false);
+            //creditsPanelsButtons[0].SetActive(false);
+            //creditsPanelsButtons[1].SetActive(false);
+            //creditsPanels[0].SetActive(false);
+            //creditsPanels[1].SetActive(false);
 
-            switch (creditsPanel)
-            {
-                case CreditsPanel.Names:
-                    creditsPanelsButtons[1].SetActive(true);
-                    break;
-                case CreditsPanel.Assets:
-                    creditsPanelsButtons[0].SetActive(true);                    
-                    break;
-                default:
-                    break;
-            }
+           // switch (creditsPanel)
+           // {
+           //     case CreditsPanel.Names:
+           //         creditsPanelsButtons[1].SetActive(true);
+           //         break;
+           //     case CreditsPanel.Assets:
+           //         creditsPanelsButtons[0].SetActive(true);                    
+           //         break;
+           //     default:
+           //         break;
+           // }
 
             creditsPanels[panel].SetActive(true);
         }
