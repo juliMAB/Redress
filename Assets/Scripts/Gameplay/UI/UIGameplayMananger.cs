@@ -11,8 +11,8 @@ namespace EndlessT4cos.Gameplay.UI
     public class UIGameplayMananger : MonoBehaviour
     {
         [SerializeField] private GameplayManager gameplayManager = null;
-        [SerializeField] private TextMeshProUGUI scoreText = null;
-        [SerializeField] private TextMeshProUGUI distanceText = null;
+        [SerializeField] private Text scoreText = null;
+        [SerializeField] private Text distanceText = null;
         [SerializeField] private GameObject retryPanel = null;
         [SerializeField] private GameObject pausePanel = null;
         [SerializeField] private GameObject pauseButton = null;
