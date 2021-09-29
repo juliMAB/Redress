@@ -132,6 +132,7 @@ namespace EndlessT4cos.Gameplay.Management
                 background.UpdateBackground();
             }
 
+            SetPlayerInputLock();
             SetLevelProgression();
         }
 
@@ -222,6 +223,11 @@ namespace EndlessT4cos.Gameplay.Management
             background.Reset();
 
             pauseManager.Resume();
+        }
+
+        private void SetPlayerInputLock()
+        {
+            playerControl.lockGoDown = player.transform.position.y < platformsManager.YSpawnPositions[1];
         }
 
         private void SetPlatformObjectsManagerValues(PlatformObjectsManager platformObjectsManager, float speed, float minSpawnTime, float maxSpawnTime)

@@ -31,6 +31,7 @@ namespace Games.Generics.Character.Movement
 		public float jumpHeight = 3f;
 		public float dashCooldown = 3f;
 		public float dashPower = 5f;
+		public bool lockGoDown = false;
 
 		public bool ControlActive { set { controlActive = value; } }
 
@@ -85,7 +86,11 @@ namespace Games.Generics.Character.Movement
 			if (_controller.isGrounded && Input.GetAxisRaw("GoDown") != 0)
 			{
 				_velocity.y *= 3f;
-				_controller.ignoreOneWayPlatformsThisFrame = true;
+
+				if (!lockGoDown)
+                {
+					_controller.ignoreOneWayPlatformsThisFrame = true;
+				}
 			}
 
 			_controller.move(_velocity * Time.deltaTime);
