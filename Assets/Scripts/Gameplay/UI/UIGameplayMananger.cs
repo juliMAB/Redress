@@ -70,6 +70,7 @@ namespace EndlessT4cos.Gameplay.UI
         {
             UpdateLives(gameplayManager.Player.InitialLives);
             pausePanel.SetActive(false);
+            pauseButton.SetActive(true);
         }
 
         private void ActivatePanelRetry()
