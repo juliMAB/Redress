@@ -658,7 +658,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 27
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 27
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 48
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 48
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 31
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 48
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 48
@@ -3362,7 +3362,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -3702,7 +3702,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: e0d8071292d86244bab9467a20917bfd, type: 3}
     m_FontSize: 80
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 153
@@ -4190,7 +4190,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d8fe4f5aa48d9a0409accc00b496a58c, type: 3}
     m_FontSize: 27
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 27
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
