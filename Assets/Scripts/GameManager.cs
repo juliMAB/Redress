@@ -26,7 +26,7 @@ namespace EndlessT4cos.Management
         }
         #endregion
 
-        public enum Scene { Menu, Game, ResultScreen }
+        public enum Scene { Menu, Tutorial, Game, ResultScreen }
 
         private PlayerData playerData = null;
 
@@ -40,6 +40,9 @@ namespace EndlessT4cos.Management
             {
                 case Scene.Menu:
                     stringSceneName = "MainMenu";
+                    break;
+                case Scene.Tutorial:
+                    stringSceneName = "Tutorial";
                     break;
                 case Scene.Game:
                     stringSceneName = "Game";
