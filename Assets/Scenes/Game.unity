@@ -7044,13 +7044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6607a0e1eafd61a4d97160b8c852b57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 1096012208}
-  - {fileID: 273910393}
-  - {fileID: 1898188138}
-  halfSizeOfScreen: {x: 0, y: 0}
-  distance: 2
-  speed: 1
 --- !u!1 &248227621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: 85ed38a00acf1fe478a7957bf450c1e8,
@@ -14473,7 +14466,7 @@ RectTransform:
   m_Children:
   - {fileID: 1838037011}
   m_Father: {fileID: 1303240167}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16610,13 +16603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6607a0e1eafd61a4d97160b8c852b57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 878865678}
-  - {fileID: 1377271603}
-  - {fileID: 2018229968}
-  halfSizeOfScreen: {x: 0, y: 0}
-  distance: 2
-  speed: 2.5
 --- !u!1 &709212753
 GameObject:
   m_ObjectHideFlags: 0
@@ -23119,7 +23105,7 @@ RectTransform:
   - {fileID: 1927596203}
   - {fileID: 395287364}
   m_Father: {fileID: 1303240167}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -29056,13 +29042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6607a0e1eafd61a4d97160b8c852b57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 13137359}
-  - {fileID: 279561328}
-  - {fileID: 1558388743}
-  halfSizeOfScreen: {x: 0, y: 0}
-  distance: 2
-  speed: 1
 --- !u!4 &1275921925
 Transform:
   m_ObjectHideFlags: 0
@@ -29730,6 +29709,7 @@ MonoBehaviour:
   distanceText: {fileID: 867657160}
   retryPanel: {fileID: 1016251992}
   pausePanel: {fileID: 592992657}
+  pauseButton: {fileID: 1999121074}
   lives:
   - {fileID: 2485076689440255820}
   - {fileID: 2485076689581729509}
@@ -29810,8 +29790,8 @@ RectTransform:
   - {fileID: 1210050646}
   - {fileID: 1423468738}
   - {fileID: 1683436797}
-  - {fileID: 1016251995}
   - {fileID: 592992660}
+  - {fileID: 1016251995}
   - {fileID: 1999121075}
   - {fileID: 1023193120}
   m_Father: {fileID: 0}
@@ -29868,13 +29848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6607a0e1eafd61a4d97160b8c852b57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 42683394}
-  - {fileID: 18982429}
-  - {fileID: 2114978451}
-  halfSizeOfScreen: {x: 0, y: 0}
-  distance: 2
-  speed: 3
 --- !u!1 &1311235295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: b9fd98f96f29aa74bb572e3ef1607526,
@@ -39562,7 +39535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 92}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838037012
@@ -43491,7 +43464,7 @@ GameObject:
   - component: {fileID: 1999121077}
   - component: {fileID: 1999121076}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
