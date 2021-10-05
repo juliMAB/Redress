@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using EndlessT4cos.Management;
 
@@ -8,16 +9,52 @@ namespace EndlessT4cos.Menu.UI
 {
     public class UIMenuMananger : MonoBehaviour
     {
+        private bool panel1LighstActivated = true;
+
         [Header("Entities")]
         [SerializeField] private GameObject menu = null;
         [SerializeField] private GameObject options = null;
         [SerializeField] private GameObject credits = null;
         [SerializeField] private GameObject[] creditsPanels = null;
         [SerializeField] private GameObject[] creditsPanelsButtons = null;
+        [SerializeField] private Color buttonColor = Color.cyan;
+        [SerializeField] private GameObject[] lightsPanel1 = null;
+        [SerializeField] private GameObject[] lightsPanel2 = null;
+
+        [Header("UI Animation Configuration")]
+        [SerializeField] private float changeEffectTime = 0.5f;
+        [SerializeField] private float time = 0f;
 
         private enum Menu { Main, Options, Credits}
         private enum CreditsPanel { Names, Assets}
-        
+
+        private void Update()
+        {
+            time += Time.deltaTime;
+
+            if (time > changeEffectTime)
+            {
+                ChangeLights();
+
+                time = 0f;
+            }
+        }
+
+        private void ChangeLights()
+        {
+            panel1LighstActivated = !panel1LighstActivated;
+
+            for (int i = 0; i < lightsPanel1.Length; i++)
+            {
+                lightsPanel1[i].SetActive(panel1LighstActivated);
+            }
+
+            for (int i = 0; i < lightsPanel2.Length; i++)
+            {
+                lightsPanel2[i].SetActive(!panel1LighstActivated);
+            }
+        }
+
         public void GoToScene(int scene)
         {
             GameManager.Instance.GoToScene((GameManager.Scene)scene);
@@ -69,6 +106,18 @@ namespace EndlessT4cos.Menu.UI
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void SwitchButtonColorActive(GameObject button, bool active)
+        {
+            if (active)
+            {
+                button.GetComponent<Text>().color = buttonColor;
+            }
+            else
+            {
+                button.GetComponent<Text>().color = Color.white;
             }
         }
 
