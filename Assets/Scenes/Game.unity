@@ -38100,7 +38100,7 @@ MonoBehaviour:
   speed: 5
   ySpawnPositions: []
   amountPlatformRows: 3
-  startYPos: 0
+  startYPos: -4
   verticalDistanceBetweenPlatforms: 2.35
   minDistance: 1
   maxDistance: 2
@@ -42191,7 +42191,6 @@ MonoBehaviour:
   distanceProgressionMultiplier: 0.02
   bulletSpeedMultiplier: 1.5
   speedDivider: 40
-  scorePerLevel: 140000002c010000f4010000
   actualLvl: 0
   layerSpeedDiff: 0.4
   player: {fileID: 688926773}

@@ -55,7 +55,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
         [SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
-        [SerializeField] private int[] scorePerLevel = null;
+        //[SerializeField] private int[] scorePerLevel = null;
         [SerializeField] private int actualLvl = 0;
         [SerializeField] private float layerSpeedDiff = 0.1f;
 
@@ -89,6 +89,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         private void Start()
         {
+            //pplication.targetFrameRate = 30;
             playerPosToLose.y = -5;
             playerPosToLose.x = -8.8f;
 
@@ -126,7 +127,6 @@ namespace EndlessT4cos.Gameplay.Management
             else
             {
                 player.PlayerUpdate();
-                playerControl.CharacterMovementSeterUpdate();
                 objectsManager.PlatformObjectsManagerUpdate();
                 platformsManager.PlatformsUpdate();
                 background.UpdateBackground();
@@ -134,6 +134,11 @@ namespace EndlessT4cos.Gameplay.Management
 
             SetPlayerInputLock();
             SetLevelProgression();
+        }
+
+        private void FixedUpdate()
+        {
+            playerControl.CharacterMovementSeterUpdate();
         }
 
         public void SetYPlayerPosToLose(Vector2 pos)

@@ -255,8 +255,8 @@ public class CharacterController2D : MonoBehaviour
 
 		// first, we check for a slope below us before moving
 		// only check slopes if we are going down and grounded
-		if( deltaMovement.y < 0f && collisionState.wasGroundedLastFrame )
-			handleVerticalSlope( ref deltaMovement );
+		//if( deltaMovement.y < 0f && collisionState.wasGroundedLastFrame )
+		//	handleVerticalSlope( ref deltaMovement );
 
 		// now we check movement in the horizontal dir
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, transform.lossyScale.x / 2, platformMask);
@@ -493,6 +493,11 @@ public class CharacterController2D : MonoBehaviour
 
 	void moveVertically( ref Vector3 deltaMovement )
 	{
+		//guille agrego esto
+		//----------------------------------
+		Vector3 firstDelta = deltaMovement;
+		//----------------------------------
+
 		var isGoingUp = deltaMovement.y > 0;
 		var rayDistance = Mathf.Abs( deltaMovement.y ) + _skinWidth;
 		var rayDirection = isGoingUp ? Vector2.up : -Vector2.up;
@@ -543,6 +548,8 @@ public class CharacterController2D : MonoBehaviour
 					break;
 			}
 		}
+
+			Debug.Log(firstDelta.y + " - " + deltaMovement.y);
 	}
 
 

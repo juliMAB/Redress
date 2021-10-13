@@ -16,7 +16,7 @@ namespace EndlessT4cos.Menu.UI
         [SerializeField] private GameObject options = null;
         [SerializeField] private GameObject credits = null;
         [SerializeField] private GameObject[] creditsPanels = null;
-        [SerializeField] private GameObject[] creditsPanelsButtons = null;
+        //[SerializeField] private GameObject[] creditsPanelsButtons = null;
         [SerializeField] private Color buttonColor = Color.cyan;
         [SerializeField] private GameObject[] lightsPanel1 = null;
         [SerializeField] private GameObject[] lightsPanel2 = null;
