@@ -263,7 +263,7 @@ public class CharacterController2D : MonoBehaviour
 
 		if (hit.normal == Vector2.left)
 		{
-				deltaMovement = Vector3.left * 0.05f;
+				deltaMovement = Vector3.left *Time.deltaTime*10;
 			moveHorizontally(ref deltaMovement);
 		}
 		else if (deltaMovement.x != 0f)

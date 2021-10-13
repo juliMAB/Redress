@@ -70,7 +70,7 @@ namespace Games.Generics.Character.Movement
 			if (_controller.isGrounded && Input.GetAxisRaw("Jump")!=0)
 			{
 				AkSoundEngine.PostEvent("Jump", gameObject);
-				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
+				_velocity.y = Mathf.Sqrt(400f*Time.deltaTime * jumpHeight * -gravity);
 				_animator.Play(Animator.StringToHash("Jump"));
 			}
 
