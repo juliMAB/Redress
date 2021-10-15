@@ -36,11 +36,11 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 for (int i = 0; i < layers.Length; i++)
                 {
-                    layers[i].transform.position += Vector3.left * _speed * Time.deltaTime; // muevo todas las layers lo mismo
+                    layers[i].transform.localPosition += Vector3.left * _speed * Time.deltaTime; // muevo todas las layers lo mismo
 
                     if (doParallax)
                     { 
-                        layers[i].transform.position += Vector3.right * i * _layerSpeedDiff * Time.deltaTime;
+                        layers[i].transform.localPosition += Vector3.right * i * _layerSpeedDiff * Time.deltaTime;
                         // hago retroceder cada vez un poquito más a las layers de más atras que son las que mas lento deberían ir
                     }
 
@@ -57,7 +57,7 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 for (int i = 0; i < layers.Length; i++)
                 {
-                    layers[i].transform.position = _startPos.position;
+                    layers[i].transform.localPosition = _startPos.position;
                 }
             }
 
@@ -82,12 +82,12 @@ namespace EndlessT4cos.Gameplay.Platforms
 
             for (int i = 0; i < group1.layers.Length; i++)
             {
-                group1.startPosition[i] = group1.layers[i].transform.position;
+                group1.startPosition[i] = group1.layers[i].transform.localPosition;
             }
 
             for (int i = 0; i < group2.layers.Length; i++)
             {
-                group2.startPosition[i] = group2.layers[i].transform.position;
+                group2.startPosition[i] = group2.layers[i].transform.localPosition;
             }
         }
 
@@ -106,12 +106,12 @@ namespace EndlessT4cos.Gameplay.Platforms
         {
             for (int i = 0; i < group1.layers.Length; i++)
             {
-                group1.layers[i].transform.position = group1.startPosition[i];
+                group1.layers[i].transform.localPosition = group1.startPosition[i];
             }
 
             for (int i = 0; i < group2.layers.Length; i++)
             {
-                group2.layers[i].transform.position = group2.startPosition[i];
+                group2.layers[i].transform.localPosition = group2.startPosition[i];
             }
 
             enabledGroup1 = true;

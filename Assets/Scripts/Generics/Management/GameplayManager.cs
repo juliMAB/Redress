@@ -9,6 +9,7 @@ using Games.Generics.Character.Movement;
 using Games.Generics.Weapon;
 using Games.Generics.Manager;
 using EndlessT4cos.Gameplay.Objects.PickUps;
+using EndlessT4cos.Gameplay.Controllers;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -67,6 +68,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private PauseManager pauseManager = null;
         [SerializeField] private CameraShake cameraShake = null;
         [SerializeField] private ParallaxManager background = null;
+        [SerializeField] private CameraController cameraController = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -101,6 +103,8 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(speed, layerSpeedDiff);
+
+            platformsManager.OnUnneveness += cameraController.MoveCamera;
         }
 
         private void Update()
@@ -226,6 +230,7 @@ namespace EndlessT4cos.Gameplay.Management
 
             platformsManager.Reset();
             background.Reset();
+            cameraController.Reset();
 
             pauseManager.Resume();
         }
@@ -245,14 +250,14 @@ namespace EndlessT4cos.Gameplay.Management
         private void SetPlatformsManagerValues(float speed, float minDistance, float maxDistance)
         {
             platformsManager.speed = speed;
-            platformsManager.minDistance = minDistance;
-            platformsManager.maxDistance = maxDistance;
+            platformsManager.distanceLimits[0] = minDistance;
+            platformsManager.distanceLimits[1] = maxDistance;
         }
 
         private bool IsPlayerAlive()
         {
             return !Input.GetKey(KeyCode.Keypad9) && 
-                    player.transform.position.y - player.transform.lossyScale.y / 2 > playerPosToLose.y &&
+                    player.transform.position.y - player.transform.lossyScale.y / 2 > Camera.main.transform.position.y + playerPosToLose.y &&
                     player.transform.position.x + player.transform.lossyScale.x / 2 > playerPosToLose.x &&
                     player.Lives > 0;
         }
@@ -274,7 +279,7 @@ namespace EndlessT4cos.Gameplay.Management
             }
 
             SetPlatformObjectsManagerValues(objectsManager, speed * speedMultiplier, objectsManager.minSpawnTime, objectsManager.maxSpawnTime);
-            SetPlatformsManagerValues(speed * speedMultiplier, platformsManager.minDistance + distanceProgression, platformsManager.maxDistance + distanceProgression);
+            SetPlatformsManagerValues(speed * speedMultiplier, platformsManager.distanceLimits[0] + distanceProgression, platformsManager.distanceLimits[1] + distanceProgression);
             SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
             background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
         }
