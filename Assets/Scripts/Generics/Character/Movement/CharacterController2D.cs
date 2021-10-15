@@ -255,8 +255,8 @@ public class CharacterController2D : MonoBehaviour
 
 		// first, we check for a slope below us before moving
 		// only check slopes if we are going down and grounded
-		//if( deltaMovement.y < 0f && collisionState.wasGroundedLastFrame )
-		//	handleVerticalSlope( ref deltaMovement );
+		if( deltaMovement.y < 0f && collisionState.wasGroundedLastFrame )
+			handleVerticalSlope( ref deltaMovement );
 
 		// now we check movement in the horizontal dir
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, transform.lossyScale.x / 2, platformMask);
@@ -493,64 +493,64 @@ public class CharacterController2D : MonoBehaviour
 
 	void moveVertically( ref Vector3 deltaMovement )
 	{
-		//guille agrego esto
-		//----------------------------------
-		Vector3 firstDelta = deltaMovement;
-		//----------------------------------
+			//guille agrego esto
+			//----------------------------------
+			Vector3 firstDelta = deltaMovement;
+			//----------------------------------
 
-		var isGoingUp = deltaMovement.y > 0;
-		var rayDistance = Mathf.Abs( deltaMovement.y ) + _skinWidth;
-		var rayDirection = isGoingUp ? Vector2.up : -Vector2.up;
-		var initialRayOrigin = isGoingUp ? _raycastOrigins.topLeft : _raycastOrigins.bottomLeft;
+			var isGoingUp = deltaMovement.y > 0;
+			var rayDistance = Mathf.Abs(deltaMovement.y) + _skinWidth;
+			var rayDirection = isGoingUp ? Vector2.up : -Vector2.up;
+			var initialRayOrigin = isGoingUp ? _raycastOrigins.topLeft : _raycastOrigins.bottomLeft;
 
-		// apply our horizontal deltaMovement here so that we do our raycast from the actual position we would be in if we had moved
-		initialRayOrigin.x += deltaMovement.x;
+			// apply our horizontal deltaMovement here so that we do our raycast from the actual position we would be in if we had moved
+			initialRayOrigin.x += deltaMovement.x;
 
-		// if we are moving up, we should ignore the layers in oneWayPlatformMask
-		var mask = platformMask;
-		if( ( isGoingUp && !collisionState.wasGroundedLastFrame ) || ignoreOneWayPlatformsThisFrame )
-			mask &= ~oneWayPlatformMask;
+			// if we are moving up, we should ignore the layers in oneWayPlatformMask
+			var mask = platformMask;
+			if ((isGoingUp && !collisionState.wasGroundedLastFrame) || ignoreOneWayPlatformsThisFrame)
+				mask &= ~oneWayPlatformMask;
 
-		for( var i = 0; i < totalVerticalRays; i++ )
-		{
-			var ray = new Vector2( initialRayOrigin.x + i * _horizontalDistanceBetweenRays, initialRayOrigin.y );
-
-			DrawRay( ray, rayDirection * rayDistance, Color.red );
-			_raycastHit = Physics2D.Raycast( ray, rayDirection, rayDistance, mask );
-			if( _raycastHit )
+			for (var i = 0; i < totalVerticalRays; i++)
 			{
-				// set our new deltaMovement and recalculate the rayDistance taking it into account
-				deltaMovement.y = _raycastHit.point.y - ray.y;
-				rayDistance = Mathf.Abs( deltaMovement.y );
+				var ray = new Vector2(initialRayOrigin.x + i * _horizontalDistanceBetweenRays, initialRayOrigin.y);
 
-				// remember to remove the skinWidth from our deltaMovement
-				if( isGoingUp )
+				DrawRay(ray, rayDirection * rayDistance, Color.red);
+				_raycastHit = Physics2D.Raycast(ray, rayDirection, rayDistance, mask);
+				if (_raycastHit)
 				{
-					deltaMovement.y -= _skinWidth;
-					collisionState.above = true;
+					// set our new deltaMovement and recalculate the rayDistance taking it into account
+					deltaMovement.y = _raycastHit.point.y - ray.y;
+					rayDistance = Mathf.Abs(deltaMovement.y);
+
+					// remember to remove the skinWidth from our deltaMovement
+					if (isGoingUp)
+					{
+						deltaMovement.y -= _skinWidth;
+						collisionState.above = true;
+					}
+					else
+					{
+						deltaMovement.y += _skinWidth;
+						collisionState.below = true;
+					}
+
+					_raycastHitsThisFrame.Add(_raycastHit);
+
+					// this is a hack to deal with the top of slopes. if we walk up a slope and reach the apex we can get in a situation
+					// where our ray gets a hit that is less then skinWidth causing us to be ungrounded the next frame due to residual velocity.
+					if (!isGoingUp && deltaMovement.y > 0.00001f)
+						_isGoingUpSlope = true;
+
+					// we add a small fudge factor for the float operations here. if our rayDistance is smaller
+					// than the width + fudge bail out because we have a direct impact
+					if (rayDistance < _skinWidth + kSkinWidthFloatFudgeFactor)
+						break;
 				}
-				else
-				{
-					deltaMovement.y += _skinWidth;
-					collisionState.below = true;
-				}
-
-				_raycastHitsThisFrame.Add( _raycastHit );
-
-				// this is a hack to deal with the top of slopes. if we walk up a slope and reach the apex we can get in a situation
-				// where our ray gets a hit that is less then skinWidth causing us to be ungrounded the next frame due to residual velocity.
-				if( !isGoingUp && deltaMovement.y > 0.00001f )
-					_isGoingUpSlope = true;
-
-				// we add a small fudge factor for the float operations here. if our rayDistance is smaller
-				// than the width + fudge bail out because we have a direct impact
-				if( rayDistance < _skinWidth + kSkinWidthFloatFudgeFactor )
-					break;
 			}
-		}
 
-			Debug.Log(firstDelta.y + " - " + deltaMovement.y);
-	}
+			//Debug.Log(firstDelta.y + " - " + deltaMovement.y);
+		}
 
 
 	/// <summary>

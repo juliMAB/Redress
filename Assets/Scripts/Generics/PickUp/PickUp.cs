@@ -24,6 +24,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             if (consumed)
             {
+                Debug.Log("consumed: " + consumed);
                 return;
             }
 
@@ -53,6 +54,13 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             leftDurability = totalDurability;
             picked = false;
             consumed = false;
+        }
+        public void OnDisable()
+        {
+            if (leftDurability > 0)
+            {
+                gameObject.SetActive(true);
+            }
         }
     }
 }           

@@ -23,7 +23,9 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             base.OnPicked();
 
-            GameplayManager.Instance.speedMultiplier = multiplier;
+            //GameplayManager.Instance.speedMultiplier = multiplier;
+            StopAllCoroutines();
+            StartCoroutine(Ipickup());
             visual.SetActive(false);
         }
 
@@ -36,6 +38,16 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             base.ResetStats();
             visual.SetActive(true);
+        }
+        IEnumerator Ipickup()
+        {
+            GameplayManager.Instance.speedMultiplier = multiplier;
+            do
+            {
+                leftDurability -= Time.deltaTime;
+                yield return null;
+            } while (leftDurability>0);
+            GameplayManager.Instance.speedMultiplier = 1f;
         }
     }
 }
