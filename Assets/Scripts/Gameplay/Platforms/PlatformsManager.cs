@@ -11,7 +11,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         {
             public GameObject platformGo;
             public Vector3 position;
-            public Row row;
+            public row row;
         }
 
         private float halfPlatformHeight = 0f;
@@ -115,7 +115,7 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
         }
 
-        private bool LastObjectIsFarEnough(Row row)
+        private bool LastObjectIsFarEnough(row row)
         {
             PlatformObject closerObject = null;
 
@@ -137,7 +137,7 @@ namespace EndlessT4cos.Gameplay.Platforms
             return IsFarEnoughForNewObjectToSpawn(closerObject);
         }
 
-        private bool IsTheClosestToRightEdge(Row row, PlatformObject platform) //Means it was the last to spawn
+        private bool IsTheClosestToRightEdge(row row, PlatformObject platform) //Means it was the last to spawn
         {
             PlatformObject closerObject = null;
             PlatformObject actualObject;

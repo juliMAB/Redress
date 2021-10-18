@@ -6,7 +6,7 @@ namespace EndlessT4cos.Gameplay.Platforms
 {
     public class PlatformObject : MovableObject
     {
-        public Row row = Row.Middle;
+        public row row = row.MIDDLE;
     }
 }
 

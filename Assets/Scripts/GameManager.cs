@@ -26,28 +26,28 @@ namespace EndlessT4cos.Management
         }
         #endregion
 
-        public enum Scene { Menu, Tutorial, Game, ResultScreen }
+        public enum scenes { MENU, TUTORIAL, GAME, RESULT_SCREEN }
 
         private PlayerData playerData = null;
 
         public PlayerData PlayerData { get => playerData; }
 
-        public void GoToScene(Scene scene)
+        public void GoToScene(scenes scene)
         {
             string stringSceneName;
 
             switch (scene)
             {
-                case Scene.Menu:
+                case scenes.MENU:
                     stringSceneName = "MainMenu";
                     break;
-                case Scene.Tutorial:
+                case scenes.TUTORIAL:
                     stringSceneName = "Tutorial";
                     break;
-                case Scene.Game:
+                case scenes.GAME:
                     stringSceneName = "Game";
                     break;
-                case Scene.ResultScreen:
+                case scenes.RESULT_SCREEN:
                     { 
                         stringSceneName = "ResultScreen";
                         SetPlayerData();
@@ -60,7 +60,7 @@ namespace EndlessT4cos.Management
 
             SceneManager.LoadScene(stringSceneName);
 
-            if (scene == Scene.Game)
+            if (scene == scenes.GAME)
             {
                 Invoke("SetGameplayReturnToMenu", 1f);
             }
@@ -68,7 +68,7 @@ namespace EndlessT4cos.Management
 
         private void GoToMenu()
         {
-            GoToScene(Scene.Menu);
+            GoToScene(scenes.MENU);
         }
 
         public void SetGameplayReturnToMenu()
