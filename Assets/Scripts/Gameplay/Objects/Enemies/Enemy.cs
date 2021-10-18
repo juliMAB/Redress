@@ -7,7 +7,7 @@ using Games.Generics.Interfaces;
 
 namespace EndlessT4cos.Gameplay.Objects.Enemies
 {
-    public enum enemy_type { STATIC, EXPLOSIVE, SHOOTER }
+    public enum Type { Static, Explosive, Shooter }
 
     public class Enemy : PlatformObject, IDamageable
     {
@@ -22,7 +22,7 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
         [SerializeField] protected bool lookingAtTarget = false;
         [SerializeField] protected float minDistanceToTarget = 1;
 
-        public enemy_type type = enemy_type.STATIC;
+        public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
 
         private void Start()

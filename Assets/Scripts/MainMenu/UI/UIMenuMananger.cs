@@ -25,8 +25,8 @@ namespace EndlessT4cos.Menu.UI
         [SerializeField] private float changeEffectTime = 0.5f;
         [SerializeField] private float time = 0f;
 
-        private enum menu_panel { MAIN, OPTIONS, CREDITS}
-        private enum credits_panel { NAMES, ASSETS}
+        private enum Menu { Main, Options, Credits}
+        private enum CreditsPanel { Names, Assets}
 
         private void Update()
         {
@@ -57,12 +57,12 @@ namespace EndlessT4cos.Menu.UI
 
         public void GoToScene(int scene)
         {
-            GameManager.Instance.GoToScene((GameManager.scenes)scene);
+            GameManager.Instance.GoToScene((GameManager.Scene)scene);
         }
 
         public void SwitchToCreditsPanel(int panel)
         {
-            credits_panel creditsPanel = (credits_panel)panel;
+            CreditsPanel creditsPanel = (CreditsPanel)panel;
 
             //creditsPanelsButtons[0].SetActive(false);
             //creditsPanelsButtons[1].SetActive(false);
@@ -86,7 +86,7 @@ namespace EndlessT4cos.Menu.UI
 
         public void SwitchToPanel(int panel)
         {
-            menu_panel menuPanel = (menu_panel)panel;
+            Menu menuPanel = (Menu)panel;
 
             menu.SetActive(false);
             credits.SetActive(false);
@@ -94,13 +94,13 @@ namespace EndlessT4cos.Menu.UI
 
             switch (menuPanel)
             {
-                case menu_panel.MAIN:
+                case Menu.Main:
                     menu.SetActive(true);
                     break;
-                case menu_panel.OPTIONS:
+                case Menu.Options:
                     options.SetActive(true);
                     break;
-                case menu_panel.CREDITS:
+                case Menu.Credits:
                     credits.SetActive(true);
                     SwitchToCreditsPanel(0);
                     break;

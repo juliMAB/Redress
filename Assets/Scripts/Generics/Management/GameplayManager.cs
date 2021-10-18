@@ -323,21 +323,21 @@ namespace EndlessT4cos.Gameplay.Management
         private void AssignEnemiesTypes()
         {
             Enemy enemy;
-            Objects.Enemies.enemy_type type;
+            Objects.Enemies.Type type;
 
             for (int i = 0; i < objectsManager.Enemies.Length; i++)
             {
                 enemy = objectsManager.Enemies[i];
 
-                type = Objects.Enemies.enemy_type.STATIC;
+                type = Objects.Enemies.Type.Static;
 
                 if (enemy.TryGetComponent(out ExplosiveEnemy explosiveEnemy))
                 {
-                    type = Objects.Enemies.enemy_type.EXPLOSIVE;
+                    type = Objects.Enemies.Type.Explosive;
                 }
                 else if (enemy.TryGetComponent(out ShooterEnemy shooterEnemy))
                 {
-                    type = Objects.Enemies.enemy_type.SHOOTER;
+                    type = Objects.Enemies.Type.Shooter;
                 }
 
                 enemy.type = type;
@@ -356,14 +356,14 @@ namespace EndlessT4cos.Gameplay.Management
 
                 switch (enemy.type)
                 {
-                    case Objects.Enemies.enemy_type.STATIC:
+                    case Objects.Enemies.Type.Static:
                         enemy.OnDie += AddScore;
                         break;
-                    case Objects.Enemies.enemy_type.EXPLOSIVE:
+                    case Objects.Enemies.Type.Explosive:
                         explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
                         explosiveEnemy.OnExplode += CrazyFunc;
                         break;
-                    case Objects.Enemies.enemy_type.SHOOTER:
+                    case Objects.Enemies.Type.Shooter:
                         shooterEnemy = enemy.GetComponent<ShooterEnemy>();
                         enemy.OnDie += AddScore;
                         break;

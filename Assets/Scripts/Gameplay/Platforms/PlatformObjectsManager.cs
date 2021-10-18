@@ -7,7 +7,7 @@ using EndlessT4cos.Gameplay.Objects.PickUps;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {
-    public enum row { UP, MIDDLE, DOWN }
+    public enum Row { Up, Middle, Down }
 
     public class PlatformObjectsManager : MovableObjectsManager
     {
@@ -110,7 +110,7 @@ namespace EndlessT4cos.Gameplay.Platforms
 
                     PlatformObject platformObjectComponent = newObject.GetComponent<PlatformObject>();
                     PlaceOnRightEnd(newObject, platformsManager.YSpawnPositions[i] + platformObjectComponent.HalfSize.y + halfPlatformHeight);
-                    platformObjectComponent.row = (row)i;
+                    platformObjectComponent.row = (Row)i;
 
                     ResetObjectStats(newObject);
                 }
