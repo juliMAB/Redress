@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 112956683}
   - component: {fileID: 112956687}
   m_Layer: 5
-  m_Name: UI
+  m_Name: Canvas - MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +492,6 @@ MonoBehaviour:
   credits: {fileID: 115548570}
   creditsPanels:
   - {fileID: 571193736}
-  creditsPanelsButtons: []
   buttonColor: {r: 0, g: 1, b: 1, a: 1}
   lightsPanel1:
   - {fileID: 180222427}
