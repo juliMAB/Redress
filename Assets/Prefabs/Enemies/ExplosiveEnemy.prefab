@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4286412a4722c048a76a5d7c6d837a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0, y: 0}
+  halfSize: {x: 0.56, y: 0.74}
   row: 1
   canDie: 0
   initialLives: 1

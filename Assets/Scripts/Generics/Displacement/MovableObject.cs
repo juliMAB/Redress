@@ -17,13 +17,11 @@ namespace Games.Generics.Displacement
 
         public void SetSize()
         {
-            halfSize.x = transform.lossyScale.x / 2f;
-            halfSize.y = transform.lossyScale.y / 2f;
-        }
-
-        public void SetCustomSize(Vector2 size)
-        {
-            halfSize = size;
+            if (halfSize == Vector2.zero)
+            {
+                halfSize.x = transform.lossyScale.x / 2f;
+                halfSize.y = transform.lossyScale.y / 2f;
+            }
         }
     }
 }

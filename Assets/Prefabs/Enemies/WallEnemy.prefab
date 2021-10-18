@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3412316705388000637
 Transform:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb11d06f2ee9214fa1dc6189aef5d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0, y: 0}
+  halfSize: {x: 0.79, y: 1.03}
   row: 1
   canDie: 0
   initialLives: 100
