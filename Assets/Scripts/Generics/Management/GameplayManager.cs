@@ -10,6 +10,7 @@ using Games.Generics.Weapon;
 using Games.Generics.Manager;
 using EndlessT4cos.Gameplay.Objects.PickUps;
 using EndlessT4cos.Gameplay.Controllers;
+using EndlessT4cos.Gameplay.Animations;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -69,6 +70,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private CameraShake cameraShake = null;
         [SerializeField] private ParallaxManager background = null;
         [SerializeField] private CameraController cameraController = null;
+        [SerializeField] private AnimationController animationController = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -103,6 +105,7 @@ namespace EndlessT4cos.Gameplay.Management
             SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(speed, layerSpeedDiff);
+            animationController.StartAnimations();
 
             platformsManager.OnUnneveness += cameraController.MoveCamera;
         }
@@ -164,9 +167,15 @@ namespace EndlessT4cos.Gameplay.Management
         public void ChangePause()
         {
             if (pauseManager.GameIsPaused)
+            { 
                 pauseManager.Resume();
+                animationController.ReanudeAnimations();
+            }
             else
+            { 
                 pauseManager.Pause();
+                animationController.PauseAnimations();
+            }
         }
 
         public void EndGameplay()
@@ -195,12 +204,13 @@ namespace EndlessT4cos.Gameplay.Management
             platformsManager.enabled = false;
             SetBulletsSpeed(0, true);
 
+            animationController.PauseAnimations();
+
             pauseManager.Pause();
         }
 
         public void ResetGame()
         {
-           // backgroundChanger.MyReset();
             speedMultiplier = 1f;
             score = 0;
             OnChangedScore?.Invoke(score);
@@ -231,6 +241,7 @@ namespace EndlessT4cos.Gameplay.Management
             platformsManager.Reset();
             background.Reset();
             cameraController.Reset();
+            animationController.Reset();
 
             pauseManager.Resume();
         }
