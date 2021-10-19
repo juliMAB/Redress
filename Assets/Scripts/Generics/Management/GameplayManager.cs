@@ -60,6 +60,7 @@ namespace EndlessT4cos.Gameplay.Management
         //[SerializeField] private int[] scorePerLevel = null;
         [SerializeField] private int actualLvl = 0;
         [SerializeField] private float layerSpeedDiff = 0.1f;
+        [SerializeField] private float halfPlayerHeight = 0.88f;
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
@@ -93,10 +94,6 @@ namespace EndlessT4cos.Gameplay.Management
 
         private void Start()
         {
-            //pplication.targetFrameRate = 30;
-            playerPosToLose.y = -5;
-            playerPosToLose.x = -8.8f;
-
             AssignEnemiesTypes();
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
@@ -223,9 +220,9 @@ namespace EndlessT4cos.Gameplay.Management
             speed = initialSpeed;
             layerSpeedDiff = initialIayerSpeedDiff;
 
-            foreach (var platfomrObject in objectsManager.Objects)
+            foreach (var platformObject in objectsManager.Objects)
             {
-                platfomrObject.gameObject.SetActive(false);
+                platformObject.gameObject.SetActive(false);
             }
 
             objectsManager.enabled = true;
@@ -268,7 +265,7 @@ namespace EndlessT4cos.Gameplay.Management
         private bool IsPlayerAlive()
         {
             return !Input.GetKey(KeyCode.Keypad9) && 
-                    player.transform.position.y - player.transform.lossyScale.y / 2 > Camera.main.transform.position.y + playerPosToLose.y &&
+                    player.transform.position.y - halfPlayerHeight > Camera.main.transform.position.y + playerPosToLose.y &&
                     player.transform.position.x + player.transform.lossyScale.x / 2 > playerPosToLose.x &&
                     player.Lives > 0;
         }
