@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 using Games.Generics.Displacement;
 
@@ -19,7 +20,9 @@ namespace EndlessT4cos.Gameplay.Platforms
         private float unnevenesDuration = 0f;
         private float normalEvenessDuration = 0f;
         private bool unnevenessActivated = false;
+        private IEnumerator unevennessInst = null;
         private InitialPlatform[] initialActivePlatforms = null;
+        private bool pausePlatformMovement = false;
 
         [Header("Platform Builiding Configurations")]
         [SerializeField] private float[] ySpawnPositions = null;
@@ -33,7 +36,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         [SerializeField] private float[] normalEvenessDurationLimits = new float[2];
         public float[] distanceLimits = new float[2];
 
-        public Action<float> OnUnneveness = null;
+        public Action<float, float> OnUnneveness = null;
 
         public float HalfPlatformHeight { get => halfPlatformHeight; }
         public float[] YSpawnPositions { get => ySpawnPositions; set => ySpawnPositions = value; }
@@ -52,6 +55,12 @@ namespace EndlessT4cos.Gameplay.Platforms
             unnevenesDuration = 0f;
             normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
             unnevenessActivated = false;
+            pausePlatformMovement = false;
+
+            if (unevennessInst != null)
+            {
+                StopCoroutine(unevennessInst);
+            }
         }
 
         private void Awake()
@@ -103,16 +112,24 @@ namespace EndlessT4cos.Gameplay.Platforms
                 }
             }
 
-            normalEvenessDuration -= Time.deltaTime;
-
-            if (unnevenessActivated)
-            {
-                SetPlatformsUnevennessUpdate();
-            }
-            else if(normalEvenessDuration < 0)
+            //if (unnevenessActivated)
+            //{
+            //    SetPlatformsUnevennessUpdate();
+            //}
+            //else 
+            if(!unnevenessActivated && normalEvenessDuration < 0)
             {
                 SetPlatformsUnevennes();
             }
+            else if (!unnevenessActivated)
+            {
+                normalEvenessDuration -= Time.deltaTime;
+            }
+        }
+
+        public void PauseMovement(bool pause)
+        {
+            pausePlatformMovement = pause;
         }
 
         private bool LastObjectIsFarEnough(Row row)
@@ -169,33 +186,73 @@ namespace EndlessT4cos.Gameplay.Platforms
         #region Unevenness
         private void SetPlatformsUnevennes()
         {
+            IEnumerator SetUnevenness()
+            {
+                float time = 0f;
+                float[] initialYpositions = new float[ySpawnPositions.Length];
+
+                for (int i = 0; i < amountPlatformRows; i++)
+                {
+                    initialYpositions[i] = ySpawnPositions[i];
+                }
+
+                while (time < unnevenesDuration)
+                {
+                    if (pausePlatformMovement)
+                    {
+                        yield return null;
+                    }
+
+                    time += Time.deltaTime;
+                    for (int i = 0; i < amountPlatformRows; i++)
+                    {
+                        ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);
+                    }
+
+                    yield return null;
+                }
+
+                unnevenessActivated = false;
+                unevennessInst = null;
+                normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+            }
+
             unnevenessActivated = true;
             unnevenesDuration = UnityEngine.Random.Range(unnevenessDurationLimits[0], unnevenessDurationLimits[1]);
             unnevenes = UnityEngine.Random.Range(unnevenesValuesLimits[0], unnevenesValuesLimits[1]);
 
-           
+            OnUnneveness?.Invoke(unnevenes, unnevenesDuration);
+
+            if (unevennessInst != null)
+            {
+                StopCoroutine(unevennessInst);
+            }
+
+            unevennessInst = SetUnevenness();
+            StartCoroutine(unevennessInst);
         }
 
         private void SetPlatformsUnevennessUpdate()
         {
-            unnevenesDuration -= Time.deltaTime;
+            //unnevenesDuration -= Time.deltaTime;
 
-            if (unnevenesDuration < 0)
-            {
-                unnevenessActivated = false;
-            }
-            else
-            {
-                for (int i = 0; i < amountPlatformRows; i++)
-                {
-                    ySpawnPositions[i] += unnevenes * Time.deltaTime;
-                    
-                }
-
-                OnUnneveness?.Invoke(unnevenes * Time.deltaTime);
-
-                normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
-            }
+            //if (unnevenesDuration < 0)
+            //if (ySpawnPositions[0] == initialYPosValue + unnevenes)
+            //{
+            //    unnevenessActivated = false;
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < amountPlatformRows; i++)
+            //    {
+            //        ySpawnPositions[i] += unnevenes /  * Time.deltaTime;
+            //        
+            //    }
+            //
+            //    OnUnneveness?.Invoke(unnevenes * Time.deltaTime);
+            //
+            //    normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+            //}
         }
         #endregion
 

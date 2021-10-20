@@ -107,7 +107,7 @@ namespace EndlessT4cos.Gameplay.Management
             background.SetSpeed(speed, layerSpeedDiff);
             animationController.StartAnimations();
 
-            platformsManager.OnUnneveness += cameraController.MoveCamera;
+            platformsManager.OnUnneveness += cameraController.PositionCamera;
         }
 
         private void Update()
@@ -194,6 +194,9 @@ namespace EndlessT4cos.Gameplay.Management
                     shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .4f));
                 }
             }
+
+            platformsManager.PauseMovement(pauseManager.GameIsPaused);
+            cameraController.PauseCameraMovement(pauseManager.GameIsPaused);
         }
 
         public void EndGameplay()
@@ -224,6 +227,8 @@ namespace EndlessT4cos.Gameplay.Management
 
             animationController.PauseAnimations();
 
+            platformsManager.PauseMovement(true);
+            cameraController.PauseCameraMovement(true);
             pauseManager.Pause();
         }
 
