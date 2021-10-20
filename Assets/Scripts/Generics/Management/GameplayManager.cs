@@ -80,6 +80,9 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private Gun[] allGuns = null;
         [SerializeField] private Bullet[] allBullets = null;
 
+        //[Header("Corrutines")]
+        Coroutine shakeCorrutine;
+
         public float speedMultiplier = 1f;
 
         public Action<int> OnChangedScore = null;
@@ -142,7 +145,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         private void FixedUpdate()
         {
-            playerControl.CharacterMovementSeterUpdate();
+            
         }
 
         public void SetYPlayerPosToLose(Vector2 pos)
@@ -152,7 +155,16 @@ namespace EndlessT4cos.Gameplay.Management
 
         void CrazyFunc()
         {
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            if (!cameraShake.CorrutineActive)
+            {
+                shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .4f));
+            }
+            else
+            {
+                StopCoroutine(shakeCorrutine);
+                cameraShake.CorrutineActive = false;
+                shakeCorrutine = null;
+            }
         }
 
         private void AddScore(GameObject go)
@@ -167,11 +179,20 @@ namespace EndlessT4cos.Gameplay.Management
             { 
                 pauseManager.Resume();
                 animationController.ReanudeAnimations();
+                if (shakeCorrutine!=null)
+                {
+                    StopCoroutine(shakeCorrutine);
+                }
             }
             else
             { 
                 pauseManager.Pause();
                 animationController.PauseAnimations();
+                if (shakeCorrutine != null)
+                {
+                    StopCoroutine(shakeCorrutine);
+                    shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .4f));
+                }
             }
         }
 

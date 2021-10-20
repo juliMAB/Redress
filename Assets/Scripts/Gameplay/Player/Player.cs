@@ -4,12 +4,13 @@ using UnityEngine;
 
 using Games.Generics.Interfaces;
 using Games.Generics.Weapon;
-
+using Games.Generics.Character.Movement;
 namespace EndlessT4cos.Gameplay.User
 {
     public class Player : MonoBehaviour, IDamageable
     {
         private SpriteRenderer spriteRenderer = null;
+        private CharacterMovementSeter characterMovement = null;
         private Color normalColor = Color.white;
         public Color inmuneColor = Color.red;
        // public Color inmuneColorShield = Color.blue;
@@ -60,6 +61,7 @@ namespace EndlessT4cos.Gameplay.User
 
         private void Awake()
         {
+            characterMovement = GetComponent<CharacterMovementSeter>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             normalColor = spriteRenderer.color;
             initialPosition = transform.position;
@@ -72,7 +74,7 @@ namespace EndlessT4cos.Gameplay.User
             {
                 return;
             }
-
+            characterMovement.CharacterMovementSeterUpdate();
             if (Input.GetKeyDown(KeyCode.K))
             {
                 gun.Shoot();
