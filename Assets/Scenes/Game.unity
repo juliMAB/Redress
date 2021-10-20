@@ -38175,7 +38175,7 @@ MonoBehaviour:
   ySpawnPositions: []
   amountPlatformRows: 3
   startYPos: 0.5
-  verticalDistanceBetweenPlatforms: 2.5
+  verticalDistanceBetweenPlatforms: 2.3
   unnevenessDurationLimits:
   - 7
   - 10
