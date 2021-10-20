@@ -61,6 +61,7 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private int actualLvl = 0;
         [SerializeField] private float layerSpeedDiff = 0.1f;
         [SerializeField] private float halfPlayerHeight = 0.88f;
+        [SerializeField] private Vector2 halfSizeScreen = Vector2.zero;
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
@@ -288,7 +289,7 @@ namespace EndlessT4cos.Gameplay.Management
         private bool IsPlayerAlive()
         {
             return !Input.GetKey(KeyCode.Keypad9) && 
-                    player.transform.position.y - halfPlayerHeight > Camera.main.transform.position.y + playerPosToLose.y &&
+                    player.transform.position.y - halfPlayerHeight > Camera.main.transform.position.y - halfSizeScreen.y  &&
                     player.transform.position.x + player.transform.lossyScale.x / 2 > playerPosToLose.x &&
                     player.Lives > 0;
         }

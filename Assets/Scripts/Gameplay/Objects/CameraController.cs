@@ -27,15 +27,17 @@ namespace EndlessT4cos.Gameplay.Controllers
                     {
                         yield return null;
                     }
+                    else
+                    {
+                        time += Time.deltaTime * movementSpeed;
 
-                    time += Time.deltaTime * movementSpeed;
+                        Vector3 pos = Vector3.Lerp(initialPosition, position, time / totalTime);
 
-                    Vector3 pos = Vector3.Lerp(initialPosition, position, time/ totalTime);     
-                    
-                    Camera.main.transform.position = pos;
-                    background.transform.position = pos;
+                        Camera.main.transform.position = pos;
+                        background.transform.position = pos;
 
-                    yield return null;
+                        yield return null;
+                    }
                 }
 
                 positionCameraInst = null;

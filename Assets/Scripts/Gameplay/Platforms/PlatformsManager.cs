@@ -112,11 +112,6 @@ namespace EndlessT4cos.Gameplay.Platforms
                 }
             }
 
-            //if (unnevenessActivated)
-            //{
-            //    SetPlatformsUnevennessUpdate();
-            //}
-            //else 
             if(!unnevenessActivated && normalEvenessDuration < 0)
             {
                 SetPlatformsUnevennes();
@@ -202,14 +197,16 @@ namespace EndlessT4cos.Gameplay.Platforms
                     {
                         yield return null;
                     }
-
-                    time += Time.deltaTime;
-                    for (int i = 0; i < amountPlatformRows; i++)
+                    else
                     {
-                        ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);
-                    }
+                        time += Time.deltaTime;
+                        for (int i = 0; i < amountPlatformRows; i++)
+                        {
+                            ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);
+                        }
 
-                    yield return null;
+                        yield return null;
+                    }
                 }
 
                 unnevenessActivated = false;
@@ -230,29 +227,6 @@ namespace EndlessT4cos.Gameplay.Platforms
 
             unevennessInst = SetUnevenness();
             StartCoroutine(unevennessInst);
-        }
-
-        private void SetPlatformsUnevennessUpdate()
-        {
-            //unnevenesDuration -= Time.deltaTime;
-
-            //if (unnevenesDuration < 0)
-            //if (ySpawnPositions[0] == initialYPosValue + unnevenes)
-            //{
-            //    unnevenessActivated = false;
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < amountPlatformRows; i++)
-            //    {
-            //        ySpawnPositions[i] += unnevenes /  * Time.deltaTime;
-            //        
-            //    }
-            //
-            //    OnUnneveness?.Invoke(unnevenes * Time.deltaTime);
-            //
-            //    normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
-            //}
         }
         #endregion
 
