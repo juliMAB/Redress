@@ -8,7 +8,7 @@ namespace EndlessT4cos.Gameplay.Animations
     {
         private List<IEnumerator> animationInstances = new List<IEnumerator>();
         private Vector3[] initialHeartsScale = null;
-
+        [SerializeField] public Animator[] animationControllers = null;
         [SerializeField] private GameObject[] hearts = null;
         [SerializeField] private float speed = 2f;
 
@@ -29,11 +29,19 @@ namespace EndlessT4cos.Gameplay.Animations
         public void PauseAnimations()
         {
             animationsOn = false;
+            foreach (var item in animationControllers)
+            {
+                item.enabled = false;
+            }
         }
 
         public void ReanudeAnimations()
         {
             animationsOn = true;
+            foreach (var item in animationControllers)
+            {
+                item.enabled = true;
+            }
         }
 
         public void Reset()
