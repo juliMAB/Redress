@@ -55,12 +55,5 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             picked = false;
             consumed = false;
         }
-        public void OnDisable()
-        {
-            if (leftDurability > 0)
-            {
-                gameObject.SetActive(true);
-            }
-        }
     }
 }           

@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    bool corrutineActive=false;
+
+    public bool CorrutineActive { get => corrutineActive; set => corrutineActive = value; }
+
     public IEnumerator Shake (float duration,float magnitude)
     {
+        corrutineActive = true;
         Vector3 originalPos = transform.localPosition;
         float elapsed = 0.0f;
         while (elapsed<duration)
@@ -18,5 +23,6 @@ public class CameraShake : MonoBehaviour
             yield return null;
         }
         transform.localPosition = originalPos;
+        corrutineActive = false;
     }
 }

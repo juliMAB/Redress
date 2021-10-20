@@ -27,13 +27,13 @@ namespace Games.Generics.Manager
 
         public void Resume()
         {
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
             gameIsPaused = false;
         }
 
         public void Pause()
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             gameIsPaused = true;
         }
     }
