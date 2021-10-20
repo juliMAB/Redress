@@ -157,7 +157,7 @@ namespace EndlessT4cos.Gameplay.Management
         {
             if (!cameraShake.CorrutineActive)
             {
-                shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .4f));
+                shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .2f));
             }
             else
             {
@@ -182,17 +182,14 @@ namespace EndlessT4cos.Gameplay.Management
                 if (shakeCorrutine!=null)
                 {
                     StopCoroutine(shakeCorrutine);
+                    shakeCorrutine = null;
+                    cameraShake.CorrutineActive = false;
                 }
             }
             else
             { 
                 pauseManager.Pause();
                 animationController.PauseAnimations();
-                if (shakeCorrutine != null)
-                {
-                    StopCoroutine(shakeCorrutine);
-                    shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .4f));
-                }
             }
         }
 
