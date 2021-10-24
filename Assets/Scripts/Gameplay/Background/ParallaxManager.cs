@@ -43,13 +43,6 @@ namespace EndlessT4cos.Gameplay.Platforms
                         layers[i].transform.localPosition += Vector3.right * i * _layerSpeedDiff * Time.deltaTime;
                         // hago retroceder cada vez un poquito más a las layers de más atras que son las que mas lento deberían ir
                     }
-
-                    //if (i == layers.Length - 1)
-                    //{
-                    //    end.position += (Vector3.left * _speed + Vector3.right * i * _layerSpeedDiff) * Time.deltaTime;
-                    //    //muevo el marcador del final hasta el fondo
-                    //}
-
                 }
             }
 
@@ -57,7 +50,9 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 for (int i = 0; i < layers.Length; i++)
                 {
-                    layers[i].transform.localPosition = _startPos.position;
+                    Vector3 position = _startPos.position;
+                    position.z = startPosition[i].z;
+                    layers[i].transform.position = position;
                 }
             }
 
