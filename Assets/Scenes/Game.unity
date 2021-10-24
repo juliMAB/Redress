@@ -4436,6 +4436,7 @@ MonoBehaviour:
   distance: 2
   speed: 5
   platformsManager: {fileID: 1829776217}
+  platformsTag: Platform
   amountEnemiesBeforePickUp: 10
   amountEnemiesPassed: 0
   layer:

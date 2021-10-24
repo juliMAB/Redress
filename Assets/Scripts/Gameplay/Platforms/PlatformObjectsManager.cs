@@ -16,7 +16,9 @@ namespace EndlessT4cos.Gameplay.Platforms
         private Enemy[] enemies = null;
         private PickUp[] pickUps = null;
 
+        [Header("Platforms Configuration")]
         [SerializeField] private PlatformsManager platformsManager = null;
+        [SerializeField] private string platformsTag = "Platform";
 
         [Header("Spawn Settings")]
         [SerializeField] private int amountEnemiesBeforePickUp = 15;
@@ -102,14 +104,15 @@ namespace EndlessT4cos.Gameplay.Platforms
 
                 Vector2 position = new Vector2(halfSizeOfScreen.x + largerObject.HalfSize.x, platformsManager.YSpawnPositions[i] + halfPlatformHeight * 2);
 
-                if (waitTimeTillNextObject[i] < 0 && TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject))
+                if (waitTimeTillNextObject[i] < 0 && TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject, out Transform platform))
                 {
                     waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
 
                     GameObject newObject = ActivateObject();
 
                     PlatformObject platformObjectComponent = newObject.GetComponent<PlatformObject>();
-                    PlaceOnRightEnd(newObject, platformsManager.YSpawnPositions[i] + platformObjectComponent.HalfSize.y + halfPlatformHeight);
+                    PlaceOnRightEnd(newObject, platform.position.y + platformObjectComponent.HalfSize.y + halfPlatformHeight);
+                    // PlaceOnRightEnd(newObject, platformsManager.YSpawnPositions[i] + platformObjectComponent.HalfSize.y + halfPlatformHeight);
                     platformObjectComponent.row = (Row)i;
 
                     ResetObjectStats(newObject);
@@ -117,16 +120,27 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
         }
 
-        private bool TheresFloorDown(Vector2 position, float distance)
+        private bool TheresFloorDown(Vector2 position, float distance, out Transform platform)
         {
-            return Physics2D.Raycast(position, Vector2.down, distance, layer);
+            platform = null;
+            RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, distance, layer);
+
+            if (Physics2D.Raycast(position, Vector2.down, distance, layer))
+            {
+                platform = hit.collider.transform.tag == platformsTag ? hit.collider.transform : null;
+                return true; 
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        private bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy)
+        private bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy, out Transform platform)
         {
-            return TheresFloorDown(position, distance) &&
-                   TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance) &&
-                   TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance);
+            return TheresFloorDown(position, distance, out platform) &&
+                   TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance, out platform) &&
+                   TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance, out platform);
         }
 
         private void ResetObjectStats(GameObject newObject)

@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 5590990464770566001}
   m_Layer: 9
   m_Name: MidSizePlatform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
