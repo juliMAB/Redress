@@ -46,6 +46,7 @@ namespace EndlessT4cos.Gameplay.Animations
 
         public void Reset()
         {
+            ReanudeAnimations();
             for (int i = 0; i < hearts.Length; i++)
             {
                 hearts[i].transform.localScale = initialHeartsScale[i];
