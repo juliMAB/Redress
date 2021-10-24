@@ -137,7 +137,10 @@ namespace EndlessT4cos.Gameplay.Controllers
 
         public void Reset()
         {
-            Camera.main.transform.position = Vector3.zero;
+            Vector3 pos = Vector3.zero;
+            pos.z = -10;
+            Camera.main.transform.position = pos;
+
             background.transform.position = Vector3.zero;
             pauseMovement = false;
             cameraShakeActive = false;
