@@ -41,11 +41,6 @@ public class DebugManager : MonoBehaviour
         slowTimeOn = !slowTimeOn;
     }
 
-    public void MakeShake()
-    {
-        StartCoroutine (Camera.main.GetComponent<CameraShake>().Shake(.15f, .4f));
-    }
-
     public void PlayerInvencible()
     {
         initialPlayerPosToLose = GameplayManager.Instance.PlayerPosToLose;

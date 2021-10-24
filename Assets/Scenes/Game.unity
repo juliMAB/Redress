@@ -14884,8 +14884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f50c6d6265e1f4a8203d77273c34cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShakeDifference: {x: 0, y: 0}
   background: {fileID: 235285246}
   movementSpeed: 0.5
+  duration: 0.2
+  magnitude: 0.5
 --- !u!4 &632877057
 Transform:
   m_ObjectHideFlags: 0

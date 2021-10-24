@@ -81,9 +81,6 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private Gun[] allGuns = null;
         [SerializeField] private Bullet[] allBullets = null;
 
-        //[Header("Corrutines")]
-        Coroutine shakeCorrutine;
-
         public float speedMultiplier = 1f;
 
         public Action<int> OnChangedScore = null;
@@ -154,20 +151,6 @@ namespace EndlessT4cos.Gameplay.Management
             playerPosToLose = pos;
         }
 
-        void CrazyFunc()
-        {
-            if (!cameraShake.CorrutineActive)
-            {
-                shakeCorrutine = StartCoroutine(cameraShake.Shake(.15f, .2f));
-            }
-            else
-            {
-                StopCoroutine(shakeCorrutine);
-                cameraShake.CorrutineActive = false;
-                shakeCorrutine = null;
-            }
-        }
-
         private void AddScore(GameObject go)
         {
             score += scorePerKill;
@@ -180,12 +163,6 @@ namespace EndlessT4cos.Gameplay.Management
             { 
                 pauseManager.Resume();
                 animationController.ReanudeAnimations();
-                if (shakeCorrutine!=null)
-                {
-                    StopCoroutine(shakeCorrutine);
-                    shakeCorrutine = null;
-                    cameraShake.CorrutineActive = false;
-                }
             }
             else
             { 
@@ -393,7 +370,7 @@ namespace EndlessT4cos.Gameplay.Management
                         break;
                     case Objects.Enemies.Type.Explosive:
                         explosiveEnemy = enemy.GetComponent<ExplosiveEnemy>();
-                        explosiveEnemy.OnExplode += CrazyFunc;
+                        explosiveEnemy.OnExplode += cameraController.ActivateCameraShake;
                         break;
                     case Objects.Enemies.Type.Shooter:
                         shooterEnemy = enemy.GetComponent<ShooterEnemy>();
