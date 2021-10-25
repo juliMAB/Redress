@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 
 using Games.Generics.Displacement;
+using EndlessT4cos.Gameplay.Management;
 
 namespace EndlessT4cos.Gameplay.Platforms
 {
@@ -199,7 +200,7 @@ namespace EndlessT4cos.Gameplay.Platforms
                     }
                     else
                     {
-                        time += Time.deltaTime;
+                        time += Time.deltaTime * GameplayManager.Instance.speedMultiplier;
                         for (int i = 0; i < amountPlatformRows; i++)
                         {
                             ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);

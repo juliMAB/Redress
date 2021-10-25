@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EndlessT4cos.Gameplay.Management;
 
 namespace EndlessT4cos.Gameplay.Controllers
 {
@@ -45,7 +46,7 @@ namespace EndlessT4cos.Gameplay.Controllers
                     else
                     {
                         //normal movement
-                        time += Time.deltaTime * movementSpeed;
+                        time += Time.deltaTime * movementSpeed * GameplayManager.Instance.speedMultiplier;
 
                         float yPos = Mathf.Lerp(yInitialPosition, yFinalPosition, time / totalTime);
                         Vector3 pos = Camera.main.transform.position;
