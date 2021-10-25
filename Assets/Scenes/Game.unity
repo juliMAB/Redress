@@ -43123,7 +43123,7 @@ MonoBehaviour:
   distanceToNextState: 10
   playerPosToLose: {x: -8.8, y: -4.96}
   speedProgressionMultiplier: 0.02
-  distanceProgressionMultiplier: 0.02
+  distanceProgressionMultiplier: 0.002
   bulletSpeedMultiplier: 1.5
   speedDivider: 40
   actualLvl: 0

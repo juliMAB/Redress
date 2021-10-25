@@ -52,8 +52,6 @@ namespace EndlessT4cos.Gameplay.Animations
                 hearts[i].transform.localScale = initialHeartsScale[i];
             }
 
-            animationsOn = true;
-
             for (int i = 0; i < animationInstances.Count; i++)
             {
                 StopCoroutine(animationInstances[i]);
@@ -69,29 +67,36 @@ namespace EndlessT4cos.Gameplay.Animations
             bool gettingSmaller = false;
             Vector2 initialScale = gameObject.transform.localScale;
 
-            while (animationsOn)
+            while (true)
             {
-                Vector3 verticalScale = gettingSmaller ? Vector3.down : Vector3.up;
-                Vector3 horizontalScale = gettingSmaller ? Vector3.left : Vector3.right;
-
-                gameObject.transform.localScale += verticalScale * Time.deltaTime * speed + horizontalScale * Time.deltaTime * speed;
-
-                if (gettingSmaller)
+                if (!animationsOn)
                 {
-                    if (gameObject.transform.localScale.x <= initialScale.x - sizeDownGrade)
-                    {
-                        gettingSmaller = false;
-                    }
+                    yield return null;
                 }
                 else
                 {
-                    if (gameObject.transform.localScale.x >= initialScale.x + sizeUpgrade)
-                    {
-                        gettingSmaller = true;
-                    }
-                }
+                    Vector3 verticalScale = gettingSmaller ? Vector3.down : Vector3.up;
+                    Vector3 horizontalScale = gettingSmaller ? Vector3.left : Vector3.right;
 
-                yield return null;
+                    gameObject.transform.localScale += verticalScale * Time.deltaTime * speed + horizontalScale * Time.deltaTime * speed;
+
+                    if (gettingSmaller)
+                    {
+                        if (gameObject.transform.localScale.x <= initialScale.x - sizeDownGrade)
+                        {
+                            gettingSmaller = false;
+                        }
+                    }
+                    else
+                    {
+                        if (gameObject.transform.localScale.x >= initialScale.x + sizeUpgrade)
+                        {
+                            gettingSmaller = true;
+                        }
+                    }
+
+                    yield return null;
+                }
             }
         }
     }
