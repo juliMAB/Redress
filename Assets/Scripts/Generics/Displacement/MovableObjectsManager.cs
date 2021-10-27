@@ -7,11 +7,14 @@ namespace Games.Generics.Displacement
 {
     public class MovableObjectsManager : PoolObjectsManager
     {
+        protected float initialSpeed = 0f;
+        protected float speed = 5f;
+
         [Header("Settings")]
         [SerializeField] protected Vector2 halfSizeOfScreen = Vector2.zero;
         [SerializeField] protected float distance = 2f;
 
-        public float speed = 5f;
+        public float Speed => speed;
 
         protected virtual void Start()
         {

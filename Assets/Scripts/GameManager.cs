@@ -86,7 +86,7 @@ namespace EndlessT4cos.Management
             GameplayManager gameplayManager = GameplayManager.Instance;
 
             int score = gameplayManager.Score;
-            float velocity = gameplayManager.PlatformsManager.speed;
+            float velocity = gameplayManager.PlatformsManager.Speed;
             float traveledDistance = gameplayManager.Distance;
 
             playerData = new PlayerData(score, velocity, traveledDistance);

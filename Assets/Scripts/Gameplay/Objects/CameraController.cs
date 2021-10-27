@@ -15,17 +15,16 @@ namespace EndlessT4cos.Gameplay.Controllers
         private bool movementActive = false;
         private float yInitialPos = 0f;
         private Vector2 initialPos = Vector2.zero;
+        private Vector2 cameraShakeDifference = Vector2.zero;
 
-        [SerializeField] private Vector2 cameraShakeDifference = Vector2.zero;
-
+        [Header("Main Configurations")]
         [SerializeField] private GameObject background = null;
         [SerializeField] private float movementSpeed = 1f;
+        [SerializeField] private float downSpeedMultiplier = 1f;
 
         [Header("Camera Shake Configurations")]
         [SerializeField] private float duration = 0.15f;
         [SerializeField] private float magnitude = 0.2f;
-
-        //public bool CorrutineActive => corrutineActive;
 
         public void PositionCamera(float movement, float totalTime)
         {
@@ -35,6 +34,8 @@ namespace EndlessT4cos.Gameplay.Controllers
             {
                 float yInitialPosition = cameraShakeActive ? initialPos.y : Camera.main.transform.position.y;
                 float time = 0f;
+
+                bool addSpeedDownMultiplier = yFinalPosition < yInitialPosition;
                 movementActive = true;
 
                 while (time < totalTime)
@@ -46,9 +47,10 @@ namespace EndlessT4cos.Gameplay.Controllers
                     else
                     {
                         //normal movement
-                        time += Time.deltaTime * movementSpeed * GameplayManager.Instance.speedMultiplier;
+                        time += Time.deltaTime * movementSpeed * GameplayManager.Instance.speedMultiplier * (addSpeedDownMultiplier ? downSpeedMultiplier : 1);
 
                         float yPos = Mathf.Lerp(yInitialPosition, yFinalPosition, time / totalTime);
+
                         Vector3 pos = Camera.main.transform.position;
                         pos.y = yPos + cameraShakeDifference.y;
                         pos.x += cameraShakeDifference.x;
@@ -56,6 +58,11 @@ namespace EndlessT4cos.Gameplay.Controllers
                         if (!cameraShakeActive)
                         {
                             pos.x = 0;
+
+                            if (time / totalTime > 1)
+                            {
+                                pos.y = yFinalPosition;
+                            }
                         }
 
                         //aplication

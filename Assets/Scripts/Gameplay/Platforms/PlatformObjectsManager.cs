@@ -12,6 +12,11 @@ namespace EndlessT4cos.Gameplay.Platforms
     public class PlatformObjectsManager : MovableObjectsManager
     {
         private float halfPlatformHeight = 0f;
+        private float initialMinSpawnTime = 0f;
+        private float initialMaxSpawnTime = 0f;
+
+        private float minSpawnTime = 1f;
+        private float maxSpawnTime = 2f;
 
         private Enemy[] enemies = null;
         private PickUp[] pickUps = null;
@@ -29,11 +34,13 @@ namespace EndlessT4cos.Gameplay.Platforms
         [SerializeField] protected PlatformObject largerObject = null;
         [SerializeField] protected float[] waitTimeTillNextObject = null;
 
-        public float minSpawnTime = 1f;
-        public float maxSpawnTime = 2f;
+        [Header("Passing Enemy")]
+        [SerializeField] private PassingEnemy passingEnemy = null;
 
-        public Enemy[] Enemies { get => enemies; }
-        public PickUp[] PickUps { get => pickUps; }
+        public Enemy[] Enemies => enemies;
+        public PickUp[] PickUps => pickUps; 
+        public float MinSpawnTime => minSpawnTime; 
+        public float MaxSpawnTime => maxSpawnTime;
 
         protected override void Start()
         {
@@ -94,6 +101,35 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
         }
 
+        public void Reset()
+        {
+            speed = initialSpeed;
+            minSpawnTime = initialMinSpawnTime;
+            maxSpawnTime = initialMaxSpawnTime;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i].activeSelf)
+                {
+                    DeactivateObject(objects[i]);
+                }
+            }
+        }
+
+        public void SetValues(float speed, float minSpawnTime, float maxSpawnTime, bool setAsInitialValues)
+        {
+            if (setAsInitialValues)
+            {
+                initialSpeed = speed;
+                initialMinSpawnTime = minSpawnTime;
+                initialMaxSpawnTime = maxSpawnTime;
+            }
+
+            this.speed = speed;
+            this.minSpawnTime = minSpawnTime;
+            this.maxSpawnTime = maxSpawnTime;
+        }
+
         public void PlatformObjectsManagerUpdate()
         {
             MovableObjectsManagerUpdate();
@@ -104,7 +140,9 @@ namespace EndlessT4cos.Gameplay.Platforms
 
                 Vector2 position = new Vector2(halfSizeOfScreen.x + largerObject.HalfSize.x, platformsManager.YSpawnPositions[i] + halfPlatformHeight * 2);
 
-                if (waitTimeTillNextObject[i] < 0 && TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject, out Transform platform))
+                if (waitTimeTillNextObject[i] < 0 && 
+                    TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject, out Transform platform) &&
+                    TheresEnoughSpaceInBetweenPlatforms(position, 100, largerObject, platform.position))
                 {
                     waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
 
@@ -141,6 +179,28 @@ namespace EndlessT4cos.Gameplay.Platforms
             return TheresFloorDown(position, distance, out platform) &&
                    TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance, out platform) &&
                    TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance, out platform);
+        }
+
+        private bool TheresEnoughSpaceInBetweenPlatforms(Vector2 position, float distance, PlatformObject enemy, Vector3 downPlatformPosition)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(position, Vector2.up, distance, layer);
+            Transform upPlatform;
+
+            if (Physics2D.Raycast(position, Vector2.up, distance, layer))
+            {
+                upPlatform = hit.collider.transform.tag == platformsTag ? hit.collider.transform : null;
+
+                if (upPlatform && upPlatform.position.y - downPlatformPosition.y > enemy.HalfSize.y * 2 + platformsManager.HalfPlatformHeight * 2)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void ResetObjectStats(GameObject newObject)

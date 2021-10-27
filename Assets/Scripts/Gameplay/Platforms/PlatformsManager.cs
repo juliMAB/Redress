@@ -16,6 +16,9 @@ namespace EndlessT4cos.Gameplay.Platforms
             public Row row;
         }
 
+        private float[] initialDistanceLimits = new float[2];
+        
+        private float[] distanceLimits = new float[2];
         private float halfPlatformHeight = 0f;
         private float unnevenes = 0f;
         private float unnevenesDuration = 0f;
@@ -35,34 +38,13 @@ namespace EndlessT4cos.Gameplay.Platforms
         [SerializeField] private float[] unnevenessDurationLimits = new float[2];
         [SerializeField] private float[] unnevenesValuesLimits = new float[2];
         [SerializeField] private float[] normalEvenessDurationLimits = new float[2];
-        public float[] distanceLimits = new float[2];
 
         public Action<float, float> OnUnneveness = null;
 
-        public float HalfPlatformHeight { get => halfPlatformHeight; }
-        public float[] YSpawnPositions { get => ySpawnPositions; set => ySpawnPositions = value; }
-        public int AmountPlatformRows { get => amountPlatformRows; set => amountPlatformRows = value; }
-
-        public void Reset()
-        {
-            SetInitialPlatforms();
-
-            for (int i = 0; i < amountPlatformRows; i++)
-            {
-                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
-            }
-
-            unnevenes = 0f;
-            unnevenesDuration = 0f;
-            normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
-            unnevenessActivated = false;
-            pausePlatformMovement = false;
-
-            if (unevennessInst != null)
-            {
-                StopCoroutine(unevennessInst);
-            }
-        }
+        public float HalfPlatformHeight => halfPlatformHeight; 
+        public float[] YSpawnPositions => ySpawnPositions;
+        public int AmountPlatformRows => amountPlatformRows;
+        public float[] DistanceLimits => distanceLimits;
 
         private void Awake()
         {
@@ -85,6 +67,45 @@ namespace EndlessT4cos.Gameplay.Platforms
             FindInitialActivePlatforms();
         }
 
+        public void Reset()
+        {
+            speed = initialSpeed;
+            distanceLimits = initialDistanceLimits;
+
+            SetInitialPlatforms();
+
+            for (int i = 0; i < amountPlatformRows; i++)
+            {
+                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
+            }
+
+            unnevenes = 0f;
+            unnevenesDuration = 0f;
+            normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+            unnevenessActivated = false;
+            pausePlatformMovement = false;
+
+            if (unevennessInst != null)
+            {
+                StopCoroutine(unevennessInst);
+            }
+        }
+
+        public void SetValues(float speed, float minDistance, float maxDistance, bool setAsInitialValues)
+        {
+            if (setAsInitialValues)
+            {
+                initialSpeed = speed;
+                initialDistanceLimits[0] = minDistance;
+                initialDistanceLimits[1] = maxDistance;
+            }
+
+            this.speed = speed;
+            distanceLimits[0] = minDistance;
+            distanceLimits[1] = maxDistance;
+        }
+
+        
         public void PlatformsUpdate()
         {
             PlatformObject platform;

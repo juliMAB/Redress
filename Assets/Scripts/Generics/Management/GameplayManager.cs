@@ -99,8 +99,9 @@ namespace EndlessT4cos.Gameplay.Management
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
 
-            SetPlatformObjectsManagerValues(objectsManager, initialSpeed, initialMinSpawnTime, initialMaxSpawnTime);
-            SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
+            platformsManager.SetValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance, true);
+            objectsManager.SetValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance, true);
+
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(speed, layerSpeedDiff);
             animationController.StartAnimations();
@@ -115,7 +116,7 @@ namespace EndlessT4cos.Gameplay.Management
                 return; 
             }
 
-            distance += platformsManager.speed / speedDivider;
+            distance += platformsManager.Speed / speedDivider;
 
             if (setDistanceScoreInst == null)
             {
@@ -221,21 +222,15 @@ namespace EndlessT4cos.Gameplay.Management
             speed = initialSpeed;
             layerSpeedDiff = initialIayerSpeedDiff;
 
-            foreach (var platformObject in objectsManager.Objects)
-            {
-                platformObject.gameObject.SetActive(false);
-            }
-
             objectsManager.enabled = true;
             platformsManager.enabled = true;
 
             DeactivateAllBullets();
 
-            SetPlatformObjectsManagerValues(objectsManager, speed, initialMinSpawnTime, initialMaxSpawnTime);
-            SetPlatformsManagerValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance);
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(initialSpeed, layerSpeedDiff);
 
+            objectsManager.Reset();
             platformsManager.Reset();
             background.Reset();
             cameraController.Reset();
@@ -247,20 +242,6 @@ namespace EndlessT4cos.Gameplay.Management
         private void SetPlayerInputLock()
         {
             playerControl.lockGoDown = player.transform.position.y < platformsManager.YSpawnPositions[1];
-        }
-
-        private void SetPlatformObjectsManagerValues(PlatformObjectsManager platformObjectsManager, float speed, float minSpawnTime, float maxSpawnTime)
-        {
-            platformObjectsManager.speed = speed;
-            platformObjectsManager.minSpawnTime = minSpawnTime;
-            platformObjectsManager.maxSpawnTime = maxSpawnTime;
-        }
-
-        private void SetPlatformsManagerValues(float speed, float minDistance, float maxDistance)
-        {
-            platformsManager.speed = speed;
-            platformsManager.distanceLimits[0] = minDistance;
-            platformsManager.distanceLimits[1] = maxDistance;
         }
 
         private bool IsPlayerAlive()
@@ -278,20 +259,22 @@ namespace EndlessT4cos.Gameplay.Management
 
             speed += speedProgression;
 
-            objectsManager.minSpawnTime = initialMinSpawnTime;
-            objectsManager.maxSpawnTime = initialMaxSpawnTime;
+            float minSpawnTime = initialMinSpawnTime;
+            float maxSpawnTime = initialMaxSpawnTime;
 
             if (speedMultiplier < 1)
             {
-                objectsManager.minSpawnTime = initialMinSpawnTime * 2;
-                objectsManager.maxSpawnTime = initialMaxSpawnTime * 2;
+                minSpawnTime *= 2;
+                maxSpawnTime *= 2;
             }
 
-            SetPlatformObjectsManagerValues(objectsManager, speed * speedMultiplier, objectsManager.minSpawnTime, objectsManager.maxSpawnTime);
-            SetPlatformsManagerValues(speed * speedMultiplier, platformsManager.distanceLimits[0] + distanceProgression, platformsManager.distanceLimits[1] + distanceProgression);
+            objectsManager.SetValues(speed * speedMultiplier, minSpawnTime, maxSpawnTime, false);
+            platformsManager.SetValues(speed * speedMultiplier, platformsManager.DistanceLimits[0] + distanceProgression, platformsManager.DistanceLimits[1] + distanceProgression, false);
+
             SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
             background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
         }
+
         private void SetBulletsSpeed(float speed, bool playerBulletsToo)
         {
             for (int i = 0; i < allGuns.Length; i++)
@@ -322,7 +305,7 @@ namespace EndlessT4cos.Gameplay.Management
         {
             yield return new WaitForSeconds(timeToChargeScore);
 
-            score += (int)platformsManager.speed;
+            score += (int)platformsManager.Speed;
             OnChangedScore?.Invoke(score);
 
             setDistanceScoreInst = null;
