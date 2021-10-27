@@ -95,19 +95,33 @@ namespace EndlessT4cos.Gameplay.Controllers
 
             while (elapsed < duration)
             {
-                cameraShakeDifference.x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
-                cameraShakeDifference.y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+                if (!pauseMovement)
+                {
+                    cameraShakeDifference.x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+                    cameraShakeDifference.y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
 
-                if (!movementActive)
+                    if (!movementActive)
+                    {
+                        Vector3 pos = Camera.main.transform.position;
+                        pos.y += cameraShakeDifference.y;
+                        pos.x += cameraShakeDifference.x;
+
+                        Camera.main.transform.position = pos;
+                    }
+
+                    elapsed += Time.deltaTime;
+                }
+                else
                 {
                     Vector3 pos = Camera.main.transform.position;
-                    pos.y += cameraShakeDifference.y;
-                    pos.x += cameraShakeDifference.x;
+                    pos.y += initialPos.y;
+                    pos.x += initialPos.x;
 
                     Camera.main.transform.position = pos;
+                    background.transform.position = pos;
                 }
 
-                elapsed += Time.deltaTime;
+
                 yield return null;
             }
 
@@ -118,6 +132,7 @@ namespace EndlessT4cos.Gameplay.Controllers
                 pos.x += initialPos.x;
 
                 Camera.main.transform.position = pos;
+                background.transform.position = pos;
             }
 
             cameraShakeDifference.x = 0f;

@@ -14645,7 +14645,7 @@ MonoBehaviour:
   waitTime: 10
   speed: 10
   target: {fileID: 6408668683553309451}
-  alertDuration: 1
+  alertDuration: 2
 --- !u!4 &625431190
 Transform:
   m_ObjectHideFlags: 0
