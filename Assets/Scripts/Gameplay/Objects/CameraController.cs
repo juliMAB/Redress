@@ -28,6 +28,7 @@ namespace EndlessT4cos.Gameplay.Controllers
 
         public void PositionCamera(float movement, float totalTime)
         {
+
             float yFinalPosition = cameraShakeActive ? initialPos.y + movement : Camera.main.transform.position.y + movement;
 
             IEnumerator MoveCamera()
@@ -58,11 +59,11 @@ namespace EndlessT4cos.Gameplay.Controllers
                         if (!cameraShakeActive)
                         {
                             pos.x = 0;
+                        }
 
-                            if (time / totalTime > 1)
-                            {
-                                pos.y = yFinalPosition;
-                            }
+                        if (time / totalTime > 1)
+                        {
+                            pos.y = yFinalPosition;
                         }
 
                         //aplication
@@ -107,32 +108,27 @@ namespace EndlessT4cos.Gameplay.Controllers
                         pos.x += cameraShakeDifference.x;
 
                         Camera.main.transform.position = pos;
+                        background.transform.position = pos;
                     }
 
                     elapsed += Time.deltaTime;
                 }
                 else
                 {
-                    Vector3 pos = Camera.main.transform.position;
-                    pos.y += initialPos.y;
-                    pos.x += initialPos.x;
-
-                    Camera.main.transform.position = pos;
-                    background.transform.position = pos;
+                    if (!movementActive)
+                    {
+                        Camera.main.transform.position = initialPos;
+                        background.transform.position = initialPos;
+                    }
                 }
-
 
                 yield return null;
             }
 
             if (!movementActive)
             {
-                Vector3 pos = Camera.main.transform.position;
-                pos.y += initialPos.y;
-                pos.x += initialPos.x;
-
-                Camera.main.transform.position = pos;
-                background.transform.position = pos;
+                Camera.main.transform.position = initialPos;
+                background.transform.position = initialPos;
             }
 
             cameraShakeDifference.x = 0f;

@@ -39253,8 +39253,8 @@ MonoBehaviour:
   startYPos: 0.5
   verticalDistanceBetweenPlatforms: 2.3
   unnevenessDurationLimits:
+  - 5
   - 7
-  - 10
   unnevenesValuesLimits:
   - -5
   - 5
