@@ -102,10 +102,10 @@ TextureImporter:
       name: Alien3 (100x100)_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 10
-        width: 52
-        height: 78
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,10 +123,10 @@ TextureImporter:
       name: Alien3 (100x100)_1
       rect:
         serializedVersion: 2
-        x: 124
-        y: 14
-        width: 52
-        height: 76
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: Alien3 (100x100)_2
       rect:
         serializedVersion: 2
-        x: 224
-        y: 18
-        width: 52
-        height: 74
+        x: 200
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Alien3 (100x100)_3
       rect:
         serializedVersion: 2
-        x: 324
-        y: 14
-        width: 52
-        height: 76
+        x: 300
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
