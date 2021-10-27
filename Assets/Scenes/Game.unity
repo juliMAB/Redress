@@ -14592,7 +14592,7 @@ GameObject:
   - component: {fileID: 625431190}
   - component: {fileID: 625431189}
   - component: {fileID: 625431188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PassingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14745,7 +14745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629718950}
   - component: {fileID: 629718951}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
