@@ -99,6 +99,13 @@ namespace EndlessT4cos.Gameplay.Platforms
             {
                 waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
             }
+
+            passingEnemy.SetOutOfScreenXValue(halfSizeOfScreen.x);
+        }
+
+        public void Pause(bool pause)
+        {
+            passingEnemy.Pause(pause);
         }
 
         public void Reset()
@@ -114,6 +121,8 @@ namespace EndlessT4cos.Gameplay.Platforms
                     DeactivateObject(objects[i]);
                 }
             }
+
+            passingEnemy.Reset();
         }
 
         public void SetValues(float speed, float minSpawnTime, float maxSpawnTime, bool setAsInitialValues)
@@ -130,9 +139,9 @@ namespace EndlessT4cos.Gameplay.Platforms
             this.maxSpawnTime = maxSpawnTime;
         }
 
-        public void PlatformObjectsManagerUpdate()
+        public void PlatformObjectsUpdate()
         {
-            MovableObjectsManagerUpdate();
+            MovableObjectsUpdate();
 
             for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {
@@ -150,12 +159,20 @@ namespace EndlessT4cos.Gameplay.Platforms
 
                     PlatformObject platformObjectComponent = newObject.GetComponent<PlatformObject>();
                     PlaceOnRightEnd(newObject, platform.position.y + platformObjectComponent.HalfSize.y + halfPlatformHeight);
-                    // PlaceOnRightEnd(newObject, platformsManager.YSpawnPositions[i] + platformObjectComponent.HalfSize.y + halfPlatformHeight);
                     platformObjectComponent.row = (Row)i;
 
                     ResetObjectStats(newObject);
                 }
             }
+
+            float[] yPositions = new float[platformsManager.YSpawnPositions.Length];
+
+            for (int i = 0; i < yPositions.Length; i++)
+            {
+                yPositions[i] = platformsManager.YSpawnPositions[i] + platformsManager.VerticalDistanceBetweenPlatforms / 2f;
+            }
+
+            passingEnemy.UpdatePassingEnemy(yPositions);
         }
 
         private bool TheresFloorDown(Vector2 position, float distance, out Transform platform)
@@ -178,10 +195,10 @@ namespace EndlessT4cos.Gameplay.Platforms
         {
             return TheresFloorDown(position, distance, out platform) &&
                    TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance, out platform) &&
-                   TheresFloorDown(position - Vector2.right * enemy.HalfSize.x, distance, out platform);
+                   TheresFloorDown(position + Vector2.left * enemy.HalfSize.x, distance, out platform);
         }
 
-        private bool TheresEnoughSpaceInBetweenPlatforms(Vector2 position, float distance, PlatformObject enemy, Vector3 downPlatformPosition)
+        private bool TheresSpaceInBetweenPlatforms(Vector2 position, float distance, PlatformObject enemy, Vector3 downPlatformPosition)
         {
             RaycastHit2D hit = Physics2D.Raycast(position, Vector2.up, distance, layer);
             Transform upPlatform;
@@ -201,6 +218,13 @@ namespace EndlessT4cos.Gameplay.Platforms
             }
 
             return false;
+        }
+
+        private bool TheresEnoughSpaceInBetweenPlatforms(Vector2 position, float distance, PlatformObject enemy, Vector3 downPlatformPosition)
+        {
+            return TheresSpaceInBetweenPlatforms(position, distance, enemy, downPlatformPosition) &&
+                   TheresSpaceInBetweenPlatforms(position + Vector2.right * enemy.HalfSize.x, distance, enemy, downPlatformPosition) &&
+                   TheresSpaceInBetweenPlatforms(position + Vector2.left * enemy.HalfSize.x, distance, enemy, downPlatformPosition);
         }
 
         private void ResetObjectStats(GameObject newObject)

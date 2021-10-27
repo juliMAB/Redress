@@ -45,6 +45,7 @@ namespace EndlessT4cos.Gameplay.Platforms
         public float[] YSpawnPositions => ySpawnPositions;
         public int AmountPlatformRows => amountPlatformRows;
         public float[] DistanceLimits => distanceLimits;
+        public float VerticalDistanceBetweenPlatforms => verticalDistanceBetweenPlatforms; 
 
         private void Awake()
         {

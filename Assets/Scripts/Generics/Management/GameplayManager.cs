@@ -133,13 +133,13 @@ namespace EndlessT4cos.Gameplay.Management
             else
             {
                 player.PlayerUpdate();
-                objectsManager.PlatformObjectsManagerUpdate();
+                objectsManager.PlatformObjectsUpdate();
                 platformsManager.PlatformsUpdate();
                 background.UpdateBackground();
-            }
 
-            SetPlayerInputLock();
-            SetLevelProgression();
+                SetPlayerInputLock();
+                SetLevelProgression();
+            }
         }
 
         private void FixedUpdate()
@@ -171,6 +171,7 @@ namespace EndlessT4cos.Gameplay.Management
                 animationController.PauseAnimations();
             }
 
+            objectsManager.Pause(pauseManager.GameIsPaused);
             platformsManager.PauseMovement(pauseManager.GameIsPaused);
             cameraController.PauseCameraMovement(pauseManager.GameIsPaused);
         }
