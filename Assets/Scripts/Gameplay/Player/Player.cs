@@ -136,10 +136,15 @@ namespace EndlessT4cos.Gameplay.User
             }
             Debug.Log(" el player a tomado daño ");
             lives--;
+            if (lives > 0)
+            {
+                AkSoundEngine.PostEvent(SoundsManager.Get().Daño, gameObject);
+            }
             OnLivesChanged?.Invoke(lives);
 
             if (lives == 0)
             {
+                AkSoundEngine.PostEvent(SoundsManager.Get().Muerte, gameObject);
                 Die();
             }
 

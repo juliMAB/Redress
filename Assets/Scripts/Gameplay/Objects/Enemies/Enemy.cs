@@ -7,7 +7,7 @@ using Games.Generics.Interfaces;
 
 namespace EndlessT4cos.Gameplay.Objects.Enemies
 {
-    public enum Type { Static, Explosive, Shooter }
+    public enum Type { Static, Explosive, Shooter, Wall }
 
     public class Enemy : PlatformObject, IDamageable
     {
@@ -62,6 +62,23 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
         public void TakeDamage()
         {
             Debug.Log(gameObject.name + " a tomado daño.");
+            switch (type)
+            {
+                case Type.Static:
+                    AkSoundEngine.PostEvent(SoundsManager.Get().EstaticoMuere, gameObject);
+                    break;
+                case Type.Explosive:
+                    break;
+                case Type.Shooter:
+                    AkSoundEngine.PostEvent(SoundsManager.Get().PistolaMuerte, gameObject);
+                    break;
+                case Type.Wall:
+                    AkSoundEngine.PostEvent(SoundsManager.Get().Pared, gameObject);
+                    break;
+                default:
+                    break;
+            }
+            
             if (!canDie)
             {
                 return;

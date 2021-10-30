@@ -188,4 +188,4 @@ MonoBehaviour:
   target: {fileID: 0}
   lookingAtTarget: 0
   minDistanceToTarget: 1
-  type: 0
+  type: 3

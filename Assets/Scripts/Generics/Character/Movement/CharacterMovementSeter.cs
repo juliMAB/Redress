@@ -69,7 +69,7 @@ namespace Games.Generics.Character.Movement
 			// we can only jump whilst grounded
 			if (_controller.isGrounded && Input.GetAxisRaw("Jump")!=0)
 			{
-				AkSoundEngine.PostEvent("Jump", gameObject);
+				AkSoundEngine.PostEvent("play_salto", gameObject);
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 				_animator.Play(Animator.StringToHash("Jump"));
 			}
@@ -86,7 +86,7 @@ namespace Games.Generics.Character.Movement
 			if (_controller.isGrounded && Input.GetAxisRaw("GoDown") != 0)
 			{
 				_velocity.y *= 3f;
-
+				AkSoundEngine.PostEvent(SoundsManager.Get().Bajar, gameObject);
 				if (!lockGoDown)
                 {
 					_controller.ignoreOneWayPlatformsThisFrame = true;

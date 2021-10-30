@@ -8,6 +8,8 @@ namespace Games.Generics.Weapon
 {
     public class Gun : PoolObjectsManager
     {
+        [SerializeField] enum Type {Laser, Arrow };
+        Type type;
         private IEnumerator setCoolDownLifetimeInstance = null;
 
         [SerializeField] private Transform firePosition = null;
@@ -48,7 +50,18 @@ namespace Games.Generics.Weapon
             {
                 return;
             }
-
+            switch (type)
+            {
+                case Type.Laser:
+                    AkSoundEngine.PostEvent(SoundsManager.Get().Laser, gameObject);
+                    break;
+                case Type.Arrow:
+                    AkSoundEngine.PostEvent(SoundsManager.Get().Disparo, gameObject);
+                    break;
+                default:
+                    break;
+            }
+            
             for (int i = 0; i < anglesOfShoot.Length; i++)
             {
                 GameObject GO = ActivateObject();
