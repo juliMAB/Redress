@@ -1,0 +1,31 @@
+Event	ID	Name			Wwise Object Path	Notes
+	213559042	play_disparo			\Default Work Unit\play_disparo	
+	725996008	play_muerte			\Default Work Unit\play_muerte	
+	1038032528	play_bajar			\Default Work Unit\play_bajar	
+	2270376495	play_laser			\Default Work Unit\play_laser	
+	2695653357	play_salto			\Default Work Unit\play_salto	
+	3411043840	play_pistolamuere			\Default Work Unit\play_pistolamuere	
+	3418869249	play_colisionplataforma			\Default Work Unit\play_colisionplataforma	
+	3755088439	play_danio			\Default Work Unit\play_danio	
+	3863985028	play_estaticomuere			\Default Work Unit\play_estaticomuere	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	172194765	Disparo 2	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Disparo 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 2		11836
+	258418497	Estatico Muere 2	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Estatico Muere 2_5B0D2365.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Estatico Muere\Estatico Muere 2		91636
+	272376139	FX Daño	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\FX Daño_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\FX Daño		194300
+	342803264	Golpe 2	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Golpe 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Golpe\Golpe 2		47152
+	343366741	Auch 2	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Auch 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 2		47152
+	429230411	Colisión Plataforma	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Colisión Plataforma_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Colisión Plataforma		23608
+	473018965	Golpe 1	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Golpe 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Golpe\Golpe 1		47152
+	614732573	Pistola Muere	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Pistola Muere_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Pistola Muere		17722
+	656286296	Laser	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Laser_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Laser		14778
+	711683811	Muerte	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Muerte_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Muerte		894716
+	765053741	Auch 1	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Auch 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 1		47152
+	816670824	Bajar 2	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Bajar 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Bajar\Bajar 2		20664
+	826722617	Estatico Muere 1	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Estatico Muere 1_4FEA5CE0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Estatico Muere\Estatico Muere 1		90856
+	927977159	Salto	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Salto_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Salto		23608
+	937790586	Disparo 1	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Disparo 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 1		11836
+	999976094	Disparo 3	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Disparo 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 3		11836
+	1013036639	Bajar 1	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Bajar 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Bajar\Bajar 1		20664
+	1047414001	Auch 3	D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Mac\SFX\Auch 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 3		47152
+

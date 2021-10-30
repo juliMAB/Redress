@@ -13,7 +13,15 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID JUMP = 3833651337U;
+        static const AkUniqueID PLAY_BAJAR = 1038032528U;
+        static const AkUniqueID PLAY_COLISIONPLATAFORMA = 3418869249U;
+        static const AkUniqueID PLAY_DANIO = 3755088439U;
+        static const AkUniqueID PLAY_DISPARO = 213559042U;
+        static const AkUniqueID PLAY_ESTATICOMUERE = 3863985028U;
+        static const AkUniqueID PLAY_LASER = 2270376495U;
+        static const AkUniqueID PLAY_MUERTE = 725996008U;
+        static const AkUniqueID PLAY_PISTOLAMUERE = 3411043840U;
+        static const AkUniqueID PLAY_SALTO = 2695653357U;
     } // namespace EVENTS
 
     namespace BANKS

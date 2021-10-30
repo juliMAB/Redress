@@ -3,9 +3,17 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{A1010EFC-E05E-400A-8C33-D0D894C71605}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Main" ID="{F026013E-406D-4F81-81EB-5256DB4F478C}">
+				<SoundBank Name="main" ID="{BC6ED88D-37C6-4F5D-A71D-654AFCC00ED4}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Jump" ID="{FC377C47-9EEC-4D49-879B-7D1A97C409C8}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_estaticomuere" ID="{A6C01D30-2CAD-4074-ACA7-FF2455D96D4F}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_laser" ID="{203DA177-7C37-441A-BEDC-561812902503}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_muerte" ID="{CA136F2B-2305-44D1-A3CA-AA4E9B27CA2C}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_bajar" ID="{D0E3792F-BA77-45A5-8507-50EDF7192612}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_danio" ID="{78FE69A5-7DA8-48A5-9983-F02B7D7EC1D7}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_disparo" ID="{2A7BD1E5-8474-4AB6-AF93-A00779E75FA0}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_pistolamuere" ID="{6D2C9191-9BB2-4C2A-BA84-F1C0D37EE916}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_colisionplataforma" ID="{FD377E87-6064-4C8A-99AB-D64DC9EDDDF6}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_salto" ID="{52ED3FF9-7AE7-4CE4-9039-00A2829261F8}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

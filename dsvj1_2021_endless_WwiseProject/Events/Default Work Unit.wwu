@@ -3,12 +3,111 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Jump" ID="{FC377C47-9EEC-4D49-879B-7D1A97C409C8}">
+				<Event Name="play_salto" ID="{52ED3FF9-7AE7-4CE4-9039-00A2829261F8}">
 					<ChildrenList>
-						<Action Name="" ID="{09410E95-651B-48CE-84ED-0BB6FDE94180}" ShortID="396091558">
+						<Action Name="" ID="{63FE94DD-D025-4D5E-94EB-677E2932B715}" ShortID="821643513">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Jump" ID="{D550E154-B951-4E20-AEBC-699FEB611590}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+									<ObjectRef Name="Salto" ID="{C0F1F79D-2E7B-4A46-9E44-C40286D2B6BD}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_colisionplataforma" ID="{FD377E87-6064-4C8A-99AB-D64DC9EDDDF6}">
+					<ChildrenList>
+						<Action Name="" ID="{32B8828F-99A1-4D5B-B50A-7E733FA594F6}" ShortID="172133163">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Colisión Plataforma" ID="{C8C1F358-358F-4D09-8863-2C31B8A45AE2}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_muerte" ID="{CA136F2B-2305-44D1-A3CA-AA4E9B27CA2C}">
+					<ChildrenList>
+						<Action Name="" ID="{45F213CC-AB25-4759-BD5C-FBEBACEEDA0A}" ShortID="138078740">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Muerte" ID="{92D63E70-6889-4F01-8F4D-ED749B5DE0BA}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_bajar" ID="{D0E3792F-BA77-45A5-8507-50EDF7192612}">
+					<ChildrenList>
+						<Action Name="" ID="{740B9FD4-9F5C-4A79-8796-B43B90249834}" ShortID="183994857">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Bajar" ID="{0B0ADAF1-D754-4499-8051-CEF1935617AF}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_disparo" ID="{2A7BD1E5-8474-4AB6-AF93-A00779E75FA0}">
+					<ChildrenList>
+						<Action Name="" ID="{63D47E6B-6D25-4EC8-9304-0AE7B1364DDF}" ShortID="318623704">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Disparo" ID="{343771B7-21E8-4869-A3C2-25EFA21E8232}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_danio" ID="{78FE69A5-7DA8-48A5-9983-F02B7D7EC1D7}">
+					<ChildrenList>
+						<Action Name="" ID="{79AA052B-1B2A-4377-B7C6-CE90AA86398E}" ShortID="807465131">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Danio" ID="{8413D771-F72D-4101-8584-36ECE9859202}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_estaticomuere" ID="{A6C01D30-2CAD-4074-ACA7-FF2455D96D4F}">
+					<ChildrenList>
+						<Action Name="" ID="{B23B7D4E-BE60-40B3-8259-D8F0C0756645}" ShortID="14218877">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Estatico Muere" ID="{85542280-8B45-46F1-9070-2146462E5246}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_laser" ID="{203DA177-7C37-441A-BEDC-561812902503}">
+					<ChildrenList>
+						<Action Name="" ID="{E0019BA6-65B2-41C0-90A9-CAD8F6AA7A36}" ShortID="34766178">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser" ID="{D2FD8B52-7DBA-4A55-BA77-988CA1E23207}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_pared" ID="{9DEA813F-4F5F-420F-BB2F-9E4ABB31640B}">
+					<ChildrenList>
+						<Action Name="" ID="{60ADC12E-40D4-4EAA-B72B-A4BA8CCD9AAF}" ShortID="881928729">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pared" ID="{EECBFF91-57BD-4FCB-9521-C9D42FA02706}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_pistolamuere" ID="{6D2C9191-9BB2-4C2A-BA84-F1C0D37EE916}">
+					<ChildrenList>
+						<Action Name="" ID="{FF347982-5521-4AEE-9E56-AD5387B03AF4}" ShortID="568904277">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pistola Muere" ID="{D6C6D283-565C-43BC-BAA3-134F9EF56E76}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

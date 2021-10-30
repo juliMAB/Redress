@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>T:\facu\Desarrollo 3\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>T:\facu\Desarrollo 3\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>T:\facu\Desarrollo 3\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>T:\facu\Desarrollo 3\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,16 +16,116 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2409567893">
-			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
-			<ShortName>Main</ShortName>
-			<Path>Main.bnk</Path>
+		<SoundBank Id="3161908922" Language="SFX" Hash="1661626369">
+			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
+			<ShortName>main</ShortName>
+			<Path>main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump" DurationType="OneShot" DurationMin="0.272200" DurationMax="0.272200">
+				<Event Id="1038032528" Name="play_bajar" ObjectPath="\Events\Default Work Unit\play_bajar" DurationType="OneShot" DurationMin="0.240404" DurationMax="0.244606">
 					<IncludedMemoryFiles>
-						<File Id="1026234206" Language="SFX">
-							<ShortName>341246__sharesynth__jump02.wav</ShortName>
-							<Path>SFX\341246__sharesynth__jump02_10C4C929.wem</Path>
+						<File Id="816670824" Language="SFX">
+							<ShortName>Bajar 2.wav</ShortName>
+							<Path>SFX\Bajar 2_10C4C929.wem</Path>
+						</File>
+						<File Id="1013036639" Language="SFX">
+							<ShortName>Bajar 1.wav</ShortName>
+							<Path>SFX\Bajar 1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3418869249" Name="play_colisionplataforma" ObjectPath="\Events\Default Work Unit\play_colisionplataforma" DurationType="OneShot" DurationMin="0.249063" DurationMax="0.286098">
+					<IncludedMemoryFiles>
+						<File Id="429230411" Language="SFX">
+							<ShortName>Colisión Plataforma.wav</ShortName>
+							<Path>SFX\Colisión Plataforma_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3755088439" Name="play_danio" ObjectPath="\Events\Default Work Unit\play_danio" DurationType="OneShot" DurationMin="1.101111" DurationMax="1.101111">
+					<IncludedMemoryFiles>
+						<File Id="272376139" Language="SFX">
+							<ShortName>FX Daño.wav</ShortName>
+							<Path>SFX\FX Daño_10C4C929.wem</Path>
+						</File>
+						<File Id="342803264" Language="SFX">
+							<ShortName>Golpe 2.wav</ShortName>
+							<Path>SFX\Golpe 2_10C4C929.wem</Path>
+						</File>
+						<File Id="343366741" Language="SFX">
+							<ShortName>Auch 2.wav</ShortName>
+							<Path>SFX\Auch 2_10C4C929.wem</Path>
+						</File>
+						<File Id="473018965" Language="SFX">
+							<ShortName>Golpe 1.wav</ShortName>
+							<Path>SFX\Golpe 1_10C4C929.wem</Path>
+						</File>
+						<File Id="765053741" Language="SFX">
+							<ShortName>Auch 1.wav</ShortName>
+							<Path>SFX\Auch 1_10C4C929.wem</Path>
+						</File>
+						<File Id="1047414001" Language="SFX">
+							<ShortName>Auch 3.wav</ShortName>
+							<Path>SFX\Auch 3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="213559042" Name="play_disparo" ObjectPath="\Events\Default Work Unit\play_disparo" DurationType="OneShot" DurationMin="0.133469" DurationMax="0.141406">
+					<IncludedMemoryFiles>
+						<File Id="172194765" Language="SFX">
+							<ShortName>Disparo 2.wav</ShortName>
+							<Path>SFX\Disparo 2_10C4C929.wem</Path>
+						</File>
+						<File Id="937790586" Language="SFX">
+							<ShortName>Disparo 1.wav</ShortName>
+							<Path>SFX\Disparo 1_10C4C929.wem</Path>
+						</File>
+						<File Id="999976094" Language="SFX">
+							<ShortName>Disparo 3.wav</ShortName>
+							<Path>SFX\Disparo 3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3863985028" Name="play_estaticomuere" ObjectPath="\Events\Default Work Unit\play_estaticomuere" DurationType="OneShot" DurationMin="1.029388" DurationMax="1.038231">
+					<IncludedMemoryFiles>
+						<File Id="258418497" Language="SFX">
+							<ShortName>Estatico Muere 2.wav</ShortName>
+							<Path>SFX\Estatico Muere 2_5B0D2365.wem</Path>
+						</File>
+						<File Id="826722617" Language="SFX">
+							<ShortName>Estatico Muere 1.wav</ShortName>
+							<Path>SFX\Estatico Muere 1_4FEA5CE0.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2270376495" Name="play_laser" ObjectPath="\Events\Default Work Unit\play_laser" DurationType="OneShot" DurationMin="0.152803" DurationMax="0.187472">
+					<IncludedMemoryFiles>
+						<File Id="656286296" Language="SFX">
+							<ShortName>Laser.wav</ShortName>
+							<Path>SFX\Laser_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="725996008" Name="play_muerte" ObjectPath="\Events\Default Work Unit\play_muerte" DurationType="OneShot" DurationMin="5.071723" DurationMax="5.071723">
+					<IncludedMemoryFiles>
+						<File Id="711683811" Language="SFX">
+							<ShortName>Muerte.wav</ShortName>
+							<Path>SFX\Muerte_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3411043840" Name="play_pistolamuere" ObjectPath="\Events\Default Work Unit\play_pistolamuere" DurationType="OneShot" DurationMin="0.194392" DurationMax="0.212231">
+					<IncludedMemoryFiles>
+						<File Id="614732573" Language="SFX">
+							<ShortName>Pistola Muere.wav</ShortName>
+							<Path>SFX\Pistola Muere_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2695653357" Name="play_salto" ObjectPath="\Events\Default Work Unit\play_salto" DurationType="OneShot" DurationMin="0.251957" DurationMax="0.278757">
+					<IncludedMemoryFiles>
+						<File Id="927977159" Language="SFX">
+							<ShortName>Salto.wav</ShortName>
+							<Path>SFX\Salto_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
