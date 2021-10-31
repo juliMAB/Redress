@@ -66,10 +66,10 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: fc0e01a15ee00a408c33d0d894c71605
     GuidInternal: 
-    m_lastTime: -8585713357599996053
+    m_lastTime: -8585659876543174795
     List:
-    - name: Main
-      guid: 3e0126f06d40814f81eb5256db4f478c
+    - name: main
+      guid: 8dd86ebcc6375d4fa71d654afcc00ed4
       id: 3161908922
       PathAndIcons:
       - ElementName: SoundBanks
@@ -78,10 +78,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: fc0e01a15ee00a408c33d0d894c71605
-      - ElementName: Main
+      - ElementName: main
         ObjectType: 7
-        guid: 3e0126f06d40814f81eb5256db4f478c
-      Path: SoundBanks\Default Work Unit\Main
+        guid: 8dd86ebcc6375d4fa71d654afcc00ed4
+      Path: SoundBanks\Default Work Unit\main
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -94,11 +94,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: df406bf68de0e0478992da9a7fe5f08a
     GuidInternal: 
-    m_lastTime: -8585713357600065866
+    m_lastTime: -8585659876545091010
     List:
-    - name: Jump
-      guid: 477c37fcec9e494d879b7d1a97c409c8
-      id: 3833651337
+    - name: play_bajar
+      guid: 2f79e3d077baa545850750edf7192612
+      id: 1038032528
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -106,13 +106,166 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: df406bf68de0e0478992da9a7fe5f08a
-      - ElementName: Jump
+      - ElementName: play_bajar
         ObjectType: 3
-        guid: 477c37fcec9e494d879b7d1a97c409c8
-      Path: Events\Default Work Unit\Jump
+        guid: 2f79e3d077baa545850750edf7192612
+      Path: Events\Default Work Unit\play_bajar
       maxAttenuation: 0
-      maxDuration: 0.2722
-      minDuration: 0.2722
+      maxDuration: 0.244606
+      minDuration: 0.240404
+    - name: play_colisionplataforma
+      guid: 877e37fd64608a4c99abd64dc9edddf6
+      id: 3418869249
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_colisionplataforma
+        ObjectType: 3
+        guid: 877e37fd64608a4c99abd64dc9edddf6
+      Path: Events\Default Work Unit\play_colisionplataforma
+      maxAttenuation: 0
+      maxDuration: 0.286098
+      minDuration: 0.249063
+    - name: play_danio
+      guid: a569fe78a87da5489983f02b7d7ec1d7
+      id: 3755088439
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_danio
+        ObjectType: 3
+        guid: a569fe78a87da5489983f02b7d7ec1d7
+      Path: Events\Default Work Unit\play_danio
+      maxAttenuation: 0
+      maxDuration: 1.101111
+      minDuration: 1.101111
+    - name: play_disparo
+      guid: e5d17b2a7484b64aaf93a00779e75fa0
+      id: 213559042
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_disparo
+        ObjectType: 3
+        guid: e5d17b2a7484b64aaf93a00779e75fa0
+      Path: Events\Default Work Unit\play_disparo
+      maxAttenuation: 0
+      maxDuration: 0.141406
+      minDuration: 0.133469
+    - name: play_estaticomuere
+      guid: 301dc0a6ad2c7440aca7ff2455d96d4f
+      id: 3863985028
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_estaticomuere
+        ObjectType: 3
+        guid: 301dc0a6ad2c7440aca7ff2455d96d4f
+      Path: Events\Default Work Unit\play_estaticomuere
+      maxAttenuation: 0
+      maxDuration: 1.038231
+      minDuration: 1.029388
+    - name: play_laser
+      guid: 77a13d20377c1a44bedc561812902503
+      id: 2270376495
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_laser
+        ObjectType: 3
+        guid: 77a13d20377c1a44bedc561812902503
+      Path: Events\Default Work Unit\play_laser
+      maxAttenuation: 0
+      maxDuration: 0.187472
+      minDuration: 0.152803
+    - name: play_muerte
+      guid: 2b6f13ca0523d144a3caaa4e9b27ca2c
+      id: 725996008
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_muerte
+        ObjectType: 3
+        guid: 2b6f13ca0523d144a3caaa4e9b27ca2c
+      Path: Events\Default Work Unit\play_muerte
+      maxAttenuation: 0
+      maxDuration: 5.071723
+      minDuration: 5.071723
+    - name: play_pared
+      guid: 3f81ea9d5f4f0f42bb2f9e4abb31640b
+      id: 3864305416
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pared
+        ObjectType: 3
+        guid: 3f81ea9d5f4f0f42bb2f9e4abb31640b
+      Path: Events\Default Work Unit\play_pared
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_pistolamuere
+      guid: 91912c6db29b2a4cba84f1c0d37ee916
+      id: 3411043840
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pistolamuere
+        ObjectType: 3
+        guid: 91912c6db29b2a4cba84f1c0d37ee916
+      Path: Events\Default Work Unit\play_pistolamuere
+      maxAttenuation: 0
+      maxDuration: 0.212231
+      minDuration: 0.194392
+    - name: play_salto
+      guid: f93fed52e77ae44c903900a2829261f8
+      id: 2695653357
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_salto
+        ObjectType: 3
+        guid: f93fed52e77ae44c903900a2829261f8
+      Path: Events\Default Work Unit\play_salto
+      maxAttenuation: 0
+      maxDuration: 0.278757
+      minDuration: 0.251957
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -169,9 +322,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585713357599986077
     List: []
-  ExpandedFileSystemItemIds: 
+  ExpandedFileSystemItemIds: 0400000005000000
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de977388c2c0e5b4691358871487555a, type: 3}
-  m_Name: F026013E-406D-4F81-81EB-5256DB4F478C
+  m_Name: BC6ED88D-37C6-4F5D-A71D-654AFCC00ED4
   m_EditorClassIdentifier: 
-  objectName: Main
+  objectName: main
   id: 3161908922
-  guid: F026013E-406D-4F81-81EB-5256DB4F478C
+  guid: BC6ED88D-37C6-4F5D-A71D-654AFCC00ED4
