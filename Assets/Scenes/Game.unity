@@ -6462,7 +6462,7 @@ Transform:
   - {fileID: 986969938}
   - {fileID: 2047063191}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &235285249
 MonoBehaviour:
@@ -6899,7 +6899,7 @@ GameObject:
   - component: {fileID: 253370622}
   - component: {fileID: 253370621}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AkBank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6942,7 +6942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255934756 stripped
 GameObject:
@@ -9572,7 +9572,7 @@ Transform:
   - {fileID: 1852004836}
   - {fileID: 1429901717}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391688743 stripped
 GameObject:
@@ -10577,7 +10577,7 @@ Transform:
   - {fileID: 1162433073}
   - {fileID: 2026918319}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436032015 stripped
 GameObject:
@@ -14714,7 +14714,7 @@ Transform:
   m_Children:
   - {fileID: 629718950}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &628743088
 PrefabInstance:
@@ -15382,7 +15382,7 @@ Transform:
   - {fileID: 1011929405}
   - {fileID: 990557454}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653816915
 GameObject:
@@ -21420,7 +21420,7 @@ Transform:
   - {fileID: 1595689685}
   - {fileID: 559910945}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &959663659 stripped
 GameObject:
@@ -25703,7 +25703,7 @@ Transform:
   m_Children:
   - {fileID: 1621216161}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1148995116
 PrefabInstance:
@@ -27019,7 +27019,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1193398265
 GameObject:
@@ -32481,7 +32481,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482431899 stripped
 GameObject:
@@ -35830,7 +35830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1637160470
 PrefabInstance:
@@ -37710,7 +37710,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757634916 stripped
 GameObject:
@@ -44794,7 +44794,7 @@ GameObject:
   - component: {fileID: 2066881230}
   - component: {fileID: 2066881229}
   m_Layer: 0
-  m_Name: play_laser
+  m_Name: Sounds Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44834,7 +44834,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067843074 stripped
 GameObject:
@@ -46732,7 +46732,7 @@ Transform:
   - {fileID: 1769960643}
   - {fileID: 1422056807}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6408668683553309445
 BoxCollider2D:
