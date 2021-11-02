@@ -47,6 +47,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         protected virtual void OnPicked()
         {
             picked = true;
+            direction = Vector3.zero;
         }
 
         public virtual void ResetStats()
@@ -54,6 +55,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             leftDurability = totalDurability;
             picked = false;
             consumed = false;
+            direction = Vector3.left;
         }
     }
 }           
