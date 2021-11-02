@@ -8,10 +8,8 @@
             leftDurability = 0f;
         }
 
-        protected override void OnPicked()
+        protected override void OnPickedUp()
         {
-            base.OnPicked();
-
             player.AddLife();
         }
     }

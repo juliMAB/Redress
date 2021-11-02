@@ -7,7 +7,7 @@ using EndlessT4cos.Gameplay.User;
 
 namespace EndlessT4cos.Gameplay.Objects.PickUps
 {
-    public class PickUp : PlatformObject
+    public abstract class PickUp : PlatformObject
     {
         protected Player player = null;
         protected float totalDurability = 5f;
@@ -16,6 +16,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         protected bool consumed = false;
 
         public Action<GameObject> OnConsumed = null;
+        public Action<GameObject> OnPicked = null;
 
         public Player Player { set => player = value; }
         public bool Picked { get => picked; }
@@ -41,14 +42,13 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            OnPicked();
-        }
-
-        protected virtual void OnPicked()
-        {
             picked = true;
             direction = Vector3.zero;
+            OnPicked?.Invoke(gameObject);
+            OnPickedUp();
         }
+
+        protected abstract void OnPickedUp();
 
         public virtual void ResetStats()
         {

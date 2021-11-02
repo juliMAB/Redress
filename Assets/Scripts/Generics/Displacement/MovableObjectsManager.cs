@@ -62,7 +62,7 @@ namespace Games.Generics.Displacement
 
         protected bool IsOutOfScreen(MovableObject movableObject)
         {
-            return movableObject.transform.position.x + movableObject.HalfSize.x < -halfSizeOfScreen.x;
+            return movableObject.transform.position.x + movableObject.HalfSize.x < -halfSizeOfScreen.x - 1;
         }
 
         protected bool IsFarEnoughForNewObjectToSpawn(MovableObject movableObject)

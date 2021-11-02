@@ -33,13 +33,16 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             base.Update();
         }
 
-        protected override void OnPicked()
+        protected override void OnPickedUp()
         {
-            base.OnPicked();
-                        
+            void DeactiveOldGun()
+            {
+                OnConsumed?.Invoke(player.Gun.gameObject);
+            }
+
             if (player.Gun != player.InitialGun)
             {
-                UnactiveOldGun();
+                DeactiveOldGun();
             }
 
             playerGun = player.InitialGun.gameObject;
@@ -52,11 +55,6 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         {
             base.ResetStats();
             threeWayGun.ResetStats();
-        }
-
-        private void UnactiveOldGun()
-        {
-            OnConsumed?.Invoke(player.Gun.gameObject);
         }
 
         private void FollowPlayer()

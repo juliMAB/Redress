@@ -19,13 +19,11 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             OnConsumed += ResetSpeedMultiplier;
         }
 
-        protected override void OnPicked()
+        protected override void OnPickedUp()
         {
-            base.OnPicked();
-
-            //GameplayManager.Instance.speedMultiplier = multiplier;
-            StopAllCoroutines();
-            StartCoroutine(Ipickup());
+            //StopAllCoroutines();
+            //StartCoroutine(Ipickup());
+            GameplayManager.Instance.speedMultiplier = multiplier;
             visual.SetActive(false);
         }
 
@@ -42,11 +40,13 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         IEnumerator Ipickup()
         {
             GameplayManager.Instance.speedMultiplier = multiplier;
-            do
-            {
-                leftDurability -= Time.deltaTime;
-                yield return null;
-            } while (leftDurability>0);
+
+            yield return new WaitForSeconds(leftDurability);
+            //do
+            //{
+            //    leftDurability -= Time.deltaTime;
+            //    yield return null;
+            //} while (leftDurability>0);
             GameplayManager.Instance.speedMultiplier = 1f;
         }
     }

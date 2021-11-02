@@ -10,10 +10,8 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
             leftDurability = 0f;
         }
 
-        protected override void OnPicked()
+        protected override void OnPickedUp()
         {
-            base.OnPicked();
-
             player.SetInmuneForTime(totalDurability, Color.blue);
             leftDurability = 0f;
         }
