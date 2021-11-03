@@ -74,11 +74,18 @@ namespace EndlessT4cos.Gameplay.User
             {
                 return;
             }
-            characterMovement.CharacterMovementSeterUpdate();
+            //characterMovement.CharacterMovementSeterUpdate();
             if (Input.GetKeyDown(KeyCode.K))
             {
                 gun.Shoot();
             }
+        }
+        private void FixedUpdate()
+        {
+            if (!controlActive)
+                return;
+            
+            characterMovement.CharacterMovementSeterUpdate();
         }
 
         private IEnumerator SetInmuneLifetime(float duration)

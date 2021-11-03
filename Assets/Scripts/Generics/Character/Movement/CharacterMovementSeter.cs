@@ -47,8 +47,15 @@ namespace Games.Generics.Character.Movement
 			resetDashT = resetDash;
 			slider.maxValue = dashCooldown;
 		}
-
-		public void CharacterMovementSeterUpdate()
+        private void FixedUpdate()
+        {
+			if (!controlActive)
+			{
+				return;
+			}
+			CharacterMovementSeterUpdate();
+		}
+        public void CharacterMovementSeterUpdate()
         {
 			if (!controlActive)
 			{
