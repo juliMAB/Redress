@@ -86,7 +86,7 @@ namespace Games.Generics.Character.Movement
 		
         private void moveRightLeft()
         {
-			normalizedHorizontalSpeed = Input.GetAxis("Horizontal");
+			normalizedHorizontalSpeed = Input.GetAxisRaw("Horizontal");
 			if (normalizedHorizontalSpeed > 0f)
 			{
 				transform.eulerAngles = new Vector3(0, 0, 0);
@@ -103,7 +103,7 @@ namespace Games.Generics.Character.Movement
         private void SetNormalMovementUpdate()
         {
 			moveRightLeft();
-			if (Input.GetAxis("Horizontal")==0)
+			if (Input.GetAxisRaw("Horizontal")==0)
 			{
 				normalizedHorizontalSpeed = 0;
 			}
