@@ -12,7 +12,7 @@ namespace EndlessT4cos.Gameplay.User
         private SpriteRenderer spriteRenderer = null;
         private CharacterMovementSeter characterMovement = null;
         private Color normalColor = Color.white;
-        public Color inmuneColor = Color.red;
+        private Color inmuneColor = Color.red;
        // public Color inmuneColorShield = Color.blue;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
@@ -23,8 +23,8 @@ namespace EndlessT4cos.Gameplay.User
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
         [SerializeField] private float inmuneTime = 2f;
-        [SerializeField] private Gun gun = null;
-        [SerializeField] private bool controlActive = true;
+        private Gun gun = null;
+        private bool controlActive = true;
 
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
@@ -34,7 +34,8 @@ namespace EndlessT4cos.Gameplay.User
         public int Lives => lives;
         public Gun Gun { get => gun; set => gun = value; }
         public bool ControlActive { set => controlActive = value; }
-        
+        public Color InmuneColor { set => inmuneColor = value; }
+
         public void Reset()
         {
             if (setInmuneLifetimeInstance != null)
@@ -62,9 +63,10 @@ namespace EndlessT4cos.Gameplay.User
         private void Awake()
         {
             characterMovement = GetComponent<CharacterMovementSeter>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             normalColor = spriteRenderer.color;
             initialPosition = transform.position;
+            gun = GetComponentInChildren<Gun>();
             initialGun = gun;
         }
 

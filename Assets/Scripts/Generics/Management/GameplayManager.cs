@@ -10,7 +10,7 @@ using Games.Generics.Weapon;
 using Games.Generics.Manager;
 using EndlessT4cos.Gameplay.Objects.PickUps;
 using EndlessT4cos.Gameplay.Controllers;
-using EndlessT4cos.Gameplay.Animations;
+using UnityEngine.SceneManagement;
 
 namespace EndlessT4cos.Gameplay.Management
 {
@@ -72,7 +72,6 @@ namespace EndlessT4cos.Gameplay.Management
         [SerializeField] private CameraShake cameraShake = null;
         [SerializeField] private ParallaxManager background = null;
         [SerializeField] private CameraController cameraController = null;
-        [SerializeField] private AnimationController animationController = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -104,7 +103,6 @@ namespace EndlessT4cos.Gameplay.Management
 
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(speed, layerSpeedDiff);
-            animationController.StartAnimations();
 
             platformsManager.OnUnneveness += cameraController.PositionCamera;
         }
@@ -163,12 +161,10 @@ namespace EndlessT4cos.Gameplay.Management
             if (pauseManager.GameIsPaused)
             { 
                 pauseManager.Resume();
-                animationController.ReanudeAnimations();
             }
             else
             { 
                 pauseManager.Pause();
-                animationController.PauseAnimations();
             }
 
             objectsManager.Pause(pauseManager.GameIsPaused);
@@ -202,8 +198,6 @@ namespace EndlessT4cos.Gameplay.Management
             platformsManager.enabled = false;
             SetBulletsSpeed(0, true);
 
-            animationController.PauseAnimations();
-
             platformsManager.PauseMovement(true);
             cameraController.PauseCameraMovement(true);
             pauseManager.Pause();
@@ -211,33 +205,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         public void ResetGame()
         {
-            speedMultiplier = 1f;
-            score = 0;
-            OnChangedScore?.Invoke(score);
-
-            distance = 0;
-            player.Reset();
-            playerControl.ControlActive = true;
-            player.ControlActive = true;
-
-            speed = initialSpeed;
-            layerSpeedDiff = initialIayerSpeedDiff;
-
-            objectsManager.enabled = true;
-            platformsManager.enabled = true;
-
-            DeactivateAllBullets();
-
-            SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
-            background.SetSpeed(initialSpeed, layerSpeedDiff);
-
-            objectsManager.Reset();
-            platformsManager.Reset();
-            background.Reset();
-            cameraController.Reset();
-            animationController.Reset();
-
-            pauseManager.Resume();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void SetPlayerInputLock()
