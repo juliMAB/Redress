@@ -21,13 +21,14 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
         [SerializeField] protected GameObject target = null;
         [SerializeField] protected bool lookingAtTarget = false;
         [SerializeField] protected float minDistanceToTarget = 1;
-
+        protected string nameSound;
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
 
         private void Start()
         {
             canDie = true;
+            nameSound = SoundsManager.Get().EstaticoMuere;
         }
 
         protected virtual void Update()
@@ -62,6 +63,7 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
         public void TakeDamage()
         {
             Debug.Log(gameObject.name + " a tomado daño.");
+            AkSoundEngine.PostEvent(nameSound, gameObject);
             switch (type)
             {
                 case Type.Static:

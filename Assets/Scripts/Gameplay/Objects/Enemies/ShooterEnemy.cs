@@ -10,11 +10,13 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
     {
         [SerializeField] private Gun gun = null;
 
+         
         public Gun Gun { get => gun; }
 
         private void Start()
         {
             canDie = true;
+            nameSound = SoundsManager.Get().PistolaMuerte;
         }
 
         protected override void Update()

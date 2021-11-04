@@ -140,11 +140,6 @@ namespace EndlessT4cos.Gameplay.Management
             }
         }
 
-        private void FixedUpdate()
-        {
-            
-        }
-
         public void SetYPlayerPosToLose(Vector2 pos)
         {
             playerPosToLose = pos;
@@ -205,6 +200,7 @@ namespace EndlessT4cos.Gameplay.Management
 
         public void ResetGame()
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
