@@ -27,8 +27,24 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
 
         private void Start()
         {
-            canDie = true;
             nameSound = SoundsManager.Get().EstaticoMuere;
+            canDie = true;
+            switch (type)
+            {
+                case Type.Static:
+                    nameSound = SoundsManager.Get().EstaticoMuere;
+                    break;
+                case Type.Explosive:
+                    break;
+                case Type.Shooter:
+                    nameSound = SoundsManager.Get().PistolaMuerte;
+                    break;
+                case Type.Wall:
+                    nameSound = SoundsManager.Get().Pared;
+                    break;
+                default:
+                    break;
+            }
         }
 
         protected virtual void Update()
@@ -64,22 +80,6 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
         {
             Debug.Log(gameObject.name + " a tomado daño.");
             AkSoundEngine.PostEvent(nameSound, gameObject);
-            switch (type)
-            {
-                case Type.Static:
-                    AkSoundEngine.PostEvent(SoundsManager.Get().EstaticoMuere, gameObject);
-                    break;
-                case Type.Explosive:
-                    break;
-                case Type.Shooter:
-                    AkSoundEngine.PostEvent(SoundsManager.Get().PistolaMuerte, gameObject);
-                    break;
-                case Type.Wall:
-                    AkSoundEngine.PostEvent(SoundsManager.Get().Pared, gameObject);
-                    break;
-                default:
-                    break;
-            }
             
             if (!canDie)
             {

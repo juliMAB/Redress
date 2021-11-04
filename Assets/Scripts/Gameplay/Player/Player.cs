@@ -23,6 +23,7 @@ namespace EndlessT4cos.Gameplay.User
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
         [SerializeField] private float inmuneTime = 2f;
+        private ParticleSystem particleSystem= null;
         private Gun gun = null;
         private bool controlActive = true;
 
@@ -62,6 +63,7 @@ namespace EndlessT4cos.Gameplay.User
 
         private void Awake()
         {
+            particleSystem = GetComponentInChildren<ParticleSystem>();
             characterMovement = GetComponent<CharacterMovementSeter>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             normalColor = spriteRenderer.color;
@@ -138,6 +140,7 @@ namespace EndlessT4cos.Gameplay.User
 
         public void TakeDamage()
         {
+            particleSystem.Play();
             if (isInmune)
             {
                 Debug.Log(" el player es inmune ");
@@ -145,6 +148,7 @@ namespace EndlessT4cos.Gameplay.User
             }
             Debug.Log(" el player a tomado daño ");
             lives--;
+            
             if (lives > 0)
             {
                 AkSoundEngine.PostEvent(SoundsManager.Get().Daño, gameObject);

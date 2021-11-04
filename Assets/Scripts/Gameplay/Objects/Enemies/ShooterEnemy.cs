@@ -16,7 +16,6 @@ namespace EndlessT4cos.Gameplay.Objects.Enemies
         private void Start()
         {
             canDie = true;
-            nameSound = SoundsManager.Get().PistolaMuerte;
         }
 
         protected override void Update()
