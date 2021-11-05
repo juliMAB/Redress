@@ -16,8 +16,6 @@ namespace EndlessT4cos.Gameplay.User
        // public Color inmuneColorShield = Color.blue;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
-        private IEnumerator setInmuneLifetimeInstance = null;
-        private IEnumerator varyBetweenColorsInstance = null;
         private Gun initialGun = null;
 
         [SerializeField] private int initialLives = 5;
@@ -36,30 +34,6 @@ namespace EndlessT4cos.Gameplay.User
         public Gun Gun { get => gun; set => gun = value; }
         public bool ControlActive { set => controlActive = value; }
         public Color InmuneColor { set => inmuneColor = value; }
-
-        public void Reset()
-        {
-            if (setInmuneLifetimeInstance != null)
-            {
-                StopCoroutine(setInmuneLifetimeInstance);
-            }
-
-            if (varyBetweenColorsInstance != null)
-            {
-                StopCoroutine(varyBetweenColorsInstance);
-            }
-
-            transform.position = initialPosition;
-            lives = initialLives;
-            isInmune = false;
-            spriteRenderer.color = normalColor;
-
-            OnLivesChanged?.Invoke(lives);
-
-            ResetGun();
-
-           transform.rotation = Quaternion.identity;
-        }
 
         private void Awake()
         {
@@ -179,21 +153,9 @@ namespace EndlessT4cos.Gameplay.User
 
         public void SetInmuneForTime(float time, Color inmuneColor)
         {
-            if (setInmuneLifetimeInstance != null)
-            {
-                StopCoroutine(setInmuneLifetimeInstance);
-            }
-
-            setInmuneLifetimeInstance = SetInmuneLifetime(time);
-            StartCoroutine(setInmuneLifetimeInstance);
-
-            if (varyBetweenColorsInstance != null)
-            {
-                StopCoroutine(varyBetweenColorsInstance);
-            }
-
-            varyBetweenColorsInstance = VaryBetweenColors(time, inmuneColor);
-            StartCoroutine(varyBetweenColorsInstance);
+            StopAllCoroutines();
+            StartCoroutine(SetInmuneLifetime(time));
+            StartCoroutine(VaryBetweenColors(time, inmuneColor));
         }
 
         public void ResetGun()
