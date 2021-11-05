@@ -20,13 +20,14 @@ namespace EndlessT4cos.Gameplay.Platforms
         
         private float[] distanceLimits = new float[2];
         private float halfPlatformHeight = 0f;
-        private float unnevenes = 0f;
+        //private float unnevenes = 0f;
         private float unnevenesDuration = 0f;
-        private float normalEvenessDuration = 0f;
+        //private float normalEvenessDuration = 0f;
         private bool unnevenessActivated = false;
-        private IEnumerator unevennessInst = null;
+        //private IEnumerator unevennessInst = null;
         private InitialPlatform[] initialActivePlatforms = null;
         private bool pausePlatformMovement = false;
+        private short actualYPos = 0;
 
         [Header("Platform Builiding Configurations")]
         [SerializeField] private float[] ySpawnPositions = null;
@@ -36,8 +37,8 @@ namespace EndlessT4cos.Gameplay.Platforms
 
         [Header("Platform Spawn Configurations")]
         [SerializeField] private float[] unnevenessDurationLimits = new float[2];
-        [SerializeField] private float[] unnevenesValuesLimits = new float[2];
-        [SerializeField] private float[] normalEvenessDurationLimits = new float[2];
+        //[SerializeField] private float[] unnevenesValuesLimits = null;
+       // [SerializeField] private float[] normalEvenessDurationLimits = new float[2];
 
         public Action<float, float> OnUnneveness = null;
 
@@ -58,7 +59,7 @@ namespace EndlessT4cos.Gameplay.Platforms
                 ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
             }
 
-            normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+           // normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
         }
 
         protected override void Start()
@@ -80,16 +81,16 @@ namespace EndlessT4cos.Gameplay.Platforms
                 ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
             }
 
-            unnevenes = 0f;
+            //unnevenes = 0f;
             unnevenesDuration = 0f;
-            normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+            //normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
             unnevenessActivated = false;
             pausePlatformMovement = false;
 
-            if (unevennessInst != null)
-            {
-                StopCoroutine(unevennessInst);
-            }
+            //if (unevennessInst != null)
+            //{
+            //    StopCoroutine(unevennessInst);
+            //}
         }
 
         public void SetValues(float speed, float minDistance, float maxDistance, bool setAsInitialValues)
@@ -135,13 +136,13 @@ namespace EndlessT4cos.Gameplay.Platforms
                 }
             }
 
-            if(!unnevenessActivated && normalEvenessDuration < 0)
+            if(!unnevenessActivated && unnevenesDuration < 0)
             {
                 SetPlatformsUnevennes();
             }
             else if (!unnevenessActivated)
             {
-                normalEvenessDuration -= Time.deltaTime;
+                unnevenesDuration -= Time.deltaTime;
             }
         }
 
@@ -204,52 +205,70 @@ namespace EndlessT4cos.Gameplay.Platforms
         #region Unevenness
         private void SetPlatformsUnevennes()
         {
-            IEnumerator SetUnevenness()
+           //IEnumerator SetUnevenness()
+           //{
+           //    float time = 0f;
+           //    float[] initialYpositions = new float[ySpawnPositions.Length];
+           //
+           //    for (int i = 0; i < amountPlatformRows; i++)
+           //    {
+           //        initialYpositions[i] = ySpawnPositions[i];
+           //    }
+           //
+           //    while (time < unnevenesDuration)
+           //    {
+           //        if (pausePlatformMovement)
+           //        {
+           //            yield return null;
+           //        }
+           //        else
+           //        {
+           //            time += Time.deltaTime * GameplayManager.Instance.speedMultiplier;
+           //            for (int i = 0; i < amountPlatformRows; i++)
+           //            {
+           //                ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);
+           //            }
+           //
+           //            yield return null;
+           //        }
+           //    }
+           //
+           //    //unnevenessActivated = false;
+           //    //unevennessInst = null;
+           //    //normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+           //}
+
+            bool up = UnityEngine.Random.Range(0, 2) == 1;
+
+            //if (up)
+            //{
+            //    actualYPos++;
+            //}
+            //else
+            //{
+            //    actualYPos--;
+            //}
+
+            float unnevennes = up ? verticalDistanceBetweenPlatforms : -verticalDistanceBetweenPlatforms;
+
+            for (int i = 0; i < amountPlatformRows; i++)
             {
-                float time = 0f;
-                float[] initialYpositions = new float[ySpawnPositions.Length];
-
-                for (int i = 0; i < amountPlatformRows; i++)
-                {
-                    initialYpositions[i] = ySpawnPositions[i];
-                }
-
-                while (time < unnevenesDuration)
-                {
-                    if (pausePlatformMovement)
-                    {
-                        yield return null;
-                    }
-                    else
-                    {
-                        time += Time.deltaTime * GameplayManager.Instance.speedMultiplier;
-                        for (int i = 0; i < amountPlatformRows; i++)
-                        {
-                            ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);
-                        }
-
-                        yield return null;
-                    }
-                }
-
-                unnevenessActivated = false;
-                unevennessInst = null;
-                normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+                ySpawnPositions[i] += unnevennes;
             }
 
-            unnevenessActivated = true;
+            //unnevenessActivated = true;
             unnevenesDuration = UnityEngine.Random.Range(unnevenessDurationLimits[0], unnevenessDurationLimits[1]);
-            unnevenes = UnityEngine.Random.Range(unnevenesValuesLimits[0], unnevenesValuesLimits[1]);
+           // unnevenes = UnityEngine.Random.Range(unnevenesValuesLimits[0], unnevenesValuesLimits[1]);
 
-            OnUnneveness?.Invoke(unnevenes, unnevenesDuration);
+            OnUnneveness?.Invoke(unnevennes, 2);
 
-            if (unevennessInst != null)
-            {
-                StopCoroutine(unevennessInst);
-            }
+           // if (unevennessInst != null)
+           // {
+           //    // StopCoroutine(unevennessInst);
+           // }
 
-            unevennessInst = SetUnevenness();
-            StartCoroutine(unevennessInst);
+           // unevennessInst = SetUnevenness();
+           // StartCoroutine(unevennessInst);
         }
         #endregion
 
@@ -264,6 +283,7 @@ namespace EndlessT4cos.Gameplay.Platforms
                 {
                     continue;
                 }
+
                 amountActivePlatforms++;
             }
 
