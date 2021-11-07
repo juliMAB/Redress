@@ -22,7 +22,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         public Player Player { set => player = value; }
         public bool Picked { get => picked; }
 
-        protected virtual void Start()
+        protected virtual void Awake()
         {
             particles = GetComponentInChildren<ParticleSystem>();
             
@@ -42,7 +42,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 
                 if (!particles)
                 {
-                    Debug.Log(name + " doesn't has particles");
+                    Debug.Log(name + " doesn't have particles");
                 }
 
                 if (leftDurability < 0)
@@ -66,16 +66,16 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 
         public virtual void ResetStats()
         {
-            if (!particles)
-            {
-                Debug.Log(name + " doesn't has particles");
-                particles = GetComponentInChildren<ParticleSystem>();
-            }
-            else
-            {
+          // if (!particles)
+          // {
+          //     Debug.Log(name + " doesn't has particles");
+          //     particles = GetComponentInChildren<ParticleSystem>();
+          // }
+          // else
+          // {
                 particles.gameObject.SetActive(true);
 
-            }
+          //  }
             leftDurability = totalDurability;
             picked = false;
             consumed = false;

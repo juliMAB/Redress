@@ -11,8 +11,10 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         private Gun threeWayGun = null;
         private Vector3 position = Vector3.zero;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             totalDurability = 5f;
 
             threeWayGun = GetComponent<Gun>();
