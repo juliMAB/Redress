@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Games.Generics.Weapon;
 
-namespace EndlessT4cos.Gameplay.Objects.PickUps
+namespace Redress.Gameplay.Objects.PickUps
 {
     public class ThreeWayGun : PickUp
     {

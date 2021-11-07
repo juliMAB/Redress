@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessT4cos.Menu.UI
+namespace Redress.Menu.UI
 {
     public class UITutorialManager : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Games.Generics.Interfaces;
 
-namespace EndlessT4cos.Gameplay.Objects.Enemies
+namespace Redress.Gameplay.Objects.Enemies
 {
     public class WallEnemy : Enemy
     {

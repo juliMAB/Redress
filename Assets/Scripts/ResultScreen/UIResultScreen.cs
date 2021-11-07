@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using EndlessT4cos.Gameplay.User;
-using EndlessT4cos.Management;
+using Redress.Gameplay.User;
+using Redress.Management;
 
-namespace EndlessT4cos.ResultScreen
+namespace Redress.ResultScreen
 {
     public class UIResultScreen : MonoBehaviour
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using EndlessT4cos.Management;
+using Redress.Management;
 
-namespace EndlessT4cos.Menu.UI
+namespace Redress.Menu.UI
 {
     public class UIMenuMananger : MonoBehaviour
     {

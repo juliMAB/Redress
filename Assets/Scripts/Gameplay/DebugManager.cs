@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using EndlessT4cos.Gameplay.Management;
-using EndlessT4cos.Gameplay.User;
+using Redress.Gameplay.Management;
+using Redress.Gameplay.User;
 
 public class DebugManager : MonoBehaviour
 {

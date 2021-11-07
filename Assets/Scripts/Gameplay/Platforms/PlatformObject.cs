@@ -2,7 +2,7 @@
 
 using Games.Generics.Displacement;
 
-namespace EndlessT4cos.Gameplay.Platforms
+namespace Redress.Gameplay.Platforms
 {
     public class PlatformObject : MovableObject
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EndlessT4cos.Gameplay.Objects.PickUps
+namespace Redress.Gameplay.Objects.PickUps
 {
     public class Shield : PickUp
     {

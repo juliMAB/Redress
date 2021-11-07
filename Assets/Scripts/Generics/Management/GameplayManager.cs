@@ -2,17 +2,17 @@
 using System.Collections;
 using UnityEngine;
 
-using EndlessT4cos.Gameplay.Objects.Enemies;
-using EndlessT4cos.Gameplay.User;
-using EndlessT4cos.Gameplay.Platforms;
+using Redress.Gameplay.Objects.Enemies;
+using Redress.Gameplay.User;
+using Redress.Gameplay.Platforms;
 using Games.Generics.Character.Movement;
 using Games.Generics.Weapon;
 using Games.Generics.Manager;
-using EndlessT4cos.Gameplay.Objects.PickUps;
-using EndlessT4cos.Gameplay.Controllers;
+using Redress.Gameplay.Objects.PickUps;
+using Redress.Gameplay.Controllers;
 using UnityEngine.SceneManagement;
 
-namespace EndlessT4cos.Gameplay.Management
+namespace Redress.Gameplay.Management
 {
     public class GameplayManager : MonoBehaviour
     {

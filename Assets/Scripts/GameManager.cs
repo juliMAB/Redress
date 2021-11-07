@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using EndlessT4cos.Gameplay.User;
-using EndlessT4cos.Gameplay.Management;
+using Redress.Gameplay.User;
+using Redress.Gameplay.Management;
 
-namespace EndlessT4cos.Management
+namespace Redress.Management
 {
     public class GameManager : MonoBehaviour
     {

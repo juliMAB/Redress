@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessT4cos.Gameplay.Platforms
+namespace Redress.Gameplay.Platforms
 {
     public class ParallaxManager : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Games.Generics.Interfaces;
 
-namespace EndlessT4cos.Gameplay.Objects.PickUps
+namespace Redress.Gameplay.Objects.PickUps
 {
     //public class Power : PickUp
     //{

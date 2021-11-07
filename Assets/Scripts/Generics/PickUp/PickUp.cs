@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using EndlessT4cos.Gameplay.Platforms;
-using EndlessT4cos.Gameplay.User;
+using Redress.Gameplay.Platforms;
+using Redress.Gameplay.User;
 
-namespace EndlessT4cos.Gameplay.Objects.PickUps
+namespace Redress.Gameplay.Objects.PickUps
 {
     public abstract class PickUp : PlatformObject
     {
-        private ParticleSystem particles = null;
+        private ParticleSystem lightEffect = null;
+        private ParticleSystem pickUpEffect = null;
         protected Player player = null;
         protected float totalDurability = 5f;
         protected float leftDurability = 5f;
@@ -24,8 +26,8 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 
         protected virtual void Awake()
         {
-            particles = GetComponentInChildren<ParticleSystem>();
-            
+            //lightEffect = GetComponentInChildren<ParticleSystem>();
+            lightEffect = GetComponentsInChildren<ParticleSystem>()[0];
         }
 
         protected virtual void Update()
@@ -38,9 +40,9 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 
             if (picked)
             {
-                particles.gameObject.SetActive(false);
+                lightEffect.gameObject.SetActive(false);
 
-                if (!particles)
+                if (!lightEffect)
                 {
                     Debug.Log(name + " doesn't have particles");
                 }
@@ -73,7 +75,7 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
           // }
           // else
           // {
-                particles.gameObject.SetActive(true);
+                lightEffect.gameObject.SetActive(true);
 
           //  }
             leftDurability = totalDurability;

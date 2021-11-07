@@ -1,4 +1,4 @@
-﻿namespace EndlessT4cos.Gameplay.Objects.PickUps
+﻿namespace Redress.Gameplay.Objects.PickUps
 {
     public class Life : PickUp
     {

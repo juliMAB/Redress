@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using EndlessT4cos.Gameplay.Platforms;
+using Redress.Gameplay.Platforms;
 using Games.Generics.Interfaces;
 
-namespace EndlessT4cos.Gameplay.Objects.Enemies
+namespace Redress.Gameplay.Objects.Enemies
 {
     public class PassingEnemy : MonoBehaviour
     {

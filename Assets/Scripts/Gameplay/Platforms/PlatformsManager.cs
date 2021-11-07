@@ -3,9 +3,9 @@ using System;
 using System.Collections;
 
 using Games.Generics.Displacement;
-using EndlessT4cos.Gameplay.Management;
+using Redress.Gameplay.Management;
 
-namespace EndlessT4cos.Gameplay.Platforms
+namespace Redress.Gameplay.Platforms
 {
     public class PlatformsManager : MovableObjectsManager
     {

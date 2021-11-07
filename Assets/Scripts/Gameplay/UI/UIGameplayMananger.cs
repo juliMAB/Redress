@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-using EndlessT4cos.Gameplay.Management;
+using Redress.Gameplay.Management;
 
-namespace EndlessT4cos.Gameplay.UI
+namespace Redress.Gameplay.UI
 {
     public class UIGameplayMananger : MonoBehaviour
     {

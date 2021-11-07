@@ -2,10 +2,10 @@
 using UnityEngine;
 
 using Games.Generics.Displacement;
-using EndlessT4cos.Gameplay.Objects.Enemies;
-using EndlessT4cos.Gameplay.Objects.PickUps;
+using Redress.Gameplay.Objects.Enemies;
+using Redress.Gameplay.Objects.PickUps;
 
-namespace EndlessT4cos.Gameplay.Platforms
+namespace Redress.Gameplay.Platforms
 {
     public enum Row { Up, Middle, Down }
 

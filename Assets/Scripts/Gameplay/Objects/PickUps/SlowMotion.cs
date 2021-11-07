@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using EndlessT4cos.Gameplay.Management;
+using Redress.Gameplay.Management;
 
-namespace EndlessT4cos.Gameplay.Objects.PickUps
+namespace Redress.Gameplay.Objects.PickUps
 {
     public class SlowMotion : PickUp
     {

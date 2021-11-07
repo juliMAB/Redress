@@ -5,7 +5,7 @@ using UnityEngine;
 using Games.Generics.Interfaces;
 using Games.Generics.Weapon;
 using Games.Generics.Character.Movement;
-namespace EndlessT4cos.Gameplay.User
+namespace Redress.Gameplay.User
 {
     public class Player : MonoBehaviour, IDamageable
     {

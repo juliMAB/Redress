@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessT4cos.Gameplay.User
+namespace Redress.Gameplay.User
 {
     public class PlayerData
     {

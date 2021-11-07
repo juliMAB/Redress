@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EndlessT4cos.Gameplay.Management;
+using Redress.Gameplay.Management;
 
-namespace EndlessT4cos.Gameplay.Controllers
+namespace Redress.Gameplay.Controllers
 {
     public class CameraController : MonoBehaviour
     {
