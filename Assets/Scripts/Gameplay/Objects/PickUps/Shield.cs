@@ -4,8 +4,10 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
 {
     public class Shield : PickUp
     {
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             totalDurability = 5f;
             leftDurability = 0f;
         }

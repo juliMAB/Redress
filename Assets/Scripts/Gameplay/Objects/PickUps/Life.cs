@@ -2,8 +2,10 @@
 {
     public class Life : PickUp
     {
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             totalDurability = 0f;
             leftDurability = 0f;
         }

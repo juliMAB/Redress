@@ -11,8 +11,10 @@ namespace EndlessT4cos.Gameplay.Objects.PickUps
         [SerializeField] private GameObject visual = null;
         [SerializeField] private float multiplier = 0.2f;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             totalDurability = 5f;
             leftDurability = 5f;
 
