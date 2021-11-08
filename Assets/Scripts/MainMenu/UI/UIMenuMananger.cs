@@ -20,6 +20,7 @@ namespace Redress.Menu.UI
         [SerializeField] private Color buttonColor = Color.cyan;
         [SerializeField] private GameObject[] lightsPanel1 = null;
         [SerializeField] private GameObject[] lightsPanel2 = null;
+        [SerializeField] private Text versionText = null;
 
         [Header("UI Animation Configuration")]
         [SerializeField] private float changeEffectTime = 0.5f;
@@ -27,6 +28,11 @@ namespace Redress.Menu.UI
 
         private enum Menu { Main, Options, Credits}
         private enum CreditsPanel { Names, Assets}
+
+        private void Start()
+        {
+            versionText.text = "v" + Application.version;
+        }
 
         private void Update()
         {

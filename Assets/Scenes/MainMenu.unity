@@ -501,6 +501,7 @@ MonoBehaviour:
   - {fileID: 1354046736}
   - {fileID: 1824597000}
   - {fileID: 675924061}
+  versionText: {fileID: 0}
   changeEffectTime: 0.5
   time: 0
 --- !u!1 &115548570
@@ -1078,7 +1079,7 @@ GameObject:
   - component: {fileID: 246123010}
   - component: {fileID: 246123009}
   m_Layer: 5
-  m_Name: Text
+  m_Name: VersionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
