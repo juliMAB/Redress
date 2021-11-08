@@ -9,24 +9,22 @@ namespace Redress.Gameplay.Platforms
 {
     public class PlatformsManager : MovableObjectsManager
     {
-        struct InitialPlatform
-        {
-            public GameObject platformGo;
-            public Vector3 position;
-            public Row row;
-        }
+       //struct InitialPlatform
+       //{
+       //    public GameObject platformGo;
+       //    public Vector3 position;
+       //    public Row row;
+       //}
 
         private float[] initialDistanceLimits = new float[2];
         
         private float[] distanceLimits = new float[2];
         private float halfPlatformHeight = 0f;
-        //private float unnevenes = 0f;
         private float unnevenesDuration = 0f;
-        //private float normalEvenessDuration = 0f;
         private bool unnevenessActivated = false;
-        //private IEnumerator unevennessInst = null;
-        private InitialPlatform[] initialActivePlatforms = null;
-        private bool pausePlatformMovement = false;
+        private float[] rows = null;
+       // private InitialPlatform[] initialActivePlatforms = null;
+       // private bool pausePlatformMovement = false;
         private short actualYPos = 0;
 
         [Header("Platform Builiding Configurations")]
@@ -37,8 +35,6 @@ namespace Redress.Gameplay.Platforms
 
         [Header("Platform Spawn Configurations")]
         [SerializeField] private float[] unnevenessDurationLimits = new float[2];
-        //[SerializeField] private float[] unnevenesValuesLimits = null;
-       // [SerializeField] private float[] normalEvenessDurationLimits = new float[2];
 
         public Action<float, float> OnUnneveness = null;
 
@@ -53,45 +49,42 @@ namespace Redress.Gameplay.Platforms
             halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
 
             ySpawnPositions = new float[amountPlatformRows];
+            rows = new float[amountPlatformRows + 2];
 
             for (int i = 0; i < amountPlatformRows; i++)
             {
                 ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
+
+                rows[i + 1] = ySpawnPositions[i];
             }
 
-           // normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
+            rows[0] = ySpawnPositions[0] + verticalDistanceBetweenPlatforms;
+            rows[rows.Length - 1] = ySpawnPositions[ySpawnPositions.Length-1] - verticalDistanceBetweenPlatforms;
         }
 
-        protected override void Start()
-        {
-            base.Start();
+        //protected override void Start()
+        //{
+        //    base.Start();
+        //
+        //   // FindInitialActivePlatforms();
+        //}
 
-            FindInitialActivePlatforms();
-        }
-
-        public void Reset()
-        {
-            speed = initialSpeed;
-            distanceLimits = initialDistanceLimits;
-
-            SetInitialPlatforms();
-
-            for (int i = 0; i < amountPlatformRows; i++)
-            {
-                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
-            }
-
-            //unnevenes = 0f;
-            unnevenesDuration = 0f;
-            //normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
-            unnevenessActivated = false;
-            pausePlatformMovement = false;
-
-            //if (unevennessInst != null)
-            //{
-            //    StopCoroutine(unevennessInst);
-            //}
-        }
+        //public void Reset()
+        //{
+        //    speed = initialSpeed;
+        //    distanceLimits = initialDistanceLimits;
+        //
+        //    SetInitialPlatforms();
+        //
+        //    for (int i = 0; i < amountPlatformRows; i++)
+        //    {
+        //        ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
+        //    }
+        //
+        //    unnevenesDuration = 0f;
+        //    unnevenessActivated = false;
+        //    pausePlatformMovement = false;
+        //}
 
         public void SetValues(float speed, float minDistance, float maxDistance, bool setAsInitialValues)
         {
@@ -148,7 +141,7 @@ namespace Redress.Gameplay.Platforms
 
         public void PauseMovement(bool pause)
         {
-            pausePlatformMovement = pause;
+            //pausePlatformMovement = pause;
         }
 
         private bool LastObjectIsFarEnough(Row row)
@@ -205,49 +198,7 @@ namespace Redress.Gameplay.Platforms
         #region Unevenness
         private void SetPlatformsUnevennes()
         {
-           //IEnumerator SetUnevenness()
-           //{
-           //    float time = 0f;
-           //    float[] initialYpositions = new float[ySpawnPositions.Length];
-           //
-           //    for (int i = 0; i < amountPlatformRows; i++)
-           //    {
-           //        initialYpositions[i] = ySpawnPositions[i];
-           //    }
-           //
-           //    while (time < unnevenesDuration)
-           //    {
-           //        if (pausePlatformMovement)
-           //        {
-           //            yield return null;
-           //        }
-           //        else
-           //        {
-           //            time += Time.deltaTime * GameplayManager.Instance.speedMultiplier;
-           //            for (int i = 0; i < amountPlatformRows; i++)
-           //            {
-           //                ySpawnPositions[i] = Mathf.Lerp(initialYpositions[i], initialYpositions[i] + unnevenes, time / unnevenesDuration);
-           //            }
-           //
-           //            yield return null;
-           //        }
-           //    }
-           //
-           //    //unnevenessActivated = false;
-           //    //unevennessInst = null;
-           //    //normalEvenessDuration = UnityEngine.Random.Range(normalEvenessDurationLimits[0], normalEvenessDurationLimits[1]);
-           //}
-
             bool up = UnityEngine.Random.Range(0, 2) == 1;
-
-            //if (up)
-            //{
-            //    actualYPos++;
-            //}
-            //else
-            //{
-            //    actualYPos--;
-            //}
 
             float unnevennes = up ? verticalDistanceBetweenPlatforms : -verticalDistanceBetweenPlatforms;
 
@@ -256,78 +207,68 @@ namespace Redress.Gameplay.Platforms
                 ySpawnPositions[i] += unnevennes;
             }
 
-            //unnevenessActivated = true;
             unnevenesDuration = UnityEngine.Random.Range(unnevenessDurationLimits[0], unnevenessDurationLimits[1]);
-           // unnevenes = UnityEngine.Random.Range(unnevenesValuesLimits[0], unnevenesValuesLimits[1]);
 
             OnUnneveness?.Invoke(unnevennes, 2);
-
-           // if (unevennessInst != null)
-           // {
-           //    // StopCoroutine(unevennessInst);
-           // }
-
-           // unevennessInst = SetUnevenness();
-           // StartCoroutine(unevennessInst);
         }
         #endregion
 
         #region Initialization
-        private void FindInitialActivePlatforms()
-        {
-            int amountActivePlatforms = 0;
+        //private void FindInitialActivePlatforms()
+        //{
+        //    int amountActivePlatforms = 0;
+        //
+        //    for (int i = 0; i < objects.Length; i++)
+        //    {
+        //        if (!objects[i].activeSelf)
+        //        {
+        //            continue;
+        //        }
+        //
+        //        amountActivePlatforms++;
+        //    }
+        //
+        //    initialActivePlatforms = new InitialPlatform[amountActivePlatforms];
+        //
+        //    int index = 0;
+        //
+        //    for (int i = 0; i < objects.Length; i++)
+        //    {
+        //        if (!objects[i].activeSelf)
+        //        {
+        //            continue;
+        //        }
+        //
+        //        PlatformObject actualPlatform = objects[i].GetComponent<PlatformObject>();
+        //
+        //        initialActivePlatforms[index].platformGo = objects[i];
+        //        initialActivePlatforms[index].position = objects[i].transform.position;
+        //        initialActivePlatforms[index].row = actualPlatform.row;
+        //        index++;
+        //    }
+        //}
 
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (!objects[i].activeSelf)
-                {
-                    continue;
-                }
-
-                amountActivePlatforms++;
-            }
-
-            initialActivePlatforms = new InitialPlatform[amountActivePlatforms];
-
-            int index = 0;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (!objects[i].activeSelf)
-                {
-                    continue;
-                }
-
-                PlatformObject actualPlatform = objects[i].GetComponent<PlatformObject>();
-
-                initialActivePlatforms[index].platformGo = objects[i];
-                initialActivePlatforms[index].position = objects[i].transform.position;
-                initialActivePlatforms[index].row = actualPlatform.row;
-                index++;
-            }
-        }
-
-        private void SetInitialPlatforms()
-        {
-            // deactivate all platforms
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (objects[i].activeSelf)
-                {
-                    DeactivateObject(objects[i]);
-                }
-            }
-
-            // activate and place initial platforms
-            for (int i = 0; i < initialActivePlatforms.Length; i++)
-            {
-                PlatformObject actualPlatform = initialActivePlatforms[i].platformGo.GetComponent<PlatformObject>();
-
-                actualPlatform.gameObject.SetActive(true);
-                actualPlatform.transform.position = initialActivePlatforms[i].position;
-                actualPlatform.row = initialActivePlatforms[i].row;
-            }
-        }
+       //private void SetInitialPlatforms()
+       //{
+       //    // deactivate all platforms
+       //    for (int i = 0; i < objects.Length; i++)
+       //    {
+       //        if (objects[i].activeSelf)
+       //        {
+       //            DeactivateObject(objects[i]);
+       //        }
+       //    }
+       //
+       //    // activate and place initial platforms
+       //    for (int i = 0; i < initialActivePlatforms.Length; i++)
+       //    {
+       //        PlatformObject actualPlatform = initialActivePlatforms[i].platformGo.GetComponent<PlatformObject>();
+       //
+       //        actualPlatform.gameObject.SetActive(true);
+       //        actualPlatform.transform.position = initialActivePlatforms[i].position;
+       //        actualPlatform.row = initialActivePlatforms[i].row;
+       //    }
+       //}
         #endregion
     }
 }
