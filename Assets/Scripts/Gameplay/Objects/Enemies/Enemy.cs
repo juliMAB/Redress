@@ -60,7 +60,7 @@ namespace Redress.Gameplay.Objects.Enemies
             if (collision.gameObject == target)
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-                targetIDamageable.TakeDamage();
+                targetIDamageable.TakeDamage(transform.position);
             }
         }
 
@@ -107,6 +107,11 @@ namespace Redress.Gameplay.Objects.Enemies
         protected bool IsCloseToPLayer()
         {
             return Mathf.Abs(Vector2.Distance(transform.position, target.transform.position)) < minDistanceToTarget;
+        }
+
+        public void TakeDamage(Vector3 other)
+        {
+            TakeDamage();
         }
     }
 }

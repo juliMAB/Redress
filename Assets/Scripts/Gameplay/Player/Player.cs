@@ -21,7 +21,9 @@ namespace Redress.Gameplay.User
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
         [SerializeField] private float inmuneTime = 2f;
+        [SerializeField] private float force;
         private ParticleSystem particleSystem= null;
+        private CharacterController2D controller2D;
         private Gun gun = null;
         private bool controlActive = true;
 
@@ -44,6 +46,7 @@ namespace Redress.Gameplay.User
             initialPosition = transform.position;
             gun = GetComponentInChildren<Gun>();
             initialGun = gun;
+            controller2D = GetComponent<CharacterController2D>();
         }
 
         public void PlayerUpdate()
@@ -163,6 +166,32 @@ namespace Redress.Gameplay.User
             gun = initialGun;
             gun.enabled = true;
             gun.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        }
+
+        public void TakeDamage(Vector3 other)
+        {
+            particleSystem.Play();
+            if (isInmune)
+            {
+                Debug.Log(" el player es inmune ");
+                return;
+            }
+            Debug.Log(" el player a tomado daño ");
+            lives--;
+            controller2D.move((other-transform.position)* force);
+            if (lives > 0)
+            {
+                AkSoundEngine.PostEvent(SoundsManager.Get().Daño, gameObject);
+            }
+            OnLivesChanged?.Invoke(lives);
+
+            if (lives == 0)
+            {
+                AkSoundEngine.PostEvent(SoundsManager.Get().Muerte, gameObject);
+                Die();
+            }
+
+            SetInmuneForTime(inmuneTime, inmuneColor);
         }
     }
 }
