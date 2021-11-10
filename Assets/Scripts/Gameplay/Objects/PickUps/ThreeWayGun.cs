@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Games.Generics.Weapon;
+using Games.Generics.Animations;
 
 namespace Redress.Gameplay.Objects.PickUps
 {
@@ -9,34 +10,22 @@ namespace Redress.Gameplay.Objects.PickUps
     {
         private GameObject playerGun = null;
         private Gun threeWayGun = null;
-        private Vector3 position = Vector3.zero;
+        private Transform originalParet;
+        private Swing swing;
 
         protected override void Awake()
         {
             base.Awake();
-
-            totalDurability = 5f;
-
             threeWayGun = GetComponent<Gun>();
             threeWayGun.SetBullets(player.InitialGun.Objects);
+            originalParet = transform.parent;
+            swing = GetComponent<Swing>();
         }
 
-        protected override void Update()
-        {
-            if (leftDurability < 0)
-            {
-                player.ResetGun();
-            }
-            else if (picked)
-            {
-                FollowPlayer();
-            }
-
-            base.Update();
-        }
 
         protected override void OnPickedUp()
         {
+            swing.enabled = false;
             void DeactiveOldGun()
             {
                 OnConsumed?.Invoke(player.Gun.gameObject);
@@ -46,24 +35,32 @@ namespace Redress.Gameplay.Objects.PickUps
             {
                 DeactiveOldGun();
             }
-
+            
             playerGun = player.InitialGun.gameObject;
             playerGun.GetComponent<Gun>().enabled = false;
             playerGun.GetComponentInChildren<SpriteRenderer>().enabled = false;
             player.Gun = threeWayGun;
+            FollowPlayer();
+        }
+        protected override void OnEndPickUp()
+        {
+            base.OnEndPickUp();
+            player.ResetGun();
+            transform.parent = originalParet;
         }
 
         public override void ResetStats()
         {
             base.ResetStats();
             threeWayGun.ResetStats();
+            swing.enabled = true;
         }
 
         private void FollowPlayer()
         {
-            position = playerGun.transform.position;
-            transform.position = position;
+            transform.position = playerGun.transform.position;
             transform.rotation = playerGun.transform.rotation;
+            transform.parent = playerGun.transform;
         }        
     }
 }

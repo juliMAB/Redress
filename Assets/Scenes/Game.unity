@@ -33725,7 +33725,7 @@ PrefabInstance:
     - target: {fileID: 1305334219206568269, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.82
+      value: -2.93
       objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568269, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
@@ -33771,6 +33771,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397908690139966553, guid: 91cf721e1a87c3f4381849882476b30f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
@@ -39219,7 +39224,7 @@ MonoBehaviour:
   - {fileID: 534377908}
   halfSizeOfScreen: {x: 0, y: 0}
   distance: 2
-  ySpawnPositions: []
+  actualSpawnPositions: []
   amountPlatformRows: 3
   startYPos: 0.5
   verticalDistanceBetweenPlatforms: 2.3

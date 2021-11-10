@@ -11,77 +11,41 @@ namespace Redress.Gameplay.Objects.PickUps
     public abstract class PickUp : PlatformObject
     {
         private ParticleSystem lightEffect = null;
-        private ParticleSystem pickUpEffect = null;
+        //private ParticleSystem pickUpEffect = null;
+        protected GameObject visual = null;
         protected Player player = null;
-        protected float totalDurability = 5f;
-        protected float leftDurability = 5f;
-        protected bool picked = false;
-        protected bool consumed = false;
+        [SerializeField] protected float totalDurability = 5f;
 
         public Action<GameObject> OnConsumed = null;
-        public Action<GameObject> OnPicked = null;
 
         public Player Player { set => player = value; }
-        public bool Picked { get => picked; }
 
         protected virtual void Awake()
         {
             //lightEffect = GetComponentInChildren<ParticleSystem>();
             lightEffect = GetComponentsInChildren<ParticleSystem>()[0];
+            visual = GetComponentInChildren<Renderer>().gameObject;
         }
 
-        protected virtual void Update()
-        {
-            if (consumed)
-            {
-                Debug.Log("consumed: " + consumed);
-                return;
-            }
-
-            if (picked)
-            {
-                lightEffect.gameObject.SetActive(false);
-
-                if (!lightEffect)
-                {
-                    Debug.Log(name + " doesn't have particles");
-                }
-
-                if (leftDurability < 0)
-                {
-                    consumed = true;
-                    OnConsumed?.Invoke(gameObject);
-                }
-
-                leftDurability -= Time.deltaTime;
-            }
-        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            picked = true;
+            lightEffect.gameObject.SetActive(false);
             direction = Vector3.zero;
-            OnPicked?.Invoke(gameObject);
             OnPickedUp();
+            Invoke(nameof(OnEndPickUp), totalDurability);
         }
 
         protected abstract void OnPickedUp();
 
         public virtual void ResetStats()
         {
-          // if (!particles)
-          // {
-          //     Debug.Log(name + " doesn't has particles");
-          //     particles = GetComponentInChildren<ParticleSystem>();
-          // }
-          // else
-          // {
-                lightEffect.gameObject.SetActive(true);
-
-          //  }
-            leftDurability = totalDurability;
-            picked = false;
-            consumed = false;
+            lightEffect.gameObject.SetActive(true);
             direction = Vector3.left;
+            visual.gameObject.SetActive(true);
+        }
+        protected virtual void OnEndPickUp()
+        {
+            OnConsumed?.Invoke(gameObject);
         }
     }
 }           

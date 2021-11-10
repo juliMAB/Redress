@@ -8,22 +8,16 @@ namespace Redress.Gameplay.Objects.PickUps
 {
     public class SlowMotion : PickUp
     {
-        [SerializeField] private GameObject visual = null;
         [SerializeField] private float multiplier = 0.2f;
 
         protected override void Awake()
         {
             base.Awake();
-            totalDurability = 5f;
-            leftDurability = 5f;
-
             OnConsumed += ResetSpeedMultiplier;
         }
 
         protected override void OnPickedUp()
         {
-            //StopAllCoroutines();
-            //StartCoroutine(Ipickup());
             GameplayManager.Instance.speedMultiplier = multiplier;
             visual.SetActive(false);
         }
@@ -38,17 +32,12 @@ namespace Redress.Gameplay.Objects.PickUps
             base.ResetStats();
             visual.SetActive(true);
         }
-        IEnumerator Ipickup()
-        {
-            GameplayManager.Instance.speedMultiplier = multiplier;
+        //IEnumerator Ipickup()
+        //{
+        //    GameplayManager.Instance.speedMultiplier = multiplier;
 
-            yield return new WaitForSeconds(leftDurability);
-            //do
-            //{
-            //    leftDurability -= Time.deltaTime;
-            //    yield return null;
-            //} while (leftDurability>0);
-            GameplayManager.Instance.speedMultiplier = 1f;
-        }
+        //    yield return new WaitForSeconds(leftDurability);
+        //    GameplayManager.Instance.speedMultiplier = 1f;
+        //}
     }
 }

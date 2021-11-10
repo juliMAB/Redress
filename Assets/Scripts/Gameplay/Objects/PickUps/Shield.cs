@@ -7,15 +7,12 @@ namespace Redress.Gameplay.Objects.PickUps
         protected override void Awake()
         {
             base.Awake();
-
-            totalDurability = 5f;
-            leftDurability = 0f;
         }
 
         protected override void OnPickedUp()
         {
             player.SetInmuneForTime(totalDurability, Color.blue);
-            leftDurability = 0f;
+            visual.SetActive(false);
         }
     }
 }
