@@ -77,6 +77,8 @@ namespace Redress.Gameplay.Platforms
                 }
             }
 
+            poolManager.PlatformObjects.pool.Clear();
+
             for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
             {
                 if (enemiesInQueue < amountEnemiesBeforePickUp)
