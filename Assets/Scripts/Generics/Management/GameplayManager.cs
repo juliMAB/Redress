@@ -89,7 +89,6 @@ namespace Redress.Gameplay.Management
         public Action<int> OnChangedScore = null;
         //public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
-        public Action<GameManager.Scene> OnSelectScene = null;
 
         public int Score { get => score; set => score = value; }
         public float Distance => distance;
@@ -182,8 +181,6 @@ namespace Redress.Gameplay.Management
             }
 
             GameManager.Instance.GoToMenu();
-            Time.timeScale = 1;
-            OnSelectScene?.Invoke(GameManager.Scene.Menu);
         }
 
         public void StartEnding()
@@ -210,7 +207,7 @@ namespace Redress.Gameplay.Management
         public void ResetGame()
         {
             Time.timeScale = 1f;
-            OnSelectScene?.Invoke(GameManager.Scene.Game);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void SetPlayerInputLock()
