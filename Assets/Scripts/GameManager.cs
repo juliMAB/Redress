@@ -66,14 +66,9 @@ namespace Redress.Management
             }
         }
 
-        private void GoToMenu()
+        public void GoToMenu()
         {
             GoToScene(Scene.Menu);
-        }
-
-        public void SetGameplayReturnToMenu()
-        {
-            GameplayManager.Instance.OnGameplayEnded += GoToMenu;
         }
 
         public void CloseGame()

@@ -11,6 +11,7 @@ using Games.Generics.Manager;
 using Redress.Gameplay.Objects.PickUps;
 using Redress.Gameplay.Controllers;
 using UnityEngine.SceneManagement;
+using Redress.Management;
 
 namespace Redress.Gameplay.Management
 {
@@ -83,7 +84,7 @@ namespace Redress.Gameplay.Management
         public float speedMultiplier = 1f;
 
         public Action<int> OnChangedScore = null;
-        public Action OnGameplayEnded = null;
+        //public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
 
         public int Score { get => score; set => score = value; }
@@ -174,7 +175,7 @@ namespace Redress.Gameplay.Management
                 Time.timeScale = 1;
             }
 
-            OnGameplayEnded?.Invoke();
+            GameManager.Instance.GoToMenu();
         }
 
         public void StartEnding()
