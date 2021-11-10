@@ -8,6 +8,7 @@ using Redress.Gameplay.Objects.PickUps;
 namespace Redress.Gameplay.Platforms
 {
     public enum Row { Up, Middle, Down }
+    public enum SpawnLine { First, Second, Third, Fourth, Fifth}
 
     public class PlatformObjectsManager : MovableObjectsManager
     {

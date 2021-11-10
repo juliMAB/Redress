@@ -5385,6 +5385,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1829776218}
     m_Modifications:
+    - target: {fileID: 3896093918170842927, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
+        type: 3}
+      propertyPath: spawnLine
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
       propertyPath: m_RootOrder
@@ -15910,6 +15915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: row
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031632689226860897, guid: d3d67b3f021eef84480f491215efdba4,
+        type: 3}
+      propertyPath: spawnLine
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8031632689226860910, guid: d3d67b3f021eef84480f491215efdba4,
         type: 3}
@@ -27311,6 +27321,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1829776218}
     m_Modifications:
+    - target: {fileID: 8031632689226860897, guid: d3d67b3f021eef84480f491215efdba4,
+        type: 3}
+      propertyPath: spawnLine
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8031632689226860910, guid: d3d67b3f021eef84480f491215efdba4,
         type: 3}
       propertyPath: m_RootOrder
@@ -39228,6 +39243,9 @@ MonoBehaviour:
   amountPlatformRows: 3
   startYPos: 0.5
   verticalDistanceBetweenPlatforms: 2.3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
   unnevenessDurationLimits:
   - 7
   - 10
@@ -39498,6 +39516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: row
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896093918170842927, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
+        type: 3}
+      propertyPath: spawnLine
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
@@ -41850,6 +41873,11 @@ PrefabInstance:
       propertyPath: row
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3896093918170842927, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
+        type: 3}
+      propertyPath: spawnLine
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6413261100737920047, guid: 48b81561fc7aec4438ec4ba40f3bcb8b,
         type: 3}
       propertyPath: m_RootOrder
@@ -42216,6 +42244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: row
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421723456965338016, guid: b7fcdd0544a099a408de13a8c04ccf11,
+        type: 3}
+      propertyPath: spawnLine
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7700376159612570712, guid: b7fcdd0544a099a408de13a8c04ccf11,
         type: 3}
