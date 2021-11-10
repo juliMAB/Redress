@@ -12,6 +12,7 @@ using Redress.Gameplay.Objects.PickUps;
 using Redress.Gameplay.Controllers;
 using UnityEngine.SceneManagement;
 using Redress.Management;
+using Games.Generics.PoolSystem;
 
 namespace Redress.Gameplay.Management
 {
@@ -35,6 +36,8 @@ namespace Redress.Gameplay.Management
         #endregion
 
         private IEnumerator setDistanceScoreInst = null;
+
+        private PoolObjectsManager poolManager = null;
 
         [Header("Initial values")]
         [SerializeField] private float initialSpeed = 5;
@@ -95,6 +98,8 @@ namespace Redress.Gameplay.Management
 
         private void Start()
         {
+            poolManager = PoolObjectsManager.Instance;
+
             AssignEnemiesTypes();
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
@@ -245,27 +250,29 @@ namespace Redress.Gameplay.Management
         {
             for (int i = 0; i < allGuns.Length; i++)
             {
-                if (allGuns[i] != player.Gun)
+                if (playerBulletsToo || allGuns[i] != player.Gun)
                 {
                     allGuns[i].bulletSpeed = speed;
                 }
             }
 
-            int index = playerBulletsToo ? 0 : player.Gun.Objects.Length;
 
-            for (int i = index; i < allBullets.Length; i++)
-            {
-                allBullets[i].speed = speed;
-            }
+
+            //int index = playerBulletsToo ? 0 : poolManager.Arrows.objects.Length;
+            //
+            //for (int i = index; i < allBullets.Length; i++)
+            //{
+            //    allBullets[i].speed = speed;
+            //}
         }
 
-        private void DeactivateAllBullets()
-        {
-            for (int i = 0; i < allGuns.Length; i++)
-            {
-                allGuns[i].DeactivateAllBullets();
-            }
-        }
+        //private void DeactivateAllBullets()
+        //{
+        //    for (int i = 0; i < allGuns.Length; i++)
+        //    {
+        //        allGuns[i].DeactivateAllBullets();
+        //    }
+        //}
 
         private IEnumerator SetDistanceScore(float timeToChargeScore)
         {
@@ -329,7 +336,7 @@ namespace Redress.Gameplay.Management
                         break;
                 }
 
-                enemy.OnDie += objectsManager.DeactivateObject;
+                enemy.OnDie += poolManager.DeactivateObject;
                 enemy.SetTarget(target);
             }
         }
@@ -345,7 +352,7 @@ namespace Redress.Gameplay.Management
                 pickUp = objectsManager.PickUps[i];
                 pickUp.Player = player;
 
-                pickUp.OnConsumed += objectsManager.DeactivateObject;
+                pickUp.OnConsumed += poolManager.DeactivateObject;
             }
         }
         #endregion

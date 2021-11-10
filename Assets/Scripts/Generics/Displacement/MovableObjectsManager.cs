@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-using Games.Generics.PoolSystem;
-
 namespace Games.Generics.Displacement
 {
-    public class MovableObjectsManager : PoolObjectsManager
+    public class MovableObjectsManager : MonoBehaviour
     {
         protected float initialSpeed = 0f;
         protected float speed = 5f;
@@ -18,39 +16,8 @@ namespace Games.Generics.Displacement
 
         protected virtual void Start()
         {
-            objectsPool = new Queue<GameObject>();
-            MovableObject movableObject;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                objectsPool.Enqueue(objects[i]);
-                movableObject = objects[i].GetComponent<MovableObject>();
-                movableObject.SetSize();
-            }
-
             halfSizeOfScreen.x = 8.8f;
             halfSizeOfScreen.y = 5f;
-        }
-
-        protected void MovableObjectsUpdate()
-        {
-            MovableObject movableObject = null;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (!objects[i].activeSelf)
-                {
-                    continue;
-                }
-
-                movableObject = objects[i].GetComponent<MovableObject>();
-                movableObject.Move(speed);
-
-                if (IsOutOfScreen(movableObject))
-                {
-                    DeactivateObject(objects[i]);
-                }
-            }
         }
 
         protected void PlaceOnRightEnd(GameObject gObject, float yPosition)

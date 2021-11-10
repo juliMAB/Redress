@@ -4,6 +4,7 @@ using UnityEngine;
 using Games.Generics.Displacement;
 using Redress.Gameplay.Objects.Enemies;
 using Redress.Gameplay.Objects.PickUps;
+using Games.Generics.PoolSystem;
 
 namespace Redress.Gameplay.Platforms
 {
@@ -21,6 +22,8 @@ namespace Redress.Gameplay.Platforms
 
         private Enemy[] enemies = null;
         private PickUp[] pickUps = null;
+
+        private PoolObjectsManager poolManager = null;
 
         [Header("Platforms Configuration")]
         [SerializeField] private PlatformsManager platformsManager = null;
@@ -45,11 +48,16 @@ namespace Redress.Gameplay.Platforms
 
         protected override void Start()
         {
-            objectsPool = new Queue<GameObject>();
-            MovableObject movableObject;
+            base.Start();
 
-            halfSizeOfScreen.x = 8.8f;
-            halfSizeOfScreen.y = 5f;
+            MovableObject movableObject;
+            poolManager = PoolObjectsManager.Instance;
+
+            for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
+            {
+                movableObject = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
+                movableObject.SetSize();
+            }
 
             //--------------------------------------
 
@@ -57,9 +65,9 @@ namespace Redress.Gameplay.Platforms
             int enemiesInQueue = 0;
             int pickUpsAdded = 0;
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
             {
-                if (objects[i].TryGetComponent(out Enemy enemy))
+                if (poolManager.PlatformObjects.objects[i].TryGetComponent(out Enemy enemy))
                 {
                     totalAmountEnemiesInArray++;
                 }
@@ -69,22 +77,22 @@ namespace Redress.Gameplay.Platforms
                 }
             }
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
             {
                 if (enemiesInQueue < amountEnemiesBeforePickUp)
                 {
-                    objectsPool.Enqueue(objects[i - pickUpsAdded]);
+                    poolManager.PlatformObjects.pool.Enqueue(poolManager.PlatformObjects.objects[i - pickUpsAdded]);
                     enemiesInQueue++;
                 }
                 else
                 {
-                    objectsPool.Enqueue(objects[totalAmountEnemiesInArray + pickUpsAdded]);
+                    poolManager.PlatformObjects.pool.Enqueue(poolManager.PlatformObjects.objects[totalAmountEnemiesInArray + pickUpsAdded]);
                     pickUpsAdded++;
                     
                     enemiesInQueue = 0;
                 }
 
-                movableObject = objects[i].GetComponent<MovableObject>();
+                movableObject = poolManager.PlatformObjects.objects[i].GetComponent<MovableObject>();
                 movableObject.SetSize();
             }
 
@@ -109,22 +117,22 @@ namespace Redress.Gameplay.Platforms
             passingEnemy.Pause(pause);
         }
 
-        public void Reset()
-        {
-            speed = initialSpeed;
-            minSpawnTime = initialMinSpawnTime;
-            maxSpawnTime = initialMaxSpawnTime;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (objects[i].activeSelf)
-                {
-                    DeactivateObject(objects[i]);
-                }
-            }
-
-            passingEnemy.Reset();
-        }
+        //public void Reset()
+        //{
+        //    speed = initialSpeed;
+        //    minSpawnTime = initialMinSpawnTime;
+        //    maxSpawnTime = initialMaxSpawnTime;
+        //
+        //    for (int i = 0; i < objects.Length; i++)
+        //    {
+        //        if (objects[i].activeSelf)
+        //        {
+        //            DeactivateObject(objects[i]);
+        //        }
+        //    }
+        //
+        //    passingEnemy.Reset();
+        //}
 
         public void SetValues(float speed, float minSpawnTime, float maxSpawnTime, bool setAsInitialValues)
         {
@@ -158,7 +166,7 @@ namespace Redress.Gameplay.Platforms
                 {
                     waitTimeTillNextObject[waitTimeIndex] = Random.Range(minSpawnTime, maxSpawnTime);
 
-                    GameObject newObject = ActivateObject();
+                    GameObject newObject = poolManager.ActivatePlatformObject();
 
                     PlatformObject platformObjectComponent = newObject.GetComponent<PlatformObject>();
                     PlaceOnRightEnd(newObject, platform.position.y + platformObjectComponent.HalfSize.y + halfPlatformHeight);
@@ -191,6 +199,27 @@ namespace Redress.Gameplay.Platforms
             else
             {
                 return false;
+            }
+        }
+
+        private void MovableObjectsUpdate()
+        {
+            MovableObject movableObject = null;
+
+            for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
+            {
+                if (!poolManager.PlatformObjects.objects[i].activeSelf)
+                {
+                    continue;
+                }
+
+                movableObject = poolManager.PlatformObjects.objects[i].GetComponent<MovableObject>();
+                movableObject.Move(speed);
+
+                if (IsOutOfScreen(movableObject))
+                {
+                    poolManager.DeactivateObject(poolManager.PlatformObjects.objects[i]);
+                }
             }
         }
 
@@ -248,14 +277,16 @@ namespace Redress.Gameplay.Platforms
             int enemyCount = 0;
             int pickUpCount = 0;
 
-            for (int i = 0; i < objects.Length; i++)
+
+
+            for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
             {
-                if (objects[i].TryGetComponent(out Enemy enemyComponent))
+                if (poolManager.PlatformObjects.objects[i].TryGetComponent(out Enemy enemyComponent))
                 {
                     enemyCount++;
                 }
 
-                if (objects[i].TryGetComponent(out PickUp pickUpComponent))
+                if (poolManager.PlatformObjects.objects[i].TryGetComponent(out PickUp pickUpComponent))
                 {
                     pickUpCount++;
                 }
@@ -264,15 +295,15 @@ namespace Redress.Gameplay.Platforms
             enemies = new Enemy[enemyCount];
             pickUps = new PickUp[pickUpCount];
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
             {
-                if (objects[i].TryGetComponent(out Enemy enemyComponent))
+                if (poolManager.PlatformObjects.objects[i].TryGetComponent(out Enemy enemyComponent))
                 {
                     enemyCount--;
                     enemies[enemyCount] = enemyComponent;
                 }
 
-                if (objects[i].TryGetComponent(out PickUp pickUpComponent))
+                if (poolManager.PlatformObjects.objects[i].TryGetComponent(out PickUp pickUpComponent))
                 {
                     pickUpCount--;
                     pickUps[pickUpCount] = pickUpComponent;

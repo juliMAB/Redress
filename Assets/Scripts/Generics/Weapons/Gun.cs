@@ -6,7 +6,7 @@ using Games.Generics.PoolSystem;
 
 namespace Games.Generics.Weapon
 {
-    public class Gun : PoolObjectsManager
+    public class Gun : MonoBehaviour
     {
         [SerializeField] enum Type {Laser, Arrow };
         Type type;
@@ -19,17 +19,17 @@ namespace Games.Generics.Weapon
 
         public float bulletSpeed = 10f;
 
-        private void Awake()
+        private void Start()
         {
-            objectsPool = new Queue<GameObject>();
             Bullet bullet = null;
-            
-            for (int i = 0; i < objects.Length; i++)
-            {
-                objectsPool.Enqueue(objects[i]);
-                bullet = objects[i].GetComponent<Bullet>();
 
-                bullet.OnCollided += DeactivateObject;
+            PoolObjectsManager poolManager = PoolObjectsManager.Instance;
+
+            for (int i = 0; i < poolManager.Bullets.objects.Length; i++)
+            {
+                bullet = poolManager.Bullets.objects[i].GetComponent<Bullet>();
+
+                bullet.OnCollided += poolManager.DeactivateObject;
             }
         }
 
@@ -64,7 +64,7 @@ namespace Games.Generics.Weapon
             
             for (int i = 0; i < anglesOfShoot.Length; i++)
             {
-                GameObject GO = ActivateObject();
+                GameObject GO = PoolObjectsManager.Instance.ActivateBullet(gameObject.tag == "PlayerWeapon");
                 Bullet bullet = GO.GetComponent<Bullet>();
 
                 bullet.speed = bulletSpeed;
@@ -86,37 +86,37 @@ namespace Games.Generics.Weapon
             canShoot = true;
         }
 
-        public void SetBullets(GameObject[] bullets)
-        {
-            objects = new GameObject[bullets.Length];
-            objectsPool = new Queue<GameObject>();
-            Bullet bullet = null;
+       // public void SetBullets(GameObject[] bullets)
+       // {
+       //     objects = new GameObject[bullets.Length];
+       //     objectsPool = new Queue<GameObject>();
+       //     Bullet bullet = null;
+       //
+       //     for (int i = 0; i < bullets.Length; i++)
+       //     {
+       //         objects[i] = bullets[i];
+       //     }
+       //
+       //     for (int i = 0; i < objects.Length; i++)
+       //     {
+       //         objectsPool.Enqueue(objects[i]);
+       //         bullet = objects[i].GetComponent<Bullet>();
+       //
+       //         bullet.OnCollided += DeactivateObject;
+       //     }
+       // }
 
-            for (int i = 0; i < bullets.Length; i++)
-            {
-                objects[i] = bullets[i];
-            }
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                objectsPool.Enqueue(objects[i]);
-                bullet = objects[i].GetComponent<Bullet>();
-
-                bullet.OnCollided += DeactivateObject;
-            }
-        }
-
-        public void DeactivateAllBullets()
-        {
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (!objects[i].activeSelf)
-                {
-                    continue;
-                }
-
-                DeactivateObject(objects[i]);
-            }
-        }
+        //public void DeactivateAllBullets()
+        //{
+        //    for (int i = 0; i < po.Length; i++)
+        //    {
+        //        if (!objects[i].activeSelf)
+        //        {
+        //            continue;
+        //        }
+        //
+        //        DeactivateObject(objects[i]);
+        //    }
+        //}
     }
 }

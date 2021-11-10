@@ -4,6 +4,7 @@ using System.Collections;
 
 using Games.Generics.Displacement;
 using Redress.Gameplay.Management;
+using Games.Generics.PoolSystem;
 
 namespace Redress.Gameplay.Platforms
 {
@@ -33,6 +34,8 @@ namespace Redress.Gameplay.Platforms
        // private InitialPlatform[] initialActivePlatforms = null;
        // private bool pausePlatformMovement = false;
         private short actualmiddleRow = 0;
+
+        private PoolObjectsManager poolManager = null;
 
         [Header("Platform Builiding Configurations")]
         [SerializeField] private float[] actualSpawnPositions = null;
@@ -64,7 +67,7 @@ namespace Redress.Gameplay.Platforms
                 spawnPositions[id].on = on;
             }
 
-            halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
+            halfPlatformHeight = PoolObjectsManager.Instance.Platforms.objects[0].transform.lossyScale.y / 2f;
 
             actualSpawnPositions = new float[amountPlatformRows];
             spawnPositions = new SpawnYPosition[amountPlatformRows + 2];
@@ -82,6 +85,19 @@ namespace Redress.Gameplay.Platforms
             actualmiddleRow = 2;
 
             unnevenesDuration = UnityEngine.Random.Range(unnevenessDurationLimits[0], unnevenessDurationLimits[1]);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            MovableObject movableObject;
+            poolManager = PoolObjectsManager.Instance;
+
+            for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
+            {
+                movableObject = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
+                movableObject.SetSize();
+            }
         }
 
         //protected override void Start()
@@ -135,28 +151,28 @@ namespace Redress.Gameplay.Platforms
 
                 if (LastObjectIsFarEnough((SpawnLine)i, out platform) && IsCompletelyOnScreen(platform) && GetYPosRow((SpawnLine)i, out Row row))
                 {
-                    GameObject newPlatform = ActivateObject();
+                    GameObject newPlatform = poolManager.ActivatePlatform();
                     PlaceOnRightEnd(newPlatform, spawnPositions[i].y);
                     newPlatform.GetComponent<PlatformObject>().row = row;
                     newPlatform.GetComponent<PlatformObject>().spawnLine = (SpawnLine)i;
                 }
             }
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                if (!objects[i].activeSelf)
+                if (!poolManager.Platforms.objects[i].activeSelf)
                 {
                     continue;
                 }
 
                 distance = UnityEngine.Random.Range(distanceLimits[0], distanceLimits[1]) + UnityEngine.Random.Range(1, 10) / 10f;
 
-                platform = objects[i].GetComponent<PlatformObject>();
+                platform = poolManager.Platforms.objects[i].GetComponent<PlatformObject>();
                 platform.Move(speed);
 
                 if (IsOutOfScreen(platform))
                 {
-                    DeactivateObject(objects[i]);
+                    poolManager.DeactivateObject(poolManager.Platforms.objects[i]);
                 }
             }
 
@@ -249,11 +265,11 @@ namespace Redress.Gameplay.Platforms
             //closerObject = Physics2D.Raycast(new Vector2(halfSizeOfScreen.x, yPos), Vector3.left, 100, layerMask).collider.GetComponent<PlatformObject>();
             //Debug.DrawRay(new Vector3(halfSizeOfScreen.x, yPos, 0), Vector3.left, Color.red, 2);
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                closerObject = objects[i].GetComponent<PlatformObject>();
+                closerObject = poolManager.Platforms.objects[i].GetComponent<PlatformObject>();
 
-                if (!objects[i].activeSelf)
+                if (!poolManager.Platforms.objects[i].activeSelf)
                 {
                     continue;
                 }
@@ -301,11 +317,11 @@ namespace Redress.Gameplay.Platforms
             float diference = 100;
             float newDiference;
 
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                actualObject = objects[i].GetComponent<PlatformObject>();
+                actualObject = poolManager.Platforms.objects[i].GetComponent<PlatformObject>();
 
-                if (!objects[i].activeSelf || actualObject.spawnLine != spawnLine)
+                if (!poolManager.Platforms.objects[i].activeSelf || actualObject.spawnLine != spawnLine)
                 {
                     continue;
                 }
