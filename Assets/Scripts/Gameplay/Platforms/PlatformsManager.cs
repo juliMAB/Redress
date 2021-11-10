@@ -9,12 +9,19 @@ namespace Redress.Gameplay.Platforms
 {
     public class PlatformsManager : MovableObjectsManager
     {
-       //struct InitialPlatform
-       //{
-       //    public GameObject platformGo;
-       //    public Vector3 position;
-       //    public Row row;
-       //}
+        //struct InitialPlatform
+        //{
+        //    public GameObject platformGo;
+        //    public Vector3 position;
+        //    public Row row;
+        //}
+
+        public struct SpawnYPosition
+        {
+            public int id;
+            public float y;
+            public bool on;
+        }
 
         private float[] initialDistanceLimits = new float[2];
         
@@ -22,13 +29,14 @@ namespace Redress.Gameplay.Platforms
         private float halfPlatformHeight = 0f;
         private float unnevenesDuration = 0f;
         private bool unnevenessActivated = false;
-        private float[] rows = null;
+        //private float[] rows = null;
        // private InitialPlatform[] initialActivePlatforms = null;
        // private bool pausePlatformMovement = false;
-        private short actualYPos = 0;
+        private short actualmiddleRow = 0;
 
         [Header("Platform Builiding Configurations")]
-        [SerializeField] private float[] ySpawnPositions = null;
+        [SerializeField] private float[] actualSpawnPositions = null;
+        [SerializeField] private SpawnYPosition[] spawnPositions = null;
         [SerializeField] private int amountPlatformRows = 3;
         [SerializeField] private float startYPos = 0.65f;
         [SerializeField] private float verticalDistanceBetweenPlatforms = 2.35f;
@@ -39,27 +47,38 @@ namespace Redress.Gameplay.Platforms
         public Action<float, float> OnUnneveness = null;
 
         public float HalfPlatformHeight => halfPlatformHeight; 
-        public float[] YSpawnPositions => ySpawnPositions;
+        public float[] YSpawnPositions => actualSpawnPositions;
+        public SpawnYPosition[] SpawnPositions => spawnPositions;
         public int AmountPlatformRows => amountPlatformRows;
         public float[] DistanceLimits => distanceLimits;
-        public float VerticalDistanceBetweenPlatforms => verticalDistanceBetweenPlatforms; 
+        public float VerticalDistanceBetweenPlatforms => verticalDistanceBetweenPlatforms;
+        public short ActualmiddleRow => actualmiddleRow; 
 
         private void Awake()
         {
+            void ConfigureSpawnPoint(int id, float y, bool on)
+            {
+                spawnPositions[id].id = id;
+                spawnPositions[id].y = y;
+                spawnPositions[id].on = on;
+            }
+
             halfPlatformHeight = objects[0].transform.lossyScale.y / 2f;
 
-            ySpawnPositions = new float[amountPlatformRows];
-            rows = new float[amountPlatformRows + 2];
+            actualSpawnPositions = new float[amountPlatformRows];
+            spawnPositions = new SpawnYPosition[amountPlatformRows + 2];
 
             for (int i = 0; i < amountPlatformRows; i++)
             {
-                ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
+                actualSpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
 
-                rows[i + 1] = ySpawnPositions[i];
+                ConfigureSpawnPoint(i + 1, actualSpawnPositions[i], true);
             }
 
-            rows[0] = ySpawnPositions[0] + verticalDistanceBetweenPlatforms;
-            rows[rows.Length - 1] = ySpawnPositions[ySpawnPositions.Length-1] - verticalDistanceBetweenPlatforms;
+            ConfigureSpawnPoint(0, actualSpawnPositions[0] + verticalDistanceBetweenPlatforms, false);
+            ConfigureSpawnPoint(spawnPositions.Length - 1, actualSpawnPositions[actualSpawnPositions.Length - 1] - verticalDistanceBetweenPlatforms, false);
+
+            actualmiddleRow = 2;
         }
 
         //protected override void Start()
@@ -124,7 +143,7 @@ namespace Redress.Gameplay.Platforms
                 else if (LastObjectIsFarEnough(platform.row) && IsCompletelyOnScreen(platform))
                 {
                     GameObject newPlatform = ActivateObject();
-                    PlaceOnRightEnd(newPlatform, ySpawnPositions[(int)platform.row]);
+                    PlaceOnRightEnd(newPlatform, actualSpawnPositions[(int)platform.row]);
                     newPlatform.GetComponent<PlatformObject>().row = platform.row;
                 }
             }
@@ -198,14 +217,42 @@ namespace Redress.Gameplay.Platforms
         #region Unevenness
         private void SetPlatformsUnevennes()
         {
-            bool up = UnityEngine.Random.Range(0, 2) == 1;
+            short previousMiddleRow = actualmiddleRow;
 
-            float unnevennes = up ? verticalDistanceBetweenPlatforms : -verticalDistanceBetweenPlatforms;
+            if (actualmiddleRow == 1) 
+            {
+                actualmiddleRow++;
+            }
+            else if (actualmiddleRow == 3)
+            {
+                actualmiddleRow--;
+            }
+            else
+            {
+                bool up = UnityEngine.Random.Range(0, 2) == 1;
+
+                actualmiddleRow += up ? (short)-1 : (short)1;
+            }
+
+            for (int i = 0; i < spawnPositions.Length; i++)
+            {
+                spawnPositions[i].on = false;
+            }
 
             for (int i = 0; i < amountPlatformRows; i++)
             {
-                ySpawnPositions[i] += unnevennes;
+                int spawnPositionIndex = actualmiddleRow - 1 + i;
+
+                actualSpawnPositions[i] = spawnPositions[spawnPositionIndex].y;
+                spawnPositions[spawnPositionIndex].on = true;
             }
+
+            float unnevennes = previousMiddleRow > actualmiddleRow ? verticalDistanceBetweenPlatforms : -verticalDistanceBetweenPlatforms;
+
+           // for (int i = 0; i < amountPlatformRows; i++)
+            //{
+           //     actualSpawnPositions[i] += unnevennes;
+            //}
 
             unnevenesDuration = UnityEngine.Random.Range(unnevenessDurationLimits[0], unnevenessDurationLimits[1]);
 

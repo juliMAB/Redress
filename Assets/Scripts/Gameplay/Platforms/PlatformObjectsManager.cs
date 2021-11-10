@@ -93,7 +93,7 @@ namespace Redress.Gameplay.Platforms
 
             SetComponentsDynamicsArrays();
 
-            waitTimeTillNextObject = new float[platformsManager.AmountPlatformRows];
+            waitTimeTillNextObject = new float[platformsManager.SpawnPositions.Length];
 
             for (int i = 0; i < waitTimeTillNextObject.Length; i++)
             {
@@ -143,17 +143,19 @@ namespace Redress.Gameplay.Platforms
         {
             MovableObjectsUpdate();
 
-            for (int i = 0; i < waitTimeTillNextObject.Length; i++)
+            for (int i = 0; i < platformsManager.AmountPlatformRows; i++)
             {
-                waitTimeTillNextObject[i] -= Time.deltaTime;
+                int waitTimeIndex = platformsManager.ActualmiddleRow - 1 + i;
+
+                waitTimeTillNextObject[waitTimeIndex] -= Time.deltaTime;
 
                 Vector2 position = new Vector2(halfSizeOfScreen.x + largerObject.HalfSize.x, platformsManager.YSpawnPositions[i] + halfPlatformHeight * 2);
 
-                if (waitTimeTillNextObject[i] < 0 && 
+                if (waitTimeTillNextObject[waitTimeIndex] < 0 && 
                     TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject, out Transform platform) &&
                     TheresEnoughSpaceInBetweenPlatforms(position, 100, largerObject, platform.position))
                 {
-                    waitTimeTillNextObject[i] = Random.Range(minSpawnTime, maxSpawnTime);
+                    waitTimeTillNextObject[waitTimeIndex] = Random.Range(minSpawnTime, maxSpawnTime);
 
                     GameObject newObject = ActivateObject();
 
