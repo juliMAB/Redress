@@ -9,7 +9,7 @@ namespace Games.Generics.Weapon
     public class Gun : MonoBehaviour
     {
         [SerializeField] enum Type {Laser, Arrow };
-        Type type;
+        [SerializeField] Type type;
         private IEnumerator setCoolDownLifetimeInstance = null;
 
         [SerializeField] private Transform firePosition = null;
