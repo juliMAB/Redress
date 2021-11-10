@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Games.Generics.Weapon;
 using Games.Generics.Animations;
 
@@ -21,7 +19,6 @@ namespace Redress.Gameplay.Objects.PickUps
             originalParet = transform.parent;
             swing = GetComponent<Swing>();
         }
-
 
         protected override void OnPickedUp()
         {

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using Games.Generics.Displacement;
 using Redress.Gameplay.Objects.Enemies;
@@ -118,23 +117,6 @@ namespace Redress.Gameplay.Platforms
         {
             passingEnemy.Pause(pause);
         }
-
-        //public void Reset()
-        //{
-        //    speed = initialSpeed;
-        //    minSpawnTime = initialMinSpawnTime;
-        //    maxSpawnTime = initialMaxSpawnTime;
-        //
-        //    for (int i = 0; i < objects.Length; i++)
-        //    {
-        //        if (objects[i].activeSelf)
-        //        {
-        //            DeactivateObject(objects[i]);
-        //        }
-        //    }
-        //
-        //    passingEnemy.Reset();
-        //}
 
         public void SetValues(float speed, float minSpawnTime, float maxSpawnTime, bool setAsInitialValues)
         {
@@ -278,8 +260,6 @@ namespace Redress.Gameplay.Platforms
         {
             int enemyCount = 0;
             int pickUpCount = 0;
-
-
 
             for (int i = 0; i < poolManager.PlatformObjects.objects.Length; i++)
             {

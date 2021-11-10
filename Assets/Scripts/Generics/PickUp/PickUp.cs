@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using Redress.Gameplay.Platforms;
@@ -11,7 +9,6 @@ namespace Redress.Gameplay.Objects.PickUps
     public abstract class PickUp : PlatformObject
     {
         private ParticleSystem lightEffect = null;
-        //private ParticleSystem pickUpEffect = null;
         protected GameObject visual = null;
         protected Player player = null;
         [SerializeField] protected float totalDurability = 5f;
@@ -22,7 +19,6 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected virtual void Awake()
         {
-            //lightEffect = GetComponentInChildren<ParticleSystem>();
             lightEffect = GetComponentsInChildren<ParticleSystem>()[0];
             visual = GetComponentInChildren<Renderer>().gameObject;
         }

@@ -73,7 +73,6 @@ namespace Redress.Gameplay.Management
         [SerializeField] private PlatformsManager platformsManager = null;
         [SerializeField] private PlatformObjectsManager objectsManager = null;
         [SerializeField] private PauseManager pauseManager = null;
-        [SerializeField] private CameraShake cameraShake = null;
         [SerializeField] private ParallaxManager background = null;
         [SerializeField] private CameraController cameraController = null;
 
@@ -255,24 +254,7 @@ namespace Redress.Gameplay.Management
                     allGuns[i].bulletSpeed = speed;
                 }
             }
-
-
-
-            //int index = playerBulletsToo ? 0 : poolManager.Arrows.objects.Length;
-            //
-            //for (int i = index; i < allBullets.Length; i++)
-            //{
-            //    allBullets[i].speed = speed;
-            //}
         }
-
-        //private void DeactivateAllBullets()
-        //{
-        //    for (int i = 0; i < allGuns.Length; i++)
-        //    {
-        //        allGuns[i].DeactivateAllBullets();
-        //    }
-        //}
 
         private IEnumerator SetDistanceScore(float timeToChargeScore)
         {

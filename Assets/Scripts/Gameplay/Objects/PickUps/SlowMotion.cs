@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using Redress.Gameplay.Management;
 
@@ -32,12 +30,5 @@ namespace Redress.Gameplay.Objects.PickUps
             base.ResetStats();
             visual.SetActive(true);
         }
-        //IEnumerator Ipickup()
-        //{
-        //    GameplayManager.Instance.speedMultiplier = multiplier;
-
-        //    yield return new WaitForSeconds(leftDurability);
-        //    GameplayManager.Instance.speedMultiplier = 1f;
-        //}
     }
 }

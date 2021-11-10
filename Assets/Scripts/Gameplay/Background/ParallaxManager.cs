@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Redress.Gameplay.Platforms
 {
@@ -95,21 +93,6 @@ namespace Redress.Gameplay.Platforms
         {
             this.speed = speed;
             this.layerSpeedDiff = layerSpeedDiff;
-        }
-
-        public void Reset()
-        {
-            for (int i = 0; i < group1.layers.Length; i++)
-            {
-                group1.layers[i].transform.localPosition = group1.startPosition[i];
-            }
-
-            for (int i = 0; i < group2.layers.Length; i++)
-            {
-                group2.layers[i].transform.localPosition = group2.startPosition[i];
-            }
-
-            enabledGroup1 = true;
         }
 
         public void UpdateBackground()

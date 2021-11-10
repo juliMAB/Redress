@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-using Games.Generics.Displacement;
+﻿using Games.Generics.Displacement;
 
 namespace Redress.Gameplay.Platforms
 {

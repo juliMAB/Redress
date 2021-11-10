@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 using Redress.Management;
@@ -16,7 +14,6 @@ namespace Redress.Menu.UI
         [SerializeField] private GameObject options = null;
         [SerializeField] private GameObject credits = null;
         [SerializeField] private GameObject[] creditsPanels = null;
-        //[SerializeField] private GameObject[] creditsPanelsButtons = null;
         [SerializeField] private Color buttonColor = Color.cyan;
         [SerializeField] private GameObject[] lightsPanel1 = null;
         [SerializeField] private GameObject[] lightsPanel2 = null;
@@ -69,23 +66,6 @@ namespace Redress.Menu.UI
         public void SwitchToCreditsPanel(int panel)
         {
             CreditsPanel creditsPanel = (CreditsPanel)panel;
-
-            //creditsPanelsButtons[0].SetActive(false);
-            //creditsPanelsButtons[1].SetActive(false);
-            //creditsPanels[0].SetActive(false);
-            //creditsPanels[1].SetActive(false);
-
-           // switch (creditsPanel)
-           // {
-           //     case CreditsPanel.Names:
-           //         creditsPanelsButtons[1].SetActive(true);
-           //         break;
-           //     case CreditsPanel.Assets:
-           //         creditsPanelsButtons[0].SetActive(true);                    
-           //         break;
-           //     default:
-           //         break;
-           // }
 
             creditsPanels[panel].SetActive(true);
         }

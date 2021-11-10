@@ -13,7 +13,6 @@ namespace Redress.Gameplay.User
         private CharacterMovementSeter characterMovement = null;
         private Color normalColor = Color.white;
         private Color inmuneColor = Color.red;
-       // public Color inmuneColorShield = Color.blue;
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private Gun initialGun = null;

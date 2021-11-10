@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using Redress.Gameplay.Management;
 
@@ -28,7 +26,6 @@ namespace Redress.Gameplay.Controllers
 
         public void PositionCamera(float movement, float totalTime)
         {
-
             float yFinalPosition = cameraShakeActive ? initialPos.y + movement : Camera.main.transform.position.y + movement;
 
             IEnumerator MoveCamera()
@@ -152,30 +149,6 @@ namespace Redress.Gameplay.Controllers
 
             cameraShakeInst = Shake(duration, magnitude);
             StartCoroutine(cameraShakeInst);
-        }
-
-        public void Reset()
-        {
-            Vector3 pos = Vector3.zero;
-            pos.z = -10;
-            Camera.main.transform.position = pos;
-
-            background.transform.position = Vector3.zero;
-            pauseMovement = false;
-            cameraShakeActive = false;
-            cameraShakeDifference = Vector2.zero;
-
-            if (positionCameraInst != null)
-            {
-                StopCoroutine(positionCameraInst);
-                movementActive = false;
-            }
-
-            if (cameraShakeInst != null)
-            {
-                StopCoroutine(cameraShakeInst);
-                cameraShakeActive = false;
-            }
         }
     }
 }

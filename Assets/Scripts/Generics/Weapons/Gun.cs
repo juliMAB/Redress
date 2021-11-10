@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using Games.Generics.PoolSystem;
@@ -85,38 +84,5 @@ namespace Games.Generics.Weapon
 
             canShoot = true;
         }
-
-       // public void SetBullets(GameObject[] bullets)
-       // {
-       //     objects = new GameObject[bullets.Length];
-       //     objectsPool = new Queue<GameObject>();
-       //     Bullet bullet = null;
-       //
-       //     for (int i = 0; i < bullets.Length; i++)
-       //     {
-       //         objects[i] = bullets[i];
-       //     }
-       //
-       //     for (int i = 0; i < objects.Length; i++)
-       //     {
-       //         objectsPool.Enqueue(objects[i]);
-       //         bullet = objects[i].GetComponent<Bullet>();
-       //
-       //         bullet.OnCollided += DeactivateObject;
-       //     }
-       // }
-
-        //public void DeactivateAllBullets()
-        //{
-        //    for (int i = 0; i < po.Length; i++)
-        //    {
-        //        if (!objects[i].activeSelf)
-        //        {
-        //            continue;
-        //        }
-        //
-        //        DeactivateObject(objects[i]);
-        //    }
-        //}
     }
 }
