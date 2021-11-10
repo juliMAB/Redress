@@ -23,9 +23,14 @@ namespace Redress.Management
                 instance = this;
                 DontDestroyOnLoad(gameObject);
             }
+            
         }
         #endregion
 
+        private void Start()
+        {
+            Invoke(nameof(addReferencesGpM), .1f);
+        }
         public enum Scene { Menu, Tutorial, Game, ResultScreen }
 
         private PlayerData playerData = null;
@@ -34,37 +39,11 @@ namespace Redress.Management
 
         public void GoToScene(Scene scene)
         {
-            string stringSceneName;
-
-            switch (scene)
-            {
-                case Scene.Menu:
-                    stringSceneName = "MainMenu";
-                    break;
-                case Scene.Tutorial:
-                    stringSceneName = "Tutorial";
-                    break;
-                case Scene.Game:
-                    stringSceneName = "Game";
-                    break;
-                case Scene.ResultScreen:
-                    { 
-                        stringSceneName = "ResultScreen";
-                        SetPlayerData();
-                    }
-                    break;
-                default:
-                    stringSceneName = "MainMenu";
-                    break;
-            }
-
-            SceneManager.LoadScene(stringSceneName);
-
+            SceneManager.LoadScene((int)scene);
             if (scene == Scene.Game)
             {
-                Invoke("SetGameplayReturnToMenu", 1f);
+                Invoke(nameof(addReferencesGpM), 1);
             }
-        }
 
         public void GoToMenu()
         {
@@ -85,6 +64,20 @@ namespace Redress.Management
             float traveledDistance = gameplayManager.Distance;
 
             playerData = new PlayerData(score, velocity, traveledDistance);
+        }
+        private void addReferencesGpM()
+        {
+            
+            if (GameplayManager.Instance)
+            {
+                Debug.Log("existe la referencia de la instancia del GpM");
+                GameplayManager.Instance.OnSelectScene = GoToScene;
+            }
+            else
+            {
+                Debug.Log("no existe instancia de GpM");
+            }
+            
         }
     }
 }
