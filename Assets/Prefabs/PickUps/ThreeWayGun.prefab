@@ -124,13 +124,14 @@ GameObject:
   - component: {fileID: 1305334219206568258}
   - component: {fileID: 1305334219206568268}
   - component: {fileID: 1305334219206568271}
+  - component: {fileID: 1564622876}
   m_Layer: 14
   m_Name: ThreeWayGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1305334219206568269
 Transform:
   m_ObjectHideFlags: 0
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d648f165c202f44aa29f6cf783ba5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
+  type: 1
   firePosition: {fileID: 1305334218948553338}
   coolDownTime: 0.3
   anglesOfShoot:
@@ -208,6 +209,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfSize: {x: 0, y: 0}
   row: 1
+  spawnLine: 0
+  totalDurability: 5
+--- !u!114 &1564622876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305334219206568259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82116c68509226b4fba79da62a411df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingingToRight: 1
+  maxSwingValue: 16
+  speed: 20
 --- !u!1 &4397908690139966553
 GameObject:
   m_ObjectHideFlags: 0

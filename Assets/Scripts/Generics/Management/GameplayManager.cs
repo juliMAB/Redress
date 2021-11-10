@@ -99,7 +99,7 @@ namespace Redress.Gameplay.Management
         {
             poolManager = PoolObjectsManager.Instance;
 
-            AssignEnemiesTypes();
+            //AssignEnemiesTypes();
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
 
@@ -267,29 +267,29 @@ namespace Redress.Gameplay.Management
         }
 
         #region Enemies_Related_Functions
-        private void AssignEnemiesTypes()
-        {
-            Enemy enemy;
-            Objects.Enemies.Type type;
+        //private void AssignEnemiesTypes()
+        //{
+        //    Enemy enemy;
+        //    Objects.Enemies.Type type;
 
-            for (int i = 0; i < objectsManager.Enemies.Length; i++)
-            {
-                enemy = objectsManager.Enemies[i];
+        //    for (int i = 0; i < objectsManager.Enemies.Length; i++)
+        //    {
+        //        enemy = objectsManager.Enemies[i];
 
-                type = Objects.Enemies.Type.Static;
+        //        type = Objects.Enemies.Type.Static;
 
-                if (enemy.TryGetComponent(out ExplosiveEnemy explosiveEnemy))
-                {
-                    type = Objects.Enemies.Type.Explosive;
-                }
-                else if (enemy.TryGetComponent(out ShooterEnemy shooterEnemy))
-                {
-                    type = Objects.Enemies.Type.Shooter;
-                }
+        //        if (enemy.TryGetComponent(out ExplosiveEnemy explosiveEnemy))
+        //        {
+        //            type = Objects.Enemies.Type.Explosive;
+        //        }
+        //        else if (enemy.TryGetComponent(out ShooterEnemy shooterEnemy))
+        //        {
+        //            type = Objects.Enemies.Type.Shooter;
+        //        }
 
-                enemy.type = type;
-            }
-        }
+        //        enemy.type = type;
+        //    }
+        //}
 
         private void AssignActionsAndTarget()
         {
