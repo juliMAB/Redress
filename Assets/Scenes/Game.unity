@@ -43051,7 +43051,6 @@ MonoBehaviour:
   platformsManager: {fileID: 1829776217}
   objectsManager: {fileID: 166775821}
   pauseManager: {fileID: 2008208822}
-  cameraShake: {fileID: 519420034}
   background: {fileID: 235285249}
   cameraController: {fileID: 632877056}
   target: {fileID: 6408668683553309451}
@@ -46244,6 +46243,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 48526624537043358, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1494429141692474946, guid: d675a2643575a8e4b9b1a0a88faf15e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -46903,6 +46907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: force
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643097251864174695, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7877188287224168158, guid: d675a2643575a8e4b9b1a0a88faf15e6,
         type: 3}
