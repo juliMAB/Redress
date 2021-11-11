@@ -6,8 +6,6 @@ namespace Games.Generics.Interfaces
     {
         void TakeDamage();
 
-        void TakeDamage(Vector3 other);
-
         void Die();        
     }
 }

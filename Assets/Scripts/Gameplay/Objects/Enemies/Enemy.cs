@@ -59,7 +59,7 @@ namespace Redress.Gameplay.Objects.Enemies
             if (collision.gameObject == target)
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-                targetIDamageable.TakeDamage(transform.position);
+                targetIDamageable.TakeDamage();
             }
         }
 
