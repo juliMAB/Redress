@@ -145,11 +145,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 225.33334
-        width: 112.333336
-        height: 112.666664
+        y: 232
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Personaje (1)_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 113.333336
-        width: 112.333336
-        height: 112.666664
+        x: 580
+        y: 116
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: Personaje (1)_7
       rect:
         serializedVersion: 2
-        x: 112
-        y: 113.333336
-        width: 112.333336
-        height: 112.666664
+        x: 0
+        y: 0
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: Personaje (1)_8
       rect:
         serializedVersion: 2
-        x: 224
-        y: 113.333336
-        width: 112.333336
-        height: 112.666664
+        x: 116
+        y: 0
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Personaje (1)_9
       rect:
         serializedVersion: 2
-        x: 336
-        y: 113.333336
-        width: 112.333336
-        height: 112.666664
+        x: 232
+        y: 0
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: Personaje (1)_10
       rect:
         serializedVersion: 2
-        x: 448
-        y: 113.333336
-        width: 112.333336
-        height: 112.666664
+        x: 348
+        y: 0
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,106 +267,106 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje (1)_11
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 113.333336
-        width: 112.333336
-        height: 112.666664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17e3073eb1bd14df0800000000000000
-      internalID: -197635995801207183
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Personaje (1)_12
+      name: Personaje (1)_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 1.3333359
-        width: 112.333336
-        height: 112.666664
+        y: 116
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e0977d5553125320800000000000000
-      internalID: 2545117996779016424
+      spriteID: c6b07b6a1787bb800800000000000000
+      internalID: 629229002471967596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje (1)_13
+      name: Personaje (1)_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 1.3333359
-        width: 112.333336
-        height: 112.666664
+        x: 116
+        y: 116
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66fca6d5695655df0800000000000000
-      internalID: -192135712606597274
+      spriteID: da4936447725d5d50800000000000000
+      internalID: 6727624090563351725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje (1)_14
+      name: Personaje (1)_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 1.3333359
-        width: 112.333336
-        height: 112.666664
+        x: 232
+        y: 116
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7652a5b0f0bfdedc0800000000000000
-      internalID: -3607951684420360857
+      spriteID: 33b3056510df6abd0800000000000000
+      internalID: -2619127951084471501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje (1)_15
+      name: Personaje (1)_4
       rect:
         serializedVersion: 2
-        x: 336
-        y: 1.3333359
-        width: 112.333336
-        height: 112.666664
+        x: 348
+        y: 116
+        width: 116
+        height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 910ba207129ae3590800000000000000
-      internalID: -7692525152421367783
+      spriteID: 95dc89773333e2e70800000000000000
+      internalID: 9092260993850461529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Personaje (1)_5
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 116
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0fa02de57e106bf0800000000000000
+      internalID: -333232880587067638
       vertices: []
       indices: 
       edges: []
