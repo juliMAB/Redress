@@ -10,6 +10,8 @@ namespace Redress.Gameplay.Objects.Enemies
 
     public class Enemy : PlatformObject, IDamageable
     {
+        private bool jumped = false;
+
         [Header("Enemy")]
         [SerializeField] protected bool canDie = false;
         [SerializeField] protected int initialLives = 1;
@@ -50,6 +52,10 @@ namespace Redress.Gameplay.Objects.Enemies
         {
             if (IsTargetForward())
             {
+                if (!lookingAtTarget)
+                {
+                    OnDetectedPlayer();
+                }
                 lookingAtTarget = true;
             }
         }
@@ -63,6 +69,20 @@ namespace Redress.Gameplay.Objects.Enemies
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject == target)
+            {
+                IDamageable targetIDamageable = target.GetComponent<IDamageable>();
+                targetIDamageable.TakeDamage();                
+            }
+        }
+
+        protected virtual void OnDetectedPlayer()
+        {
+
+        }
+
         public void SetTarget(GameObject _target)
         {
             target = _target;
@@ -73,6 +93,11 @@ namespace Redress.Gameplay.Objects.Enemies
             lives = initialLives;
             lookingAtTarget = false;
             direction = -Vector3.right;
+            jumped = false;
+            if (TryGetComponent(out Rigidbody2D body))
+            {
+                body.velocity = Vector2.zero;
+            }
         }
 
         public void TakeDamage()
@@ -108,9 +133,13 @@ namespace Redress.Gameplay.Objects.Enemies
             return Mathf.Abs(Vector2.Distance(transform.position, target.transform.position)) < minDistanceToTarget;
         }
 
-        public void TakeDamage(Vector3 other)
+        public void Jump()
         {
-            TakeDamage();
+            if (!jumped)
+            { 
+                GetComponent<Rigidbody2D>().velocity += Vector2.up * 2;
+                jumped = true;
+            }
         }
     }
 }

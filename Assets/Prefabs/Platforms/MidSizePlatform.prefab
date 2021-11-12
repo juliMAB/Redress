@@ -1323,6 +1323,7 @@ GameObject:
   - component: {fileID: 6413261100737920047}
   - component: {fileID: 3896093918170842927}
   - component: {fileID: 5590990464770566001}
+  - component: {fileID: 5934199260720158847}
   m_Layer: 9
   m_Name: MidSizePlatform
   m_TagString: Platform
@@ -1380,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfSize: {x: 0, y: 0}
   row: 1
+  spawnLine: 0
 --- !u!68 &5590990464770566001
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1398,6 +1400,27 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
+--- !u!50 &5934199260720158847
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6553233521527074944}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7335086170546091625
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,9 @@ namespace Redress.Gameplay.Objects.Enemies
 {
     public class ShooterEnemy : Enemy
     {
+        private Animator anim = null;
+        private bool animationEnded = false;
+
         [SerializeField] private Gun gun = null;
 
          
@@ -14,13 +17,15 @@ namespace Redress.Gameplay.Objects.Enemies
         private void Start()
         {
             canDie = true;
+
+            anim = GetComponentInChildren<Animator>();
         }
 
         protected override void Update()
         {
             base.Update();
 
-            if (lookingAtTarget)
+            if (lookingAtTarget && animationEnded)
             {
                 gun.Shoot();
             }
@@ -31,10 +36,21 @@ namespace Redress.Gameplay.Objects.Enemies
             }
         }
 
+        protected override void OnDetectedPlayer()
+        {
+            anim.SetTrigger("Player Detected");
+            animationEnded = false;
+        }
+
         public override void Die()
         {
             gun.ResetStats();
             base.Die();
+        }
+
+        public void SetAnimationEnded()
+        {
+            animationEnded = true;
         }
     }
 }
