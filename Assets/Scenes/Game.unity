@@ -44025,6 +44025,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallEnemy (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5661079698436818821, guid: f32bdd1aac4980a41a5677fb728a93a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f32bdd1aac4980a41a5677fb728a93a0, type: 3}
 --- !u!4 &2046719395 stripped

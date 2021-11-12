@@ -114,6 +114,21 @@ namespace Redress.Gameplay.User
 
         public void TakeDamage()
         {
+            IEnumerator TakeHit()
+            {
+                float time = 0;
+                Vector3 initialPos = transform.position;
+                float speed = 5;
+
+                while (time < 1)
+                {
+                    time += Time.deltaTime * speed;
+                    initialPos.y = transform.position.y;
+                    transform.position = Vector3.Lerp(initialPos, initialPos + Vector3.left * 3, time);
+                    yield return null;
+                }
+            }
+
             particleSystem.Play();
             if (isInmune)
             {
@@ -136,6 +151,7 @@ namespace Redress.Gameplay.User
             }
 
             SetInmuneForTime(inmuneTime, inmuneColor);
+            StartCoroutine(TakeHit());
         }
 
         public void Die()
