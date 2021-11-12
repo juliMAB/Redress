@@ -160,6 +160,7 @@ MonoBehaviour:
   initialLives: 5
   lives: 5
   inmuneTime: 5
+  force: 0
 --- !u!114 &1494429141692474957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5603,12 +5604,12 @@ PrefabInstance:
     - target: {fileID: 8951922516021569102, guid: 9144ebe6765a89746ac4012a3acd3fd0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 8951922516021569102, guid: 9144ebe6765a89746ac4012a3acd3fd0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.19
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 8951922516021569102, guid: 9144ebe6765a89746ac4012a3acd3fd0,
         type: 3}
