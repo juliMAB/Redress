@@ -10,13 +10,6 @@ namespace Redress.Gameplay.Platforms
 {
     public class PlatformsManager : MovableObjectsManager
     {
-        //struct InitialPlatform
-        //{
-        //    public GameObject platformGo;
-        //    public Vector3 position;
-        //    public Row row;
-        //}
-
         public struct SpawnYPosition
         {
             public int id;
@@ -30,9 +23,6 @@ namespace Redress.Gameplay.Platforms
         private float halfPlatformHeight = 0f;
         private float unnevenesDuration = 0f;
         private bool unnevenessActivated = false;
-        //private float[] rows = null;
-       // private InitialPlatform[] initialActivePlatforms = null;
-       // private bool pausePlatformMovement = false;
         private short actualmiddleRow = 0;
 
         private PoolObjectsManager poolManager = null;
@@ -56,7 +46,8 @@ namespace Redress.Gameplay.Platforms
         public int AmountPlatformRows => amountPlatformRows;
         public float[] DistanceLimits => distanceLimits;
         public float VerticalDistanceBetweenPlatforms => verticalDistanceBetweenPlatforms;
-        public short ActualmiddleRow => actualmiddleRow; 
+        public short ActualmiddleRow => actualmiddleRow;
+        public LayerMask LayerMask => layerMask; 
 
         private void Awake()
         {

@@ -99,7 +99,6 @@ namespace Redress.Gameplay.Management
         {
             poolManager = PoolObjectsManager.Instance;
 
-            //AssignEnemiesTypes();
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
 
@@ -211,7 +210,26 @@ namespace Redress.Gameplay.Management
 
         private void SetPlayerInputLock()
         {
-            playerControl.lockGoDown = player.transform.position.y < platformsManager.YSpawnPositions[1];
+            RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 10, platformsManager.LayerMask);
+
+            if (hit)
+            {
+                hit.collider.TryGetComponent(out PlatformObject platformAbove);
+
+                if (platformAbove)
+                {
+                    playerControl.lockGoDown = platformAbove.row == Row.Down;
+                }
+                else
+                {
+                    playerControl.lockGoDown = false;
+                }
+
+                return;
+            }
+
+            playerControl.lockGoDown = false;
+            // playerControl.lockGoDown = player.transform.position.y < platformsManager.YSpawnPositions[1];
         }
 
         private bool IsPlayerAlive()
