@@ -229,7 +229,6 @@ namespace Redress.Gameplay.Management
             }
 
             playerControl.lockGoDown = false;
-            // playerControl.lockGoDown = player.transform.position.y < platformsManager.YSpawnPositions[1];
         }
 
         private bool IsPlayerAlive()

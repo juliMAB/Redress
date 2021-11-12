@@ -1,0 +1,968 @@
+fileFormatVersion: 2
+guid: 752e303907afcf4488e29abea74b32d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7514769095754549092
+    second: logo sheet_0
+  - first:
+      213: 6968683169569994710
+    second: logo sheet_1
+  - first:
+      213: -6443982001434786003
+    second: logo sheet_2
+  - first:
+      213: -6424034546728167599
+    second: logo sheet_3
+  - first:
+      213: -5916897686624131993
+    second: logo sheet_4
+  - first:
+      213: 5321820112517726553
+    second: logo sheet_5
+  - first:
+      213: -222051242709339608
+    second: logo sheet_6
+  - first:
+      213: -2678813347771280060
+    second: logo sheet_7
+  - first:
+      213: 6093581604894987368
+    second: logo sheet_8
+  - first:
+      213: 71264108243686192
+    second: logo sheet_9
+  - first:
+      213: -1696338364571839443
+    second: logo sheet_10
+  - first:
+      213: -3429878739301449834
+    second: logo sheet_11
+  - first:
+      213: 5299342837619234980
+    second: logo sheet_12
+  - first:
+      213: -1901406698298194068
+    second: logo sheet_13
+  - first:
+      213: 7264182914484435216
+    second: logo sheet_14
+  - first:
+      213: -2398063636815484339
+    second: logo sheet_15
+  - first:
+      213: -5486565481389437149
+    second: logo sheet_16
+  - first:
+      213: 5810370864915392419
+    second: logo sheet_17
+  - first:
+      213: 7801654041320665677
+    second: logo sheet_18
+  - first:
+      213: -2462865640405540548
+    second: logo sheet_19
+  - first:
+      213: -6383656516478850612
+    second: logo sheet_20
+  - first:
+      213: 5363098681459156821
+    second: logo sheet_21
+  - first:
+      213: -3472985711957868184
+    second: logo sheet_22
+  - first:
+      213: 2076005446778027108
+    second: logo sheet_23
+  - first:
+      213: 5032769232155649544
+    second: logo sheet_24
+  - first:
+      213: 9188182004365487407
+    second: logo sheet_25
+  - first:
+      213: -7542857354247317315
+    second: logo sheet_26
+  - first:
+      213: -1638626786431968667
+    second: logo sheet_27
+  - first:
+      213: -9052557485874020999
+    second: logo sheet_28
+  - first:
+      213: -8274524170876329975
+    second: logo sheet_29
+  - first:
+      213: 8634506982370505552
+    second: logo sheet_30
+  - first:
+      213: -4789841172453858170
+    second: logo sheet_31
+  - first:
+      213: -8114284515137862286
+    second: logo sheet_32
+  - first:
+      213: 580744474696743402
+    second: logo sheet_33
+  - first:
+      213: 8950462813308162986
+    second: logo sheet_34
+  - first:
+      213: -4006855519319362054
+    second: logo sheet_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1020
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c987776825d26b790800000000000000
+      internalID: -7514769095754549092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_1
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1020
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7767acb6cb5b060800000000000000
+      internalID: 6968683169569994710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_2
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1020
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d270879e2806296a0800000000000000
+      internalID: -6443982001434786003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1020
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1571e61ad9e39d6a0800000000000000
+      internalID: -6424034546728167599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 918
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764207037e4f2eda0800000000000000
+      internalID: -5916897686624131993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_5
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 918
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95106253237ead940800000000000000
+      internalID: 5321820112517726553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_6
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 918
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 822306c329d1becf0800000000000000
+      internalID: -222051242709339608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 918
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44594820471f2dad0800000000000000
+      internalID: -2678813347771280060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 816
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864de993f20c09450800000000000000
+      internalID: 6093581604894987368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_9
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 816
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0339911345e2df000800000000000000
+      internalID: 71264108243686192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_10
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 816
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2414d8be356578e0800000000000000
+      internalID: -1696338364571839443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 816
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fb549757f9660d0800000000000000
+      internalID: -3429878739301449834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 714
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a81e43db3c0b8940800000000000000
+      internalID: 5299342837619234980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_13
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 714
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6743669ea8dc95e0800000000000000
+      internalID: -1901406698298194068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_14
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 714
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0197e499fdf8fc460800000000000000
+      internalID: 7264182914484435216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 612
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ae4dae3dd58bed0800000000000000
+      internalID: -2398063636815484339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_16
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 612
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32fccd483cdcbd3b0800000000000000
+      internalID: -5486565481389437149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_17
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 612
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7af88548592a050800000000000000
+      internalID: 5810370864915392419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42b861040b054c60800000000000000
+      internalID: 7801654041320665677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_19
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 510
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31ec16bfb422ddd0800000000000000
+      internalID: -2462865640405540548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_20
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 510
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9ab276832b867a0800000000000000
+      internalID: -6383656516478850612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5572dbbf5dd8d6a40800000000000000
+      internalID: 5363098681459156821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_22
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 408
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8618eb845e97dcfc0800000000000000
+      internalID: -3472985711957868184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_23
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 408
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46cfaf664f37fcc10800000000000000
+      internalID: 2076005446778027108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 306
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 806272fa3fcf7d540800000000000000
+      internalID: 5032769232155649544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_25
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 306
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d67d51adaf28f70800000000000000
+      internalID: 9188182004365487407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_26
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 306
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db855a83333625790800000000000000
+      internalID: -7542857354247317315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a584b9e9d6249e0800000000000000
+      internalID: -1638626786431968667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_28
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 204
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dfca9ddeade5280800000000000000
+      internalID: -9052557485874020999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_29
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 204
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900688d5b1cfa2d80800000000000000
+      internalID: -8274524170876329975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053f2d65a5ee3d770800000000000000
+      internalID: 8634506982370505552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_31
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 102
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684e851d4d0178db0800000000000000
+      internalID: -4789841172453858170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_32
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 102
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27541cc8935446f80800000000000000
+      internalID: -8114284515137862286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9f197d5083f0800800000000000000
+      internalID: 580744474696743402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_34
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 0
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa39392d18e663c70800000000000000
+      internalID: 8950462813308162986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo sheet_35
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 0
+        width: 402
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5f7a8622ac468c0800000000000000
+      internalID: -4006855519319362054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
