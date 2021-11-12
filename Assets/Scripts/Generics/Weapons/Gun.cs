@@ -30,6 +30,13 @@ namespace Games.Generics.Weapon
 
                 bullet.OnCollided += poolManager.DeactivateObject;
             }
+
+            for (int i = 0; i < poolManager.Arrows.objects.Length; i++)
+            {
+                bullet = poolManager.Arrows.objects[i].GetComponent<Bullet>();
+
+                bullet.OnCollided += poolManager.DeactivateObject;
+            }
         }
 
         private IEnumerator SetCoolDownLifetime()
