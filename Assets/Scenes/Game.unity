@@ -45619,11 +45619,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosiveEnemy (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 5661079698436818821, guid: 4798e77920099eb43b56872046ea7666,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
         type: 3}
       propertyPath: target
@@ -46941,8 +46936,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7643097251864174695, guid: d675a2643575a8e4b9b1a0a88faf15e6,
         type: 3}
+      propertyPath: m_Size.x
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643097251864174695, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643097251864174695, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+        type: 3}
       propertyPath: m_SortingOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643097251864174695, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7877188287224168158, guid: d675a2643575a8e4b9b1a0a88faf15e6,
         type: 3}

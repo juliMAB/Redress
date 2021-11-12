@@ -40,7 +40,17 @@ namespace Games.Generics.Character.Movement
 			{
 				_velocity.y = 0;
 			}
-
+   //         else if (_controller.collisionState.becameGroundedThisFrame)
+   //         {
+			//	_animator.SetTrigger("StartGround");
+			//}
+            else
+            {
+                if (_velocity.y<0)
+                {
+					_animator.SetTrigger("StartFall");
+				}
+            }
 			//this is for normal move.
 			SetNormalMovementUpdate();
 
@@ -52,7 +62,8 @@ namespace Games.Generics.Character.Movement
 			{
 				AkSoundEngine.PostEvent("play_salto", gameObject);
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
-				_animator.Play(Animator.StringToHash("Jump"));
+				_animator.SetTrigger("Jump");
+				//_animator.Play(Animator.StringToHash("Jump"));
 			}
 
 			// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
