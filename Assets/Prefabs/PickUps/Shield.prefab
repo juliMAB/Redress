@@ -73,6 +73,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfSize: {x: 0, y: 0}
   row: 1
+  spawnLine: 0
+  totalDurability: 5
 --- !u!1 &1671444624419467202
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,7 +4784,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ea9c4a2b6e9dfc24489391ce20c66403, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
