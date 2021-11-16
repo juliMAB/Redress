@@ -2344,6 +2344,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -7659,7 +7663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1 &304536094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: b9fd98f96f29aa74bb572e3ef1607526,
@@ -8350,6 +8354,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -12355,7 +12363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1 &534377908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8031632689226860911, guid: d3d67b3f021eef84480f491215efdba4,
@@ -15946,6 +15954,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -17036,6 +17048,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -17961,6 +17977,7 @@ GameObject:
   - component: {fileID: 807812638}
   - component: {fileID: 807812640}
   - component: {fileID: 807812639}
+  - component: {fileID: 807812641}
   m_Layer: 5
   m_Name: Heart4
   m_TagString: Untagged
@@ -18024,6 +18041,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807812637}
   m_CullTransparentMesh: 0
+--- !u!114 &807812641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807812637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0efc580657ee84ca8574a2a89d36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingBig: 1
+  maxScaleValue: 1.2
+  minScaleValue: 0.7
+  speed: 0.8
 --- !u!1 &812479239 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5661079698436818821, guid: b6b42faa23917dc47a264ff431b0b254,
@@ -20134,6 +20167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -22235,7 +22272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1001 &993298881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25724,6 +25761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -25965,7 +26006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1 &1163662119 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: b9fd98f96f29aa74bb572e3ef1607526,
@@ -27211,7 +27252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1 &1224314792
 GameObject:
   m_ObjectHideFlags: 0
@@ -28476,6 +28517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -29561,6 +29606,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -31547,6 +31596,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -33650,6 +33703,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -35364,6 +35421,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -36842,7 +36903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1 &1706765523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: 85ed38a00acf1fe478a7957bf450c1e8,
@@ -37069,6 +37130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -39302,6 +39367,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -40360,6 +40429,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -41417,6 +41490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 163600436, guid: 3fa22ec504023bf4986bf7765dd1765b, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_Name
@@ -43318,7 +43395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingingToRight: 1
   maxSwingValue: 16
-  speed: 20
+  speed: 25
 --- !u!1 &2012695641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889467807296199856, guid: 85ed38a00acf1fe478a7957bf450c1e8,
@@ -44524,6 +44601,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 648715395}
     m_Modifications:
+    - target: {fileID: 1564622876, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_Name
@@ -44927,6 +45008,7 @@ GameObject:
   - component: {fileID: 2097059652}
   - component: {fileID: 2097059654}
   - component: {fileID: 2097059653}
+  - component: {fileID: 2097059655}
   m_Layer: 5
   m_Name: Heart5
   m_TagString: Untagged
@@ -44990,6 +45072,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097059651}
   m_CullTransparentMesh: 0
+--- !u!114 &2097059655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097059651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0efc580657ee84ca8574a2a89d36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingBig: 1
+  maxScaleValue: 1.2
+  minScaleValue: 0.7
+  speed: 0.8
 --- !u!1001 &2099555373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45852,6 +45950,7 @@ GameObject:
   - component: {fileID: 2485076689440255811}
   - component: {fileID: 2485076689440255821}
   - component: {fileID: 2485076689440255820}
+  - component: {fileID: 2485076689440255812}
   m_Layer: 5
   m_Name: Heart1
   m_TagString: Untagged
@@ -45878,6 +45977,22 @@ RectTransform:
   m_AnchoredPosition: {x: 30, y: -30}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2485076689440255812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485076689440255810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0efc580657ee84ca8574a2a89d36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingBig: 1
+  maxScaleValue: 1.2
+  minScaleValue: 0.7
+  speed: 0.8
 --- !u!114 &2485076689440255820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45982,6 +46097,7 @@ GameObject:
   - component: {fileID: 2485076689581729508}
   - component: {fileID: 2485076689581729510}
   - component: {fileID: 2485076689581729509}
+  - component: {fileID: 2485076689581729532}
   m_Layer: 5
   m_Name: Heart2
   m_TagString: Untagged
@@ -45989,6 +46105,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2485076689581729532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485076689581729531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0efc580657ee84ca8574a2a89d36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingBig: 1
+  maxScaleValue: 1.2
+  minScaleValue: 0.7
+  speed: 0.8
 --- !u!1 &2485076689857464348
 GameObject:
   m_ObjectHideFlags: 0
@@ -46000,6 +46132,7 @@ GameObject:
   - component: {fileID: 2485076689857464349}
   - component: {fileID: 2485076689857464351}
   - component: {fileID: 2485076689857464350}
+  - component: {fileID: 2485076689857464352}
   m_Layer: 5
   m_Name: Heart3
   m_TagString: Untagged
@@ -46063,6 +46196,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2485076689857464348}
   m_CullTransparentMesh: 0
+--- !u!114 &2485076689857464352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485076689857464348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0efc580657ee84ca8574a2a89d36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingBig: 1
+  maxScaleValue: 1.2
+  minScaleValue: 0.7
+  speed: 0.8
 --- !u!1001 &5498170929694369089
 PrefabInstance:
   m_ObjectHideFlags: 0
