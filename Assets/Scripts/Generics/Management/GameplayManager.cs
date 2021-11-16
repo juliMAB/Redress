@@ -212,13 +212,29 @@ namespace Redress.Gameplay.Management
         {
             RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 10, platformsManager.LayerMask);
 
+            bool CheckPlatformUnder(PlatformObject platformUnder, out RaycastHit2D hit2)
+            {
+                Vector2 pos = new Vector2(player.transform.position.x, platformUnder.transform.position.y - 1);
+
+                hit2 = Physics2D.Raycast(pos, Vector2.down, 10, platformsManager.LayerMask);
+
+                return hit2;
+            }
+
             if (hit)
             {
-                hit.collider.TryGetComponent(out PlatformObject platformAbove);
+                hit.collider.TryGetComponent(out PlatformObject platformUnder);
 
-                if (platformAbove)
+                if (platformUnder)
                 {
-                    playerControl.lockGoDown = platformAbove.row == Row.Down;
+                    if (CheckPlatformUnder(platformUnder, out hit))
+                    {
+                        playerControl.lockGoDown = false;
+                    }
+                    else
+                    {
+                        playerControl.lockGoDown = platformUnder.row == Row.Down;
+                    }
                 }
                 else
                 {
