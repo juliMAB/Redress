@@ -64,8 +64,10 @@ namespace Redress.Gameplay.Controllers
                         }
 
                         //aplication
-                        Camera.main.transform.position = pos;
-                        background.transform.position = pos;
+                        SetCameraAndBackgroundPosition(pos);
+                        //Camera.main.transform.position = pos;
+                        //pos.z = 0;
+                        //background.transform.position = pos;
 
                         yield return null;
                     }
@@ -104,8 +106,10 @@ namespace Redress.Gameplay.Controllers
                         pos.y += cameraShakeDifference.y;
                         pos.x += cameraShakeDifference.x;
 
-                        Camera.main.transform.position = pos;
-                        background.transform.position = pos;
+                        SetCameraAndBackgroundPosition(pos);
+                        //Camera.main.transform.position = pos;
+                        //pos.z = 0;
+                        //background.transform.position = pos;
                     }
 
                     elapsed += Time.deltaTime;
@@ -114,8 +118,11 @@ namespace Redress.Gameplay.Controllers
                 {
                     if (!movementActive)
                     {
-                        Camera.main.transform.position = initialPos;
-                        background.transform.position = initialPos;
+                        SetCameraAndBackgroundPosition(initialPos);
+                        //Camera.main.transform.position = initialPos;
+                        //Vector3 pos = initialPos;
+                        //pos.z = 0;
+                        //background.transform.position = initialPos;
                     }
                 }
 
@@ -124,8 +131,11 @@ namespace Redress.Gameplay.Controllers
 
             if (!movementActive)
             {
-                Camera.main.transform.position = initialPos;
-                background.transform.position = initialPos;
+                SetCameraAndBackgroundPosition(initialPos);
+               //Camera.main.transform.position = initialPos;
+               //Vector3 pos = initialPos;
+               //pos.z = 0;
+               //background.transform.position = initialPos;
             }
 
             cameraShakeDifference.x = 0f;
@@ -149,6 +159,13 @@ namespace Redress.Gameplay.Controllers
 
             cameraShakeInst = Shake(duration, magnitude);
             StartCoroutine(cameraShakeInst);
+        }
+
+        private void SetCameraAndBackgroundPosition(Vector3 pos)
+        {
+            Camera.main.transform.position = pos;
+            pos.z = 0;
+            background.transform.position = pos;
         }
     }
 }
