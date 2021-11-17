@@ -7,13 +7,47 @@ namespace Redress.Gameplay.UI
 {
     public class UIGameplayMananger : MonoBehaviour
     {
+        private bool panel1LighstActivated = true;
+
         [SerializeField] private GameplayManager gameplayManager = null;
         [SerializeField] private Text scoreText = null;
         [SerializeField] private Text distanceText = null;
         [SerializeField] private GameObject retryPanel = null;
         [SerializeField] private GameObject pausePanel = null;
+        [SerializeField] private GameObject optionsPanel = null;
         [SerializeField] private GameObject pauseButton = null;
         [SerializeField] private Image[] lives = null;
+
+        [Header("UI Animation Configuration")]
+        [SerializeField] private float changeEffectTime = 0.5f;
+        [SerializeField] private float time = 0f;
+        [SerializeField] private GameObject[] lightsPanel1 = null;
+        [SerializeField] private GameObject[] lightsPanel2 = null;
+
+        private void Start()
+        {
+            gameplayManager.OnChangedScore += UpdateScore;
+            gameplayManager.Player.OnLivesChanged += UpdateLives;            
+            gameplayManager.Player.OnDie+= ActivatePanelRetry;
+        }
+
+        private void Update()
+        {
+            UpdateDistance((int)gameplayManager.Distance);
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                ActivatePausePanel();
+            }
+
+            time += Time.unscaledDeltaTime;
+
+            if (time > changeEffectTime)
+            {
+                ChangeLights();
+
+                time = 0f;
+            }
+        }
 
         public void UpdateScore(int value)
         {
@@ -47,22 +81,6 @@ namespace Redress.Gameplay.UI
             }
         }
 
-        private void Start()
-        {
-            gameplayManager.OnChangedScore += UpdateScore;
-            gameplayManager.Player.OnLivesChanged += UpdateLives;            
-            gameplayManager.Player.OnDie+= ActivatePanelRetry;
-        }
-
-        private void Update()
-        {
-            UpdateDistance((int)gameplayManager.Distance);
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                ActivatePausePanel();
-            }
-        }
-
         public void RetryButton()
         {
             UpdateLives(gameplayManager.Player.InitialLives);
@@ -79,6 +97,28 @@ namespace Redress.Gameplay.UI
         {
             pausePanel.SetActive(!pausePanel.activeSelf);
             retryPanel.SetActive(pausePanel.activeSelf);
+            optionsPanel.SetActive(false);
+        }
+
+        public void ActivateOptionsPanel()
+        {
+            retryPanel.SetActive(!retryPanel.activeSelf);
+            optionsPanel.SetActive(!retryPanel.activeSelf);
+        }
+
+        private void ChangeLights()
+        {
+            panel1LighstActivated = !panel1LighstActivated;
+
+            for (int i = 0; i < lightsPanel1.Length; i++)
+            {
+                lightsPanel1[i].SetActive(panel1LighstActivated);
+            }
+
+            for (int i = 0; i < lightsPanel2.Length; i++)
+            {
+                lightsPanel2[i].SetActive(!panel1LighstActivated);
+            }
         }
     }
 }
