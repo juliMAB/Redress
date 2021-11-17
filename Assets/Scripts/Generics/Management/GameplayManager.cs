@@ -86,8 +86,9 @@ namespace Redress.Gameplay.Management
         public float speedMultiplier = 1f;
 
         public Action<int> OnChangedScore = null;
-        //public Action OnGameplayEnded = null;
+        public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
+        public Action OnResetGame = null;
 
         public int Score { get => score; set => score = value; }
         public float Distance => distance;
@@ -178,7 +179,8 @@ namespace Redress.Gameplay.Management
                 Time.timeScale = 1;
             }
 
-            GameManager.Instance.GoToMenu();
+            OnGameplayEnded?.Invoke();
+            //GameManager.Instance.GoToMenu();
         }
 
         public void StartEnding()
@@ -205,7 +207,7 @@ namespace Redress.Gameplay.Management
         public void ResetGame()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            OnResetGame?.Invoke();
         }
 
         private void SetPlayerInputLock()

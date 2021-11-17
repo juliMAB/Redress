@@ -26,7 +26,7 @@ namespace Redress.Management
         }
         #endregion
 
-        public enum Scene { Menu, Tutorial, Game, ResultScreen }
+        public enum Scene { Menu, Tutorial, Game }
 
         private PlayerData playerData = null;
 
@@ -47,12 +47,6 @@ namespace Redress.Management
                 case Scene.Game:
                     stringSceneName = "Game";
                     break;
-                case Scene.ResultScreen:
-                    { 
-                        stringSceneName = "ResultScreen";
-                        SetPlayerData();
-                    }
-                    break;
                 default:
                     stringSceneName = "MainMenu";
                     break;
@@ -62,7 +56,8 @@ namespace Redress.Management
 
             if (scene == Scene.Game)
             {
-                Invoke("SetGameplayReturnToMenu", 1f);
+                Invoke("SetGameplayReturnToMenu", 0.5f);
+                Invoke("SetResetGameplayActions", 0.5f);
             }
         }
 
@@ -76,6 +71,22 @@ namespace Redress.Management
             Application.Quit();
         }
 
+        private void SetGameplayReturnToMenu()
+        {
+            GameplayManager.Instance.OnGameplayEnded = GoToMenu;
+            GameplayManager.Instance.OnGameplayEnded += SetPlayerData;
+        }
+
+        private void SetResetGameplayActions()
+        {
+            GameplayManager.Instance.OnResetGame = () => 
+            { 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+                Invoke("SetGameplayReturnToMenu", 0.2f);
+                Invoke("SetResetGameplayActions", 0.2f);
+            };
+        }
+
         private void SetPlayerData()
         {
             GameplayManager gameplayManager = GameplayManager.Instance;
@@ -84,7 +95,14 @@ namespace Redress.Management
             float velocity = gameplayManager.PlatformsManager.Speed;
             float traveledDistance = gameplayManager.Distance;
 
-            playerData = new PlayerData(score, velocity, traveledDistance);
+            if (playerData == null)
+            { 
+                playerData = new PlayerData(score, velocity, traveledDistance); 
+            }
+            else
+            {
+                playerData.UpdateData(score, velocity, traveledDistance);
+            }
         }
     }
 }
