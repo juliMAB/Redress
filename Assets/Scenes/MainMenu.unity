@@ -2305,9 +2305,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Programmers\n\nGuillermina Manzano \nJulian Aguirre\n\nArtists\n\nJuan
-    Brond Spinelli\nNicole Casaux\n\nSound Designers\n\n\n\nTesters\n\nEstrella D'
-    Alessandro \r\nIan Leguizamon\r\nJose Cassini\r\nJulian Acotto\r\nJuan Pablo
-    Kavulakian"
+    Brond Spinelli\nNicole Casaux\n\nSound Designers\n\nNicol\xE1s Navarrete - La
+    Espiral Audio\nFederico Mariano Franco\n\nTesters\n\nEstrella D' Alessandro \r\nIan
+    Leguizamon\r\nJose Cassini\r\nJulian Acotto\r\nJuan Pablo Kavulakian"
 --- !u!222 &501467069
 CanvasRenderer:
   m_ObjectHideFlags: 0
