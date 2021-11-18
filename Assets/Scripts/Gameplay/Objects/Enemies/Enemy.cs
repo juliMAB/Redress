@@ -60,7 +60,7 @@ namespace Redress.Gameplay.Objects.Enemies
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision)
         {
             if (collision.gameObject == target)
             {
@@ -68,6 +68,14 @@ namespace Redress.Gameplay.Objects.Enemies
                 targetIDamageable.TakeDamage();
             }
         }
+       //private void OnTriggerEnter2D(Collider2D collision)
+       //{
+       //    if (collision.gameObject == target)
+       //    {
+       //        IDamageable targetIDamageable = target.GetComponent<IDamageable>();
+       //        targetIDamageable.TakeDamage();
+       //    }
+       //}
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
