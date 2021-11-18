@@ -4,6 +4,7 @@ namespace Games.Generics.Character.Movement
 {
 	public class CharacterMovementSeter : MonoBehaviour
 	{
+		private bool soundPlayed = false;
 		[HideInInspector]
 		private float normalizedHorizontalSpeed = 0;
 
@@ -78,11 +79,21 @@ namespace Games.Generics.Character.Movement
 			if (_controller.isGrounded && Input.GetAxisRaw("GoDown") != 0)
 			{
 				_velocity.y *= 3f;
-				AkSoundEngine.PostEvent(SoundsManager.Get().Bajar, gameObject);
+
+				if (!soundPlayed)
+                {
+					AkSoundEngine.PostEvent(SoundsManager.Get().Bajar, gameObject);
+					soundPlayed = true;
+				}
+				
 				if (!lockGoDown)
                 {
 					_controller.ignoreOneWayPlatformsThisFrame = true;
 				}
+			}
+			else
+			{
+				soundPlayed = false;
 			}
 
 			_controller.move(_velocity * Time.deltaTime);
