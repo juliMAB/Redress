@@ -81,12 +81,12 @@ namespace Redress.Gameplay.Platforms
         protected override void Start()
         {
             base.Start();
-            MovableObject movableObject;
+            Games.Generics.Displacement.MovableObject movableObject;
             poolManager = PoolObjectsManager.Instance;
 
             for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                movableObject = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
+                movableObject = poolManager.Platforms.objects[i].GetComponent<Games.Generics.Displacement.MovableObject>();
                 movableObject.SetSize();
             }
         }
@@ -131,7 +131,7 @@ namespace Redress.Gameplay.Platforms
 
         public void PlatformsUpdate()
         {
-            PlatformObject platform;
+            MovableObject platform;
 
             for (int i = 0; i < spawnPositions.Length; i++)
             {
@@ -144,8 +144,8 @@ namespace Redress.Gameplay.Platforms
                 {
                     GameObject newPlatform = poolManager.ActivatePlatform();
                     PlaceOnRightEnd(newPlatform, spawnPositions[i].y);
-                    newPlatform.GetComponent<PlatformObject>().row = row;
-                    newPlatform.GetComponent<PlatformObject>().spawnLine = (SpawnLine)i;
+                    newPlatform.GetComponent<MovableObject>().row = row;
+                    newPlatform.GetComponent<MovableObject>().spawnLine = (SpawnLine)i;
                 }
             }
 
@@ -158,7 +158,7 @@ namespace Redress.Gameplay.Platforms
 
                 distance = UnityEngine.Random.Range(distanceLimits[0], distanceLimits[1]) + UnityEngine.Random.Range(1, 10) / 10f;
 
-                platform = poolManager.Platforms.objects[i].GetComponent<PlatformObject>();
+                platform = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
                 platform.Move(speed);
 
                 if (IsOutOfScreen(platform))
@@ -228,7 +228,7 @@ namespace Redress.Gameplay.Platforms
             return true;
         }
 
-        private bool LastObjectIsFarEnough(SpawnLine spawnLine, out PlatformObject closerObject)
+        private bool LastObjectIsFarEnough(SpawnLine spawnLine, out MovableObject closerObject)
         {
             closerObject = null;
             bool found = false;
@@ -258,7 +258,7 @@ namespace Redress.Gameplay.Platforms
 
             for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                closerObject = poolManager.Platforms.objects[i].GetComponent<PlatformObject>();
+                closerObject = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
 
                 if (!poolManager.Platforms.objects[i].activeSelf)
                 {
@@ -300,17 +300,17 @@ namespace Redress.Gameplay.Platforms
             return IsFarEnoughForNewObjectToSpawn(closerObject);
         }
 
-        private bool IsTheClosestToRightEdge(SpawnLine spawnLine, PlatformObject platform) //Means it was the last to spawn
+        private bool IsTheClosestToRightEdge(SpawnLine spawnLine, MovableObject platform) //Means it was the last to spawn
         {
-            PlatformObject closerObject = null;
-            PlatformObject actualObject;
+            MovableObject closerObject = null;
+            MovableObject actualObject;
 
             float diference = 100;
             float newDiference;
 
             for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                actualObject = poolManager.Platforms.objects[i].GetComponent<PlatformObject>();
+                actualObject = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
 
                 if (!poolManager.Platforms.objects[i].activeSelf || actualObject.spawnLine != spawnLine)
                 {

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-using Redress.Gameplay.Platforms;
+using Games.Generics.Displacement;
 using Redress.Gameplay.User;
 
 namespace Redress.Gameplay.Objects.PickUps
 {
-    public abstract class PickUp : PlatformObject
+    public abstract class PickUp : MovableObject
     {
         private ParticleSystem lightEffect = null;
         protected GameObject visual = null;

@@ -34,7 +34,7 @@ namespace Redress.Gameplay.Platforms
 
         [Header("Platform Collision Settings")]
         [SerializeField] protected LayerMask layer = 0;
-        [SerializeField] protected PlatformObject largerObject = null;
+        [SerializeField] protected MovableObject largerObject = null;
         [SerializeField] protected float[] waitTimeTillNextObject = null;
 
         [Header("Passing Enemy")]
@@ -152,7 +152,7 @@ namespace Redress.Gameplay.Platforms
 
                     GameObject newObject = poolManager.ActivatePlatformObject();
 
-                    PlatformObject platformObjectComponent = newObject.GetComponent<PlatformObject>();
+                    MovableObject platformObjectComponent = newObject.GetComponent<MovableObject>();
                     PlaceOnRightEnd(newObject, platform.position.y + platformObjectComponent.HalfSize.y + halfPlatformHeight);
                     platformObjectComponent.row = (Row)i;
 
@@ -207,14 +207,14 @@ namespace Redress.Gameplay.Platforms
             }
         }
 
-        private bool TheresEnoughFloorDown(Vector2 position, float distance, PlatformObject enemy, out Transform platform)
+        private bool TheresEnoughFloorDown(Vector2 position, float distance, MovableObject enemy, out Transform platform)
         {
             return TheresFloorDown(position, distance, out platform) &&
                    TheresFloorDown(position + Vector2.right * enemy.HalfSize.x, distance, out platform) &&
                    TheresFloorDown(position + Vector2.left * enemy.HalfSize.x, distance, out platform);
         }
 
-        private bool TheresSpaceInBetweenPlatforms(Vector2 position, float distance, PlatformObject enemy, Vector3 downPlatformPosition)
+        private bool TheresSpaceInBetweenPlatforms(Vector2 position, float distance, MovableObject enemy, Vector3 downPlatformPosition)
         {
             RaycastHit2D hit = Physics2D.Raycast(position, Vector2.up, distance, layer);
             Transform upPlatform;
@@ -236,7 +236,7 @@ namespace Redress.Gameplay.Platforms
             return false;
         }
 
-        private bool TheresEnoughSpaceInBetweenPlatforms(Vector2 position, float distance, PlatformObject enemy, Vector3 downPlatformPosition)
+        private bool TheresEnoughSpaceInBetweenPlatforms(Vector2 position, float distance, MovableObject enemy, Vector3 downPlatformPosition)
         {
             return TheresSpaceInBetweenPlatforms(position, distance, enemy, downPlatformPosition) &&
                    TheresSpaceInBetweenPlatforms(position + Vector2.right * enemy.HalfSize.x, distance, enemy, downPlatformPosition) &&

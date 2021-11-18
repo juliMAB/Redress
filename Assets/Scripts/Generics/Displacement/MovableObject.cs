@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using Redress.Gameplay.Platforms;
 
 namespace Games.Generics.Displacement
 {
     public class MovableObject : MonoBehaviour
     {
         protected Vector3 direction = -Vector3.right;
+        public Row row = Row.Middle;
+        public SpawnLine spawnLine = SpawnLine.First;
 
         [SerializeField] protected Vector2 halfSize = Vector2.zero;
 

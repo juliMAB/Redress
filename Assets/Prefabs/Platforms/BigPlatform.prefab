@@ -2286,12 +2286,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7421723456965337693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6d3dec1650ded2479c9c9ad2d1116bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 9515ee6e82dfedb46bdb66dbcd377453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0, y: 0}
   row: 1
   spawnLine: 0
+  halfSize: {x: 0, y: 0}
 --- !u!68 &-4623689347299874884
 EdgeCollider2D:
   m_ObjectHideFlags: 0

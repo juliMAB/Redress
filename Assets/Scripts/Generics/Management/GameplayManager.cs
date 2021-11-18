@@ -12,6 +12,8 @@ using Redress.Gameplay.Objects.PickUps;
 using Redress.Gameplay.Controllers;
 using Redress.Gameplay.Data;
 using Games.Generics.PoolSystem;
+using Games.Generics.Displacement;
+
 
 namespace Redress.Gameplay.Management
 {
@@ -214,7 +216,7 @@ namespace Redress.Gameplay.Management
         {
             RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 10, platformsManager.LayerMask);
 
-            bool CheckPlatformUnder(PlatformObject platformUnder, out RaycastHit2D hit2)
+            bool CheckPlatformUnder(MovableObject platformUnder, out RaycastHit2D hit2)
             {
                 Vector2 pos = new Vector2(player.transform.position.x, platformUnder.transform.position.y - 1);
 
@@ -225,7 +227,7 @@ namespace Redress.Gameplay.Management
 
             if (hit)
             {
-                hit.collider.TryGetComponent(out PlatformObject platformUnder);
+                hit.collider.TryGetComponent(out MovableObject platformUnder);
 
                 if (platformUnder)
                 {

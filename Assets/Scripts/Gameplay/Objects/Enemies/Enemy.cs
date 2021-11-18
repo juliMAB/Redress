@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-using Redress.Gameplay.Platforms;
+using Games.Generics.Displacement;
 using Games.Generics.Interfaces;
 
 namespace Redress.Gameplay.Objects.Enemies
 {
     public enum Type { Static, Explosive, Shooter, Wall }
 
-    public class Enemy : PlatformObject, IDamageable
+    public class Enemy : MovableObject, IDamageable
     {
         private bool jumped = false;
 
