@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 112956684}
   - component: {fileID: 112956683}
   - component: {fileID: 112956687}
+  - component: {fileID: 112956688}
   m_Layer: 5
   m_Name: Canvas - MainMenu
   m_TagString: Untagged
@@ -503,7 +504,6 @@ RectTransform:
   - {fileID: 1581771797}
   - {fileID: 1997940325}
   - {fileID: 115548571}
-  - {fileID: 1959506362}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cce9391f61be0a46862330760f23e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highscore: {fileID: 400320577}
   menu: {fileID: 1581771796}
   options: {fileID: 1997940324}
   credits: {fileID: 115548570}
@@ -541,6 +542,19 @@ MonoBehaviour:
   versionText: {fileID: 246123009}
   changeEffectTime: 0.5
   time: 0
+--- !u!114 &112956688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112956682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb58042fa2b0be438e9103e2abffe93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 400320577}
 --- !u!1 &115548570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 321654
 --- !u!222 &400320578
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5107,6 +5121,7 @@ RectTransform:
   - {fileID: 427282907}
   - {fileID: 823525475}
   - {fileID: 246123008}
+  - {fileID: 1959506362}
   m_Father: {fileID: 112956686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5843,7 +5858,7 @@ RectTransform:
   m_Children:
   - {fileID: 2052873702}
   - {fileID: 400320576}
-  m_Father: {fileID: 112956686}
+  m_Father: {fileID: 1581771797}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

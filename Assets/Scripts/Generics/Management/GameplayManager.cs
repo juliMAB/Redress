@@ -10,8 +10,7 @@ using Games.Generics.Weapon;
 using Games.Generics.Manager;
 using Redress.Gameplay.Objects.PickUps;
 using Redress.Gameplay.Controllers;
-using UnityEngine.SceneManagement;
-using Redress.Management;
+using Redress.Gameplay.Data;
 using Games.Generics.PoolSystem;
 
 namespace Redress.Gameplay.Management
@@ -61,7 +60,6 @@ namespace Redress.Gameplay.Management
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
         [SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
-        //[SerializeField] private int[] scorePerLevel = null;
         [SerializeField] private int actualLvl = 0;
         [SerializeField] private float layerSpeedDiff = 0.1f;
         [SerializeField] private float halfPlayerHeight = 0.88f;
@@ -75,6 +73,7 @@ namespace Redress.Gameplay.Management
         [SerializeField] private PauseManager pauseManager = null;
         [SerializeField] private ParallaxManager background = null;
         [SerializeField] private CameraController cameraController = null;
+        [SerializeField] private HighscoreManager highscoreManager = null;
 
         [Header("Enemies")]
         [SerializeField] private GameObject target = null;
@@ -170,6 +169,7 @@ namespace Redress.Gameplay.Management
             objectsManager.Pause(pauseManager.GameIsPaused);
             platformsManager.PauseMovement(pauseManager.GameIsPaused);
             cameraController.PauseCameraMovement(pauseManager.GameIsPaused);
+            highscoreManager.SetScore(score);
         }
 
         public void EndGameplay()
@@ -180,7 +180,6 @@ namespace Redress.Gameplay.Management
             }
 
             OnGameplayEnded?.Invoke();
-            //GameManager.Instance.GoToMenu();
         }
 
         public void StartEnding()
@@ -202,6 +201,7 @@ namespace Redress.Gameplay.Management
             platformsManager.PauseMovement(true);
             cameraController.PauseCameraMovement(true);
             pauseManager.Pause();
+            highscoreManager.SetScore(score);
         }
 
         public void ResetGame()
@@ -302,30 +302,6 @@ namespace Redress.Gameplay.Management
         }
 
         #region Enemies_Related_Functions
-        //private void AssignEnemiesTypes()
-        //{
-        //    Enemy enemy;
-        //    Objects.Enemies.Type type;
-
-        //    for (int i = 0; i < objectsManager.Enemies.Length; i++)
-        //    {
-        //        enemy = objectsManager.Enemies[i];
-
-        //        type = Objects.Enemies.Type.Static;
-
-        //        if (enemy.TryGetComponent(out ExplosiveEnemy explosiveEnemy))
-        //        {
-        //            type = Objects.Enemies.Type.Explosive;
-        //        }
-        //        else if (enemy.TryGetComponent(out ShooterEnemy shooterEnemy))
-        //        {
-        //            type = Objects.Enemies.Type.Shooter;
-        //        }
-
-        //        enemy.type = type;
-        //    }
-        //}
-
         private void AssignActionsAndTarget()
         {
             Enemy enemy;

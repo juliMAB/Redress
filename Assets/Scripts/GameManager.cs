@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 using Redress.Gameplay.User;
 using Redress.Gameplay.Management;
+using Redress.Gameplay.Data;
 
 namespace Redress.Management
 {
@@ -56,8 +57,8 @@ namespace Redress.Management
 
             if (scene == Scene.Game)
             {
-                Invoke("SetGameplayReturnToMenu", 0.5f);
-                Invoke("SetResetGameplayActions", 0.5f);
+                Invoke("SetGameplayReturnToMenu", 0.2f);
+                Invoke("SetResetGameplayActions", 0.2f);
             }
         }
 
@@ -74,7 +75,6 @@ namespace Redress.Management
         private void SetGameplayReturnToMenu()
         {
             GameplayManager.Instance.OnGameplayEnded = GoToMenu;
-            GameplayManager.Instance.OnGameplayEnded += SetPlayerData;
         }
 
         private void SetResetGameplayActions()
@@ -85,24 +85,6 @@ namespace Redress.Management
                 Invoke("SetGameplayReturnToMenu", 0.2f);
                 Invoke("SetResetGameplayActions", 0.2f);
             };
-        }
-
-        private void SetPlayerData()
-        {
-            GameplayManager gameplayManager = GameplayManager.Instance;
-
-            int score = gameplayManager.Score;
-            float velocity = gameplayManager.PlatformsManager.Speed;
-            float traveledDistance = gameplayManager.Distance;
-
-            if (playerData == null)
-            { 
-                playerData = new PlayerData(score, velocity, traveledDistance); 
-            }
-            else
-            {
-                playerData.UpdateData(score, velocity, traveledDistance);
-            }
         }
     }
 }

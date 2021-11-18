@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 using Redress.Gameplay.Management;
 
@@ -11,6 +12,7 @@ namespace Redress.Gameplay.UI
 
         [SerializeField] private GameplayManager gameplayManager = null;
         [SerializeField] private Text scoreText = null;
+        [SerializeField] private Text highscoreText = null;
         [SerializeField] private Text distanceText = null;
         [SerializeField] private GameObject retryPanel = null;
         [SerializeField] private GameObject pausePanel = null;
@@ -23,6 +25,8 @@ namespace Redress.Gameplay.UI
         [SerializeField] private float time = 0f;
         [SerializeField] private GameObject[] lightsPanel1 = null;
         [SerializeField] private GameObject[] lightsPanel2 = null;
+
+        public Action OnShowHighscorePanel = null;
 
         private void Start()
         {
@@ -90,14 +94,17 @@ namespace Redress.Gameplay.UI
 
         private void ActivatePanelRetry()
         {
+            pausePanel.SetActive(true);
             retryPanel.SetActive(true);
             pauseButton.SetActive(false);
+            OnShowHighscorePanel?.Invoke();
         }
         public void ActivatePausePanel()
         {
             pausePanel.SetActive(!pausePanel.activeSelf);
             retryPanel.SetActive(pausePanel.activeSelf);
             optionsPanel.SetActive(false);
+            OnShowHighscorePanel?.Invoke();
         }
 
         public void ActivateOptionsPanel()

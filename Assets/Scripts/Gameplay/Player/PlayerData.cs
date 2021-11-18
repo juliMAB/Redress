@@ -2,6 +2,13 @@
 {
     public class PlayerData
     {
+        public PlayerData()
+        {
+            score = 0;
+            velocity = 0;
+            traveledDistance = 0;
+        }
+
         public PlayerData(int _score, float _velocity, float _traveledDitance)
         {
             score = _score;
@@ -22,6 +29,13 @@
             score = _score;
             velocity = _velocity;
             traveledDistance = _traveledDitance;
+        }
+
+        public void ResetData()
+        {
+            score = 0;
+            velocity = 0;
+            traveledDistance = 0;
         }
     }
 }
