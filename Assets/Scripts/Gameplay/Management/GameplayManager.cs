@@ -36,17 +36,18 @@ namespace Redress.Gameplay.Management
         }
         #endregion
 
-        private IEnumerator setDistanceScoreInst = null;
+        private float time = 0f;
 
         private PoolObjectsManager poolManager = null;
 
         [Header("Initial values")]
         [SerializeField] private float initialSpeed = 5;
-        [SerializeField] private float initialIayerSpeedDiff = 0.1f;
-        [SerializeField] private float initialMinSpawnTime = 1;
-        [SerializeField] private float initialMaxSpawnTime = 2;
-        [SerializeField] private float initialMinSpawnDistance = 1;
-        [SerializeField] private float initialMaxSpawnDistance = 2;
+        [SerializeField] private float[] initialSpawnTimeLimits = null;
+        [SerializeField] private float[] initialSpawnDistanceLimits = null;
+        //[SerializeField] private float initialMinSpawnTime = 1;
+        //[SerializeField] private float initialMaxSpawnTime = 2;
+        //[SerializeField] private float initialMinSpawnDistance = 1;
+        //[SerializeField] private float initialMaxSpawnDistance = 2;
 
         [Header("Global variables")]
         [SerializeField] private float speed = 5f;
@@ -102,8 +103,8 @@ namespace Redress.Gameplay.Management
             AssignActionsAndTarget();
             AssignPlayerAndActionToPickUp();
 
-            platformsManager.SetValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance, true);
-            objectsManager.SetValues(speed, initialMinSpawnDistance, initialMaxSpawnDistance, true);
+            platformsManager.SetValues(speed, initialSpawnDistanceLimits[0], initialSpawnDistanceLimits[1], true);
+            objectsManager.SetValues(speed, initialSpawnDistanceLimits[0], initialSpawnDistanceLimits[1], true);
 
             SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
             background.SetSpeed(speed, layerSpeedDiff);
@@ -114,18 +115,13 @@ namespace Redress.Gameplay.Management
         private void Update()
         {
             if (pauseManager.GameIsPaused)
-            { 
-                return; 
+            {
+                return;
             }
 
             distance += platformsManager.Speed / speedDivider;
 
-            if (setDistanceScoreInst == null)
-            {
-                setDistanceScoreInst = SetDistanceScore(timeToChargeScore);
-                StartCoroutine(setDistanceScoreInst);
-                timeToChargeScore -= 0.0001f;
-            }            
+            SetScoreUpdate();
 
             if (!IsPlayerAlive())
             {
@@ -141,6 +137,18 @@ namespace Redress.Gameplay.Management
 
                 SetPlayerInputLock();
                 SetLevelProgression();
+            }
+        }
+
+        private void SetScoreUpdate()
+        {
+            time += Time.unscaledTime;
+            if (time > timeToChargeScore)
+            {
+                score += (int)platformsManager.Speed;
+                OnChangedScore?.Invoke(score);
+                timeToChargeScore -= 0.0001f;
+                time = 0f;
             }
         }
 
@@ -264,8 +272,8 @@ namespace Redress.Gameplay.Management
 
             speed += speedProgression;
 
-            float minSpawnTime = initialMinSpawnTime;
-            float maxSpawnTime = initialMaxSpawnTime;
+            float minSpawnTime = initialSpawnTimeLimits[0];
+            float maxSpawnTime = initialSpawnTimeLimits[1];
 
             if (speedMultiplier < 1)
             {
@@ -306,14 +314,10 @@ namespace Redress.Gameplay.Management
             }
         }
 
-        private IEnumerator SetDistanceScore(float timeToChargeScore)
+        private void SetDistanceScore()
         {
-            yield return new WaitForSeconds(timeToChargeScore);
-
             score += (int)platformsManager.Speed;
             OnChangedScore?.Invoke(score);
-
-            setDistanceScoreInst = null;
         }
 
         #region Enemies_Related_Functions
