@@ -3,6 +3,12 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{025D0B17-FF14-4ACE-BEF9-7133A640BC5B}">
 			<PropertyList>
+				<Property Name="Event Action List\{0E638936-1165-4B19-BFA8-742C7B584093}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{203DA177-7C37-441A-BEDC-561812902503}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{20DFD8A5-6554-4364-990E-D6B5AEF77D5B}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{52ED3FF9-7AE7-4CE4-9039-00A2829261F8}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{A9BD559E-7923-42D4-8EA3-3591603476F6}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{D0E3792F-BA77-45A5-8507-50EDF7192612}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{FC377C47-9EEC-4D49-879B-7D1A97C409C8}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
@@ -22,7 +28,7 @@
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="fZrCwtnHEEu9WdKUq93ntw=="/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="PgEm8G1AgU+B61JW209HjA=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="jdhuvMY3XU+nHWVK/MAO1A=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
 				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="wv2aZ8fr9kS+3yp3JwPKBQECNNj/////bCKO5tIG6U6a6w25UIgYRgECNNj/////"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>

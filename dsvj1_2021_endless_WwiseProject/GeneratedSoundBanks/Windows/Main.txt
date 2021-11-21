@@ -1,31 +1,67 @@
 Event	ID	Name			Wwise Object Path	Notes
+	204892707	play_pup_escudo			\Default Work Unit\play_pup_escudo	
 	213559042	play_disparo			\Default Work Unit\play_disparo	
+	311910498	play_click			\Default Work Unit\play_click	
+	379796940	play_explotaexplota			\Default Work Unit\play_explotaexplota	
 	725996008	play_muerte			\Default Work Unit\play_muerte	
 	1038032528	play_bajar			\Default Work Unit\play_bajar	
+	1235051009	play_misilvuela			\Default Work Unit\play_misilvuela	
+	1928262231	play_soundscape			\Default Work Unit\play_soundscape	
+	2200722255	play_misilexplota			\Default Work Unit\play_misilexplota	
 	2270376495	play_laser			\Default Work Unit\play_laser	
+	2567475545	stop_soundscape			\Default Work Unit\stop_soundscape	
+	2677223148	play_cursor			\Default Work Unit\play_cursor	
 	2695653357	play_salto			\Default Work Unit\play_salto	
+	2702011595	play_pup_arma			\Default Work Unit\play_pup_arma	
+	2734677323	play_misilalerta			\Default Work Unit\play_misilalerta	
+	3280139210	play_explotaalerta			\Default Work Unit\play_explotaalerta	
 	3411043840	play_pistolamuere			\Default Work Unit\play_pistolamuere	
 	3418869249	play_colisionplataforma			\Default Work Unit\play_colisionplataforma	
 	3755088439	play_danio			\Default Work Unit\play_danio	
+	3756386660	play_pup_tiempo			\Default Work Unit\play_pup_tiempo	
 	3863985028	play_estaticomuere			\Default Work Unit\play_estaticomuere	
+	3864305416	play_pared			\Default Work Unit\play_pared	
+	3882924456	play_botonpausa			\Default Work Unit\play_botonpausa	
+	3883368638	play_pup_vida			\Default Work Unit\play_pup_vida	
+	3945990271	play_explotamuere			\Default Work Unit\play_explotamuere	
+	3994855780	play_botonplay			\Default Work Unit\play_botonplay	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1590660382	Nearly_Forever	Wwise Delay			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	172194765	Disparo 2	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Disparo 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 2		11836
-	258418497	Estatico Muere 2	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Estatico Muere 2_F2361680.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Estatico Muere\Estatico Muere 2		91636
-	272376139	FX Daño	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\FX Daño_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\FX Daño		194300
-	342803264	Golpe 2	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Golpe 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Golpe\Golpe 2		47152
-	343366741	Auch 2	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Auch 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 2		47152
-	429230411	Colisión Plataforma	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Colisión Plataforma_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Colisión Plataforma		23608
-	473018965	Golpe 1	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Golpe 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Golpe\Golpe 1		47152
-	614732573	Pistola Muere	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Pistola Muere_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Pistola Muere		17722
-	656286296	Laser	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Laser_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Laser		14778
-	711683811	Muerte	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Muerte_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Muerte		894716
-	765053741	Auch 1	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Auch 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 1		47152
-	816670824	Bajar 2	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Bajar 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Bajar\Bajar 2		20664
-	826722617	Estatico Muere 1	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Estatico Muere 1_46087008.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Estatico Muere\Estatico Muere 1		90856
-	927977159	Salto	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Salto_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Salto		23608
-	937790586	Disparo 1	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Disparo 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 1		11836
-	999976094	Disparo 3	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Disparo 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 3		11836
-	1013036639	Bajar 1	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Bajar 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Bajar\Bajar 1		20664
-	1047414001	Auch 3	D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Auch 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 3		47152
+	112085279	148099__fl1ppy__warning	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\148099__fl1ppy__warning_BF9B705D.wem		\Actor-Mixer Hierarchy\Default Work Unit\SoundScape\148099__fl1ppy__warning		1336352
+	114963087	569325__oldinternet__nintendo-8-bit-explotion-old	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\569325__oldinternet__nintendo-8-bit-explotion-old_8D3FE6AD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Misil Vuela\569325__oldinternet__nintendo-8-bit-explotion-old		630752
+	172194765	Disparo 2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Disparo 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 2		11836
+	224343383	321064__mnb__rmcrickets11	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\321064__mnb__rmcrickets11_F47375BD.wem		\Actor-Mixer Hierarchy\Default Work Unit\SoundScape\321064__mnb__rmcrickets11		14820340
+	258418497	Estatico Muere 2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Estatico Muere 2_F2361680.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Estatico Muere\Estatico Muere 2		91636
+	272376139	FX Daño	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\FX Daño_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\FX Daño		194300
+	284311129	151760__ok1has__special-morse	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\151760__ok1has__special-morse_AF56E595.wem		\Actor-Mixer Hierarchy\Default Work Unit\SoundScape\151760__ok1has__special-morse		17059968
+	301148865	207522__timbre__more-aliensolo	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\207522__timbre__more-aliensolo_385A0248.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Explota Alerta\207522__timbre__more-aliensolo		31702
+	342803264	Golpe 2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Golpe 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Golpe\Golpe 2		47152
+	343366741	Auch 2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Auch 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 2		47152
+	384214155	447219__gamba-studio__explota-lagartija-2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\447219__gamba-studio__explota-lagartija-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Explota Muere\447219__gamba-studio__explota-lagartija-2		55640
+	394655815	467882__samsterbirdies__beep-warning	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\467882__samsterbirdies__beep-warning_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Misil Alerta\467882__samsterbirdies__beep-warning		152768
+	429230411	Colisión Plataforma	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Colisión Plataforma_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Colisión Plataforma		23608
+	431273248	Pared	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Pared_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Pared		29494
+	473018965	Golpe 1	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Golpe 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Golpe\Golpe 1		47152
+	578601639	417045__inspectorj__abstract-spaceship-flyby-ascending-a	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\417045__inspectorj__abstract-spaceship-flyby-ascending-a_18B6C883.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Misil Vuela\417045__inspectorj__abstract-spaceship-flyby-ascending-a		886108
+	614732573	Pistola Muere	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Pistola Muere_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Pistola Muere		17722
+	656286296	Laser	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Laser_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Laser		14778
+	665640150	571187__user391915396__menuselect2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\571187__user391915396__menuselect2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx Generales\Cursor\571187__user391915396__menuselect2		24064
+	711683811	Muerte	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Muerte_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Muerte		894716
+	724974073	470201__erokia__menu-ui-click-222	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\470201__erokia__menu-ui-click-222_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx Generales\Boton Play\470201__erokia__menu-ui-click-222		59256
+	765053741	Auch 1	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Auch 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 1		47152
+	772827300	408896__oldazatloukal__engine-sound	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\408896__oldazatloukal__engine-sound_BD06CC21.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Misil Vuela\408896__oldazatloukal__engine-sound		889132
+	816670824	Bajar 2	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Bajar 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Bajar\Bajar 2		20664
+	826722617	Estatico Muere 1	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Estatico Muere 1_46087008.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Estatico Muere\Estatico Muere 1		90856
+	871391672	253685__julius-galla__atmosphere-bombshelter-loop	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\253685__julius-galla__atmosphere-bombshelter-loop_ED0F7D12.wem		\Actor-Mixer Hierarchy\Default Work Unit\SoundScape\253685__julius-galla__atmosphere-bombshelter-loop		8999168
+	911326583	446762__ianlyanx__explosion	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\446762__ianlyanx__explosion_4B804B12.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Explota Explota\446762__ianlyanx__explosion		70660
+	927977159	Salto	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Salto_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Salto		23608
+	933165198	464908__plasterbrain__8bit-powerup	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\464908__plasterbrain__8bit-powerup_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PowerUps\Vida\464908__plasterbrain__8bit-powerup		153364
+	937790586	Disparo 1	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Disparo 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 1		11836
+	946877401	Misil Explota	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\587196__derplayer__explosion-06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Enemigos\Misil Explota		86080
+	999976094	Disparo 3	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Disparo 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Disparo\Disparo 3		11836
+	1013036639	Bajar 1	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Bajar 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Bajar\Bajar 1		20664
+	1047414001	Auch 3	T:\facu\Desarrollo 3\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\SFX\Auch 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonidos Player\Danio\Auch\Auch 3		47152
 

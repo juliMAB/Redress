@@ -39,7 +39,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -336,7 +336,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -695,7 +695,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -720,7 +720,7 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+											<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -1019,7 +1019,7 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+											<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -1073,7 +1073,7 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+											<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -1232,7 +1232,7 @@
 							<ObjectRef Name="Nearly_Forever" ID="{38550FDA-9236-4FC5-8AE0-68DB08164B25}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+							<ObjectRef Name="Music Audio Bus" ID="{4F3E682D-CEDB-4365-A72E-E10419826178}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
