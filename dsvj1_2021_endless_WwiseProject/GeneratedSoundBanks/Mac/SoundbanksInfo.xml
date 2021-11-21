@@ -20,7 +20,7 @@
 				<GameParameter Id="2833021068" Name="VolumenMusic" ObjectPath="\Game Parameters\Default Work Unit\VolumenMusic"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2247515483">
+		<SoundBank Id="3161908922" Language="SFX" Hash="4066799201">
 			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
@@ -157,11 +157,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="216639764" Name="play_game" ObjectPath="\Events\Default Work Unit\play_game" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="526652851" Language="SFX">
+							<ShortName>Game.wav</ShortName>
+							<Path>SFX\Game_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2270376495" Name="play_laser" ObjectPath="\Events\Default Work Unit\play_laser" DurationType="OneShot" DurationMin="0.152803" DurationMax="0.220127">
 					<IncludedMemoryFiles>
 						<File Id="656286296" Language="SFX">
 							<ShortName>Laser.wav</ShortName>
 							<Path>SFX\Laser_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1278378707" Name="play_menu" ObjectPath="\Events\Default Work Unit\play_menu" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="129029790" Language="SFX">
+							<ShortName>Menu.wav</ShortName>
+							<Path>SFX\Menu_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -210,6 +226,14 @@
 						<File Id="431273248" Language="SFX">
 							<ShortName>Pared.wav</ShortName>
 							<Path>SFX\Pared_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4233560256" Name="play_pause" ObjectPath="\Events\Default Work Unit\play_pause" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="356984523" Language="SFX">
+							<ShortName>Pause.wav</ShortName>
+							<Path>SFX\Pause_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -281,6 +305,9 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="210615102" Name="stop_game" ObjectPath="\Events\Default Work Unit\stop_game" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2914981333" Name="stop_menu" ObjectPath="\Events\Default Work Unit\stop_menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3298098222" Name="stop_pause" ObjectPath="\Events\Default Work Unit\stop_pause" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2567475545" Name="stop_soundscape" ObjectPath="\Events\Default Work Unit\stop_soundscape" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 		</SoundBank>

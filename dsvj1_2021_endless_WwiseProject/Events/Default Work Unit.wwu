@@ -292,6 +292,81 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="play_menu" ID="{34A4C1CF-A3B8-41E7-9ABB-D9A0F00F5F95}">
+					<ChildrenList>
+						<Action Name="" ID="{2A59A999-C334-4886-86B8-D956832468AE}" ShortID="133424631">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{E370BB8E-87C8-4828-B4C4-8F82B8FEABB2}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_menu" ID="{FA36F2CA-0C58-41AC-BE55-5D8E488EFC1E}">
+					<ChildrenList>
+						<Action Name="" ID="{4373C845-8899-400B-B637-C3F60D5A69F5}" ShortID="879125007">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{E370BB8E-87C8-4828-B4C4-8F82B8FEABB2}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_pause" ID="{8A97CCF9-84C4-4960-9031-C890EB7D7DC8}">
+					<ChildrenList>
+						<Action Name="" ID="{1A9E41EB-53AA-4265-ADD9-EA89421CCE3A}" ShortID="1000802215">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pause" ID="{7AE0EF5B-7361-4707-94BF-2D2BF5A03568}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_game" ID="{5BAB59D3-2EFB-4BBC-985D-4C77F87854A4}">
+					<ChildrenList>
+						<Action Name="" ID="{C693365D-2B03-4D81-8474-B898175F4045}" ShortID="377069834">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Game" ID="{68727C50-EF29-4950-AEA8-F54F656E9EB3}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_game" ID="{AF7B3981-C717-428D-917C-AE816C0E5E53}">
+					<ChildrenList>
+						<Action Name="" ID="{522402CB-1C9A-4CD3-A988-CD9DB78A8BA6}" ShortID="232768172">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Game" ID="{68727C50-EF29-4950-AEA8-F54F656E9EB3}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_pause" ID="{7FEF831B-7F48-4726-B860-51F2753AFC05}">
+					<ChildrenList>
+						<Action Name="" ID="{B246E42C-C8F7-429D-8663-0897AF831ED5}" ShortID="722335075">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pause" ID="{7AE0EF5B-7361-4707-94BF-2D2BF5A03568}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

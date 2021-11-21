@@ -7,7 +7,10 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="play_estaticomuere" ID="{A6C01D30-2CAD-4074-ACA7-FF2455D96D4F}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_explotamuere" ID="{E4CB9FBB-C7D2-4105-8C80-03C4C82606BC}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="stop_menu" ID="{FA36F2CA-0C58-41AC-BE55-5D8E488EFC1E}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_menu" ID="{34A4C1CF-A3B8-41E7-9ABB-D9A0F00F5F95}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_pared" ID="{9DEA813F-4F5F-420F-BB2F-9E4ABB31640B}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="stop_game" ID="{AF7B3981-C717-428D-917C-AE816C0E5E53}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_misilvuela" ID="{15779DEC-6C38-42BD-8616-3F7AA85A6CC0}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_soundscape" ID="{A9BD559E-7923-42D4-8EA3-3591603476F6}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="stop_soundscape" ID="{20DFD8A5-6554-4364-990E-D6B5AEF77D5B}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
@@ -16,14 +19,17 @@
 						<ObjectRef Name="play_cursor" ID="{F1F2B289-7803-443E-8C60-8B72F6331A0E}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_muerte" ID="{CA136F2B-2305-44D1-A3CA-AA4E9B27CA2C}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_bajar" ID="{D0E3792F-BA77-45A5-8507-50EDF7192612}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="stop_pause" ID="{7FEF831B-7F48-4726-B860-51F2753AFC05}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_pup_tiempo" ID="{03CC99FB-D230-477B-9D5C-F49CA625456E}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_click" ID="{0F6B64E0-A614-47CC-BC08-7AE2026DBD8D}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_misilalerta" ID="{709C56C1-8FD6-47DB-B4E2-1215D29FB8BA}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_danio" ID="{78FE69A5-7DA8-48A5-9983-F02B7D7EC1D7}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_pause" ID="{8A97CCF9-84C4-4960-9031-C890EB7D7DC8}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_pup_arma" ID="{04815D5D-DE26-49D7-B093-968F28559D4E}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_disparo" ID="{2A7BD1E5-8474-4AB6-AF93-A00779E75FA0}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_botonpausa" ID="{0E638936-1165-4B19-BFA8-742C7B584093}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_misilexplota" ID="{4EE223B6-E3AA-4B76-A784-99871AC54BF2}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_game" ID="{5BAB59D3-2EFB-4BBC-985D-4C77F87854A4}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_pistolamuere" ID="{6D2C9191-9BB2-4C2A-BA84-F1C0D37EE916}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_colisionplataforma" ID="{FD377E87-6064-4C8A-99AB-D64DC9EDDDF6}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="play_salto" ID="{52ED3FF9-7AE7-4CE4-9039-00A2829261F8}" WorkUnitID="{F66B40DF-E08D-47E0-8992-DA9A7FE5F08A}" Origin="Manual" Filter="7"/>
