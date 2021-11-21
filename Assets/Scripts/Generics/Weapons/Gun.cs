@@ -2,6 +2,7 @@
 using UnityEngine;
 
 using Games.Generics.PoolSystem;
+using Redress.Gameplay.Management;
 
 namespace Games.Generics.Weapon
 {
@@ -17,6 +18,7 @@ namespace Games.Generics.Weapon
         [SerializeField] private bool canShoot = true;
 
         public float bulletSpeed = 10f;
+        public float coolDownMultiplier = 1;
 
         private void Start()
         {
@@ -43,7 +45,14 @@ namespace Games.Generics.Weapon
         {
             canShoot = false;
 
-            yield return new WaitForSeconds(coolDownTime);
+            if (tag == "PlayerWeapon")
+            {
+                yield return new WaitForSeconds(coolDownTime);
+            }
+            else
+            {
+                yield return new WaitForSeconds(coolDownTime * coolDownMultiplier);
+            }
 
             canShoot = true;
 

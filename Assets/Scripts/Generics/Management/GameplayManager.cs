@@ -56,13 +56,11 @@ namespace Redress.Gameplay.Management
         [SerializeField] private int scorePerKill = 0;
 
         [Header("Gameplay configuration")]
-        [SerializeField] private int distanceToNextState = 1000;
         [SerializeField] private Vector2 playerPosToLose = Vector2.zero;
         [SerializeField] private float speedProgressionMultiplier = 0.02f;
         [SerializeField] private float distanceProgressionMultiplier = 0.1f;
         [SerializeField] private float bulletSpeedMultiplier = 2;
         [SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
-        [SerializeField] private int actualLvl = 0;
         [SerializeField] private float layerSpeedDiff = 0.1f;
         [SerializeField] private float halfPlayerHeight = 0.88f;
         [SerializeField] private Vector2 halfSizeScreen = Vector2.zero;
@@ -280,6 +278,8 @@ namespace Redress.Gameplay.Management
 
             SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
             background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
+
+            AssingCooldownToGuns();
         }
 
         private void SetBulletsSpeed(float speed, bool playerBulletsToo)
@@ -289,6 +289,19 @@ namespace Redress.Gameplay.Management
                 if (playerBulletsToo || allGuns[i] != player.Gun)
                 {
                     allGuns[i].bulletSpeed = speed;
+                }
+            }
+
+            for (int i = 0; i < poolManager.Bullets.objects.Length; i++)
+            {
+                poolManager.Bullets.objects[i].GetComponent<Bullet>().speed = speed;
+            }
+
+            if (playerBulletsToo)
+            {
+                for (int i = 0; i < poolManager.Arrows.objects.Length; i++)
+                {
+                    poolManager.Arrows.objects[i].GetComponent<Bullet>().speed = speed;
                 }
             }
         }
@@ -333,6 +346,16 @@ namespace Redress.Gameplay.Management
 
                 enemy.OnDie += poolManager.DeactivateObject;
                 enemy.SetTarget(target);
+            }
+        }
+
+        private void AssingCooldownToGuns()
+        {
+            Gun[] guns = FindObjectsOfType<Gun>();
+
+            for (int i = 0; i < guns.Length; i++)
+            {
+                guns[i].coolDownMultiplier = 1 / speedMultiplier;
             }
         }
         #endregion

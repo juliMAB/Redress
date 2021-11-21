@@ -29,7 +29,7 @@ public class DebugManager : MonoBehaviour
     {
         if (!slowTimeOn)
         {
-            GameplayManager.Instance.speedMultiplier = 0.05f;
+            GameplayManager.Instance.speedMultiplier = 0.3f;
         }
         else
         {
