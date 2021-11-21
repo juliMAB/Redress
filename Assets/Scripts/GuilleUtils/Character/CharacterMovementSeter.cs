@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Games.Generics.Character.Movement
+namespace GuilleUtils.Character.Movement
 {
 	public class CharacterMovementSeter : MonoBehaviour
 	{

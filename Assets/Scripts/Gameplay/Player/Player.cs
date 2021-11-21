@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine;
 
-using Games.Generics.Interfaces;
-using Games.Generics.Weapon;
-using Games.Generics.Character.Movement;
+using GuilleUtils.Interfaces;
+using GuilleUtils.Weapon;
+using GuilleUtils.Character.Movement;
 namespace Redress.Gameplay.User
 {
     public class Player : MonoBehaviour, IDamageable

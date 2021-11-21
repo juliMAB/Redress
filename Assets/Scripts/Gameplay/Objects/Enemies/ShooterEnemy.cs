@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-using Games.Generics.Weapon;
+using GuilleUtils.Weapon;
 
 namespace Redress.Gameplay.Objects.Enemies
 {

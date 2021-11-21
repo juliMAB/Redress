@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Games.Generics.Displacement
+namespace GuilleUtils.Displacement
 {
     public class MovableObjectsManager : MonoBehaviour
     {

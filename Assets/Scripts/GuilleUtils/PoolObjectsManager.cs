@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Games.Generics.PoolSystem
+namespace GuilleUtils.PoolSystem
 {
     [System.Serializable]
     public class PoolObjects

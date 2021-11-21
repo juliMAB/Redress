@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Games.Generics.Manager
+namespace GuilleUtils.Manager
 {
     public class PauseManager : MonoBehaviour
     {

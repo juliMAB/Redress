@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-using Games.Generics.Displacement;
-using Games.Generics.Interfaces;
+using GuilleUtils.Displacement;
+using GuilleUtils.Interfaces;
 
 namespace Redress.Gameplay.Objects.Enemies
 {

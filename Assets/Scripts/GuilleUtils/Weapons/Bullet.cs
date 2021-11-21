@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-using Games.Generics.Interfaces;
+using GuilleUtils.Interfaces;
 
-namespace Games.Generics.Weapon
+namespace GuilleUtils.Weapon
 {
     public class Bullet : MonoBehaviour
     {

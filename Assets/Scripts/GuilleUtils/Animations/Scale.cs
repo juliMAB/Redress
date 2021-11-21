@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Games.Generics.Animations
+namespace GuilleUtils.Animations
 {
     public class Scale : MonoBehaviour
     {

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-using Games.Generics.PoolSystem;
+using GuilleUtils.PoolSystem;
 using Redress.Gameplay.Management;
 
-namespace Games.Generics.Weapon
+namespace GuilleUtils.Weapon
 {
     public class Gun : MonoBehaviour
     {

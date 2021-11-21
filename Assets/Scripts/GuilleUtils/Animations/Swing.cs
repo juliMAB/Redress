@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Games.Generics.Animations
+namespace GuilleUtils.Animations
 {
     public class Swing : MonoBehaviour
     {

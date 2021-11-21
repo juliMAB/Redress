@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-using Games.Generics.Displacement;
+using GuilleUtils.Displacement;
 using Redress.Gameplay.User;
 
 namespace Redress.Gameplay.Objects.PickUps

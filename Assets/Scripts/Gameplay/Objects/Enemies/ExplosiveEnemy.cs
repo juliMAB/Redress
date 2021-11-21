@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-using Games.Generics.Interfaces;
+using GuilleUtils.Interfaces;
 
 namespace Redress.Gameplay.Objects.Enemies
 {

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 using Redress.Gameplay.Platforms;
-using Games.Generics.Interfaces;
+using GuilleUtils.Interfaces;
 
 namespace Redress.Gameplay.Objects.Enemies
 {

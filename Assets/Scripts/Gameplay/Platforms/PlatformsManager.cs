@@ -2,9 +2,9 @@
 using System;
 using System.Collections;
 
-using Games.Generics.Displacement;
+using GuilleUtils.Displacement;
 using Redress.Gameplay.Management;
-using Games.Generics.PoolSystem;
+using GuilleUtils.PoolSystem;
 
 namespace Redress.Gameplay.Platforms
 {
@@ -81,39 +81,15 @@ namespace Redress.Gameplay.Platforms
         protected override void Start()
         {
             base.Start();
-            Games.Generics.Displacement.MovableObject movableObject;
+            MovableObject movableObject;
             poolManager = PoolObjectsManager.Instance;
 
             for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
-                movableObject = poolManager.Platforms.objects[i].GetComponent<Games.Generics.Displacement.MovableObject>();
+                movableObject = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
                 movableObject.SetSize();
             }
         }
-
-        //protected override void Start()
-        //{
-        //    base.Start();
-        //
-        //   // FindInitialActivePlatforms();
-        //}
-
-        //public void Reset()
-        //{
-        //    speed = initialSpeed;
-        //    distanceLimits = initialDistanceLimits;
-        //
-        //    SetInitialPlatforms();
-        //
-        //    for (int i = 0; i < amountPlatformRows; i++)
-        //    {
-        //        ySpawnPositions[i] = -i * verticalDistanceBetweenPlatforms + startYPos;
-        //    }
-        //
-        //    unnevenesDuration = 0f;
-        //    unnevenessActivated = false;
-        //    pausePlatformMovement = false;
-        //}
 
         public void SetValues(float speed, float minDistance, float maxDistance, bool setAsInitialValues)
         {

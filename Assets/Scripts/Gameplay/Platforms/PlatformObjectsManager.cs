@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-using Games.Generics.Displacement;
+using GuilleUtils.Displacement;
 using Redress.Gameplay.Objects.Enemies;
 using Redress.Gameplay.Objects.PickUps;
-using Games.Generics.PoolSystem;
+using GuilleUtils.PoolSystem;
 
 namespace Redress.Gameplay.Platforms
 {

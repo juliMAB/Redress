@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Games.Generics.TriggerObject
+namespace GuilleUtils.TriggerObject
 {
     public class TriggerObject2D : MonoBehaviour
     {

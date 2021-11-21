@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Games.Generics.Interfaces
+namespace GuilleUtils.Interfaces
 {
     public interface IDamageable
     {

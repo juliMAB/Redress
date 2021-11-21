@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 
 using Redress.Gameplay.Objects.Enemies;
 using Redress.Gameplay.User;
 using Redress.Gameplay.Platforms;
-using Games.Generics.Character.Movement;
-using Games.Generics.Weapon;
-using Games.Generics.Manager;
+using GuilleUtils.Character.Movement;
+using GuilleUtils.Weapon;
+using GuilleUtils.Manager;
 using Redress.Gameplay.Objects.PickUps;
 using Redress.Gameplay.Controllers;
 using Redress.Gameplay.Data;
-using Games.Generics.PoolSystem;
-using Games.Generics.Displacement;
+using GuilleUtils.PoolSystem;
+using GuilleUtils.Displacement;
 
 
 namespace Redress.Gameplay.Management
@@ -44,10 +43,6 @@ namespace Redress.Gameplay.Management
         [SerializeField] private float initialSpeed = 5;
         [SerializeField] private float[] initialSpawnTimeLimits = null;
         [SerializeField] private float[] initialSpawnDistanceLimits = null;
-        //[SerializeField] private float initialMinSpawnTime = 1;
-        //[SerializeField] private float initialMaxSpawnTime = 2;
-        //[SerializeField] private float initialMinSpawnDistance = 1;
-        //[SerializeField] private float initialMaxSpawnDistance = 2;
 
         [Header("Global variables")]
         [SerializeField] private float speed = 5f;
@@ -75,13 +70,6 @@ namespace Redress.Gameplay.Management
         [SerializeField] private ParallaxManager background = null;
         [SerializeField] private CameraController cameraController = null;
         [SerializeField] private HighscoreManager highscoreManager = null;
-
-        [Header("Enemies")]
-        [SerializeField] private GameObject target = null;
-
-        [Header("Objects")]
-        [SerializeField] private Gun[] allGuns = null;
-        [SerializeField] private Bullet[] allBullets = null;
 
         public float speedMultiplier = 1f;
 
@@ -292,6 +280,7 @@ namespace Redress.Gameplay.Management
 
         private void SetBulletsSpeed(float speed, bool playerBulletsToo)
         {
+            Gun[] allGuns = FindObjectsOfType<Gun>();
             for (int i = 0; i < allGuns.Length; i++)
             {
                 if (playerBulletsToo || allGuns[i] != player.Gun)
@@ -349,7 +338,7 @@ namespace Redress.Gameplay.Management
                 }
 
                 enemy.OnDie += poolManager.DeactivateObject;
-                enemy.SetTarget(target);
+                enemy.SetTarget(player.gameObject);
             }
         }
 

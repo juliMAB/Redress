@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Redress.Gameplay.Platforms;
 
-namespace Games.Generics.Displacement
+namespace GuilleUtils.Displacement
 {
     public class MovableObject : MonoBehaviour
     {

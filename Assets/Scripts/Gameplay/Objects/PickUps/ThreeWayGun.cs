@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using Games.Generics.Weapon;
-using Games.Generics.Animations;
+using GuilleUtils.Weapon;
+using GuilleUtils.Animations;
 
 namespace Redress.Gameplay.Objects.PickUps
 {
