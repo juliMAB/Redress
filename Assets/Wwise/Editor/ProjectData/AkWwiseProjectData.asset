@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: df406bf68de0e0478992da9a7fe5f08a
     GuidInternal: 
-    m_lastTime: -8585656533056746347
+    m_lastTime: -8585640956683612571
     List:
     - name: play_bajar
       guid: 2f79e3d077baa545850750edf7192612
@@ -113,6 +113,57 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.244606
       minDuration: 0.240404
+    - name: play_botonpausa
+      guid: 3689630e6511194bbfa8742c7b584093
+      id: 3882924456
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_botonpausa
+        ObjectType: 3
+        guid: 3689630e6511194bbfa8742c7b584093
+      Path: Events\Default Work Unit\play_botonpausa
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_botonplay
+      guid: f055e1d08f7e4f4d8bd8ee59b5cc8539
+      id: 3994855780
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_botonplay
+        ObjectType: 3
+        guid: f055e1d08f7e4f4d8bd8ee59b5cc8539
+      Path: Events\Default Work Unit\play_botonplay
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_click
+      guid: e0646b0f14a6cc47bc087ae2026dbd8d
+      id: 311910498
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_click
+        ObjectType: 3
+        guid: e0646b0f14a6cc47bc087ae2026dbd8d
+      Path: Events\Default Work Unit\play_click
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_colisionplataforma
       guid: 877e37fd64608a4c99abd64dc9edddf6
       id: 3418869249
@@ -130,6 +181,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.286098
       minDuration: 0.249063
+    - name: play_cursor
+      guid: 89b2f2f103783e448c608b72f6331a0e
+      id: 2677223148
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_cursor
+        ObjectType: 3
+        guid: 89b2f2f103783e448c608b72f6331a0e
+      Path: Events\Default Work Unit\play_cursor
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_danio
       guid: a569fe78a87da5489983f02b7d7ec1d7
       id: 3755088439
@@ -181,6 +249,57 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.038231
       minDuration: 1.029388
+    - name: play_explotaalerta
+      guid: 11d3a885eaa8614db3c739ed46c377c2
+      id: 3280139210
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_explotaalerta
+        ObjectType: 3
+        guid: 11d3a885eaa8614db3c739ed46c377c2
+      Path: Events\Default Work Unit\play_explotaalerta
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_explotaexplota
+      guid: 8115c2798ad1604db60c8f35205c024d
+      id: 379796940
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_explotaexplota
+        ObjectType: 3
+        guid: 8115c2798ad1604db60c8f35205c024d
+      Path: Events\Default Work Unit\play_explotaexplota
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_explotamuere
+      guid: bb9fcbe4d2c705418c8003c4c82606bc
+      id: 3945990271
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_explotamuere
+        ObjectType: 3
+        guid: bb9fcbe4d2c705418c8003c4c82606bc
+      Path: Events\Default Work Unit\play_explotamuere
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_laser
       guid: 77a13d20377c1a44bedc561812902503
       id: 2270376495
@@ -196,8 +315,59 @@ MonoBehaviour:
         guid: 77a13d20377c1a44bedc561812902503
       Path: Events\Default Work Unit\play_laser
       maxAttenuation: 0
-      maxDuration: 0.187472
+      maxDuration: 0.220127
       minDuration: 0.152803
+    - name: play_misilalerta
+      guid: c1569c70d68fdb47b4e21215d29fb8ba
+      id: 2734677323
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_misilalerta
+        ObjectType: 3
+        guid: c1569c70d68fdb47b4e21215d29fb8ba
+      Path: Events\Default Work Unit\play_misilalerta
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_misilexplota
+      guid: b623e24eaae3764ba78499871ac54bf2
+      id: 2200722255
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_misilexplota
+        ObjectType: 3
+        guid: b623e24eaae3764ba78499871ac54bf2
+      Path: Events\Default Work Unit\play_misilexplota
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_misilvuela
+      guid: ec9d7715386cbd4286163f7aa85a6cc0
+      id: 1235051009
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_misilvuela
+        ObjectType: 3
+        guid: ec9d7715386cbd4286163f7aa85a6cc0
+      Path: Events\Default Work Unit\play_misilvuela
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_muerte
       guid: 2b6f13ca0523d144a3caaa4e9b27ca2c
       id: 725996008
@@ -249,6 +419,74 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.212231
       minDuration: 0.194392
+    - name: play_pup_arma
+      guid: 5d5d810426ded749b093968f28559d4e
+      id: 2702011595
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pup_arma
+        ObjectType: 3
+        guid: 5d5d810426ded749b093968f28559d4e
+      Path: Events\Default Work Unit\play_pup_arma
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_pup_escudo
+      guid: 2fb4d23cc067f14e952d7b03e4c3e77f
+      id: 204892707
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pup_escudo
+        ObjectType: 3
+        guid: 2fb4d23cc067f14e952d7b03e4c3e77f
+      Path: Events\Default Work Unit\play_pup_escudo
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_pup_tiempo
+      guid: fb99cc0330d27b479d5cf49ca625456e
+      id: 3756386660
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pup_tiempo
+        ObjectType: 3
+        guid: fb99cc0330d27b479d5cf49ca625456e
+      Path: Events\Default Work Unit\play_pup_tiempo
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: play_pup_vida
+      guid: 7fc98a11ed0e874384b893551626e5c0
+      id: 3883368638
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pup_vida
+        ObjectType: 3
+        guid: 7fc98a11ed0e874384b893551626e5c0
+      Path: Events\Default Work Unit\play_pup_vida
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_salto
       guid: f93fed52e77ae44c903900a2829261f8
       id: 2695653357
@@ -266,6 +504,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.278757
       minDuration: 0.251957
+    - name: play_soundscape
+      guid: 9e55bda92379d4428ea33591603476f6
+      id: 1928262231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_soundscape
+        ObjectType: 3
+        guid: 9e55bda92379d4428ea33591603476f6
+      Path: Events\Default Work Unit\play_soundscape
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: stop_soundscape
+      guid: a5d8df2054656443990ed6b5aef77d5b
+      id: 2567475545
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: stop_soundscape
+        ObjectType: 3
+        guid: a5d8df2054656443990ed6b5aef77d5b
+      Path: Events\Default Work Unit\stop_soundscape
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

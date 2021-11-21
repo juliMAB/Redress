@@ -176,7 +176,7 @@ namespace Redress.Gameplay.Management
 
         public void EndGameplay()
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale != 1)
             {
                 Time.timeScale = 1;
             }

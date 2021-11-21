@@ -18,6 +18,7 @@ namespace Redress.Gameplay.UI
         [SerializeField] private GameObject pausePanel = null;
         [SerializeField] private GameObject optionsPanel = null;
         [SerializeField] private GameObject pauseButton = null;
+        [SerializeField] private GameObject gameOverPanel = null;
         [SerializeField] private Image[] lives = null;
 
         [Header("UI Animation Configuration")]
@@ -32,7 +33,7 @@ namespace Redress.Gameplay.UI
         {
             gameplayManager.OnChangedScore += UpdateScore;
             gameplayManager.Player.OnLivesChanged += UpdateLives;            
-            gameplayManager.Player.OnDie+= ActivatePanelRetry;
+            gameplayManager.Player.OnDie+= ActivateGameOverPanel;
         }
 
         private void Update()
@@ -105,6 +106,12 @@ namespace Redress.Gameplay.UI
             retryPanel.SetActive(pausePanel.activeSelf);
             optionsPanel.SetActive(false);
             OnShowHighscorePanel?.Invoke();
+        }
+
+        public void ActivateGameOverPanel()
+        {
+            gameOverPanel.SetActive(true);
+            pauseButton.SetActive(false);
         }
 
         public void ActivateOptionsPanel()
