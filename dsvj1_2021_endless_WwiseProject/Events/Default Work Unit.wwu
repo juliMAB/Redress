@@ -113,6 +113,185 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="play_pup_arma" ID="{04815D5D-DE26-49D7-B093-968F28559D4E}">
+					<ChildrenList>
+						<Action Name="" ID="{FAA485B8-CC15-4BB6-AEEF-6812E87A6A80}" ShortID="100505936">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="464908__plasterbrain__8bit-powerup" ID="{A65103A3-434F-44C1-96AB-5275A58215AC}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_pup_escudo" ID="{3CD2B42F-67C0-4EF1-952D-7B03E4C3E77F}">
+					<ChildrenList>
+						<Action Name="" ID="{66D2E7DA-BAF9-44C0-8BCB-F65BC6C6021A}" ShortID="263018586">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="464908__plasterbrain__8bit-powerup" ID="{E01DC3E0-98D1-4DFA-9CA9-D3A1BB75B611}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_pup_tiempo" ID="{03CC99FB-D230-477B-9D5C-F49CA625456E}">
+					<ChildrenList>
+						<Action Name="" ID="{B5F43968-DD5A-410E-81A4-38F00C2A36AE}" ShortID="40487794">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="464908__plasterbrain__8bit-powerup" ID="{5D8BB09F-1420-4CD4-B7E1-32F459F4A749}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_pup_vida" ID="{118AC97F-0EED-4387-84B8-93551626E5C0}">
+					<ChildrenList>
+						<Action Name="" ID="{FAFAF3A9-9118-4D11-B76D-8C9A38BA2C9F}" ShortID="935558542">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="464908__plasterbrain__8bit-powerup" ID="{17830148-5E1A-4A9D-BB8E-437C23FA03BA}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_explotaalerta" ID="{85A8D311-A8EA-4D61-B3C7-39ED46C377C2}">
+					<ChildrenList>
+						<Action Name="" ID="{A0FE9EC1-5ACD-4B10-A23F-8B360E06E851}" ShortID="749572415">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="207522__timbre__more-aliensolo" ID="{67A45489-2694-4265-9C0C-C58C67430DD6}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_explotaexplota" ID="{79C21581-D18A-4D60-B60C-8F35205C024D}">
+					<ChildrenList>
+						<Action Name="" ID="{6E6ED571-5CBC-4B52-A1BE-581FBA38E66A}" ShortID="602658757">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="446762__ianlyanx__explosion" ID="{18CDD0DC-9490-463D-A255-6B00CCB1A88A}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_explotamuere" ID="{E4CB9FBB-C7D2-4105-8C80-03C4C82606BC}">
+					<ChildrenList>
+						<Action Name="" ID="{1C4731C0-B577-4B10-BE0C-0F43B3E679A6}" ShortID="928396077">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="447219__gamba-studio__explota-lagartija-2" ID="{B623EC13-A93A-4FE6-AD9B-F2E3682FAA64}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_misilalerta" ID="{709C56C1-8FD6-47DB-B4E2-1215D29FB8BA}">
+					<ChildrenList>
+						<Action Name="" ID="{4827B1B1-521F-4F56-8B1A-9256BF928B63}" ShortID="54644660">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="467882__samsterbirdies__beep-warning" ID="{821D9E91-4CEC-462D-91A2-73276CB49036}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_misilvuela" ID="{15779DEC-6C38-42BD-8616-3F7AA85A6CC0}">
+					<ChildrenList>
+						<Action Name="" ID="{10D0B063-D4CA-4808-A6B7-08F042C1BFED}" ShortID="696720552">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Misil Vuela" ID="{C19E3453-5A1E-4D40-88B1-07BC90C5B05E}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_misilexplota" ID="{4EE223B6-E3AA-4B76-A784-99871AC54BF2}">
+					<ChildrenList>
+						<Action Name="" ID="{02D3E060-2AEB-43AB-94C9-AEF8D7130AA7}" ShortID="703539618">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Misil Explota" ID="{E30FC0C4-A4CB-4C56-BB61-4E3A7327C601}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_botonpausa" ID="{0E638936-1165-4B19-BFA8-742C7B584093}">
+					<ChildrenList>
+						<Action Name="" ID="{D457F1CA-0F2F-4F4C-A47C-ABF8FF101554}" ShortID="133293484">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="470201__erokia__menu-ui-click-222" ID="{0BCD8ACF-EA0D-4A29-850D-2DEAB95BD55D}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_botonplay" ID="{D0E155F0-7E8F-4D4F-8BD8-EE59B5CC8539}">
+					<ChildrenList>
+						<Action Name="" ID="{8E17AFCB-3625-4BA3-864F-76F987AC7C2D}" ShortID="397148975">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="470201__erokia__menu-ui-click-222" ID="{B25C85E8-2A7E-4083-A1F7-ADC4A9C1CB01}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_click" ID="{0F6B64E0-A614-47CC-BC08-7AE2026DBD8D}">
+					<ChildrenList>
+						<Action Name="" ID="{22864E8F-9899-4896-926C-BB10B9080898}" ShortID="971842928">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="470201__erokia__menu-ui-click-222" ID="{84D00941-ABF6-42C2-9092-5823ABAEEF21}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_cursor" ID="{F1F2B289-7803-443E-8C60-8B72F6331A0E}">
+					<ChildrenList>
+						<Action Name="" ID="{E670C63E-4863-427A-A8AD-A39FFB8C66B2}" ShortID="438153192">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="571187__user391915396__menuselect2" ID="{5064E116-A3D2-4D29-B623-A126E2825122}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_soundscape" ID="{A9BD559E-7923-42D4-8EA3-3591603476F6}">
+					<ChildrenList>
+						<Action Name="" ID="{4BE70921-502C-4102-95E2-BC5DBD8CF942}" ShortID="613364085">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SoundScape" ID="{6AFECB57-993E-4EFC-9C59-D52CFBF3931B}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_soundscape" ID="{20DFD8A5-6554-4364-990E-D6B5AEF77D5B}">
+					<ChildrenList>
+						<Action Name="" ID="{0668FE1E-24AB-49A6-881F-78F75B3E1230}" ShortID="10894147">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SoundScape" ID="{6AFECB57-993E-4EFC-9C59-D52CFBF3931B}" WorkUnitID="{94470155-03A9-4202-90D5-9B003B9FF328}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

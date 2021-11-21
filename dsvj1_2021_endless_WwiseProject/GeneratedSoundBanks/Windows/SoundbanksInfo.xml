@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\GAME\GameTaco\dsvj1_2021_endless\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GAME\GameTaco\Redress\dsvj1_2021_endless_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1661626369">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2282841552">
 			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
@@ -89,15 +89,15 @@
 					<IncludedMemoryFiles>
 						<File Id="258418497" Language="SFX">
 							<ShortName>Estatico Muere 2.wav</ShortName>
-							<Path>SFX\Estatico Muere 2_5B0D2365.wem</Path>
+							<Path>SFX\Estatico Muere 2_F2361680.wem</Path>
 						</File>
 						<File Id="826722617" Language="SFX">
 							<ShortName>Estatico Muere 1.wav</ShortName>
-							<Path>SFX\Estatico Muere 1_4FEA5CE0.wem</Path>
+							<Path>SFX\Estatico Muere 1_46087008.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2270376495" Name="play_laser" ObjectPath="\Events\Default Work Unit\play_laser" DurationType="OneShot" DurationMin="0.152803" DurationMax="0.187472">
+				<Event Id="2270376495" Name="play_laser" ObjectPath="\Events\Default Work Unit\play_laser" DurationType="OneShot" DurationMin="0.152803" DurationMax="0.220127">
 					<IncludedMemoryFiles>
 						<File Id="656286296" Language="SFX">
 							<ShortName>Laser.wav</ShortName>
