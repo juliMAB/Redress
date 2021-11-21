@@ -112,19 +112,22 @@ namespace Redress.Gameplay.User
             spriteRenderer.color = normalColor;
         }
 
-        public void TakeDamage()
+        public void TakeDamage(Vector3 origin)
         {
             IEnumerator TakeHit()
             {
                 float time = 0;
                 Vector3 initialPos = transform.position;
+                origin.y = initialPos.y;
+                Vector3 dir = (initialPos - origin).normalized;
                 float speed = 5;
 
                 while (time < 1)
                 {
                     time += Time.deltaTime * speed;
                     initialPos.y = transform.position.y;
-                    transform.position = Vector3.Lerp(initialPos, initialPos + Vector3.left * 3, time);
+                    //dir.y = initialPos.y;
+                    transform.position = Vector3.Lerp(initialPos, initialPos + dir * 3, time);
                     yield return null;
                 }
             }

@@ -45,7 +45,7 @@ namespace Redress.Gameplay.Objects.Enemies
                 
                 if (iDamageable != null)
                 { 
-                    iDamageable.TakeDamage(); 
+                    iDamageable.TakeDamage(transform.position); 
                 }
                 
             }

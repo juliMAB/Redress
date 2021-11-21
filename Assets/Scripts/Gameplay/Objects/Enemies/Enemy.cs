@@ -65,7 +65,7 @@ namespace Redress.Gameplay.Objects.Enemies
             if (collision.gameObject == target)
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-                targetIDamageable.TakeDamage();
+                targetIDamageable.TakeDamage(transform.position);
             }
         }
        //private void OnTriggerEnter2D(Collider2D collision)
@@ -79,10 +79,11 @@ namespace Redress.Gameplay.Objects.Enemies
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+
             if (collision.gameObject == target)
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-                targetIDamageable.TakeDamage();                
+                targetIDamageable.TakeDamage(transform.position);                
             }
         }
 
@@ -108,7 +109,7 @@ namespace Redress.Gameplay.Objects.Enemies
             }
         }
 
-        public void TakeDamage()
+        public void TakeDamage(Vector3 origin)
         {
             Debug.Log(gameObject.name + " a tomado daño.");
             AkSoundEngine.PostEvent(nameSound, gameObject);

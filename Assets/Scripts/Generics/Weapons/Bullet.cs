@@ -26,7 +26,7 @@ namespace Games.Generics.Weapon
 
             if (iDamageable != null)
             {
-                iDamageable.TakeDamage();
+                iDamageable.TakeDamage(transform.position);
             }
 
             OnCollided?.Invoke(gameObject);
