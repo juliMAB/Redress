@@ -38,51 +38,34 @@ namespace Redress.Gameplay.Management
 
         private PoolObjectsManager poolManager = null;
 
-        //[Header("Initial values")]
-        //[SerializeField] private float initialSpeed = 5;
-        //[SerializeField] private float[] initialSpawnTimeLimits = null;
-        //[SerializeField] private float[] initialSpawnDistanceLimits = null;
-
         [Header("Global variables")]
-        //[SerializeField] private float speed = 5f;
         [SerializeField] private int score = 0;
         [SerializeField] private float timeToChargeScore = 1;
-        //[SerializeField] private float distance = 0;
         [SerializeField] private int scorePerKill = 0;
 
         [Header("Gameplay configuration")]
         [SerializeField] private Vector2 playerPosToLose = Vector2.zero;
-        //[SerializeField] private float bulletSpeedMultiplier = 2;
-        //[SerializeField] private float speedDivider = 40f; // Make little to speed up the general speed more rapidly.
-        //[SerializeField] private float layerSpeedDiff = 0.1f;
         [SerializeField] private float halfPlayerHeight = 0.88f;
         [SerializeField] private Vector2 halfSizeScreen = Vector2.zero;
 
         [Header("Entities")]
         [SerializeField] private Player player = null;
-        //[SerializeField] private CharacterMovementSeter playerControl = null;
         [SerializeField] private PlatformsManager platformsManager = null;
         [SerializeField] private PlatformObjectsManager objectsManager = null;
         [SerializeField] private PauseManager pauseManager = null;
-        //[SerializeField] private ParallaxManager background = null;
         [SerializeField] private CameraController cameraController = null;
         [SerializeField] private HighscoreManager highscoreManager = null;
 
         [Header("Managers")]
         [SerializeField] private LevelProgressionManager levelProgressionManager = null;
 
-        //public float speedMultiplier = 1f;
-
         public Action<int> OnChangedScore = null;
         public Action OnGameplayEnded = null;
         public Action<int> OnNextState = null;
         public Action OnResetGame = null;
 
-        //public int Score { get => score; set => score = value; }
-        //public float Distance => distance;
         public Vector2 PlayerPosToLose => playerPosToLose;
         public Player Player => player;
-        //public PlatformsManager PlatformsManager => platformsManager;
 
         private void Start()
         {
@@ -94,12 +77,6 @@ namespace Redress.Gameplay.Management
 
             levelProgressionManager.Initialize();
 
-            //platformsManager.SetValues(speed, initialSpawnDistanceLimits[0], initialSpawnDistanceLimits[1], true);
-            //objectsManager.SetValues(speed, initialSpawnDistanceLimits[0], initialSpawnDistanceLimits[1], true);
-
-            //SetBulletsSpeed(speed * bulletSpeedMultiplier, true);
-            //background.SetSpeed(speed, layerSpeedDiff);
-
             platformsManager.OnUnneveness += cameraController.PositionCamera;
         }
 
@@ -109,8 +86,6 @@ namespace Redress.Gameplay.Management
             {
                 return;
             }
-
-            //distance += platformsManager.Speed / speedDivider;
 
             SetScoreUpdate();
 
@@ -124,14 +99,9 @@ namespace Redress.Gameplay.Management
                 player.PlayerUpdate();
                 levelProgressionManager.SetLevelUpdate();
 
-                //objectsManager.PlatformObjectsUpdate();
-                //platformsManager.PlatformsUpdate();
-                //background.UpdateBackground();
-
                 SetPlayerInputLock();
 
                 levelProgressionManager.SetLevelProgression();
-                //SetLevelProgression();
             }
         }
 
@@ -169,9 +139,6 @@ namespace Redress.Gameplay.Management
                 pauseManager.Pause();
             }
 
-            //objectsManager.Pause(pauseManager.GameIsPaused);
-            //platformsManager.PauseMovement(pauseManager.GameIsPaused);
-            //cameraController.PauseCameraMovement(pauseManager.GameIsPaused);
             highscoreManager.SetScore(score);
         }
 
@@ -187,22 +154,9 @@ namespace Redress.Gameplay.Management
 
         public void StartEnding()
         {
-            //quitarle el control al player.
             player.CharacterMovement.ControlActive = false;
             player.ControlActive = false;
 
-            //frenar las plataformas y enemigos.
-            //speed = 0;
-            //layerSpeedDiff = 0;
-            //background.SetSpeed(0, 0);
-
-            //pausar los managers.           
-            //objectsManager.enabled = false;
-            //platformsManager.enabled = false;
-            //SetBulletsSpeed(0, true);
-
-            //platformsManager.PauseMovement(true);
-            //cameraController.PauseCameraMovement(true);
             pauseManager.Pause();
             highscoreManager.SetScore(score);
         }
@@ -266,56 +220,6 @@ namespace Redress.Gameplay.Management
                     player.Lives > 0;
         }
 
-        //private void SetLevelProgression()
-        //{
-        //    float speedProgression = Time.deltaTime * speedProgressionMultiplier * speedMultiplier;
-        //    float distanceProgression = Time.deltaTime * distanceProgressionMultiplier * speedMultiplier;
-        //
-        //    speed += speedProgression;
-        //
-        //    float minSpawnTime = initialSpawnTimeLimits[0];
-        //    float maxSpawnTime = initialSpawnTimeLimits[1];
-        //
-        //    if (speedMultiplier < 1)
-        //    {
-        //        minSpawnTime *= 2;
-        //        maxSpawnTime *= 2;
-        //    }
-        //
-        //    objectsManager.SetValues(speed * speedMultiplier, minSpawnTime, maxSpawnTime, false);
-        //    platformsManager.SetValues(speed * speedMultiplier, platformsManager.DistanceLimits[0] + distanceProgression, platformsManager.DistanceLimits[1] + distanceProgression, false);
-        //
-        //    SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
-        //    background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
-        //
-        //    AssingCooldownToGuns();
-        //}
-
-        //private void SetBulletsSpeed(float speed, bool playerBulletsToo)
-        //{
-        //    Gun[] allGuns = FindObjectsOfType<Gun>();
-        //    for (int i = 0; i < allGuns.Length; i++)
-        //    {
-        //        if (playerBulletsToo || allGuns[i] != player.Gun)
-        //        {
-        //            allGuns[i].bulletSpeed = speed;
-        //        }
-        //    }
-        //
-        //    for (int i = 0; i < poolManager.Bullets.objects.Length; i++)
-        //    {
-        //        poolManager.Bullets.objects[i].GetComponent<Bullet>().speed = speed;
-        //    }
-        //
-        //    if (playerBulletsToo)
-        //    {
-        //        for (int i = 0; i < poolManager.Arrows.objects.Length; i++)
-        //        {
-        //            poolManager.Arrows.objects[i].GetComponent<Bullet>().speed = speed;
-        //        }
-        //    }
-        //}
-
         private void AssignActionsAndTargetToEnemies()
         {
             Enemy enemy;
@@ -361,15 +265,6 @@ namespace Redress.Gameplay.Management
             }
         }
 
-        //private void AssingCooldownToGuns()
-        //{
-        //    Gun[] guns = FindObjectsOfType<Gun>();
-        //
-        //    for (int i = 0; i < guns.Length; i++)
-        //    {
-        //        guns[i].coolDownMultiplier = 1 / speedMultiplier;
-        //    }
-        //}
         private void AssignPlayerAndActionToPickUp()
         {
             PickUp pickUp;

@@ -53,7 +53,7 @@ namespace Redress.Gameplay.User
             {
                 return;
             }
-            //characterMovement.CharacterMovementSeterUpdate();
+
             if (Input.GetKeyDown(KeyCode.K))
             {
                 gun.Shoot();
@@ -127,7 +127,7 @@ namespace Redress.Gameplay.User
                 {
                     time += Time.deltaTime * speed;
                     initialPos.y = transform.position.y;
-                    //dir.y = initialPos.y;
+
                     transform.position = Vector3.Lerp(initialPos, initialPos + dir * 3, time);
                     yield return null;
                 }
