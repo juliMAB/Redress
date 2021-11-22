@@ -16,15 +16,15 @@ namespace Redress.Gameplay.User
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private Gun initialGun = null;
+        private ParticleSystem particleSystem = null;
+        private Gun gun = null;
+        private bool controlActive = true;
 
         [SerializeField] private int initialLives = 5;
         [SerializeField] private int lives = 5;
         [SerializeField] private float inmuneTime = 2f;
         [SerializeField] private float force;
-        private ParticleSystem particleSystem= null;
-        private Gun gun = null;
-        private bool controlActive = true;
-
+        
         public Action OnDie = null;
         public Action<int> OnLivesChanged = null;
 
@@ -34,6 +34,7 @@ namespace Redress.Gameplay.User
         public Gun Gun { get => gun; set => gun = value; }
         public bool ControlActive { set => controlActive = value; }
         public Color InmuneColor { set => inmuneColor = value; }
+        public CharacterMovementSeter CharacterMovement => characterMovement;
 
         private void Awake()
         {
@@ -135,10 +136,9 @@ namespace Redress.Gameplay.User
             particleSystem.Play();
             if (isInmune)
             {
-                Debug.Log(" el player es inmune ");
                 return;
             }
-            Debug.Log(" el player a tomado daño ");
+
             lives--;
             
             if (lives > 0)

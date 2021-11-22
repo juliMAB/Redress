@@ -29,11 +29,11 @@ public class DebugManager : MonoBehaviour
     {
         if (!slowTimeOn)
         {
-            GameplayManager.Instance.speedMultiplier = 0.3f;
+            GameplayManager.Instance.SetSpeedMultiplier(0.3f);
         }
         else
         {
-            GameplayManager.Instance.speedMultiplier = 1f;
+            GameplayManager.Instance.SetSpeedMultiplier(1);
         }
 
         slowTimeOn = !slowTimeOn;

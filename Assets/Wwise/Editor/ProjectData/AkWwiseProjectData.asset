@@ -38,8 +38,22 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: b3d8db5de657884cb5fd79666b68de30
     GuidInternal: 
-    m_lastTime: -8585656533056497020
+    m_lastTime: -8585640671581441045
     List:
+    - name: Fx Audio Bus
+      guid: 19c6a174a2620a4c8b04948323aa220d
+      id: 527200915
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b3d8db5de657884cb5fd79666b68de30
+      - ElementName: Fx Audio Bus
+        ObjectType: 2
+        guid: 19c6a174a2620a4c8b04948323aa220d
+      Path: Master-Mixer Hierarchy\Default Work Unit\Fx Audio Bus
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -54,6 +68,20 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music Audio Bus
+      guid: 2d683e4fdbce6543a72ee10419826178
+      id: 493417818
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b3d8db5de657884cb5fd79666b68de30
+      - ElementName: Music Audio Bus
+        ObjectType: 2
+        guid: 2d683e4fdbce6543a72ee10419826178
+      Path: Master-Mixer Hierarchy\Default Work Unit\Music Audio Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -66,7 +94,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: fc0e01a15ee00a408c33d0d894c71605
     GuidInternal: 
-    m_lastTime: -8585656533053936657
+    m_lastTime: -8585640671580004893
     List:
     - name: main
       guid: 8dd86ebcc6375d4fa71d654afcc00ed4
@@ -94,7 +122,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: df406bf68de0e0478992da9a7fe5f08a
     GuidInternal: 
-    m_lastTime: -8585640956683612571
+    m_lastTime: -8585640671591759440
     List:
     - name: play_bajar
       guid: 2f79e3d077baa545850750edf7192612
@@ -128,8 +156,8 @@ MonoBehaviour:
         guid: 3689630e6511194bbfa8742c7b584093
       Path: Events\Default Work Unit\play_botonpausa
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.335556
+      minDuration: 0.335556
     - name: play_botonplay
       guid: f055e1d08f7e4f4d8bd8ee59b5cc8539
       id: 3994855780
@@ -145,8 +173,8 @@ MonoBehaviour:
         guid: f055e1d08f7e4f4d8bd8ee59b5cc8539
       Path: Events\Default Work Unit\play_botonplay
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.335556
+      minDuration: 0.335556
     - name: play_click
       guid: e0646b0f14a6cc47bc087ae2026dbd8d
       id: 311910498
@@ -162,8 +190,8 @@ MonoBehaviour:
         guid: e0646b0f14a6cc47bc087ae2026dbd8d
       Path: Events\Default Work Unit\play_click
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.335556
+      minDuration: 0.335556
     - name: play_colisionplataforma
       guid: 877e37fd64608a4c99abd64dc9edddf6
       id: 3418869249
@@ -196,8 +224,8 @@ MonoBehaviour:
         guid: 89b2f2f103783e448c608b72f6331a0e
       Path: Events\Default Work Unit\play_cursor
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.125
+      minDuration: 0.125
     - name: play_danio
       guid: a569fe78a87da5489983f02b7d7ec1d7
       id: 3755088439
@@ -264,8 +292,8 @@ MonoBehaviour:
         guid: 11d3a885eaa8614db3c739ed46c377c2
       Path: Events\Default Work Unit\play_explotaalerta
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.358716
+      minDuration: 0.358716
     - name: play_explotaexplota
       guid: 8115c2798ad1604db60c8f35205c024d
       id: 379796940
@@ -281,8 +309,8 @@ MonoBehaviour:
         guid: 8115c2798ad1604db60c8f35205c024d
       Path: Events\Default Work Unit\play_explotaexplota
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.400209
+      minDuration: 0.400209
     - name: play_explotamuere
       guid: bb9fcbe4d2c705418c8003c4c82606bc
       id: 3945990271
@@ -297,6 +325,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: bb9fcbe4d2c705418c8003c4c82606bc
       Path: Events\Default Work Unit\play_explotamuere
+      maxAttenuation: 0
+      maxDuration: 0.289458
+      minDuration: 0.289458
+    - name: play_game
+      guid: d359ab5bfb2ebc4b985d4c77f87854a4
+      id: 216639764
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_game
+        ObjectType: 3
+        guid: d359ab5bfb2ebc4b985d4c77f87854a4
+      Path: Events\Default Work Unit\play_game
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -317,6 +362,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.220127
       minDuration: 0.152803
+    - name: play_menu
+      guid: cfc1a434b8a3e7419abbd9a0f00f5f95
+      id: 1278378707
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_menu
+        ObjectType: 3
+        guid: cfc1a434b8a3e7419abbd9a0f00f5f95
+      Path: Events\Default Work Unit\play_menu
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_misilalerta
       guid: c1569c70d68fdb47b4e21215d29fb8ba
       id: 2734677323
@@ -332,8 +394,8 @@ MonoBehaviour:
         guid: c1569c70d68fdb47b4e21215d29fb8ba
       Path: Events\Default Work Unit\play_misilalerta
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.731338
+      minDuration: 1.731338
     - name: play_misilexplota
       guid: b623e24eaae3764ba78499871ac54bf2
       id: 2200722255
@@ -349,8 +411,8 @@ MonoBehaviour:
         guid: b623e24eaae3764ba78499871ac54bf2
       Path: Events\Default Work Unit\play_misilexplota
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.487619
+      minDuration: 0.487619
     - name: play_misilvuela
       guid: ec9d7715386cbd4286163f7aa85a6cc0
       id: 1235051009
@@ -366,8 +428,8 @@ MonoBehaviour:
         guid: ec9d7715386cbd4286163f7aa85a6cc0
       Path: Events\Default Work Unit\play_misilvuela
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 5.039699
+      minDuration: 5.039699
     - name: play_muerte
       guid: 2b6f13ca0523d144a3caaa4e9b27ca2c
       id: 725996008
@@ -399,6 +461,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: 3f81ea9d5f4f0f42bb2f9e4abb31640b
       Path: Events\Default Work Unit\play_pared
+      maxAttenuation: 0
+      maxDuration: 0.343649
+      minDuration: 0.319342
+    - name: play_pause
+      guid: f9cc978ac48460499031c890eb7d7dc8
+      id: 4233560256
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: play_pause
+        ObjectType: 3
+        guid: f9cc978ac48460499031c890eb7d7dc8
+      Path: Events\Default Work Unit\play_pause
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -434,8 +513,8 @@ MonoBehaviour:
         guid: 5d5d810426ded749b093968f28559d4e
       Path: Events\Default Work Unit\play_pup_arma
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.869048
+      minDuration: 0.869048
     - name: play_pup_escudo
       guid: 2fb4d23cc067f14e952d7b03e4c3e77f
       id: 204892707
@@ -451,8 +530,8 @@ MonoBehaviour:
         guid: 2fb4d23cc067f14e952d7b03e4c3e77f
       Path: Events\Default Work Unit\play_pup_escudo
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.869048
+      minDuration: 0.869048
     - name: play_pup_tiempo
       guid: fb99cc0330d27b479d5cf49ca625456e
       id: 3756386660
@@ -468,8 +547,8 @@ MonoBehaviour:
         guid: fb99cc0330d27b479d5cf49ca625456e
       Path: Events\Default Work Unit\play_pup_tiempo
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.869048
+      minDuration: 0.869048
     - name: play_pup_vida
       guid: 7fc98a11ed0e874384b893551626e5c0
       id: 3883368638
@@ -485,8 +564,8 @@ MonoBehaviour:
         guid: 7fc98a11ed0e874384b893551626e5c0
       Path: Events\Default Work Unit\play_pup_vida
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.869048
+      minDuration: 0.869048
     - name: play_salto
       guid: f93fed52e77ae44c903900a2829261f8
       id: 2695653357
@@ -521,6 +600,57 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: stop_game
+      guid: 81397baf17c78d42917cae816c0e5e53
+      id: 210615102
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: stop_game
+        ObjectType: 3
+        guid: 81397baf17c78d42917cae816c0e5e53
+      Path: Events\Default Work Unit\stop_game
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: stop_menu
+      guid: caf236fa580cac41be555d8e488efc1e
+      id: 2914981333
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: stop_menu
+        ObjectType: 3
+        guid: caf236fa580cac41be555d8e488efc1e
+      Path: Events\Default Work Unit\stop_menu
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: stop_pause
+      guid: 1b83ef7f487f2647b86051f2753afc05
+      id: 3298098222
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: stop_pause
+        ObjectType: 3
+        guid: 1b83ef7f487f2647b86051f2753afc05
+      Path: Events\Default Work Unit\stop_pause
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: stop_soundscape
       guid: a5d8df2054656443990ed6b5aef77d5b
       id: 2567475545
@@ -536,8 +666,8 @@ MonoBehaviour:
         guid: a5d8df2054656443990ed6b5aef77d5b
       Path: Events\Default Work Unit\stop_soundscape
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -550,8 +680,36 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: cd02e54f9b891f4da5ce95dd35f74477
     GuidInternal: 
-    m_lastTime: -8585656533056746347
-    List: []
+    m_lastTime: -8585640671591719536
+    List:
+    - name: VolumenFx
+      guid: 7d911c7e3a61c64881a4d3420c4989e3
+      id: 166324689
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cd02e54f9b891f4da5ce95dd35f74477
+      - ElementName: VolumenFx
+        ObjectType: 13
+        guid: 7d911c7e3a61c64881a4d3420c4989e3
+      Path: Game Parameters\Default Work Unit\VolumenFx
+    - name: VolumenMusic
+      guid: 5bb418e16421e84aa1ddf90d30198d1c
+      id: 2833021068
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cd02e54f9b891f4da5ce95dd35f74477
+      - ElementName: VolumenMusic
+        ObjectType: 13
+        guid: 5bb418e16421e84aa1ddf90d30198d1c
+      Path: Game Parameters\Default Work Unit\VolumenMusic
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -564,8 +722,42 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 88f6448d19af4a4bbf2107014fd18348
     GuidInternal: 
-    m_lastTime: -8585656533053926681
-    List: []
+    m_lastTime: -8585640671579945054
+    List:
+    - name: VolumenFx
+      guid: 9479b3b6a713c541aec715449d2a8c54
+      id: 166324689
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 88f6448d19af4a4bbf2107014fd18348
+      - ElementName: VolumenFx
+        ObjectType: 9
+        guid: 9479b3b6a713c541aec715449d2a8c54
+      Path: States\Default Work Unit\VolumenFx
+      values:
+      - name: None
+        guid: 178fca343885f04a88205c23fbebbd25
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 88f6448d19af4a4bbf2107014fd18348
+        - ElementName: VolumenFx
+          ObjectType: 9
+          guid: 9479b3b6a713c541aec715449d2a8c54
+        - ElementName: None
+          ObjectType: 8
+          guid: 178fca343885f04a88205c23fbebbd25
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:

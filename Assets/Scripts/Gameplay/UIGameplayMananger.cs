@@ -11,6 +11,7 @@ namespace Redress.Gameplay.UI
         private bool panel1LighstActivated = true;
 
         [SerializeField] private GameplayManager gameplayManager = null;
+        [SerializeField] private LevelProgressionManager levelProgressionManager = null;
         [SerializeField] private Text scoreText = null;
         [SerializeField] private Text highscoreText = null;
         [SerializeField] private Text distanceText = null;
@@ -38,7 +39,7 @@ namespace Redress.Gameplay.UI
 
         private void Update()
         {
-            UpdateDistance((int)gameplayManager.Distance);
+            UpdateDistance((int)levelProgressionManager.Distance);
             if (Input.GetKeyDown(KeyCode.P))
             {
                 ActivatePausePanel();

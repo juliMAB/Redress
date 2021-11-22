@@ -24,6 +24,8 @@ namespace Redress.Gameplay.Controllers
         [SerializeField] private float duration = 0.15f;
         [SerializeField] private float magnitude = 0.2f;
 
+        public float speedMultiplier = 1f;
+
         public void PositionCamera(float movement, float totalTime)
         {
             float yFinalPosition = cameraShakeActive ? initialPos.y + movement : Camera.main.transform.position.y + movement;
@@ -45,7 +47,7 @@ namespace Redress.Gameplay.Controllers
                     else
                     {
                         //normal movement
-                        time += Time.deltaTime * movementSpeed * GameplayManager.Instance.speedMultiplier * (addSpeedDownMultiplier ? downSpeedMultiplier : 1);
+                        time += Time.deltaTime * movementSpeed * speedMultiplier * (addSpeedDownMultiplier ? downSpeedMultiplier : 1);
 
                         float yPos = Mathf.Lerp(yInitialPosition, yFinalPosition, time / totalTime);
 

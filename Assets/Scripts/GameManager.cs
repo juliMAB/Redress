@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 using Redress.Gameplay.User;
 using Redress.Gameplay.Management;
-using Redress.Gameplay.Data;
 
 namespace Redress.Management
 {

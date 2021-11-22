@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
-
-using Redress.Gameplay.Management;
+using System;
 
 namespace Redress.Gameplay.Objects.PickUps
 {
     public class SlowMotion : PickUp
     {
         [SerializeField] private float multiplier = 0.2f;
+
+        public Action<float> OnSpeedPercentageChanged = null;
 
         protected override void Awake()
         {
@@ -16,13 +17,15 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected override void OnPickedUp()
         {
-            GameplayManager.Instance.speedMultiplier = multiplier;
+            OnSpeedPercentageChanged?.Invoke(multiplier);
+            //GameplayManager.Instance.speedMultiplier = multiplier;
             visual.SetActive(false);
         }
 
         private void ResetSpeedMultiplier(GameObject go)
         {
-            GameplayManager.Instance.speedMultiplier = 1f;
+            OnSpeedPercentageChanged?.Invoke(1);
+           // GameplayManager.Instance.speedMultiplier = 1f;
         }
 
         public override void ResetStats()
