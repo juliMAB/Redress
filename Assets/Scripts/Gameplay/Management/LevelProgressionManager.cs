@@ -72,8 +72,6 @@ namespace Redress.Gameplay.Management
 
             gunsController.SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
             background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
-
-            gunsController.AssingCooldownToGuns();
         }
 
         public void SetSpeedMultiplier(float speedMultiplier)
@@ -81,6 +79,8 @@ namespace Redress.Gameplay.Management
             this.speedMultiplier = speedMultiplier;
 
             gunsController.speedMultiplier = speedMultiplier;
+
+            gunsController.AssingCooldownToGuns();
         }
     }
 }

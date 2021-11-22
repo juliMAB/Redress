@@ -11,6 +11,7 @@ namespace Redress.Gameplay.Controllers
         private PoolObjectsManager poolManager = null;
 
         [SerializeField] private Gun playerGun = null;
+        [SerializeField] private Gun[] allGuns = null;
 
         public float speedMultiplier = 1f;
 
@@ -22,7 +23,6 @@ namespace Redress.Gameplay.Controllers
 
         public void SetBulletsSpeed(float speed, bool playerBulletsToo)
         {
-            Gun[] allGuns = FindObjectsOfType<Gun>();
             for (int i = 0; i < allGuns.Length; i++)
             {
                 if (playerBulletsToo || allGuns[i] != playerGun)
@@ -47,11 +47,9 @@ namespace Redress.Gameplay.Controllers
 
         public void AssingCooldownToGuns()
         {
-            Gun[] guns = FindObjectsOfType<Gun>();
-
-            for (int i = 0; i < guns.Length; i++)
+            for (int i = 0; i < allGuns.Length; i++)
             {
-                guns[i].coolDownMultiplier = 1 / speedMultiplier;
+                allGuns[i].coolDownMultiplier = 1 / speedMultiplier;
             }
         }
     }
