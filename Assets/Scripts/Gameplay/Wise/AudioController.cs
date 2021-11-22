@@ -6,10 +6,14 @@ using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
-    [SerializeField] Slider slider;
-   public void OnCall()
+    [SerializeField] Slider sliderMusic;
+    [SerializeField] Slider sliderFx;
+    public void OnCallVolumen()
     {
-        AkSoundEngine.SetRTPCValue("VolumenFx", slider.value * 10);
-        AkSoundEngine.PostEvent("play_laser", gameObject);
+        AkSoundEngine.SetRTPCValue("VolumenMusic", sliderMusic.value * 100); 
+    }
+    public void OnCallFx()
+    {
+        AkSoundEngine.SetRTPCValue("VolumenFx", sliderFx.value * 100);
     }
 }
