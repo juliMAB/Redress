@@ -152,6 +152,7 @@ namespace Redress.Gameplay.User
 
             if (lives == 0)
             {
+                lives--;
                 soundDie.Post(gameObject);
                 Die();
             }
