@@ -23,6 +23,10 @@ namespace Redress.Gameplay.Objects.Enemies
         [SerializeField] private float speed = 0f;
         [SerializeField] private GameObject target = null;
 
+        [SerializeField] AK.Wwise.Event soundOnAlert;
+        [SerializeField] AK.Wwise.Event soundPasing;
+        [SerializeField] AK.Wwise.Event soundTarget;
+
         public float alertDuration = 0f;
 
         public void Reset()
@@ -50,6 +54,7 @@ namespace Redress.Gameplay.Objects.Enemies
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
                 targetIDamageable.TakeDamage(transform.position);
+                soundTarget.Post(gameObject);
             }
         }
 
@@ -67,6 +72,7 @@ namespace Redress.Gameplay.Objects.Enemies
         {
             IEnumerator AlertView()
             {
+                soundOnAlert.Post(gameObject);
                 activeEnemy = true;
                 float time = 0f;
 
@@ -97,6 +103,7 @@ namespace Redress.Gameplay.Objects.Enemies
 
             IEnumerator PassByRow()
             {
+                soundPasing.Post(gameObject);
                 while (transform.position.x + halfSize.x > -outOfScreenXValue)
                 {
                     if (!movementPaused)

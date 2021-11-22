@@ -236,9 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4286412a4722c048a76a5d7c6d837a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0.56, y: 0.74}
   row: 1
   spawnLine: 0
+  halfSize: {x: 0.56, y: 0.74}
   canDie: 1
   initialLives: 1
   lives: 1
@@ -253,8 +253,23 @@ MonoBehaviour:
   lookingAtTarget: 0
   minDistanceToTarget: 1
   type: 0
+  soundDie:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c8785f8e557c4ae45a045e7441f1e47b,
+      type: 2}
   radiusOfDamage: 1
   additionalSpeed: 1.5
+  soundOnDetect:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6efed975cfcc3f641b971b492bfe3702,
+      type: 2}
+  soundOnExplote:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1d22b489434c4514a9baf163c184ec98,
+      type: 2}
 --- !u!95 &7383384748745452789
 Animator:
   serializedVersion: 3

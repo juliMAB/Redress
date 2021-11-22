@@ -15,13 +15,13 @@ namespace Redress.Gameplay.Objects.PickUps
         {
             base.Awake();
             threeWayGun = GetComponent<Gun>();
-            //threeWayGun.SetBullets(player.InitialGun.Objects);
             originalParet = transform.parent;
             swing = GetComponent<Swing>();
         }
 
         protected override void OnPickedUp()
         {
+            base.OnPickedUp();
             swing.enabled = false;
             void DeactiveOldGun()
             {

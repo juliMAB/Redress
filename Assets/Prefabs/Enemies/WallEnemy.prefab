@@ -191,6 +191,11 @@ MonoBehaviour:
   lookingAtTarget: 0
   minDistanceToTarget: 1
   type: 3
+  soundDie:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 54b86b812fe6af942973e9bc4f4b95bb,
+      type: 2}
 --- !u!50 &3309231703185753527
 Rigidbody2D:
   serializedVersion: 4

@@ -4,7 +4,6 @@ namespace GuilleUtils.Character.Movement
 {
 	public class CharacterMovementSeter : MonoBehaviour
 	{
-		private bool soundPlayed = false;
 		[HideInInspector]
 		private float normalizedHorizontalSpeed = 0;
 
@@ -21,6 +20,13 @@ namespace GuilleUtils.Character.Movement
 		public float inAirDamping = 5f;
 		public float jumpHeight = 3f;
 		public bool lockGoDown = false;
+
+		[SerializeField] LayerMask floorLayer;
+
+		[SerializeField] AK.Wwise.Event soundGoDown;
+		[SerializeField] AK.Wwise.Event soundJump;
+		[SerializeField] AK.Wwise.Event soundOnGrownd;
+
 
 		public bool ControlActive { set { controlActive = value; } }
 
@@ -41,10 +47,7 @@ namespace GuilleUtils.Character.Movement
 			{
 				_velocity.y = 0;
 			}
-   //         else if (_controller.collisionState.becameGroundedThisFrame)
-   //         {
-			//	_animator.SetTrigger("StartGround");
-			//}
+
             else
             {
                 if (_velocity.y<0)
@@ -61,10 +64,10 @@ namespace GuilleUtils.Character.Movement
 			// we can only jump whilst grounded
 			if (_controller.isGrounded && Input.GetAxisRaw("Jump")!=0)
 			{
-				AkSoundEngine.PostEvent("play_salto", gameObject);
+				soundJump.Post(gameObject);
+
 				_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 				_animator.SetTrigger("Jump");
-				//_animator.Play(Animator.StringToHash("Jump"));
 			}
 
 			// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
@@ -80,20 +83,11 @@ namespace GuilleUtils.Character.Movement
 			{
 				_velocity.y *= 3f;
 
-				if (!soundPlayed)
-                {
-					AkSoundEngine.PostEvent(SoundsManager.Get().Bajar, gameObject);
-					soundPlayed = true;
-				}
-				
 				if (!lockGoDown)
                 {
 					_controller.ignoreOneWayPlatformsThisFrame = true;
+					soundGoDown.Post(gameObject);
 				}
-			}
-			else
-			{
-				soundPlayed = false;
 			}
 
 			_controller.move(_velocity * Time.deltaTime);
@@ -126,5 +120,12 @@ namespace GuilleUtils.Character.Movement
 				normalizedHorizontalSpeed = 0;
 			}
 		}
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == floorLayer)
+            {
+				soundOnGrownd.Post(gameObject);
+			}
+        }
     }
 }

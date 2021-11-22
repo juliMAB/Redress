@@ -132,10 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a549c9866913272459f28f264d649e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0.87, y: 0.97}
   row: 1
   spawnLine: 0
-  canDie: 0
+  halfSize: {x: 0.87, y: 0.97}
+  canDie: 1
   initialLives: 1
   lives: 1
   targetLayer:
@@ -149,6 +149,11 @@ MonoBehaviour:
   lookingAtTarget: 0
   minDistanceToTarget: 1
   type: 2
+  soundDie:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4995d9d10b25e8848bf67b91e466edd8,
+      type: 2}
   gun: {fileID: 6352346406863635357}
 --- !u!50 &2977826370413762124
 Rigidbody2D:

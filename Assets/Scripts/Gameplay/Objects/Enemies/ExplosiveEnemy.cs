@@ -15,6 +15,9 @@ namespace Redress.Gameplay.Objects.Enemies
         public float additionalSpeed = 2.5f;
         public Action OnExplode = null;
 
+        [SerializeField] AK.Wwise.Event soundOnDetect;
+        [SerializeField] AK.Wwise.Event soundOnExplote;
+
         private void Start()
         {
             anim = GetComponentInChildren<Animator>();
@@ -27,6 +30,7 @@ namespace Redress.Gameplay.Objects.Enemies
             if (lookingAtTarget && animationEnded)
             {
                 direction = Vector3.Normalize(target.transform.position - transform.position) * additionalSpeed;
+                soundOnDetect.Post(gameObject);
             }
 
             if (IsCloseToPLayer())
@@ -37,6 +41,7 @@ namespace Redress.Gameplay.Objects.Enemies
 
         private void Explode()
         {
+            soundOnExplote.Post(gameObject);
             Collider2D[] collidersToHit = Physics2D.OverlapCircleAll(transform.position, radiusOfDamage, hittableLayer);
 
             for (int i = 0; i < collidersToHit.Length; i++)

@@ -17,15 +17,14 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected override void OnPickedUp()
         {
+            base.OnPickedUp();
             OnSpeedPercentageChanged?.Invoke(multiplier);
-            //GameplayManager.Instance.speedMultiplier = multiplier;
             visual.SetActive(false);
         }
 
         private void ResetSpeedMultiplier(GameObject go)
         {
             OnSpeedPercentageChanged?.Invoke(1);
-           // GameplayManager.Instance.speedMultiplier = 1f;
         }
 
         public override void ResetStats()

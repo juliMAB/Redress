@@ -36,6 +36,9 @@ namespace Redress.Gameplay.User
         public Color InmuneColor { set => inmuneColor = value; }
         public CharacterMovementSeter CharacterMovement => characterMovement;
 
+        [SerializeField] AK.Wwise.Event soundDamage;
+        [SerializeField] AK.Wwise.Event soundDie;
+
         private void Awake()
         {
             particleSystem = GetComponentInChildren<ParticleSystem>();
@@ -143,13 +146,13 @@ namespace Redress.Gameplay.User
             
             if (lives > 0)
             {
-                AkSoundEngine.PostEvent(SoundsManager.Get().Daño, gameObject);
+                soundDamage.Post(gameObject);
             }
             OnLivesChanged?.Invoke(lives);
 
             if (lives == 0)
             {
-                AkSoundEngine.PostEvent(SoundsManager.Get().Muerte, gameObject);
+                soundDie.Post(gameObject);
                 Die();
             }
 

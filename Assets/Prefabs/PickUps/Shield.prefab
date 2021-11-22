@@ -71,10 +71,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce4895caa209fb40ae552095c7aa0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0, y: 0}
   row: 1
   spawnLine: 0
+  halfSize: {x: 0, y: 0}
   totalDurability: 5
+  soundPickUp:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3c4182c07d4b9f2408dcac88c52e83f9,
+      type: 2}
 --- !u!1 &1671444624419467202
 GameObject:
   m_ObjectHideFlags: 0

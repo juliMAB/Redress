@@ -26,26 +26,41 @@ namespace Redress.Management
         }
         #endregion
 
+        [SerializeField] AK.Wwise.Event soundGamePlay;
+        [SerializeField] AK.Wwise.Event soundGameStop;
+        [SerializeField] AK.Wwise.Event soundMenuPlay;
+        [SerializeField] AK.Wwise.Event soundMenuStop;
+        [SerializeField] AK.Wwise.Event soundPauseStop;
+
         public enum Scene { Menu, Tutorial, Game }
 
         private PlayerData playerData = null;
 
+        private void Start()
+        {
+            soundMenuPlay.Post(gameObject);
+        }
         public PlayerData PlayerData { get => playerData; }
 
         public void GoToScene(Scene scene)
         {
             string stringSceneName;
-
+            soundGameStop.Post(gameObject);
+            soundMenuStop.Post(gameObject);
+            soundPauseStop.Post(gameObject);
             switch (scene)
             {
                 case Scene.Menu:
                     stringSceneName = "MainMenu";
+                    soundMenuPlay.Post(gameObject);
                     break;
                 case Scene.Tutorial:
                     stringSceneName = "Tutorial";
+                    soundMenuPlay.Post(gameObject);
                     break;
                 case Scene.Game:
                     stringSceneName = "Game";
+                    soundGamePlay.Post(gameObject);
                     break;
                 default:
                     stringSceneName = "MainMenu";
@@ -83,6 +98,9 @@ namespace Redress.Management
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
                 Invoke("SetGameplayReturnToMenu", 0.2f);
                 Invoke("SetResetGameplayActions", 0.2f);
+                soundGameStop.Post(gameObject);
+                soundPauseStop.Post(gameObject);
+                soundGamePlay.Post(gameObject);
             };
         }
     }

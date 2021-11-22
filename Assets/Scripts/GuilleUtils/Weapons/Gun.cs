@@ -8,10 +8,9 @@ namespace GuilleUtils.Weapon
 {
     public class Gun : MonoBehaviour
     {
-        [SerializeField] enum Type {Laser, Arrow };
-        [SerializeField] Type type;
         private IEnumerator setCoolDownLifetimeInstance = null;
 
+        [SerializeField] AK.Wwise.Event shoot;
         [SerializeField] private Transform firePosition = null;
         [SerializeField] private float coolDownTime = 0.1f;
         [SerializeField] private float[] anglesOfShoot = null;
@@ -65,18 +64,9 @@ namespace GuilleUtils.Weapon
             {
                 return;
             }
-            switch (type)
-            {
-                case Type.Laser:
-                    AkSoundEngine.PostEvent(SoundsManager.Get().Laser, gameObject);
-                    break;
-                case Type.Arrow:
-                    AkSoundEngine.PostEvent(SoundsManager.Get().Disparo, gameObject);
-                    break;
-                default:
-                    break;
-            }
-            
+            shoot.Post(gameObject);
+
+
             for (int i = 0; i < anglesOfShoot.Length; i++)
             {
                 GameObject GO = PoolObjectsManager.Instance.ActivateBullet(gameObject.tag == "PlayerWeapon");

@@ -154,10 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b729fcce5e80634e8ec88254e9f834c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0, y: 0}
   row: 1
   spawnLine: 0
+  halfSize: {x: 0, y: 0}
   totalDurability: 5
+  soundPickUp:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5bd6d651e5aa0fd4d85af5b295a40800,
+      type: 2}
   multiplier: 0.3
 --- !u!114 &163600436
 MonoBehaviour:

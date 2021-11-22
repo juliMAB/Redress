@@ -173,9 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb11d06f2ee9214fa1dc6189aef5d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0.54, y: 0.97}
   row: 1
-  canDie: 0
+  spawnLine: 0
+  halfSize: {x: 0.54, y: 0.97}
+  canDie: 1
   initialLives: 1
   lives: 1
   targetLayer:
@@ -189,3 +190,8 @@ MonoBehaviour:
   lookingAtTarget: 0
   minDistanceToTarget: 1
   type: 0
+  soundDie:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 102ae75cbbf34ff458f95c9e4318850b,
+      type: 2}

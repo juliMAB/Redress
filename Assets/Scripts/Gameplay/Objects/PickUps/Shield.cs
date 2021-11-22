@@ -6,6 +6,7 @@ namespace Redress.Gameplay.Objects.PickUps
     {
         protected override void OnPickedUp()
         {
+            base.OnPickedUp();
             player.SetInmuneForTime(totalDurability, Color.blue);
             visual.SetActive(false);
         }

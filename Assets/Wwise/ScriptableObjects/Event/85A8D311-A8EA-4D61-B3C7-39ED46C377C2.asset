@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685deead05dc5514da8509eefe314f2d, type: 3}
+  m_Name: 85A8D311-A8EA-4D61-B3C7-39ED46C377C2
+  m_EditorClassIdentifier: 
+  objectName: play_explotaalerta
+  id: 3280139210
+  guid: 85A8D311-A8EA-4D61-B3C7-39ED46C377C2

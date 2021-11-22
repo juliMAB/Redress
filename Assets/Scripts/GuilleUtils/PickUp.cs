@@ -17,6 +17,8 @@ namespace Redress.Gameplay.Objects.PickUps
 
         public Player Player { set => player = value; }
 
+        [SerializeField] AK.Wwise.Event soundPickUp;
+
         protected virtual void Awake()
         {
             lightEffect = GetComponentsInChildren<ParticleSystem>()[0];
@@ -31,7 +33,10 @@ namespace Redress.Gameplay.Objects.PickUps
             Invoke(nameof(OnEndPickUp), totalDurability);
         }
 
-        protected abstract void OnPickedUp();
+        protected virtual void OnPickedUp()
+        {
+            soundPickUp.Post(gameObject);
+        }
 
         public virtual void ResetStats()
         {

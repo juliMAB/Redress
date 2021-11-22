@@ -26,27 +26,8 @@ namespace Redress.Gameplay.Objects.Enemies
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
 
-        private void Start()
-        {
-            nameSound = SoundsManager.Get().EstaticoMuere;
-            canDie = true;
-            switch (type)
-            {
-                case Type.Static:
-                    nameSound = SoundsManager.Get().EstaticoMuere;
-                    break;
-                case Type.Explosive:
-                    break;
-                case Type.Shooter:
-                    nameSound = SoundsManager.Get().PistolaMuerte;
-                    break;
-                case Type.Wall:
-                    nameSound = SoundsManager.Get().Pared;
-                    break;
-                default:
-                    break;
-            }
-        }
+        [SerializeField] AK.Wwise.Event soundDie;
+
 
         protected virtual void Update()
         {
@@ -68,14 +49,6 @@ namespace Redress.Gameplay.Objects.Enemies
                 targetIDamageable.TakeDamage(transform.position);
             }
         }
-       //private void OnTriggerEnter2D(Collider2D collision)
-       //{
-       //    if (collision.gameObject == target)
-       //    {
-       //        IDamageable targetIDamageable = target.GetComponent<IDamageable>();
-       //        targetIDamageable.TakeDamage();
-       //    }
-       //}
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -112,8 +85,9 @@ namespace Redress.Gameplay.Objects.Enemies
         public void TakeDamage(Vector3 origin)
         {
             Debug.Log(gameObject.name + " a tomado daño.");
-            AkSoundEngine.PostEvent(nameSound, gameObject);
-            
+            soundDie.Post(gameObject);
+
+
             if (!canDie)
             {
                 return;

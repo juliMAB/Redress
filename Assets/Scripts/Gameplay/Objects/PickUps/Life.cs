@@ -10,6 +10,7 @@
 
         protected override void OnPickedUp()
         {
+            base.OnPickedUp();
             player.AddLife();
         }
     }

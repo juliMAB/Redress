@@ -186,7 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d648f165c202f44aa29f6cf783ba5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  shoot:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e23a68c5ef4e5d347993e93a7bcac140,
+      type: 2}
   firePosition: {fileID: 1305334218948553338}
   coolDownTime: 0.3
   anglesOfShoot:
@@ -195,6 +199,7 @@ MonoBehaviour:
   - 10
   canShoot: 1
   bulletSpeed: 10
+  coolDownMultiplier: 1
 --- !u!114 &1305334219206568271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,10 +212,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c63860030b73845b4132451dffd5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0, y: 0}
   row: 1
   spawnLine: 0
+  halfSize: {x: 0, y: 0}
   totalDurability: 5
+  soundPickUp:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 630ed5f2e1d85ff46b4747a50638163d,
+      type: 2}
 --- !u!114 &1564622876
 MonoBehaviour:
   m_ObjectHideFlags: 0

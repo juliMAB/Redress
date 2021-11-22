@@ -157,9 +157,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  shoot:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e23a68c5ef4e5d347993e93a7bcac140,
+      type: 2}
   firePosition: {fileID: 8951922515697257208}
   coolDownTime: 0.1
   anglesOfShoot:
   - 0
   canShoot: 1
   bulletSpeed: 10
+  coolDownMultiplier: 1

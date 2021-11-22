@@ -12749,7 +12749,8 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 2a119dad92f8fe345857423958ab0609,
+      type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
@@ -14938,6 +14939,21 @@ MonoBehaviour:
   waitTime: 10
   speed: 10
   target: {fileID: 6408668683553309451}
+  soundOnAlert:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1ba1620cf2161ba499bde7916f288859,
+      type: 2}
+  soundPasing:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cada29b5b1f79e24d8569689807a3228,
+      type: 2}
+  soundTarget:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1d22b489434c4514a9baf163c184ec98,
+      type: 2}
   alertDuration: 2
 --- !u!4 &625431190
 Transform:
@@ -25010,37 +25026,37 @@ PrefabInstance:
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.043182332
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.0028799274
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9987057
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.026722098
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -3.0740001
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 175.054
       objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.19800001
       objectReference: {fileID: 0}
     - target: {fileID: 5661079698436818821, guid: f32bdd1aac4980a41a5677fb728a93a0,
         type: 3}
@@ -28878,6 +28894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967547125893965970, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: canDie
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
@@ -34872,6 +34893,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThreeWayGun
       objectReference: {fileID: 0}
+    - target: {fileID: 1305334219206568268, guid: 91cf721e1a87c3f4381849882476b30f,
+        type: 3}
+      propertyPath: shoot.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: e23a68c5ef4e5d347993e93a7bcac140,
+        type: 2}
     - target: {fileID: 1305334219206568269, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}
       propertyPath: m_RootOrder
@@ -34927,6 +34954,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1305334219206568271, guid: 91cf721e1a87c3f4381849882476b30f,
+        type: 3}
+      propertyPath: soundPickUp.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 630ed5f2e1d85ff46b4747a50638163d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91cf721e1a87c3f4381849882476b30f, type: 3}
 --- !u!4 &1545180409 stripped
@@ -44120,6 +44153,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163ab502d767147409e3d6a36c6c41ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundPausePlay:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d6623e5aed1bc2e43b167e1fbf881894,
+      type: 2}
+  soundPauseStop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b59e61a901ebefa4cb4c06e067e97b3a,
+      type: 2}
+  soundGamePlay:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: fc149aa334afbdc488e22e02d99254c7,
+      type: 2}
+  soundGameStop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4979571e1c5122b49ae2af15b4fc6ee6,
+      type: 2}
 --- !u!114 &2008208823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45200,16 +45253,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab11a3e48cf08fa439a69c7dd6c86bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bajar: play_bajar
-  m_salto: play_salto
-  m_colisionplataforma: play_colisionplataforma
-  m_disparo: play_disparo
-  "m_da\xF1o": play_danio
-  m_muerte: play_muerte
-  m_estaticoMuere: play_estaticomuere
-  m_pistolaMuerte: play_pistolamuere
-  m_laser: play_laser
-  m_pared: play_pared
+  onHover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  onclick:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  onPlay:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!4 &2066881230
 Transform:
   m_ObjectHideFlags: 0
@@ -46711,6 +46766,24 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: soundDie.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: c8785f8e557c4ae45a045e7441f1e47b,
+        type: 2}
+    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: soundOnDetect.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 6efed975cfcc3f641b971b492bfe3702,
+        type: 2}
+    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: soundOnExplote.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: dd21b796f3249d144961adf264141507,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &2135792140 stripped
@@ -47476,6 +47549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494429141692474957, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+        type: 3}
+      propertyPath: floorLayer.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3492246074496249483, guid: d675a2643575a8e4b9b1a0a88faf15e6,
         type: 3}

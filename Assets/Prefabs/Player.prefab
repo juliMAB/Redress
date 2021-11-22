@@ -161,6 +161,16 @@ MonoBehaviour:
   lives: 5
   inmuneTime: 5
   force: 0
+  soundDamage:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bde7199858b4ec84da8fe86f3ddd5466,
+      type: 2}
+  soundDie:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6441e8921d5ee3f40bfe6bb0d8278755,
+      type: 2}
 --- !u!114 &1494429141692474957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +189,24 @@ MonoBehaviour:
   inAirDamping: 5
   jumpHeight: 3
   lockGoDown: 0
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  soundGoDown:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e0c827e2fbf71d447b0651ef6523a3e7,
+      type: 2}
+  soundJump:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5255f7f740fa067468c1087ac6121cbf,
+      type: 2}
+  soundOnGrownd:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bfe576c20456b3d41a941330b66a1294,
+      type: 2}
 --- !u!1 &3522722370715047934
 GameObject:
   m_ObjectHideFlags: 0

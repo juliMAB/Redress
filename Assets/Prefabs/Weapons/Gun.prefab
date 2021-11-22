@@ -156,25 +156,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d648f165c202f44aa29f6cf783ba5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  type: 0
+  shoot:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cb9348065b1fad54fb86baa0199e2543,
+      type: 2}
   firePosition: {fileID: 8951922515697257208}
   coolDownTime: 0.1
   anglesOfShoot:
   - 0
   canShoot: 1
   bulletSpeed: 10
+  coolDownMultiplier: 1
