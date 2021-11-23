@@ -118,6 +118,8 @@ namespace Redress.Gameplay.User
 
         public void TakeDamage(Vector3 origin)
         {
+            if (!StayAlive())
+                return;
             IEnumerator TakeHit()
             {
                 float time = 0;
@@ -165,6 +167,7 @@ namespace Redress.Gameplay.User
         public void Die()
         {
             OnDie?.Invoke();
+            lives = -1;
         }
 
         public void AddLife()

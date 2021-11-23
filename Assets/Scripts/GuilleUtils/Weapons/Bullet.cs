@@ -9,6 +9,14 @@ namespace GuilleUtils.Weapon
     {
         public Action<GameObject> OnCollided = null;
         public float speed = 1f;
+        private void OnEnable()
+        {
+            Invoke(nameof(Desactivate), 4);
+        }
+        private void Desactivate()
+        {
+            gameObject.SetActive(false);
+        }
 
         public void Move(float speed)
         {

@@ -2662,8 +2662,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: b59e61a901ebefa4cb4c06e067e97b3a,
       type: 2}
-  fxVolumen: 0
-  musicVolumen: 0
+  fxVolumen: 0.5
+  musicVolumen: 0.5
 --- !u!1 &613989918
 GameObject:
   m_ObjectHideFlags: 0
