@@ -32,6 +32,9 @@ namespace Redress.Management
         [SerializeField] AK.Wwise.Event soundMenuStop;
         [SerializeField] AK.Wwise.Event soundPauseStop;
 
+        [SerializeField] [Range(0, 1)] private float fxVolumen = 0;
+        [SerializeField] [Range(0, 1)] private float musicVolumen = 0;
+
         public enum Scene { Menu, Tutorial, Game }
 
         private PlayerData playerData = null;
@@ -41,6 +44,8 @@ namespace Redress.Management
             soundMenuPlay.Post(gameObject);
         }
         public PlayerData PlayerData { get => playerData; }
+        public float FxVolumen { get => fxVolumen; set => fxVolumen = value; }
+        public float MusicVolumen { get => musicVolumen; set => musicVolumen = value; }
 
         public void GoToScene(Scene scene)
         {
