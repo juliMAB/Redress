@@ -124,5 +124,10 @@ namespace Redress.Gameplay.Objects.Enemies
                 jumped = true;
             }
         }
+
+        public bool StayAlive()
+        {
+            return lives <= 0;
+        }
     }
 }

@@ -6,6 +6,8 @@ namespace GuilleUtils.Interfaces
     {
         void TakeDamage(Vector3 origin);
 
+        bool StayAlive();
+
         void Die();        
     }
 }
