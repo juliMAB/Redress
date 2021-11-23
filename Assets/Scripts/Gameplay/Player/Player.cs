@@ -188,5 +188,9 @@ namespace Redress.Gameplay.User
             gun.enabled = true;
             gun.GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
+        public bool StayAlive()
+        {
+            return lives > 0;
+        }
     }
 }

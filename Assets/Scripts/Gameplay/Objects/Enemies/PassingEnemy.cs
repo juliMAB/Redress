@@ -53,8 +53,11 @@ namespace Redress.Gameplay.Objects.Enemies
             if (collision.gameObject == target)
             {
                 IDamageable targetIDamageable = target.GetComponent<IDamageable>();
+                if (targetIDamageable.StayAlive())
+                {
                 targetIDamageable.TakeDamage(transform.position);
                 soundTarget.Post(gameObject);
+                }
             }
         }
 
