@@ -21,18 +21,18 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected override void OnPickedUp()
         {
-            base.OnPickedUp();
-            swing.enabled = false;
-            void DeactiveOldGun()
-            {
-                OnConsumed?.Invoke(player.Gun.gameObject);
-            }
-
             if (player.Gun != player.InitialGun)
             {
-                DeactiveOldGun();
+                //deactivate old gun
+                if (player.Gun.TryGetComponent(out ThreeWayGun twg))
+                {
+                    twg.OnEndPickUp();
+                }
             }
-            
+
+            base.OnPickedUp();
+            swing.enabled = false;
+
             playerGun = player.InitialGun.gameObject;
             playerGun.GetComponent<Gun>().enabled = false;
             playerGun.GetComponentInChildren<SpriteRenderer>().enabled = false;
