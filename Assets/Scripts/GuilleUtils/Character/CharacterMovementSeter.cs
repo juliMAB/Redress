@@ -62,7 +62,7 @@ namespace GuilleUtils.Character.Movement
 			//SetDashUpdate();
 
 			// we can only jump whilst grounded
-			if (_controller.isGrounded && Input.GetAxisRaw("Jump")!=0)
+			if (_controller.isGrounded && Input.GetAxisRaw("Jump")!=0 && Input.GetAxisRaw("GoDown") == 0)
 			{
 				soundJump.Post(gameObject);
 
@@ -79,7 +79,7 @@ namespace GuilleUtils.Character.Movement
 
 			// if holding down bump up our movement amount and turn off one way platform detection for a frame.
 			// this lets us jump down through one way platforms
-			if (_controller.isGrounded && Input.GetAxisRaw("GoDown") != 0)
+			if (_controller.isGrounded && Input.GetAxisRaw("GoDown") != 0 && Input.GetAxisRaw("Jump") == 0)
 			{
 				_velocity.y *= 3f;
 
