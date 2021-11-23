@@ -45,7 +45,7 @@ namespace Redress.Gameplay.Objects.Enemies
 
             gameObject.SetActive(false);
 
-            transform.position = new Vector3(outOfScreenXValue + halfSize.x * 2 , 0, 0);
+            transform.position = new Vector3(outOfScreenXValue + halfSize.x * 2.5f, 0, 0);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -61,6 +61,11 @@ namespace Redress.Gameplay.Objects.Enemies
         public void SetOutOfScreenXValue(float value)
         {
             outOfScreenXValue = value;
+        }
+
+        public void SetSpeed(float speed)
+        {
+            this.speed = speed;
         }
 
         public void Pause(bool pause)

@@ -44,6 +44,7 @@ namespace Redress.Gameplay.Platforms
         public PickUp[] PickUps => pickUps; 
         public float MinSpawnTime => minSpawnTime; 
         public float MaxSpawnTime => maxSpawnTime;
+        public PassingEnemy PassingEnemy => passingEnemy;
 
         protected override void Start()
         {
@@ -130,6 +131,8 @@ namespace Redress.Gameplay.Platforms
             this.speed = speed;
             this.minSpawnTime = minSpawnTime;
             this.maxSpawnTime = maxSpawnTime;
+
+            passingEnemy.SetSpeed(speed * 2);
         }
 
         public void PlatformObjectsUpdate()
