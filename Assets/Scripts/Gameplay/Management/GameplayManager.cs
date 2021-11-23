@@ -66,6 +66,7 @@ namespace Redress.Gameplay.Management
 
         public Vector2 PlayerPosToLose => playerPosToLose;
         public Player Player => player;
+        public float HalfPlayerHeight  => halfPlayerHeight; 
 
         private void Start()
         {
@@ -78,6 +79,8 @@ namespace Redress.Gameplay.Management
             levelProgressionManager.Initialize();
 
             platformsManager.OnUnneveness += cameraController.PositionCamera;
+
+            player.CharacterMovement.Controller.halfPlayerHeight = halfPlayerHeight;
         }
 
         private void Update()

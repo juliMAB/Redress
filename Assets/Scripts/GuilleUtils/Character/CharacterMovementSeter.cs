@@ -29,8 +29,9 @@ namespace GuilleUtils.Character.Movement
 
 
 		public bool ControlActive { set { controlActive = value; } }
+        public CharacterController2D Controller => _controller; 
 
-		private void Awake()
+        private void Awake()
 		{
 			_animator = GetComponentInChildren<Animator>();
 			_controller = GetComponent<CharacterController2D>();

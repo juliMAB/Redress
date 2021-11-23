@@ -2,6 +2,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Redress.Gameplay.User;
 
 
 namespace GuilleUtils.Character.Movement
@@ -177,10 +178,11 @@ public class CharacterController2D : MonoBehaviour
 	// the reason is so that if we reach the end of the slope we can make an adjustment to stay grounded
 	bool _isGoingUpSlope = false;
 
+	public float halfPlayerHeight = 0f;
 
-	#region Monobehaviour
+		#region Monobehaviour
 
-	void Awake()
+		void Awake()
 	{
 		// add our one-way platforms to our normal platform mask so that we can land on them from above
 		platformMask |= oneWayPlatformMask;
@@ -260,6 +262,18 @@ public class CharacterController2D : MonoBehaviour
 
 		// now we check movement in the horizontal dir
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, transform.lossyScale.x / 2, platformMask);
+		RaycastHit2D hit2 = Physics2D.Raycast(transform.position + Vector3.down * halfPlayerHeight, Vector2.right, transform.lossyScale.x / 2, platformMask);
+		RaycastHit2D hit3 = Physics2D.Raycast(transform.position + Vector3.up * halfPlayerHeight, Vector2.right, transform.lossyScale.x / 2, platformMask);
+
+		if (hit2.normal == Vector2.left)
+		{
+			deltaMovement = hit2.normal.normalized / 2;
+		}
+
+		if (hit3.normal == Vector2.left)
+		{
+			deltaMovement = hit3.normal.normalized / 2;
+		}
 
 		if (hit.normal == Vector2.left)
 		{
