@@ -10,6 +10,8 @@ namespace Redress.Gameplay.Objects.PickUps
         private Gun threeWayGun = null;
         private Transform originalParet;
         private Swing swing;
+        private static bool actived;
+        private static bool cancel;
 
         protected override void Awake()
         {
@@ -29,10 +31,13 @@ namespace Redress.Gameplay.Objects.PickUps
                     twg.OnEndPickUp();
                 }
             }
-
+            if (actived)
+            {
+                cancel = true;
+            }
             base.OnPickedUp();
             swing.enabled = false;
-
+            actived = true;
             playerGun = player.InitialGun.gameObject;
             playerGun.GetComponent<Gun>().enabled = false;
             playerGun.GetComponentInChildren<SpriteRenderer>().enabled = false;
@@ -41,6 +46,12 @@ namespace Redress.Gameplay.Objects.PickUps
         }
         protected override void OnEndPickUp()
         {
+
+            if (cancel)
+            {
+                cancel = false;
+                return;
+            }
             base.OnEndPickUp();
             player.ResetGun();
             transform.parent = originalParet;
