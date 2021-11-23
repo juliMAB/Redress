@@ -136,11 +136,12 @@ namespace Redress.Gameplay.User
                 }
             }
 
-            particleSystem.Play();
             if (isInmune)
             {
                 return;
             }
+
+            particleSystem.Play();
 
             lives--;
             
