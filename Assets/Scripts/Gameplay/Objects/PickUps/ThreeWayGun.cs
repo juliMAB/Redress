@@ -23,35 +23,35 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected override void OnPickedUp()
         {
-            if (player.Gun != player.InitialGun)
-            {
-                //deactivate old gun
-                if (player.Gun.TryGetComponent(out ThreeWayGun twg))
-                {
-                    twg.OnEndPickUp();
-                }
-            }
-            if (actived)
-            {
-                cancel = true;
-            }
+            //if (player.Gun != player.InitialGun)
+            //{
+            //    //deactivate old gun
+            //    if (player.Gun.TryGetComponent(out ThreeWayGun twg))
+            //    {
+            //        twg.OnEndPickUp();
+            //    }
+            //}
+            
+            
             base.OnPickedUp();
             swing.enabled = false;
-            actived = true;
             playerGun = player.InitialGun.gameObject;
             playerGun.GetComponent<Gun>().enabled = false;
             playerGun.GetComponentInChildren<SpriteRenderer>().enabled = false;
             player.Gun = threeWayGun;
             FollowPlayer();
+            if (actived)
+                cancel = true;
+            actived = true;
         }
         protected override void OnEndPickUp()
         {
-
             if (cancel)
             {
                 cancel = false;
                 return;
             }
+            actived = false;
             base.OnEndPickUp();
             player.ResetGun();
             transform.parent = originalParet;
