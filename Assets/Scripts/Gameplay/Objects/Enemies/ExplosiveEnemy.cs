@@ -30,7 +30,6 @@ namespace Redress.Gameplay.Objects.Enemies
             if (lookingAtTarget && animationEnded)
             {
                 direction = Vector3.Normalize(target.transform.position - transform.position) * additionalSpeed;
-                soundOnDetect.Post(gameObject);
             }
 
             if (IsCloseToPLayer())
@@ -62,6 +61,7 @@ namespace Redress.Gameplay.Objects.Enemies
         protected override void OnDetectedPlayer()
         {
             anim.SetTrigger("Player Detected");
+            soundOnDetect.Post(gameObject);
             animationEnded = false;
         }
 
