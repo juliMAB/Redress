@@ -46,6 +46,10 @@ namespace GuilleUtils.Character.Movement
 
 			if (_controller.isGrounded) //this is for grounded.
 			{
+				if(_controller.collisionState.becameGroundedThisFrame)
+                {
+					soundOnGrownd.Post(gameObject);
+				}
 				_velocity.y = 0;
 			}
 
