@@ -111,8 +111,8 @@ namespace Redress.Gameplay.UI
 
         public void ActivateGameOverPanel()
         {
-            gameOverPanel.SetActive(true);
             pauseButton.SetActive(false);
+            gameOverPanel.SetActive(true);
         }
 
         public void ActivateOptionsPanel()

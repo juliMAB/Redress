@@ -11,6 +11,8 @@ namespace Redress.Gameplay.Platforms
             public Transform end;
             public Vector3[] startPosition;
 
+            public float[] localXDifference;
+
             private float _speed;
             private float _layerSpeedDiff;
             private Transform _startPos;
@@ -23,10 +25,16 @@ namespace Redress.Gameplay.Platforms
 
                 MoveLayers(doParallax);
 
+                if (doParallax)
+                {
+                    layers[3].GetComponentInChildren<SpriteRenderer>().sortingOrder = -10;
+                }
+
                 if (IsGroupOutOfScreen())
                 {
                     ResetGroup();
                     ChangeEnabledParallaxGroup();
+                    layers[3].GetComponentInChildren<SpriteRenderer>().sortingOrder = -11;
                 }
             }
 
@@ -50,7 +58,7 @@ namespace Redress.Gameplay.Platforms
                 {
                     Vector3 position = _startPos.position;
                     position.z = startPosition[i].z;
-                    layers[i].transform.position = position;
+                    layers[i].transform.position = position + Vector3.right * localXDifference[i];
                 }
             }
 
