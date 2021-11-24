@@ -90,7 +90,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -113,7 +113,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -139,7 +139,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -245,7 +245,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
+									<ObjectRef Name="Fx Audio Bus" ID="{74A1C619-62A2-4C0A-8B04-948323AA220D}" WorkUnitID="{5DDBD8B3-57E6-4C88-B5FD-79666B68DE30}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -987,6 +987,18 @@
 						<Folder Name="Vida" ID="{D5955279-14DF-40A0-9628-BDC0CDEF7AF4}" ShortID="274531717">
 							<ChildrenList>
 								<Sound Name="464908__plasterbrain__8bit-powerup" ID="{17830148-5E1A-4A9D-BB8E-437C23FA03BA}" ShortID="190113698">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>1470</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
@@ -1014,6 +1026,18 @@
 						<Folder Name="Arma" ID="{AE792C27-5415-47B4-8B7E-C9BAA9AC5446}" ShortID="863391283">
 							<ChildrenList>
 								<Sound Name="464908__plasterbrain__8bit-powerup" ID="{A65103A3-434F-44C1-96AB-5275A58215AC}" ShortID="220879498">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
@@ -1041,6 +1065,28 @@
 						<Folder Name="Tiempo" ID="{82A40477-CD30-4C40-AD18-B128EF702356}" ShortID="234699916">
 							<ChildrenList>
 								<Sound Name="464908__plasterbrain__8bit-powerup" ID="{5D8BB09F-1420-4CD4-B7E1-32F459F4A749}" ShortID="475550434">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{812C0ADA-85C6-4A14-AE8C-63274AEB70EF}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-400</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
@@ -1068,6 +1114,23 @@
 						<Folder Name="Escudo" ID="{FF31DEE1-5E06-4A4E-86BE-A236E81BC9DB}" ShortID="853806881">
 							<ChildrenList>
 								<Sound Name="464908__plasterbrain__8bit-powerup" ID="{E01DC3E0-98D1-4DFA-9CA9-D3A1BB75B611}" ShortID="12204544">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-150</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
@@ -1180,6 +1243,13 @@
 						<Folder Name="Boton Pausa" ID="{0B40D40B-AD24-4C81-9BFC-F094FBD7734F}" ShortID="222359279">
 							<ChildrenList>
 								<Sound Name="470201__erokia__menu-ui-click-222" ID="{0BCD8ACF-EA0D-4A29-850D-2DEAB95BD55D}" ShortID="421572891">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{64FCDC5C-01B2-4D40-BB5C-60B46CE266E1}"/>
@@ -1414,6 +1484,11 @@
 						<Sound Name="Game" ID="{68727C50-EF29-4950-AEA8-F54F656E9EB3}" ShortID="174754411">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1440,6 +1515,11 @@
 						<Sound Name="Menu" ID="{E370BB8E-87C8-4828-B4C4-8F82B8FEABB2}" ShortID="77514157">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1466,6 +1546,11 @@
 						<Sound Name="Pause" ID="{7AE0EF5B-7361-4707-94BF-2D2BF5A03568}" ShortID="997979178">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

@@ -292,8 +292,8 @@ MonoBehaviour:
         guid: 11d3a885eaa8614db3c739ed46c377c2
       Path: Events\Default Work Unit\play_explotaalerta
       maxAttenuation: 0
-      maxDuration: 0.358716
-      minDuration: 0.358716
+      maxDuration: 0.276608
+      minDuration: 0.276608
     - name: play_explotaexplota
       guid: 8115c2798ad1604db60c8f35205c024d
       id: 379796940
@@ -326,8 +326,8 @@ MonoBehaviour:
         guid: bb9fcbe4d2c705418c8003c4c82606bc
       Path: Events\Default Work Unit\play_explotamuere
       maxAttenuation: 0
-      maxDuration: 0.289458
-      minDuration: 0.289458
+      maxDuration: 0.284486
+      minDuration: 0.284486
     - name: play_game
       guid: d359ab5bfb2ebc4b985d4c77f87854a4
       id: 216639764
@@ -530,8 +530,8 @@ MonoBehaviour:
         guid: 2fb4d23cc067f14e952d7b03e4c3e77f
       Path: Events\Default Work Unit\play_pup_escudo
       maxAttenuation: 0
-      maxDuration: 0.869048
-      minDuration: 0.869048
+      maxDuration: 0.947703
+      minDuration: 0.947703
     - name: play_pup_tiempo
       guid: fb99cc0330d27b479d5cf49ca625456e
       id: 3756386660
@@ -547,8 +547,8 @@ MonoBehaviour:
         guid: fb99cc0330d27b479d5cf49ca625456e
       Path: Events\Default Work Unit\play_pup_tiempo
       maxAttenuation: 0
-      maxDuration: 0.869048
-      minDuration: 0.869048
+      maxDuration: 1.094931
+      minDuration: 1.094931
     - name: play_pup_vida
       guid: 7fc98a11ed0e874384b893551626e5c0
       id: 3883368638
@@ -564,8 +564,8 @@ MonoBehaviour:
         guid: 7fc98a11ed0e874384b893551626e5c0
       Path: Events\Default Work Unit\play_pup_vida
       maxAttenuation: 0
-      maxDuration: 0.869048
-      minDuration: 0.869048
+      maxDuration: 0.371776
+      minDuration: 0.371776
     - name: play_salto
       guid: f93fed52e77ae44c903900a2829261f8
       id: 2695653357

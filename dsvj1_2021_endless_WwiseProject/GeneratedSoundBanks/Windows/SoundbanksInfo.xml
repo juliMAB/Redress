@@ -20,7 +20,7 @@
 				<GameParameter Id="2833021068" Name="VolumenMusic" ObjectPath="\Game Parameters\Default Work Unit\VolumenMusic"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="4066799201">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3146413947">
 			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
@@ -133,7 +133,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3280139210" Name="play_explotaalerta" ObjectPath="\Events\Default Work Unit\play_explotaalerta" DurationType="OneShot" DurationMin="0.358716" DurationMax="0.358716">
+				<Event Id="3280139210" Name="play_explotaalerta" ObjectPath="\Events\Default Work Unit\play_explotaalerta" DurationType="OneShot" DurationMin="0.276608" DurationMax="0.276608">
 					<IncludedMemoryFiles>
 						<File Id="301148865" Language="SFX">
 							<ShortName>207522__timbre__more-aliensolo.wav</ShortName>
@@ -149,7 +149,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3945990271" Name="play_explotamuere" ObjectPath="\Events\Default Work Unit\play_explotamuere" DurationType="OneShot" DurationMin="0.289458" DurationMax="0.289458">
+				<Event Id="3945990271" Name="play_explotamuere" ObjectPath="\Events\Default Work Unit\play_explotamuere" DurationType="OneShot" DurationMin="0.284486" DurationMax="0.284486">
 					<IncludedMemoryFiles>
 						<File Id="384214155" Language="SFX">
 							<ShortName>447219__gamba-studio__explota-lagartija-2.wav</ShortName>
@@ -253,7 +253,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="204892707" Name="play_pup_escudo" ObjectPath="\Events\Default Work Unit\play_pup_escudo" DurationType="OneShot" DurationMin="0.869048" DurationMax="0.869048">
+				<Event Id="204892707" Name="play_pup_escudo" ObjectPath="\Events\Default Work Unit\play_pup_escudo" DurationType="OneShot" DurationMin="0.947703" DurationMax="0.947703">
 					<IncludedMemoryFiles>
 						<File Id="933165198" Language="SFX">
 							<ShortName>464908__plasterbrain__8bit-powerup.wav</ShortName>
@@ -261,7 +261,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3756386660" Name="play_pup_tiempo" ObjectPath="\Events\Default Work Unit\play_pup_tiempo" DurationType="OneShot" DurationMin="0.869048" DurationMax="0.869048">
+				<Event Id="3756386660" Name="play_pup_tiempo" ObjectPath="\Events\Default Work Unit\play_pup_tiempo" DurationType="OneShot" DurationMin="1.094931" DurationMax="1.094931">
 					<IncludedMemoryFiles>
 						<File Id="933165198" Language="SFX">
 							<ShortName>464908__plasterbrain__8bit-powerup.wav</ShortName>
@@ -269,7 +269,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3883368638" Name="play_pup_vida" ObjectPath="\Events\Default Work Unit\play_pup_vida" DurationType="OneShot" DurationMin="0.869048" DurationMax="0.869048">
+				<Event Id="3883368638" Name="play_pup_vida" ObjectPath="\Events\Default Work Unit\play_pup_vida" DurationType="OneShot" DurationMin="0.371776" DurationMax="0.371776">
 					<IncludedMemoryFiles>
 						<File Id="933165198" Language="SFX">
 							<ShortName>464908__plasterbrain__8bit-powerup.wav</ShortName>
