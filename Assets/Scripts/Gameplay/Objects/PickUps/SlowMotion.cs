@@ -8,6 +8,7 @@ namespace Redress.Gameplay.Objects.PickUps
         [SerializeField] private float multiplier = 0.2f;
 
         public Action<float> OnSpeedPercentageChanged = null;
+        //[SerializeField] AK.Wwise.Event EndSoundSlowMotion;
 
         protected override void Awake()
         {
@@ -22,6 +23,11 @@ namespace Redress.Gameplay.Objects.PickUps
             visual.SetActive(false);
         }
 
+        protected override void OnEndPickUp()
+        {
+            //EndSoundSlowMotion.Post(gameObject);
+            base.OnEndPickUp();
+        }
         private void ResetSpeedMultiplier(GameObject go)
         {
             OnSpeedPercentageChanged?.Invoke(1);

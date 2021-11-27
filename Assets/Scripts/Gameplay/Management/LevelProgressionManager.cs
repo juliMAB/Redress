@@ -56,6 +56,7 @@ namespace Redress.Gameplay.Management
             float distanceProgression = Time.deltaTime * distanceProgressionMultiplier * speedMultiplier;
 
             distance += platformsManager.Speed / speedDivider;
+            AkSoundEngine.SetRTPCValue("Tiempo_Juego", distance);
             speed += speedProgression;
 
             float minSpawnTime = initialSpawnTimeLimits[0];

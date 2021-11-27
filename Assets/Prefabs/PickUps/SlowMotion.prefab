@@ -164,6 +164,11 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 5bd6d651e5aa0fd4d85af5b295a40800,
       type: 2}
   multiplier: 0.3
+  EndSoundSlowMotion:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 931f7e064f2f7564b9cb611e004c1656,
+      type: 2}
 --- !u!114 &163600436
 MonoBehaviour:
   m_ObjectHideFlags: 0

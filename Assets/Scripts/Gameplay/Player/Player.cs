@@ -49,6 +49,10 @@ namespace Redress.Gameplay.User
             gun = GetComponentInChildren<Gun>();
             initialGun = gun;
         }
+        private void Start()
+        {
+            AkSoundEngine.SetRTPCValue("Vida_Player", lives);
+        }
 
         public void PlayerUpdate()
         {
@@ -146,7 +150,7 @@ namespace Redress.Gameplay.User
             particleSystem.Play();
 
             lives--;
-            
+            AkSoundEngine.SetRTPCValue("Vida_Player", lives);
             if (lives > 0)
             {
                 soundDamage.Post(gameObject);
@@ -156,7 +160,7 @@ namespace Redress.Gameplay.User
             if (lives == 0)
             {
                 lives--;
-                soundDie.Post(gameObject);
+                
                 Die();
             }
 
@@ -166,6 +170,7 @@ namespace Redress.Gameplay.User
 
         public void Die()
         {
+            soundDie.Post(gameObject);
             OnDie?.Invoke();
             lives = -1;
         }
@@ -173,6 +178,7 @@ namespace Redress.Gameplay.User
         public void AddLife()
         {
             lives++;
+            AkSoundEngine.SetRTPCValue("Vida_Player", lives);
             lives = Mathf.Clamp(lives, 1, initialLives);
 
             OnLivesChanged?.Invoke(lives);
