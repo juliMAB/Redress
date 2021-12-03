@@ -12,6 +12,7 @@ namespace Redress.Gameplay.Objects.PickUps
         protected GameObject visual = null;
         protected Player player = null;
         [SerializeField] protected float totalDurability = 5f;
+        private BoxCollider2D boxCollider;
 
         public Action<GameObject> OnConsumed = null;
 
@@ -21,6 +22,7 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected virtual void Awake()
         {
+            boxCollider = GetComponent<BoxCollider2D>();
             lightEffect = GetComponentsInChildren<ParticleSystem>()[0];
             visual = GetComponentInChildren<Renderer>().gameObject;
         }
@@ -36,6 +38,7 @@ namespace Redress.Gameplay.Objects.PickUps
         protected virtual void OnPickedUp()
         {
             soundPickUp.Post(gameObject);
+            boxCollider.enabled = false;
         }
 
         public virtual void ResetStats()
@@ -43,6 +46,7 @@ namespace Redress.Gameplay.Objects.PickUps
             lightEffect.gameObject.SetActive(true);
             direction = Vector3.left;
             visual.gameObject.SetActive(true);
+            boxCollider.enabled = true;
         }
         protected virtual void OnEndPickUp()
         {
