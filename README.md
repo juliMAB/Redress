@@ -28,6 +28,10 @@ This is a game being developed by students from <a href="https://www.imagecampus
 - **Jose Cassini** - *Testing*
 - **Julian Acotto** - *Testing*
 - **Juan Pablo Kavulakian** - *Testing*
+- **Santiago Gasloli** - *Testing*
+- **Lucas Gaston Benitez** - *Testing*
+- **Pablo Alejandro Santagiuliana** - *Testing*
+- **Cristian Leonel Sosa** - *Testing*
 
 
 This game was also possible thanks to the support of these professors:
