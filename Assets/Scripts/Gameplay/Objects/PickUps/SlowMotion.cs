@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿using GuilleUtils.PostProcessing;
 using System;
+using UnityEngine;
 
 namespace Redress.Gameplay.Objects.PickUps
 {
     public class SlowMotion : PickUp
     {
         [SerializeField] private float multiplier = 0.2f;
+
+        [Header("Visual Configuration")]
+        [SerializeField] private float lensDistortionValue = -62;
+        [SerializeField] private float chromaticAberrationValue = 1;
 
         public Action<float> OnSpeedPercentageChanged = null;
         //[SerializeField] AK.Wwise.Event EndSoundSlowMotion;
@@ -18,9 +23,13 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected override void OnPickedUp()
         {
+            float durationTime = 1;
             base.OnPickedUp();
             OnSpeedPercentageChanged?.Invoke(multiplier);
             visual.SetActive(false);
+
+            PostProcessEffectsManager.Instance.SetLensDistortion(lensDistortionValue, durationTime, true, totalDurability - durationTime - 0.1f);
+            PostProcessEffectsManager.Instance.SetChromaticAberration(chromaticAberrationValue, durationTime, true, totalDurability - durationTime - 0.1f, true);
         }
 
         protected override void OnEndPickUp()
