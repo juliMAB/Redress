@@ -20,22 +20,27 @@ namespace GuilleUtils.PostProcessing
             //depthOfField = volume.GetComponent<DepthOfField>();
             //motionBlur = volume.GetComponent<MotionBlur>(); 
             lensDistortion = (LensDistortion)volume.profile.settings[2];
+            vignette = (Vignette)bgVolume.profile.settings[4];
             bgChromatic = (ChromaticAberration)bgVolume.profile.settings[1];
             bgLensDistortion = (LensDistortion)bgVolume.profile.settings[2];
+            bgVignette = (Vignette)bgVolume.profile.settings[4];
         }
 #endregion
 
         [Header("PostProcessing")]
         [SerializeField] private PostProcessVolume volume = null;
         [SerializeField] private PostProcessVolume bgVolume = null;
+
         private ChromaticAberration chromatic = null;
         private DepthOfField depthOfField = null;
         private MotionBlur motionBlur = null;
         private LensDistortion lensDistortion = null;
+        private Vignette vignette = null;
         private ChromaticAberration bgChromatic = null;
         private DepthOfField bgDepthOfField = null;
         private MotionBlur bgMotionBlur = null;
         private LensDistortion bgLensDistortion = null;
+        private Vignette bgVignette = null;
 
         public void SetLensDistortion(float value, float duration, bool rebounce = false, float holdTime = 0, bool justBG = false, bool affectBG = false)
         {
@@ -62,6 +67,18 @@ namespace GuilleUtils.PostProcessing
             else
             {
                 StartCoroutine(SetChromaticAberration(value, duration, rebounce, holdTime, chromatic));
+            }
+        }
+
+        public void SetVignette(float value, float duration, bool rebounce = false, float holdTime = 0, bool justBG = false)
+        {
+            if (justBG)
+            {
+                StartCoroutine(SetVignette(value, duration, rebounce, holdTime, bgVignette));
+            }
+            else
+            {
+                StartCoroutine(SetVignette(value, duration, rebounce, holdTime, vignette));
             }
         }
 
@@ -109,10 +126,30 @@ namespace GuilleUtils.PostProcessing
             }
         }
 
-        
+        private IEnumerator SetVignette(float _value, float _duration, bool _rebounce, float _holdTime, Vignette v)
+        {
+            float time = 0;
+            float initialValue = v.intensity.value;
+
+            while (time < _duration)
+            {
+                time += Time.deltaTime;
+
+                v.intensity.value = Mathf.Lerp(initialValue, _value, time / _duration);
+
+                yield return null;
+            }
+
+            if (_rebounce)
+            {
+                yield return new WaitForSeconds(_holdTime);
+
+                StartCoroutine(SetVignette(initialValue, _duration, false, 0, v));
+            }
+        }
 
 
-        
+
 
         public IEnumerator Blur()
         {

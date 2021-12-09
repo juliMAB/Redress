@@ -11,6 +11,7 @@ namespace Redress.Gameplay.Objects.PickUps
         [Header("Visual Configuration")]
         [SerializeField] private float lensDistortionValue = -62;
         [SerializeField] private float chromaticAberrationValue = 1;
+        [SerializeField] private float vignetteValue = 0.619f;
 
         public Action<float> OnSpeedPercentageChanged = null;
         //[SerializeField] AK.Wwise.Event EndSoundSlowMotion;
@@ -30,6 +31,7 @@ namespace Redress.Gameplay.Objects.PickUps
 
             PostProcessEffectsManager.Instance.SetLensDistortion(lensDistortionValue, durationTime, true, totalDurability - durationTime - 0.1f);
             PostProcessEffectsManager.Instance.SetChromaticAberration(chromaticAberrationValue, durationTime, true, totalDurability - durationTime - 0.1f, true);
+            PostProcessEffectsManager.Instance.SetVignette(vignetteValue, durationTime, true, totalDurability - durationTime - 0.1f, true);
         }
 
         protected override void OnEndPickUp()
