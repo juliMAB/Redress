@@ -65,6 +65,20 @@ namespace Redress.Gameplay.Objects.Enemies
             animationEnded = false;
         }
 
+        public override void ResetStats()
+        {
+            //lives = initialLives;
+            //lookingAtTarget = false;
+            //direction = -Vector3.right;
+            //jumped = false;
+            //if (TryGetComponent(out Rigidbody2D body))
+            //{
+            //    body.velocity = Vector2.zero;
+            //}
+            base.ResetStats();
+            SetAnimationEnded();
+        }
+
         public void SetAnimationEnded()
         {
             animationEnded = true;

@@ -70,7 +70,7 @@ namespace Redress.Gameplay.Objects.Enemies
             target = _target;
         }
 
-        public void ResetStats()
+        public virtual void ResetStats()
         {
             lives = initialLives;
             lookingAtTarget = false;

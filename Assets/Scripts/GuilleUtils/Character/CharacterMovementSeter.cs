@@ -91,7 +91,13 @@ namespace GuilleUtils.Character.Movement
 				if (!lockGoDown)
                 {
 					_controller.ignoreOneWayPlatformsThisFrame = true;
-					soundGoDown.Post(gameObject);
+
+					float halfPlayerHeightPlusALittleMore = -0.957f;
+
+					RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, halfPlayerHeightPlusALittleMore, floorLayer);
+
+					if (hit)
+						soundGoDown.Post(gameObject);
 				}
 			}
 
