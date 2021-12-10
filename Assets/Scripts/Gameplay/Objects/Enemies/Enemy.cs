@@ -22,6 +22,9 @@ namespace Redress.Gameplay.Objects.Enemies
         [SerializeField] protected GameObject target = null;
         [SerializeField] protected bool lookingAtTarget = false;
         [SerializeField] protected float minDistanceToTarget = 1;
+        [SerializeField] protected float timeToVanish = 1;
+        [SerializeField] protected SpriteRenderer spriteRenderer = null;
+        [SerializeField] protected BoxCollider2D boxCollider2D = null;
         protected string nameSound;
         public Type type = Type.Static;
         public Action<GameObject> OnDie = null;
@@ -72,6 +75,8 @@ namespace Redress.Gameplay.Objects.Enemies
 
         public virtual void ResetStats()
         {
+            spriteRenderer.enabled = true;
+            boxCollider2D.enabled = true;
             lives = initialLives;
             lookingAtTarget = false;
             direction = -Vector3.right;
@@ -102,6 +107,14 @@ namespace Redress.Gameplay.Objects.Enemies
         }
 
         public virtual void Die()
+        {
+            Invoke("DisabledOnQuen", timeToVanish);
+            SpriteToParticlesAsset.EffectorExplode sp = GetComponentInChildren<SpriteToParticlesAsset.EffectorExplode>();
+            spriteRenderer.enabled = false;
+            boxCollider2D.enabled = false;
+            sp.MyExplodeTest();
+        }
+        void DisabledOnQuen()
         {
             OnDie?.Invoke(gameObject);
         }
