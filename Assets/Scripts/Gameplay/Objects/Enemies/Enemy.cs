@@ -75,8 +75,12 @@ namespace Redress.Gameplay.Objects.Enemies
 
         public virtual void ResetStats()
         {
-            spriteRenderer.enabled = true;
-            boxCollider2D.enabled = true;
+            if (spriteRenderer)
+            {
+                spriteRenderer.enabled = true;
+                boxCollider2D.enabled = true;
+            }
+            
             lives = initialLives;
             lookingAtTarget = false;
             direction = -Vector3.right;
@@ -110,8 +114,11 @@ namespace Redress.Gameplay.Objects.Enemies
         {
             Invoke("DisabledOnQuen", timeToVanish);
             SpriteToParticlesAsset.EffectorExplode sp = GetComponentInChildren<SpriteToParticlesAsset.EffectorExplode>();
-            spriteRenderer.enabled = false;
-            boxCollider2D.enabled = false;
+            if (spriteRenderer)
+            {
+                spriteRenderer.enabled = false;
+                boxCollider2D.enabled = false;
+            }
             sp.MyExplodeTest();
         }
         void DisabledOnQuen()

@@ -159,7 +159,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4805,14 +4805,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777632392066270923}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 840ff0ba97cc1384092ba800b51cabf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderSystemType: 0
   mode: 1
-  verboseDebug: 1
+  verboseDebug: 0
   spriteRenderer: {fileID: 5161259029740310364}
   imageRenderer: {fileID: 0}
   particlesSystem: {fileID: 3321337460613532439}
@@ -4949,7 +4949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3412316705388000637
 Transform:
   m_ObjectHideFlags: 0
@@ -5039,7 +5039,7 @@ MonoBehaviour:
   soundOnExplote:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1d22b489434c4514a9baf163c184ec98,
+    WwiseObjectReference: {fileID: 11400000, guid: dd21b796f3249d144961adf264141507,
       type: 2}
 --- !u!95 &7383384748745452789
 Animator:

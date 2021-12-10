@@ -179,7 +179,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4832,7 +4832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderSystemType: 0
   mode: 1
-  verboseDebug: 1
+  verboseDebug: 0
   spriteRenderer: {fileID: 5161259029740310364}
   imageRenderer: {fileID: 0}
   particlesSystem: {fileID: 3948148459363952195}
@@ -4866,9 +4866,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyObjectAfterExplosionIn: 10
   radius: 0
-  angle: 0
-  startRot: 0
-  strenght: 0
+  angle: 360
+  startRot: 2
+  strenght: 1
   exploded: 0
 --- !u!1 &5661079698436818821
 GameObject:
@@ -4887,7 +4887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3412316705388000637
 Transform:
   m_ObjectHideFlags: 0
