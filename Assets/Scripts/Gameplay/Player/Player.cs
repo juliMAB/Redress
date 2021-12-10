@@ -16,7 +16,7 @@ namespace Redress.Gameplay.User
         private bool isInmune = false;
         private Vector3 initialPosition = Vector3.zero;
         private Gun initialGun = null;
-        private ParticleSystem particleSystem = null;
+        private new ParticleSystem particleSystem = null;
         private Gun gun = null;
         private bool controlActive = true;
 
@@ -41,7 +41,7 @@ namespace Redress.Gameplay.User
 
         private void Awake()
         {
-            particleSystem = GetComponentInChildren<ParticleSystem>();
+            particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
             characterMovement = GetComponent<CharacterMovementSeter>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             normalColor = spriteRenderer.color;
@@ -124,6 +124,12 @@ namespace Redress.Gameplay.User
         {
             if (!StayAlive())
                 return;
+            if (isInmune)
+            {
+                return;
+            }
+            particleSystem.Play();
+
             IEnumerator TakeHit()
             {
                 float time = 0;
@@ -141,13 +147,6 @@ namespace Redress.Gameplay.User
                     yield return null;
                 }
             }
-
-            if (isInmune)
-            {
-                return;
-            }
-
-            particleSystem.Play();
 
             lives--;
             AkSoundEngine.SetRTPCValue("Vida_Player", lives);

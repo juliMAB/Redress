@@ -32,9 +32,9 @@ Transform:
   m_LocalPosition: {x: -6.27, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
+  - {fileID: 7877188287224168158}
   - {fileID: 7658645537505416781}
   - {fileID: 3492246074496249482}
-  - {fileID: 7877188287224168158}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   totalHorizontalRays: 5
   totalVerticalRays: 3
+  halfPlayerHeight: 0
 --- !u!61 &1494429141692474948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -237,7 +238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1494429141692474946}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7643097251864174695
 SpriteRenderer:
@@ -339,7 +340,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1494429141692474946}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &3550454817671969806
 ParticleSystem:
@@ -5627,7 +5628,7 @@ PrefabInstance:
     - target: {fileID: 8951922516021569102, guid: 9144ebe6765a89746ac4012a3acd3fd0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8951922516021569102, guid: 9144ebe6765a89746ac4012a3acd3fd0,
         type: 3}
