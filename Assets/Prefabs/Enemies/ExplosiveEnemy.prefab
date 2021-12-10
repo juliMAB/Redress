@@ -4805,7 +4805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777632392066270923}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 840ff0ba97cc1384092ba800b51cabf6, type: 3}
   m_Name: 
@@ -4844,7 +4844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a063dc5b526f91479a5a5ea692211d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyObjectAfterExplosionIn: 10
+  destroyObjectAfterExplosionIn: -1
   target: {fileID: 0}
   radius: 10
   angle: 360

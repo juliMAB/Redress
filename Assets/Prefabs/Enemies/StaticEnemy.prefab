@@ -4837,7 +4837,7 @@ MonoBehaviour:
   imageRenderer: {fileID: 0}
   particlesSystem: {fileID: 3948148459363952195}
   PlayOnAwake: 0
-  EmissionRate: 0
+  EmissionRate: 90
   UsePixelSourceColor: 1
   borderEmission: 0
   UseEmissionFromColor: 0
@@ -4864,7 +4864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a063dc5b526f91479a5a5ea692211d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyObjectAfterExplosionIn: 10
+  destroyObjectAfterExplosionIn: -1
   target: {fileID: 0}
   radius: 10
   angle: 360
@@ -4888,7 +4888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3412316705388000637
 Transform:
   m_ObjectHideFlags: 0
