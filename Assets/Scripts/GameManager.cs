@@ -6,26 +6,8 @@ using Redress.Gameplay.Management;
 
 namespace Redress.Management
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviourSingleton<GameManager>
     {
-        #region Singleton
-        private static GameManager instance = null;
-        public static GameManager Instance { get => instance; }
-        
-        private void Awake()
-        {
-            if (instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-        }
-        #endregion
-
         [SerializeField] AK.Wwise.Event soundGamePlay;
         [SerializeField] AK.Wwise.Event soundGameStop;
         [SerializeField] AK.Wwise.Event soundMenuPlay;

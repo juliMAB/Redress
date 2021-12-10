@@ -24,14 +24,16 @@ namespace Redress.Gameplay.Objects.PickUps
 
         protected override void OnPickedUp()
         {
-            float durationTime = 1;
+            const float durationTime = 1;
+            const float timeOffSet = 0.1f;
+
             base.OnPickedUp();
             OnSpeedPercentageChanged?.Invoke(multiplier);
             visual.SetActive(false);
 
-            PostProcessEffectsManager.Instance.SetLensDistortion(lensDistortionValue, durationTime, true, totalDurability - durationTime - 0.1f);
-            PostProcessEffectsManager.Instance.SetChromaticAberration(chromaticAberrationValue, durationTime, true, totalDurability - durationTime - 0.1f, true);
-            PostProcessEffectsManager.Instance.SetVignette(vignetteValue, durationTime, true, totalDurability - durationTime - 0.1f, true);
+            PostProcessEffectsManager.Instance.SetLensDistortion(lensDistortionValue, durationTime, true, totalDurability - durationTime - timeOffSet);
+            PostProcessEffectsManager.Instance.SetChromaticAberration(chromaticAberrationValue, durationTime, true, totalDurability - durationTime - timeOffSet, true);
+            PostProcessEffectsManager.Instance.SetVignette(vignetteValue, durationTime, true, totalDurability - durationTime - timeOffSet, true);
         }
 
         protected override void OnEndPickUp()

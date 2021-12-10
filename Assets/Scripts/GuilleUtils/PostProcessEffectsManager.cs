@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
 
@@ -17,8 +14,6 @@ namespace GuilleUtils.PostProcessing
         {
             instance = this;
             chromatic = (ChromaticAberration)volume.profile.settings[1];
-            //depthOfField = volume.GetComponent<DepthOfField>();
-            //motionBlur = volume.GetComponent<MotionBlur>(); 
             lensDistortion = (LensDistortion)volume.profile.settings[2];
             vignette = (Vignette)bgVolume.profile.settings[4];
             bgChromatic = (ChromaticAberration)bgVolume.profile.settings[1];
@@ -33,12 +28,9 @@ namespace GuilleUtils.PostProcessing
 
         private ChromaticAberration chromatic = null;
         private DepthOfField depthOfField = null;
-        private MotionBlur motionBlur = null;
         private LensDistortion lensDistortion = null;
         private Vignette vignette = null;
         private ChromaticAberration bgChromatic = null;
-        private DepthOfField bgDepthOfField = null;
-        private MotionBlur bgMotionBlur = null;
         private LensDistortion bgLensDistortion = null;
         private Vignette bgVignette = null;
 
@@ -147,9 +139,6 @@ namespace GuilleUtils.PostProcessing
                 StartCoroutine(SetVignette(initialValue, _duration, false, 0, v));
             }
         }
-
-
-
 
         public IEnumerator Blur()
         {

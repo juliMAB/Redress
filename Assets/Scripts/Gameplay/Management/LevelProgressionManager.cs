@@ -8,6 +8,8 @@ namespace Redress.Gameplay.Management
 {
     public class LevelProgressionManager : MonoBehaviour
     {
+        private const float normalpeedMultiplierValue = 1;
+
         private float speed = 5f;
         private float distance = 0;
         private float speedMultiplier = 1f;
@@ -62,7 +64,7 @@ namespace Redress.Gameplay.Management
             float minSpawnTime = initialSpawnTimeLimits[0];
             float maxSpawnTime = initialSpawnTimeLimits[1];
 
-            if (speedMultiplier < 1)
+            if (speedMultiplier < normalpeedMultiplierValue)
             {
                 minSpawnTime *= 2;
                 maxSpawnTime *= 2;
@@ -71,7 +73,7 @@ namespace Redress.Gameplay.Management
             objectsManager.SetValues(speed * speedMultiplier, minSpawnTime, maxSpawnTime, false);
             platformsManager.SetValues(speed * speedMultiplier, platformsManager.DistanceLimits[0] + distanceProgression, platformsManager.DistanceLimits[1] + distanceProgression, false);
 
-            gunsController.SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > 1f);
+            gunsController.SetBulletsSpeed(speed * bulletSpeedMultiplier * speedMultiplier, speedMultiplier + Mathf.Epsilon > normalpeedMultiplierValue);
             background.SetSpeed(initialSpeed * speedMultiplier, layerSpeedDiff * speedMultiplier);
         }
 

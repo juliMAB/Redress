@@ -22,17 +22,7 @@ namespace Redress.Gameplay.Objects.PickUps
         }
 
         protected override void OnPickedUp()
-        {
-            //if (player.Gun != player.InitialGun)
-            //{
-            //    //deactivate old gun
-            //    if (player.Gun.TryGetComponent(out ThreeWayGun twg))
-            //    {
-            //        twg.OnEndPickUp();
-            //    }
-            //}
-            
-            
+        {            
             base.OnPickedUp();
             swing.enabled = false;
             playerGun = player.InitialGun.gameObject;

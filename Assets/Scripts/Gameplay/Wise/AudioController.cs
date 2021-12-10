@@ -11,17 +11,17 @@ public class AudioController : MonoBehaviour
     [SerializeField] Slider sliderFx;
     private void Start()
     {
-        sliderFx.value = GameManager.Instance.FxVolumen;
-        sliderMusic.value = GameManager.Instance.MusicVolumen;
+        sliderFx.value = GameManager.Get().FxVolumen;
+        sliderMusic.value = GameManager.Get().MusicVolumen;
     }
     public void OnCallVolumen()
     {
         AkSoundEngine.SetRTPCValue("VolumenMusic", sliderMusic.value * 100);
-        GameManager.Instance.MusicVolumen = sliderMusic.value;
+        GameManager.Get().MusicVolumen = sliderMusic.value;
     }
     public void OnCallFx()
     {
         AkSoundEngine.SetRTPCValue("VolumenFx", sliderFx.value * 100);
-        GameManager.Instance.FxVolumen = sliderFx.value;
+        GameManager.Get().FxVolumen = sliderFx.value;
     }
 }

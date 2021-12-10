@@ -12,11 +12,9 @@ namespace GuilleUtils.PoolSystem
 
     public class PoolObjectsManager : MonoBehaviour
     {
-        #region Singleton
         private static PoolObjectsManager instance = null;
         public static PoolObjectsManager Instance => instance;
-        
-        #endregion
+
 
         [Header("Pools")]
         [SerializeField] private PoolObjects platforms;
@@ -31,12 +29,6 @@ namespace GuilleUtils.PoolSystem
 
         private void Awake()
         {
-            if (instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
             instance = this;
 
             void InitializePool(ref PoolObjects poolObjects)

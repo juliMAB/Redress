@@ -17,23 +17,15 @@ namespace Redress.Gameplay.Management
 {
     public class GameplayManager : MonoBehaviour
     {
-        #region Singleton
         private static GameplayManager instance = null;
         public static GameplayManager Instance { get => instance; }
 
         private void Awake()
         {
-            if (instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-            }
+            instance = this;
         }
-        #endregion
 
+        private const float scoreChargeDecrease = 0.0001f;
         private float time = 0f;
 
         private PoolObjectsManager poolManager = null;
@@ -115,7 +107,7 @@ namespace Redress.Gameplay.Management
             {
                 score += (int)platformsManager.Speed;
                 OnChangedScore?.Invoke(score);
-                timeToChargeScore -= 0.0001f;
+                timeToChargeScore -= scoreChargeDecrease;
                 time = 0f;
             }
         }
@@ -178,13 +170,15 @@ namespace Redress.Gameplay.Management
 
         private void SetPlayerInputLock()
         {
-            RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 10, platformsManager.LayerMask);
+            const float distance = 10;
+
+            RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, distance, platformsManager.LayerMask);
 
             bool CheckPlatformUnder(MovableObject platformUnder, out RaycastHit2D hit2)
             {
                 Vector2 pos = new Vector2(player.transform.position.x, platformUnder.transform.position.y - 1);
 
-                hit2 = Physics2D.Raycast(pos, Vector2.down, 10, platformsManager.LayerMask);
+                hit2 = Physics2D.Raycast(pos, Vector2.down, distance, platformsManager.LayerMask);
 
                 return hit2;
             }

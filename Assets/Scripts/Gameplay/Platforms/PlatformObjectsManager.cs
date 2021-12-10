@@ -13,8 +13,6 @@ namespace Redress.Gameplay.Platforms
     public class PlatformObjectsManager : MovableObjectsManager
     {
         private float halfPlatformHeight = 0f;
-        private float initialMinSpawnTime = 0f;
-        private float initialMaxSpawnTime = 0f;
 
         private float minSpawnTime = 1f;
         private float maxSpawnTime = 2f;
@@ -114,18 +112,11 @@ namespace Redress.Gameplay.Platforms
             passingEnemy.SetOutOfScreenXValue(halfSizeOfScreen.x);
         }
 
-        public void Pause(bool pause)
-        {
-            passingEnemy.Pause(pause);
-        }
-
         public void SetValues(float speed, float minSpawnTime, float maxSpawnTime, bool setAsInitialValues)
         {
             if (setAsInitialValues)
             {
                 initialSpeed = speed;
-                initialMinSpawnTime = minSpawnTime;
-                initialMaxSpawnTime = maxSpawnTime;
             }
 
             this.speed = speed;
@@ -137,6 +128,7 @@ namespace Redress.Gameplay.Platforms
 
         public void PlatformObjectsUpdate()
         {
+            const int distance = 100;
             MovableObjectsUpdate();
 
             for (int i = 0; i < platformsManager.AmountPlatformRows; i++)
@@ -149,7 +141,7 @@ namespace Redress.Gameplay.Platforms
 
                 if (waitTimeTillNextObject[waitTimeIndex] < 0 && 
                     TheresEnoughFloorDown(position, halfPlatformHeight * 2, largerObject, out Transform platform) &&
-                    TheresEnoughSpaceInBetweenPlatforms(position, 100, largerObject, platform.position))
+                    TheresEnoughSpaceInBetweenPlatforms(position, distance, largerObject, platform.position))
                 {
                     waitTimeTillNextObject[waitTimeIndex] = Random.Range(minSpawnTime, maxSpawnTime);
 

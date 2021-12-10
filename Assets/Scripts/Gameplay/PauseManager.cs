@@ -34,16 +34,16 @@ namespace GuilleUtils.Manager
         {
             Time.timeScale = 1f;
             gameIsPaused = false;
-            soundPauseStop.Post(GameManager.Instance.gameObject);
-            soundGamePlay.Post(GameManager.Instance.gameObject);
+            soundPauseStop.Post(GameManager.Get().gameObject);
+            soundGamePlay.Post(GameManager.Get().gameObject);
         }
 
         public void Pause()
         {
             Time.timeScale = 0f;
             gameIsPaused = true;
-            soundPausePlay.Post(GameManager.Instance.gameObject);
-            soundGameStop.Post(GameManager.Instance.gameObject);
+            soundPausePlay.Post(GameManager.Get().gameObject);
+            soundGameStop.Post(GameManager.Get().gameObject);
         }
     }
 }

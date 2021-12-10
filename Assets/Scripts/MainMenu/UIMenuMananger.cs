@@ -62,7 +62,7 @@ namespace Redress.Menu.UI
 
         public void GoToScene(int scene)
         {
-            GameManager.Instance.GoToScene((GameManager.Scene)scene);
+            GameManager.Get().GoToScene((GameManager.Scene)scene);
         }
 
         public void SwitchToCreditsPanel(int panel)
@@ -111,7 +111,7 @@ namespace Redress.Menu.UI
 
         public void ExitGame()
         {
-            GameManager.Instance.CloseGame();
+            GameManager.Get().CloseGame();
         }
     }
 }

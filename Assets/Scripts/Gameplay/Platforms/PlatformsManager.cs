@@ -107,6 +107,7 @@ namespace Redress.Gameplay.Platforms
 
         public void PlatformsUpdate()
         {
+            const float maxDistance = 10;
             MovableObject platform;
 
             for (int i = 0; i < spawnPositions.Length; i++)
@@ -132,7 +133,7 @@ namespace Redress.Gameplay.Platforms
                     continue;
                 }
 
-                distance = UnityEngine.Random.Range(distanceLimits[0], distanceLimits[1]) + UnityEngine.Random.Range(1, 10) / 10f;
+                distance = UnityEngine.Random.Range(distanceLimits[0], distanceLimits[1]) + UnityEngine.Random.Range(1, maxDistance) / maxDistance;
 
                 platform = poolManager.Platforms.objects[i].GetComponent<MovableObject>();
                 platform.Move(speed);
@@ -143,31 +144,6 @@ namespace Redress.Gameplay.Platforms
                 }
             }
 
-            //for (int i = 0; i < objects.Length; i++)
-            //{
-            //    if (!objects[i].activeSelf)
-            //    {
-            //        continue;
-            //    }
-            //
-            //    distance = UnityEngine.Random.Range(distanceLimits[0], distanceLimits[1]) + UnityEngine.Random.Range(1, 10) / 10f;
-            //
-            //    platform = objects[i].GetComponent<PlatformObject>();
-            //    platform.Move(speed);
-            //
-            //    if (IsOutOfScreen(platform))
-            //    {
-            //        DeactivateObject(objects[i]);
-            //    }
-            //    else if (LastObjectIsFarEnough(platform.spawnLine) && IsCompletelyOnScreen(platform) && GetYPosRow(platform.spawnLine, out Row row))
-            //    {
-            //        GameObject newPlatform = ActivateObject();
-            //        PlaceOnRightEnd(newPlatform, spawnPositions[(int)platform.spawnLine].y);
-            //        newPlatform.GetComponent<PlatformObject>().row = row;
-            //        newPlatform.GetComponent<PlatformObject>().spawnLine = platform.spawnLine;
-            //    }
-            //}
-
             if (!unnevenessActivated && unnevenesDuration < 0)
             {
                 SetPlatformsUnevennes();
@@ -176,11 +152,6 @@ namespace Redress.Gameplay.Platforms
             {
                 unnevenesDuration -= Time.deltaTime;
             }
-        }
-
-        public void PauseMovement(bool pause)
-        {
-            //pausePlatformMovement = pause;
         }
 
         private bool GetYPosRow(SpawnLine spawnLine, out Row row)
@@ -208,29 +179,6 @@ namespace Redress.Gameplay.Platforms
         {
             closerObject = null;
             bool found = false;
-            //float yPos = actualSpawnPositions[(int)row];
-            //outRow = Row.Middle;
-            //bool found = false;
-            //
-            //for (int i = 0; i < spawnPositions.Length; i++)
-            //{
-            //    if (spawnPositions[i].y == yPos && spawnPositions[i].on)
-            //    {
-            //        for (int j = 0; j < actualSpawnPositions.Length; j++)
-            //        {
-            //            if (actualSpawnPositions[j] == yPos)
-            //            {
-            //                outRow = (Row)j;
-            //                found = true;
-            //            }
-            //        }
-            //    }
-            //}
-
-            //if (Physics2D.Raycast(new Vector2(halfSizeOfScreen.x, yPos), Vector3.left, 100, layerMask))
-            //    {
-            //closerObject = Physics2D.Raycast(new Vector2(halfSizeOfScreen.x, yPos), Vector3.left, 100, layerMask).collider.GetComponent<PlatformObject>();
-            //Debug.DrawRay(new Vector3(halfSizeOfScreen.x, yPos, 0), Vector3.left, Color.red, 2);
 
             for (int i = 0; i < poolManager.Platforms.objects.Length; i++)
             {
@@ -253,26 +201,6 @@ namespace Redress.Gameplay.Platforms
                 return true;
             }
 
-            // for (int i = 0; i < objects.Length; i++)
-            // {
-            //     closerObject = objects[i].GetComponent<PlatformObject>();
-            // 
-            //     if (!objects[i].activeSelf || closerObject.row != row)
-            //     {
-            //         continue;
-            //     }
-            // 
-            //     if (IsTheClosestToRightEdge(closerObject.row, closerObject))
-            //     {
-            //         break;
-            //     }
-            // }
-
-            //if (!closerObject || !found)
-            //{
-            //    return false;
-            //}
-            //outRow = closerObject.row;
             return IsFarEnoughForNewObjectToSpawn(closerObject);
         }
 
@@ -340,73 +268,11 @@ namespace Redress.Gameplay.Platforms
 
             float unnevennes = previousMiddleRow > actualmiddleRow ? verticalDistanceBetweenPlatforms : -verticalDistanceBetweenPlatforms;
 
-           // for (int i = 0; i < amountPlatformRows; i++)
-            //{
-           //     actualSpawnPositions[i] += unnevennes;
-            //}
-
             unnevenesDuration = UnityEngine.Random.Range(unnevenessDurationLimits[0], unnevenessDurationLimits[1]);
 
-            OnUnneveness?.Invoke(unnevennes, 2);
+            float unevenessTime = 2;
+            OnUnneveness?.Invoke(unnevennes, unevenessTime);
         }
-        #endregion
-
-        #region Initialization
-        //private void FindInitialActivePlatforms()
-        //{
-        //    int amountActivePlatforms = 0;
-        //
-        //    for (int i = 0; i < objects.Length; i++)
-        //    {
-        //        if (!objects[i].activeSelf)
-        //        {
-        //            continue;
-        //        }
-        //
-        //        amountActivePlatforms++;
-        //    }
-        //
-        //    initialActivePlatforms = new InitialPlatform[amountActivePlatforms];
-        //
-        //    int index = 0;
-        //
-        //    for (int i = 0; i < objects.Length; i++)
-        //    {
-        //        if (!objects[i].activeSelf)
-        //        {
-        //            continue;
-        //        }
-        //
-        //        PlatformObject actualPlatform = objects[i].GetComponent<PlatformObject>();
-        //
-        //        initialActivePlatforms[index].platformGo = objects[i];
-        //        initialActivePlatforms[index].position = objects[i].transform.position;
-        //        initialActivePlatforms[index].row = actualPlatform.row;
-        //        index++;
-        //    }
-        //}
-
-       //private void SetInitialPlatforms()
-       //{
-       //    // deactivate all platforms
-       //    for (int i = 0; i < objects.Length; i++)
-       //    {
-       //        if (objects[i].activeSelf)
-       //        {
-       //            DeactivateObject(objects[i]);
-       //        }
-       //    }
-       //
-       //    // activate and place initial platforms
-       //    for (int i = 0; i < initialActivePlatforms.Length; i++)
-       //    {
-       //        PlatformObject actualPlatform = initialActivePlatforms[i].platformGo.GetComponent<PlatformObject>();
-       //
-       //        actualPlatform.gameObject.SetActive(true);
-       //        actualPlatform.transform.position = initialActivePlatforms[i].position;
-       //        actualPlatform.row = initialActivePlatforms[i].row;
-       //    }
-       //}
         #endregion
     }
 }

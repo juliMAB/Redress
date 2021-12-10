@@ -40,8 +40,7 @@ namespace GuilleUtils.Displacement
         {
             if (movableObject == null) return true;
 
-            return //movableObject.transform.position.x - movableObject.HalfSize.x > -halfSizeOfScreen.x &&
-                   movableObject.transform.position.x + movableObject.HalfSize.x < halfSizeOfScreen.x;
+            return movableObject.transform.position.x + movableObject.HalfSize.x < halfSizeOfScreen.x;
         }
     }
 }
