@@ -18808,6 +18808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlowMotion (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 848035154128716174, guid: 3fa22ec504023bf4986bf7765dd1765b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 848035154128716175, guid: 3fa22ec504023bf4986bf7765dd1765b,
         type: 3}
       propertyPath: m_RootOrder
@@ -41317,6 +41322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThreeWayGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305334219206568259, guid: 91cf721e1a87c3f4381849882476b30f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1305334219206568268, guid: 91cf721e1a87c3f4381849882476b30f,
         type: 3}

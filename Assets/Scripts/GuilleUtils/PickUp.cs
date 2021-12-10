@@ -8,7 +8,8 @@ namespace Redress.Gameplay.Objects.PickUps
 {
     public abstract class PickUp : MovableObject
     {
-        private ParticleSystem lightEffect = null;
+        [SerializeField] private ParticleSystem lightEffect = null;
+        [SerializeField] private ParticleSystem grabEffect = null;
         protected GameObject visual = null;
         protected Player player = null;
         [SerializeField] protected float totalDurability = 5f;
@@ -23,7 +24,6 @@ namespace Redress.Gameplay.Objects.PickUps
         protected virtual void Awake()
         {
             boxCollider = GetComponent<BoxCollider2D>();
-            lightEffect = GetComponentsInChildren<ParticleSystem>()[0];
             visual = GetComponentInChildren<Renderer>().gameObject;
         }
 
@@ -39,6 +39,16 @@ namespace Redress.Gameplay.Objects.PickUps
         {
             soundPickUp.Post(gameObject);
             boxCollider.enabled = false;
+            grabEffect.Play();
+
+            
+
+            Invoke("StopParticles", 0.5f);
+        }
+
+        private void StopParticles()
+        {
+            grabEffect.Stop(false, ParticleSystemStopBehavior.StopEmitting);
         }
 
         public virtual void ResetStats()
@@ -48,6 +58,7 @@ namespace Redress.Gameplay.Objects.PickUps
             visual.gameObject.SetActive(true);
             boxCollider.enabled = true;
         }
+
         protected virtual void OnEndPickUp()
         {
             OnConsumed?.Invoke(gameObject);
