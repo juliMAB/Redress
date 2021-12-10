@@ -26,6 +26,8 @@ namespace Redress.Gameplay.Objects.Enemies
         protected override void Update()
         {
             base.Update();
+            if (!boxCollider2D.enabled)
+                return;
 
             if (lookingAtTarget && animationEnded)
             {

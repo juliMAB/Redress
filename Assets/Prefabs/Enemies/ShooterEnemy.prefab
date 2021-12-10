@@ -4917,8 +4917,8 @@ MonoBehaviour:
   lookingAtTarget: 0
   minDistanceToTarget: 1
   timeToVanish: 1
-  spriteRenderer: {fileID: 0}
-  boxCollider2D: {fileID: 0}
+  spriteRenderer: {fileID: 5161259029740310364}
+  boxCollider2D: {fileID: 1458765650307285103}
   type: 2
   soundDie:
     idInternal: 0
