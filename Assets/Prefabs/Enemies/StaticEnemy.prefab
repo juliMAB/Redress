@@ -4846,7 +4846,7 @@ MonoBehaviour:
   GreenTolerance: 0.05
   BlueTolerance: 0.05
   useSpritesSharingPool: 1
-  useBetweenFramesPrecision: 1
+  useBetweenFramesPrecision: 0
   CacheSprites: 1
   matchTargetGOPostionData: 0
   matchTargetGOScale: 0
@@ -4865,10 +4865,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyObjectAfterExplosionIn: 10
-  radius: 0
+  target: {fileID: 0}
+  radius: 10
   angle: 360
-  startRot: 2
-  strenght: 1
+  startRot: 0
+  strenght: 2
   exploded: 0
 --- !u!1 &5661079698436818821
 GameObject:

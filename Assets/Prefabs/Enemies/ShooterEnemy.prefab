@@ -4763,7 +4763,7 @@ MonoBehaviour:
   GreenTolerance: 0.05
   BlueTolerance: 0.05
   useSpritesSharingPool: 1
-  useBetweenFramesPrecision: 1
+  useBetweenFramesPrecision: 0
   CacheSprites: 1
   matchTargetGOPostionData: 0
   matchTargetGOScale: 0
@@ -4782,10 +4782,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyObjectAfterExplosionIn: 10
-  radius: 0
-  angle: 0
+  target: {fileID: 0}
+  radius: 10
+  angle: 360
   startRot: 0
-  strenght: 0
+  strenght: 2
   exploded: 0
 --- !u!199 &4635761411202214194
 ParticleSystemRenderer:

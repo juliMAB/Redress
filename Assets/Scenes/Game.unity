@@ -368,6 +368,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -705,6 +710,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &27752490 stripped
@@ -1318,6 +1328,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &46114450 stripped
@@ -1351,6 +1366,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -1916,6 +1936,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -2643,6 +2668,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &72047367 stripped
@@ -2941,6 +2971,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -3039,6 +3074,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -5456,6 +5496,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -5716,6 +5761,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -6146,6 +6196,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -6479,6 +6534,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &231239034 stripped
@@ -7537,6 +7597,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -7763,6 +7828,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -8662,6 +8732,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -9507,6 +9582,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &376464756 stripped
@@ -9812,6 +9892,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -10640,6 +10725,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1001 &419716034
@@ -11362,6 +11452,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -11889,6 +11984,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1001 &479643739
@@ -11898,6 +11998,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -12342,6 +12447,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -12434,6 +12544,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -13741,6 +13856,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -14115,6 +14235,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -14538,6 +14663,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &592992657
@@ -14697,6 +14827,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -15747,6 +15882,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &631750037 stripped
@@ -17422,6 +17562,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -17678,6 +17823,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -19517,6 +19667,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -20148,6 +20303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -20712,6 +20872,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &853361245
@@ -20809,6 +20974,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -21204,6 +21374,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &866278897 stripped
@@ -21443,6 +21618,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -21903,6 +22083,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -22850,6 +23035,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -23231,6 +23421,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -25059,6 +25254,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &1056792426 stripped
@@ -25480,6 +25680,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &1072145077 stripped
@@ -31122,6 +31327,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -32377,6 +32587,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -34428,6 +34643,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -34488,106 +34708,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShooterEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 5661079698436818821, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5967547125893965970, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: canDie
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: bulletSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1208192086}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[1]
-      value: 
-      objectReference: {fileID: 1558625285}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[2]
-      value: 
-      objectReference: {fileID: 1951692817}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[3]
-      value: 
-      objectReference: {fileID: 199524507}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[4]
-      value: 
-      objectReference: {fileID: 1469437047}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[5]
-      value: 
-      objectReference: {fileID: 134413135}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[6]
-      value: 
-      objectReference: {fileID: 1340594600}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[7]
-      value: 
-      objectReference: {fileID: 249286169}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[8]
-      value: 
-      objectReference: {fileID: 546540908}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[9]
-      value: 
-      objectReference: {fileID: 1559638219}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[10]
-      value: 
-      objectReference: {fileID: 954054597}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[11]
-      value: 
-      objectReference: {fileID: 1815620063}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[12]
-      value: 
-      objectReference: {fileID: 1706765523}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[13]
-      value: 
-      objectReference: {fileID: 1042529860}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[14]
-      value: 
-      objectReference: {fileID: 813754669}
-    - target: {fileID: 6352346406863635357, guid: e3c2753c16f00ff48a55e55768c909d2,
-        type: 3}
-      propertyPath: objects.Array.data[15]
-      value: 
-      objectReference: {fileID: 2060208222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3c2753c16f00ff48a55e55768c909d2, type: 3}
 --- !u!1 &1253286887 stripped
@@ -34695,6 +34815,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -34946,6 +35071,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1001 &1271207210
@@ -35345,6 +35475,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &1281832895 stripped
@@ -35538,6 +35673,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -36059,6 +36199,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -37484,6 +37629,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &1426803752 stripped
@@ -37749,6 +37899,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -38048,6 +38203,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -38924,6 +39084,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -39604,6 +39769,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -40998,6 +41168,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &1556326124 stripped
@@ -41031,6 +41206,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -42021,6 +42201,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1001 &1605564446
@@ -42105,6 +42290,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &1605564447 stripped
@@ -42213,6 +42403,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!224 &1613453622 stripped
@@ -42680,6 +42875,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -43489,6 +43689,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -43581,6 +43786,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -43801,6 +44011,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -44492,6 +44707,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -44778,6 +44998,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -44950,6 +45175,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
+    - target: {fileID: 1323816261470469940, guid: e3c2753c16f00ff48a55e55768c909d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: e3c2753c16f00ff48a55e55768c909d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -46060,6 +46290,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -47145,6 +47380,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -47730,6 +47970,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -48173,6 +48418,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &1922813693 stripped
@@ -49369,6 +49619,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -49530,6 +49785,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1001 &1976348756
@@ -50738,6 +50998,11 @@ PrefabInstance:
       propertyPath: hittableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -52549,6 +52814,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!4 &2104886921 stripped
@@ -52766,11 +53036,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958777223}
     m_Modifications:
-    - target: {fileID: 2413893149240234011, guid: 4798e77920099eb43b56872046ea7666,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3412316705388000637, guid: 4798e77920099eb43b56872046ea7666,
         type: 3}
       propertyPath: m_RootOrder
@@ -52831,39 +53096,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosiveEnemy (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 5661079698436818821, guid: 4798e77920099eb43b56872046ea7666,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 6408668683553309451}
-    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
         type: 3}
-      propertyPath: additionalSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
-        type: 3}
-      propertyPath: soundDie.WwiseObjectReference
+      propertyPath: target
       value: 
-      objectReference: {fileID: 11400000, guid: c8785f8e557c4ae45a045e7441f1e47b,
-        type: 2}
-    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
-        type: 3}
-      propertyPath: soundOnDetect.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 6efed975cfcc3f641b971b492bfe3702,
-        type: 2}
-    - target: {fileID: 7747057483286858738, guid: 4798e77920099eb43b56872046ea7666,
-        type: 3}
-      propertyPath: soundOnExplote.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: dd21b796f3249d144961adf264141507,
-        type: 2}
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1 &2135792140 stripped
@@ -53119,19 +53361,9 @@ PrefabInstance:
       objectReference: {fileID: 6408668683553309451}
     - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
-      propertyPath: angle
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
-        type: 3}
-      propertyPath: startRot
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367900323279701769, guid: b6b42faa23917dc47a264ff431b0b254,
-        type: 3}
-      propertyPath: strenght
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 3412316705388000637, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_RootOrder
@@ -53187,15 +53419,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3948148459363952195, guid: b6b42faa23917dc47a264ff431b0b254,
+        type: 3}
+      propertyPath: moveWithCustomTransform
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     - target: {fileID: 5661079698436818821, guid: b6b42faa23917dc47a264ff431b0b254,
         type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661079698436818821, guid: b6b42faa23917dc47a264ff431b0b254,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b42faa23917dc47a264ff431b0b254, type: 3}
@@ -53281,6 +53513,11 @@ PrefabInstance:
       propertyPath: additionalSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8650547631760148328, guid: 4798e77920099eb43b56872046ea7666,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6408668683553309456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4798e77920099eb43b56872046ea7666, type: 3}
 --- !u!1001 &5498170929694369089
@@ -54256,6 +54493,12 @@ CanvasRenderer:
 --- !u!1 &6408668683553309451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1494429141692474954, guid: d675a2643575a8e4b9b1a0a88faf15e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5498170929694369089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6408668683553309456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1494429141692474946, guid: d675a2643575a8e4b9b1a0a88faf15e6,
     type: 3}
   m_PrefabInstance: {fileID: 5498170929694369089}
   m_PrefabAsset: {fileID: 0}

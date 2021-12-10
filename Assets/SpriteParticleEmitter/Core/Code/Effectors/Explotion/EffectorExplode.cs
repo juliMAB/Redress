@@ -11,7 +11,7 @@ namespace SpriteToParticlesAsset
         //! Weather the system is being used for Sprite or Image component. 
         public float destroyObjectAfterExplosionIn = 10;
 
-
+        public Transform target;
         public float radius, angle, startRot, strenght;
         //! Reference to current StP
         private SpriteToParticles emitter;
@@ -119,7 +119,7 @@ namespace SpriteToParticlesAsset
         }
         public void MyExplodeTest()
         {
-            ExplodeAt(transform.position, radius, angle, startRot, strenght);
+            ExplodeAt(-target.position, radius, angle, startRot, strenght);
         }
     }
 }
