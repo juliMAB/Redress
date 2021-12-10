@@ -104,7 +104,7 @@ namespace Redress.Gameplay.Objects.Enemies
 
             lives--;
 
-            if (lives == 0)
+            if (lives <= 0)
             {
                 Die();
             }
