@@ -111,7 +111,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: fc0e01a15ee00a408c33d0d894c71605
     GuidInternal: 
-    m_lastTime: -8585632326019970330
+    m_lastTime: -8585636407193581466
     List:
     - name: main
       guid: 8dd86ebcc6375d4fa71d654afcc00ed4
@@ -139,7 +139,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: df406bf68de0e0478992da9a7fe5f08a
     GuidInternal: 
-    m_lastTime: -8585632326020000260
+    m_lastTime: -8585636375815721200
     List:
     - name: play_bajar
       guid: 2f79e3d077baa545850750edf7192612
@@ -597,6 +597,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: 9e55bda92379d4428ea33591603476f6
       Path: Events\Default Work Unit\play_soundscape
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: reset_lpfilter
+      guid: 412626720451d1448f23dfcfc3496646
+      id: 3340998027
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: df406bf68de0e0478992da9a7fe5f08a
+      - ElementName: reset_lpfilter
+        ObjectType: 3
+        guid: 412626720451d1448f23dfcfc3496646
+      Path: Events\Default Work Unit\reset_lpfilter
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
