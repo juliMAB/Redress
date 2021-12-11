@@ -13,7 +13,6 @@ namespace Redress.Gameplay.UI
         [SerializeField] private GameplayManager gameplayManager = null;
         [SerializeField] private LevelProgressionManager levelProgressionManager = null;
         [SerializeField] private Text scoreText = null;
-        [SerializeField] private Text highscoreText = null;
         [SerializeField] private Text distanceText = null;
         [SerializeField] private GameObject retryPanel = null;
         [SerializeField] private GameObject pausePanel = null;

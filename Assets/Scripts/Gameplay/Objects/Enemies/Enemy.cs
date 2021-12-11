@@ -93,7 +93,6 @@ namespace Redress.Gameplay.Objects.Enemies
 
         public void TakeDamage(Vector3 origin)
         {
-            Debug.Log(gameObject.name + " a tomado daño.");
             soundDie.Post(gameObject);
 
 

@@ -28,7 +28,6 @@ namespace Redress.Gameplay.Platforms
 
         [Header("Spawn Settings")]
         [SerializeField] private int amountEnemiesBeforePickUp = 15;
-        [SerializeField] private int amountEnemiesPassed = 0;
 
         [Header("Platform Collision Settings")]
         [SerializeField] protected LayerMask layer = 0;

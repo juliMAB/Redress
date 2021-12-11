@@ -6,6 +6,7 @@ namespace UnityStandardAssets.ImageEffects
     [ExecuteInEditMode]
     [RequireComponent (typeof(Camera))]
     [AddComponentMenu("Image Effects/Rendering/Screen Space Ambient Occlusion")]
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
     public class ScreenSpaceAmbientOcclusion : MonoBehaviour
     {
         public enum SSAOSamples
@@ -202,4 +203,5 @@ namespace UnityStandardAssets.ImageEffects
 		}
 		*/
     }
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
 }

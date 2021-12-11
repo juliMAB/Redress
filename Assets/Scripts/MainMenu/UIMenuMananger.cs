@@ -11,7 +11,6 @@ namespace Redress.Menu.UI
         private bool panel1LighstActivated = true;
 
         [Header("Entities")]
-        [SerializeField] private Text highscore = null;
         [SerializeField] private GameObject menu = null;
         [SerializeField] private GameObject options = null;
         [SerializeField] private GameObject credits = null;

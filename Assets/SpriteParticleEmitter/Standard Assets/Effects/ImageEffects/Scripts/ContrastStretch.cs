@@ -91,7 +91,9 @@ namespace UnityStandardAssets.ImageEffects
         void Start()
         {
             // Disable if we don't support image effects
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
             if (!SystemInfo.supportsImageEffects) {
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                 enabled = false;
                 return;
             }

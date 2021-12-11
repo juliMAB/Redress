@@ -76,7 +76,6 @@ namespace Redress.Gameplay.User
 
         private IEnumerator SetInmuneLifetime(float duration)
         {
-            Color inmuneColor;
             isInmune = true;
             float time = 0;
 

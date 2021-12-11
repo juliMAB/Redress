@@ -11,7 +11,6 @@ namespace Redress.Gameplay.Controllers
         private bool pauseMovement = false;
         private bool cameraShakeActive = false;
         private bool movementActive = false;
-        private float yInitialPos = 0f;
         private Vector2 initialPos = Vector2.zero;
         private Vector2 cameraShakeDifference = Vector2.zero;
 

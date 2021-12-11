@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace UnityStandardAssets.ImageEffects
 {
+	#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
     [RequireComponent(typeof (Camera))]
     [AddComponentMenu("")]
     public class ImageEffectBase : MonoBehaviour
@@ -17,7 +18,9 @@ namespace UnityStandardAssets.ImageEffects
         protected virtual void Start()
         {
             // Disable if we don't support image effects
+
             if (!SystemInfo.supportsImageEffects)
+
             {
                 enabled = false;
                 return;
@@ -52,4 +55,5 @@ namespace UnityStandardAssets.ImageEffects
             }
         }
     }
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
 }

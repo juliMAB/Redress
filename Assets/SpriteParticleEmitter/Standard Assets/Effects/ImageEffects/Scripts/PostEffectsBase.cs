@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace UnityStandardAssets.ImageEffects
 {
+
     [ExecuteInEditMode]
     [RequireComponent (typeof(Camera))]
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
     public class PostEffectsBase : MonoBehaviour
 	{
         protected bool  supportHDRTextures = true;
@@ -112,8 +114,10 @@ namespace UnityStandardAssets.ImageEffects
             supportHDRTextures = SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.ARGBHalf);
             supportDX11 = SystemInfo.graphicsShaderLevel >= 50 && SystemInfo.supportsComputeShaders;
 
+
             if (!SystemInfo.supportsImageEffects)
-			{
+
+            {
                 NotSupported ();
                 return false;
             }
@@ -258,4 +262,5 @@ namespace UnityStandardAssets.ImageEffects
             GL.PopMatrix();
         }
     }
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
 }
