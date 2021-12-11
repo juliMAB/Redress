@@ -5024,7 +5024,7 @@ MonoBehaviour:
   timeToVanish: 1
   spriteRenderer: {fileID: 5161259029740310364}
   boxCollider2D: {fileID: 1340006570793544089}
-  type: 0
+  type: 1
   soundDie:
     idInternal: 0
     valueGuidInternal: 
