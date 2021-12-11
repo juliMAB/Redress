@@ -130,11 +130,6 @@ namespace Redress.Gameplay.Controllers
             cameraShakeActive = false;
         }
 
-        public void PauseCameraMovement(bool pause)
-        {
-            pauseMovement = pause;
-        }
-
         public void ActivateCameraShake()
         {
             cameraShakeActive = true;

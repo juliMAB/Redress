@@ -73,7 +73,7 @@ namespace GuilleUtils.Weapon
                 Bullet bullet = GO.GetComponent<Bullet>();
 
                 bullet.speed = bulletSpeed;
-                bullet.transform.position = firePosition.position + firePosition.right * bullet.transform.lossyScale.x / 2;
+                bullet.transform.position = firePosition.position + firePosition.right * bullet.transform.lossyScale.x;
                 bullet.transform.rotation = transform.rotation * Quaternion.Euler(transform.forward * anglesOfShoot[i]);
             }
 
