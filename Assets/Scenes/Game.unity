@@ -2416,11 +2416,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
-    - target: {fileID: 889467807296199856, guid: 85ed38a00acf1fe478a7957bf450c1e8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4541302124662303796, guid: 85ed38a00acf1fe478a7957bf450c1e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -36479,7 +36474,6 @@ MonoBehaviour:
   gameplayManager: {fileID: 2008208820}
   levelProgressionManager: {fileID: 1465316980}
   scoreText: {fileID: 630563303}
-  highscoreText: {fileID: 1022542330}
   distanceText: {fileID: 735212518}
   retryPanel: {fileID: 524396425}
   pausePanel: {fileID: 592992657}
